@@ -1,0 +1,79 @@
+{
+  "referentiel": "OiRA - Evaluation Hôtellerie Café Restauration",
+  "date_revision": "2026-01-08",
+  "structure": {
+    "niveau_0": "Activite",
+    "niveau_1": "Theme / Situation de travail",
+    "niveau_2": "Question d'evaluation",
+    "niveau_3": "Mesures de prevention"
+  },
+  "activites": [
+    {
+      "code": "HOTEL",
+      "libelle": "Hôtellerie",
+      "themes": [
+        {
+          "code": "HOT_ACC",
+          "libelle": "Accueil des clients",
+          "questions": [
+            {
+              "code": "HOT_ACC_01",
+              "question": "La réception est-elle protégée des courants d’air, du bruit et bien éclairée ?",
+              "mesures": [
+                "Adapter l’implantation du comptoir",
+                "Limiter les nuisances sonores",
+                "Adapter l’éclairage aux tâches",
+                "Faciliter la circulation",
+                "Recueillir l’avis du personnel"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "RESTAURATION",
+      "libelle": "Restauration",
+      "themes": [
+        {
+          "code": "RES_STO",
+          "libelle": "Réception et stockage",
+          "questions": [
+            {
+              "code": "RES_STO_01",
+              "question": "Les produits livrés sont-ils faciles à prendre en main ?",
+              "mesures": [
+                "Utiliser des aides à la manutention",
+                "Former les salariés (PRAP)",
+                "Adapter les conditionnements",
+                "Organiser les stocks"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CAFE",
+      "libelle": "Cafés",
+      "themes": [
+        {
+          "code": "CAF_BAR",
+          "libelle": "Service au bar",
+          "questions": [
+            {
+              "code": "CAF_BAR_01",
+              "question": "L’aménagement du bar limite-t-il les contraintes de service ?",
+              "mesures": [
+                "Prévoir un espace de circulation suffisant",
+                "Installer un sol antidérapant",
+                "Positionner les bouteilles à hauteur ergonomique",
+                "Avoir les éléments courants à portée de main"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

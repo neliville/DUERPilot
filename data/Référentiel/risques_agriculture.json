@@ -1,0 +1,674 @@
+{
+  "secteur": {
+    "nom": "Agriculture, élevage et activités connexes",
+    "code_naf": "A (01.1 à 01.6)",
+    "description": "Le secteur agricole comprend les cultures (céréales, maraîchage, arboriculture, viticulture), l'élevage (bovin, ovin, porcin, volaille) et les activités de production végétale et animale. Les exploitations agricoles exposent les travailleurs à des risques variés liés aux machines, aux animaux, aux produits chimiques et aux conditions climatiques."
+  },
+  "risques": [
+    {
+      "id": "RAGR001",
+      "intitule": "Accidents liés aux machines et équipements agricoles",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Machines agricoles (tracteurs, moissonneuses, ensileuses, etc.)",
+      "famille_inrs": "1 (risques mécaniques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Critique"
+      },
+      "situations_travail": [
+        "Conduite de tracteurs, moissonneuses-batteuses, ensileuses",
+        "Utilisation de matériel de travail du sol (charrues, herses rotatives)",
+        "Travaux avec épandeurs, pulvérisateurs, semoirs",
+        "Maintenance et réparation des machines agricoles",
+        "Utilisation de presses à balles, convoyeurs, vis sans fin"
+      ],
+      "dangers": [
+        "Organes mobiles accessibles (prise de force, arbres de transmission, courroies)",
+        "Happement par les parties tournantes ou cisaillantes",
+        "Renversement de tracteurs sur terrains en pente ou accidentés",
+        "Coincement entre engins et obstacles fixes",
+        "Éjection de matériaux ou de pièces mécaniques"
+      ],
+      "dommages_potentiels": [
+        "Amputation de membres (mains, bras, jambes)",
+        "Écrasement et polytraumatismes",
+        "Décès par renversement ou happement",
+        "Fractures multiples et lésions internes"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des protecteurs fixes sur tous les organes mobiles (capots sur prise de force)",
+          "Équiper les tracteurs de structures de protection ROPS et de ceintures de sécurité",
+          "Utiliser des machines conformes aux normes CE avec dispositifs de sécurité intégrés",
+          "Baliser et sécuriser les zones de travail dangereuses"
+        ],
+        "organisationnelle": [
+          "Former les conducteurs d'engins agricoles (permis, CACES si applicable)",
+          "Mettre en place des procédures de consignation avant maintenance",
+          "Planifier les travaux pour éviter les interventions par temps défavorable",
+          "Effectuer la maintenance préventive régulière des équipements"
+        ],
+        "individuelle": [
+          "Porter des vêtements ajustés sans parties flottantes",
+          "Utiliser des chaussures de sécurité et gants adaptés",
+          "Porter un casque lors de travaux avec risque de projection",
+          "Utiliser des protections auditives pour machines bruyantes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4312-1 à R4312-2 du Code du travail sur les équipements de travail mobiles",
+        "Arrêté du 5 mars 2004 relatif aux tracteurs agricoles ou forestiers",
+        "Articles R4323-1 à R4323-57 sur l'utilisation des équipements de travail"
+      ],
+      "ressources_inrs": [
+        "ED 6174 - Prévention des risques en agriculture",
+        "ED 6108 - Tracteurs agricoles et forestiers",
+        "ED 6126 - Moissonneuses-batteuses"
+      ]
+    },
+    {
+      "id": "RAGR002",
+      "intitule": "Exposition aux produits phytosanitaires et engrais",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Pesticides, herbicides, fongicides, engrais chimiques",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Préparation de la bouillie et remplissage des pulvérisateurs",
+        "Épandage de produits phytosanitaires (pulvérisation, poudrage)",
+        "Traitement des cultures (vignes, vergers, grandes cultures)",
+        "Désinfection et traitement des semences",
+        "Nettoyage du matériel de pulvérisation",
+        "Travaux de réentrée dans les parcelles traitées"
+      ],
+      "dangers": [
+        "Inhalation de vapeurs, aérosols et poussières toxiques",
+        "Contact cutané avec des produits concentrés ou dilués",
+        "Ingestion accidentelle lors de la manipulation",
+        "Dérive de produits lors de l'épandage (vent)",
+        "Contamination des vêtements et équipements"
+      ],
+      "dommages_potentiels": [
+        "Intoxications aiguës (nausées, vertiges, troubles neurologiques)",
+        "Maladies professionnelles (cancers, troubles de la fertilité)",
+        "Dermatoses, allergies et irritations cutanées",
+        "Troubles respiratoires chroniques",
+        "Effets neurotoxiques à long terme (Parkinson, troubles cognitifs)"
+      ],
+      "prevention": {
+        "collective": [
+          "Privilégier les méthodes alternatives (lutte biologique, désherbage mécanique)",
+          "Utiliser des pulvérisateurs avec cabines fermées et filtrées",
+          "Installer des systèmes d'incorporation directe sans manipulation (bidons easyconnect)",
+          "Aménager des aires de remplissage et lavage sécurisées avec récupération des effluents"
+        ],
+        "organisationnelle": [
+          "Obtenir le Certiphyto obligatoire pour l'utilisation de produits phytosanitaires",
+          "Respecter les délais de rentrée dans les parcelles traitées",
+          "Choisir les produits les moins dangereux (substances CMR évitées)",
+          "Stocker les produits dans des locaux ventilés, fermés à clé et étiquetés",
+          "Établir des fiches de données de sécurité accessibles"
+        ],
+        "individuelle": [
+          "Porter une combinaison de protection chimique (catégorie III type 4)",
+          "Utiliser des gants résistants aux produits chimiques (nitrile, néoprène)",
+          "Porter un masque respiratoire avec filtres adaptés (A2P3 selon produits)",
+          "Utiliser une visière ou des lunettes de protection",
+          "Se doucher et changer de vêtements après les traitements"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L253-1 et suivants du Code rural et de la pêche maritime",
+        "Arrêté du 4 mai 2017 relatif à la mise sur le marché des produits phytopharmaceutiques",
+        "Articles R4412-1 à R4412-57 du Code du travail (prévention du risque chimique)",
+        "Directive 2009/128/CE instaurant un cadre d'action pour une utilisation durable des pesticides"
+      ],
+      "ressources_inrs": [
+        "ED 6207 - Produits phytosanitaires : santé et sécurité",
+        "TC 144 - Phytosanitaires : risques et prévention",
+        "Brochure INRS « Travailler avec les produits phytosanitaires »"
+      ]
+    },
+    {
+      "id": "RAGR003",
+      "intitule": "Risques liés aux animaux (morsures, coups, zoonoses)",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Contact avec animaux d'élevage et agents biologiques",
+      "famille_inrs": "5 (risques biologiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manipulation et contention des animaux (bovins, chevaux, porcs)",
+        "Soins vétérinaires, traite, insémination artificielle",
+        "Nettoyage des stabulations et manipulation des effluents",
+        "Transport et chargement/déchargement des animaux",
+        "Travail en bâtiments d'élevage confinés"
+      ],
+      "dangers": [
+        "Coups de sabots, de cornes ou de têtes (bovins, chevaux)",
+        "Morsures (porcs, chiens de troupeau)",
+        "Réactions imprévisibles des animaux stressés ou malades",
+        "Exposition à des agents infectieux (bactéries, virus, parasites)",
+        "Contact avec lisiers, fumiers et déjections contaminées"
+      ],
+      "dommages_potentiels": [
+        "Contusions, plaies, fractures par coups",
+        "Zoonoses : brucellose, leptospirose, fièvre Q, tuberculose bovine",
+        "Infections parasitaires (teignes, gales)",
+        "Allergies respiratoires et cutanées",
+        "Tétanos en cas de plaie souillée"
+      ],
+      "prevention": {
+        "collective": [
+          "Concevoir des installations de contention adaptées et sécurisées",
+          "Améliorer l'éclairage et réduire le bruit dans les bâtiments d'élevage",
+          "Installer des systèmes de ventilation efficaces",
+          "Utiliser du matériel permettant de limiter le contact direct (bâtons de contention)"
+        ],
+        "organisationnelle": [
+          "Former le personnel à la manipulation des animaux et aux techniques de contention",
+          "Respecter les protocoles sanitaires et de vaccination du cheptel",
+          "Organiser le travail pour éviter d'intervenir seul sur des animaux dangereux",
+          "Établir un suivi vétérinaire régulier du troupeau",
+          "Mettre à jour la vaccination des travailleurs (tétanos, leptospirose si disponible)"
+        ],
+        "individuelle": [
+          "Porter des gants adaptés lors des manipulations",
+          "Utiliser des bottes et vêtements de protection lavables",
+          "Se laver les mains systématiquement après contact avec les animaux",
+          "Porter un masque lors de travaux générant des poussières organiques"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421-1 à R4421-5 du Code du travail (risques biologiques)",
+        "Arrêté du 18 juillet 1994 fixant la liste des agents biologiques pathogènes",
+        "Code rural et de la pêche maritime (santé et protection animales)"
+      ],
+      "ressources_inrs": [
+        "ED 6022 - Zoonoses professionnelles",
+        "ED 984 - Affections respiratoires professionnelles en élevage",
+        "Fiche Zoonose - Leptospirose, Brucellose"
+      ]
+    },
+    {
+      "id": "RAGR004",
+      "intitule": "Troubles musculosquelettiques (TMS)",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Manutentions répétées, postures contraignantes, gestes répétitifs",
+      "famille_inrs": "3 (manutentions manuelles) / 9 (activité physique)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manutention de sacs (engrais, aliments, semences) de 25 à 50 kg",
+        "Traite manuelle ou répétitive (gestes des bras et mains)",
+        "Travaux de récolte (cueillette, vendanges, ramassage)",
+        "Manipulation de ballots de paille ou de foin",
+        "Taille des arbres et vignes (bras en élévation, position accroupie)",
+        "Port de seaux, bidons, outils sur de longues distances"
+      ],
+      "dangers": [
+        "Charges lourdes portées manuellement sans aide mécanique",
+        "Répétition de mouvements (taille, cueillette, traite)",
+        "Postures contraignantes prolongées (courbé, accroupi, bras levés)",
+        "Cadences de travail soutenues en période de récolte",
+        "Vibrations transmises par les outils et engins"
+      ],
+      "dommages_potentiels": [
+        "Lombalgies et hernies discales",
+        "Tendinites des membres supérieurs (épaule, coude, poignet)",
+        "Syndrome du canal carpien",
+        "Gonarthrose (genou) et coxarthrose (hanche)",
+        "Troubles circulatoires et fatigue chronique"
+      ],
+      "prevention": {
+        "collective": [
+          "Mécaniser les opérations de manutention (élévateurs, convoyeurs, chariots)",
+          "Utiliser des outils ergonomiques (sécateurs électriques, outils à long manche)",
+          "Aménager les postes de travail pour réduire les flexions et torsions",
+          "Réduire le poids unitaire des charges (conditionnements plus petits)"
+        ],
+        "organisationnelle": [
+          "Alterner les tâches pour limiter la répétitivité",
+          "Prévoir des pauses régulières lors de travaux physiques intenses",
+          "Former aux gestes et postures adaptés",
+          "Adapter les cadences de travail et éviter la surcharge en période de pointe",
+          "Recruter du personnel supplémentaire temporaire si nécessaire"
+        ],
+        "individuelle": [
+          "Porter des gants antivibratiles pour l'utilisation d'outils vibrants",
+          "Utiliser des ceintures lombaires en complément (non substitution)",
+          "Porter des genouillères pour travaux à genoux prolongés",
+          "Pratiquer des exercices d'étirement et d'échauffement"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail (manutentions manuelles)",
+        "Article R4541-8 : information et formation des travailleurs"
+      ],
+      "ressources_inrs": [
+        "ED 6094 - TMS en agriculture",
+        "TMS Pros Agriculture (outil de diagnostic)",
+        "ED 6015 - Manutentions manuelles"
+      ]
+    },
+    {
+      "id": "RAGR005",
+      "intitule": "Risques routiers et circulation sur l'exploitation",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements routiers, circulation d'engins agricoles",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Circulation sur routes et chemins avec engins agricoles lents",
+        "Déplacements entre parcelles et exploitation",
+        "Livraison et transport de productions (céréales, lait, bétail)",
+        "Circulation de piétons et d'engins sur la cour de ferme",
+        "Manœuvres et reculs de tracteurs et remorques"
+      ],
+      "dangers": [
+        "Collision avec des véhicules rapides sur la voie publique",
+        "Visibilité réduite (angles morts, engins larges, nuit, brouillard)",
+        "Renversement d'engins sur routes en pente ou dévers",
+        "Heurts de piétons par engins sur l'exploitation",
+        "État défectueux des chemins (ornières, trous)"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la circulation mortels ou graves",
+        "Polytraumatismes et traumatismes crâniens",
+        "Écrasement de piétons sur l'exploitation",
+        "Renversement de charges transportées"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les engins de signalisation lumineuse (gyrophares, feux clignotants)",
+          "Installer des rétroviseurs et caméras de recul sur les tracteurs",
+          "Séparer les circulations piétons/engins sur l'exploitation",
+          "Baliser et entretenir les voies de circulation internes",
+          "Limiter la vitesse sur l'exploitation (panneaux, ralentisseurs)"
+        ],
+        "organisationnelle": [
+          "Planifier les déplacements pour éviter les heures de pointe",
+          "Former les conducteurs au code de la route et à la conduite d'engins agricoles",
+          "Établir un plan de circulation sur l'exploitation",
+          "Vérifier régulièrement l'état technique des véhicules (freins, éclairage)",
+          "Interdire la présence de passagers non autorisés sur les engins"
+        ],
+        "individuelle": [
+          "Port de la ceinture de sécurité dans les tracteurs équipés",
+          "Porter des vêtements haute visibilité lors de déplacements à pied",
+          "Respecter les limitations de vitesse et le code de la route",
+          "Éviter l'utilisation du téléphone au volant"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de la route (articles R311-1 et suivants pour engins agricoles)",
+        "Arrêté du 4 octobre 2010 relatif à la prévention des risques de renversement des tracteurs",
+        "Articles R4323-35 à R4323-40 du Code du travail (équipements de travail mobiles)"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier en mission",
+        "ED 6108 - Tracteurs agricoles et forestiers",
+        "Brochure INRS « Circulation en entreprise »"
+      ]
+    },
+    {
+      "id": "RAGR006",
+      "intitule": "Exposition aux conditions climatiques extrêmes",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Températures extrêmes (chaleur, froid)",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travaux extérieurs en plein soleil (moissons, fenaison)",
+        "Travaux hivernaux par temps froid (entretien, taille, alimentation du bétail)",
+        "Exposition prolongée au vent et à l'humidité",
+        "Travail en stabulation froide ou en chambre froide",
+        "Conduite d'engins sans cabine climatisée"
+      ],
+      "dangers": [
+        "Températures élevées et exposition directe au soleil",
+        "Froid intense et vent glacial",
+        "Alternance chaud/froid (entrée/sortie de bâtiments)",
+        "Humidité et précipitations",
+        "Absence d'abri et de zone de repos climatisée"
+      ],
+      "dommages_potentiels": [
+        "Coup de chaleur, déshydratation, insolation",
+        "Hypothermie et gelures",
+        "Crampes musculaires et fatigue accrue",
+        "Aggravation de pathologies cardiovasculaires",
+        "Risque accru d'accidents (diminution de vigilance)"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les cabines d'engins de climatisation et chauffage",
+          "Aménager des zones de repos ombragées ou chauffées",
+          "Planifier les travaux lourds aux heures fraîches (tôt le matin, en soirée)",
+          "Installer des fontaines à eau sur les lieux de travail"
+        ],
+        "organisationnelle": [
+          "Adapter les horaires de travail en fonction des conditions météo",
+          "Prévoir des pauses fréquentes en cas de chaleur ou de froid intense",
+          "Former le personnel aux signes d'alerte (coup de chaleur, hypothermie)",
+          "Surveiller les prévisions météorologiques et déclencher le plan canicule/grand froid"
+        ],
+        "individuelle": [
+          "Porter des vêtements adaptés (légers et couvrants en été, chauds et imperméables en hiver)",
+          "Utiliser une casquette ou chapeau à large bord contre le soleil",
+          "S'hydrater régulièrement (au moins 1,5 L d'eau/jour en été)",
+          "Appliquer de la crème solaire haute protection",
+          "Utiliser des vêtements thermiques et coupe-vent en hiver"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4223-13 à R4223-15 du Code du travail (ambiances thermiques)",
+        "Recommandations INRS et Santé Publique France sur les vagues de chaleur et grand froid"
+      ],
+      "ressources_inrs": [
+        "ED 931 - Travail par forte chaleur",
+        "ED 6147 - Travail et chaleur d'été",
+        "Fiche pratique « Travail au froid »"
+      ]
+    },
+    {
+      "id": "RAGR007",
+      "intitule": "Risques de chutes de hauteur",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Travail en hauteur (silos, toitures, échelles)",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Accès aux silos et cellules de stockage de grains",
+        "Travaux sur toitures de bâtiments agricoles (réparations, nettoyage)",
+        "Montée/descente sur tracteurs et machines agricoles",
+        "Utilisation d'échelles pour accéder aux greniers à foin",
+        "Travail sur plateformes de chargement"
+      ],
+      "dangers": [
+        "Absence de protections collectives (garde-corps, lignes de vie)",
+        "Échelles non conformes ou mal positionnées",
+        "Surfaces glissantes ou instables (toitures en fibrociment, bâches)",
+        "Ouvertures non protégées (trappes, puits de jour)",
+        "Mauvais éclairage des accès en hauteur"
+      ],
+      "dommages_potentiels": [
+        "Fractures, traumatismes crâniens, lésions rachidiennes",
+        "Polytraumatismes et handicaps permanents",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des garde-corps permanents autour des ouvertures et zones en hauteur",
+          "Équiper les toitures de lignes de vie et points d'ancrage certifiés",
+          "Utiliser des échelles à crinoline pour l'accès aux silos",
+          "Prévoir des plateformes de travail sécurisées avec planchers pleins",
+          "Concevoir les bâtiments pour limiter les interventions en hauteur"
+        ],
+        "organisationnelle": [
+          "Réaliser une analyse de risque avant tout travail en hauteur",
+          "Former le personnel au travail en hauteur et port du harnais",
+          "Privilégier les interventions depuis le sol (perches, nacelles)",
+          "Vérifier l'état des échelles et équipements avant chaque utilisation",
+          "Interdire le travail en hauteur par conditions météo défavorables"
+        ],
+        "individuelle": [
+          "Porter un harnais de sécurité avec longe antichute",
+          "Utiliser un casque de protection",
+          "Porter des chaussures antidérapantes",
+          "Se former aux techniques de travail en hauteur"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-58 à R4323-90 du Code du travail (travail en hauteur)",
+        "Recommandation R430 de la CNAMTS (prévention des chutes de hauteur)"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Travail en hauteur",
+        "ED 6109 - Échelles portables"
+      ]
+    },
+    {
+      "id": "RAGR008",
+      "intitule": "Risques liés au bruit",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Exposition au bruit",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Conduite de tracteurs, moissonneuses, ensileuses sans cabine insonorisée",
+        "Utilisation de souffleurs, tronçonneuses, débroussailleuses",
+        "Travail en bâtiments d'élevage (porcs, volailles bruyants)",
+        "Utilisation de compresseurs, broyeurs, séchoirs à grains",
+        "Travaux de forge et d'atelier mécanique"
+      ],
+      "dangers": [
+        "Niveaux sonores élevés générés par les machines agricoles (> 85 dB(A))",
+        "Exposition prolongée sans protection auditive",
+        "Pics de bruit impulsifs (marteau-piqueur, détonations)",
+        "Accumulation d'expositions sur de longues journées de travail"
+      ],
+      "dommages_potentiels": [
+        "Perte auditive progressive (surdité professionnelle)",
+        "Acouphènes et hyperacousie",
+        "Fatigue auditive et stress",
+        "Troubles de la communication et isolement social"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des machines et équipements peu bruyants (label CE, niveaux sonores bas)",
+          "Équiper les cabines de tracteurs d'insonorisation",
+          "Installer des silencieux sur les échappements et compresseurs",
+          "Isoler acoustiquement les ateliers bruyants",
+          "Effectuer la maintenance régulière pour réduire les bruits anormaux"
+        ],
+        "organisationnelle": [
+          "Limiter les temps d'exposition au bruit (rotation des tâches)",
+          "Planifier les travaux bruyants en dehors des horaires de forte affluence",
+          "Réaliser des mesures d'exposition sonore (dosimétrie)",
+          "Former le personnel aux risques auditifs et à l'utilisation des protections"
+        ],
+        "individuelle": [
+          "Porter des protections auditives adaptées (bouchons, casques antibruit)",
+          "Choisir des protections selon le niveau d'atténuation requis",
+          "Réaliser un suivi médical audiométrique régulier",
+          "Sensibiliser au port systématique des protections en zone bruyante"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4431-1 à R4437-4 du Code du travail (exposition au bruit)",
+        "Directive 2003/10/CE concernant les prescriptions minimales en matière de bruit",
+        "Valeurs d'exposition : 80 dB(A) (action), 85 dB(A) (limite), 87 dB(A) (max avec protections)"
+      ],
+      "ressources_inrs": [
+        "ED 6035 - Le bruit en agriculture",
+        "ED 6020 - Exposition au bruit",
+        "Fiche pratique « Bruit et surdité professionnelle »"
+      ]
+    },
+    {
+      "id": "RAGR009",
+      "intitule": "Risques d'incendie et d'explosion",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie, explosion",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Stockage de carburants, engrais et produits inflammables",
+        "Travaux de soudure et découpe dans les ateliers",
+        "Stockage de fourrages et céréales (auto-échauffement)",
+        "Manipulation de poussières explosibles (silos, cellules à grains)",
+        "Installations électriques vétustes ou surchargées"
+      ],
+      "dangers": [
+        "Présence de combustibles (paille, foin, carburants, produits chimiques)",
+        "Sources d'ignition (étincelles, court-circuit, cigarettes)",
+        "Poussières organiques en suspension (risque d'explosion de poussières)",
+        "Stockage de produits incompatibles (comburants/combustibles)",
+        "Défauts d'installations électriques"
+      ],
+      "dommages_potentiels": [
+        "Brûlures thermiques et chimiques",
+        "Intoxication par fumées",
+        "Traumatismes par explosion (blast, projections)",
+        "Décès, destruction totale de bâtiments et matériels"
+      ],
+      "prevention": {
+        "collective": [
+          "Séparer les zones de stockage de produits inflammables et les sources d'ignition",
+          "Installer des systèmes de détection incendie et d'extinction automatique",
+          "Assurer une ventilation efficace dans les silos et zones poussiéreuses",
+          "Mettre en place un réseau de points d'eau incendie (RIA, extincteurs)",
+          "Respecter les règles ATEX dans les zones à risque d'explosion"
+        ],
+        "organisationnelle": [
+          "Établir des consignes d'interdiction de fumer et d'utilisation de flammes nues",
+          "Former le personnel à l'utilisation des extincteurs et à l'évacuation",
+          "Réaliser des exercices d'évacuation réguliers",
+          "Contrôler périodiquement les installations électriques",
+          "Éviter l'accumulation de poussières par nettoyage régulier"
+        ],
+        "individuelle": [
+          "Porter des vêtements antistatiques dans les zones ATEX",
+          "Connaître l'emplacement des extincteurs et issues de secours",
+          "Ne pas fumer dans les zones à risque",
+          "Signaler toute anomalie électrique ou fuite de carburant"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail (prévention incendie)",
+        "Arrêté du 25 juin 1980 (règlement de sécurité ERP)",
+        "Directive ATEX 99/92/CE et 2014/34/UE",
+        "Arrêté du 19 novembre 2009 (stockage de liquides inflammables)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie et lieu de travail",
+        "ED 945 - ATEX - Mise en œuvre de la réglementation",
+        "Brochure « Prévenir les explosions de poussières »"
+      ]
+    },
+    {
+      "id": "RAGR010",
+      "intitule": "Risques électriques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Contact direct ou indirect avec l'électricité",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation d'équipements électriques en milieu humide ou extérieur",
+        "Maintenance et réparation de machines électriques",
+        "Installation de clôtures électriques pour le bétail",
+        "Travaux à proximité de lignes électriques aériennes (élagage, conduite d'engins)",
+        "Utilisation de rallonges et matériel électrique portatif"
+      ],
+      "dangers": [
+        "Contact avec des conducteurs nus ou des parties actives sous tension",
+        "Câbles électriques endommagés ou rallonges non conformes",
+        "Matériel électrique non adapté aux conditions d'utilisation (IP insuffisant)",
+        "Proximité de lignes électriques HT lors de travaux en hauteur",
+        "Absence de mise à la terre ou dispositif différentiel défectueux"
+      ],
+      "dommages_potentiels": [
+        "Électrisation (choc électrique, brûlures)",
+        "Électrocution (arrêt cardiaque, décès)",
+        "Brûlures profondes par arc électrique",
+        "Chutes provoquées par le choc électrique"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des dispositifs différentiels (30 mA) sur tous les circuits",
+          "Mettre à la terre toutes les masses métalliques",
+          "Utiliser du matériel électrique adapté aux conditions d'emploi (IP65 pour extérieur)",
+          "Vérifier et entretenir régulièrement les installations électriques",
+          "Signaler et baliser les lignes électriques aériennes"
+        ],
+        "organisationnelle": [
+          "Former le personnel habilité aux interventions électriques (habilitations B0, BS, BE)",
+          "Respecter les distances de sécurité vis-à-vis des lignes HT (3 m mini)",
+          "Établir des consignes de sécurité pour les travaux électriques",
+          "Consigner les installations avant intervention",
+          "Réaliser le contrôle périodique réglementaire des installations"
+        ],
+        "individuelle": [
+          "Utiliser des outils isolés pour travaux électriques",
+          "Porter des EPI isolants (gants, chaussures de sécurité)",
+          "Vérifier l'état des câbles et prises avant utilisation",
+          "Ne jamais intervenir sous tension sans habilitation"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4215-1 à R4215-17 du Code du travail (installations électriques)",
+        "Norme NFC 15-100 (installations électriques basse tension)",
+        "Articles R4544-1 à R4544-11 (habilitations électriques)",
+        "Arrêté du 26 avril 2012 relatif aux travaux à proximité de lignes électriques"
+      ],
+      "ressources_inrs": [
+        "ED 6127 - Habilitation électrique",
+        "ED 6187 - Prévention du risque électrique",
+        "Brochure INRS « Électricité : risques et prévention »"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "38,7 pour 1000 salariés (2020, MSA)",
+    "accidents_graves": "Engins agricoles (30%), chutes (20%), animaux (15%)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 75% des MP",
+      "Surdité (tableau 42)",
+      "Affections respiratoires (tableau 45, 66)",
+      "Affections provoquées par les phytosanitaires (tableau 58)",
+      "Leptospirose (tableau 19)"
+    ]
+  },
+  "sources": [
+    "Mutualité Sociale Agricole (MSA) - Statistiques 2020-2022",
+    "INRS - Fiches sectorielles agriculture",
+    "Code du travail - Partie IV (Santé et sécurité au travail)",
+    "Code rural et de la pêche maritime",
+    "Recommandations CNAMTS spécifiques au secteur agricole"
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "secteur": {
+    "nom": "Restauration collective et commerciale",
+    "code_naf": "I (56) - 5610A, 5610B, 5610C",
+    "description": "Le secteur de la restauration comprend la restauration collective (cantines scolaires, d'entreprises, hôpitaux, EHPAD) et commerciale (restaurants traditionnels, restauration rapide, cafétérias, traiteurs). Les activités incluent la réception, le stockage, la préparation culinaire, le service et le nettoyage."
+  },
+  "risques": [
+    {
+      "id": "RREST001",
+      "intitule": "Coupures et blessures par objets tranchants",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Outils tranchants (couteaux, trancheurs, mixeurs)",
+      "famille_inrs": "1 (risques mécaniques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Découpe de viandes, légumes, poissons avec couteaux",
+        "Utilisation de trancheurs électriques (jambon, pain, charcuterie)",
+        "Nettoyage et manipulation de lames de robots, mixeurs, hachoirs",
+        "Ouverture de boîtes de conserve, huîtres",
+        "Ramassage de verre brisé ou vaisselle cassée"
+      ],
+      "dangers": [
+        "Couteaux mal affûtés nécessitant plus de force",
+        "Gestes répétitifs sans protection",
+        "Absence de protections sur les machines (trancheuses)",
+        "Nettoyage de lames sans consignation de l'équipement",
+        "Précipitation en période de coup de feu (affluence)"
+      ],
+      "dommages_potentiels": [
+        "Coupures superficielles à profondes",
+        "Section de tendons ou nerfs",
+        "Amputation de doigts",
+        "Infections secondaires des plaies"
+      ],
+      "prevention": {
+        "collective": [
+          "Utiliser des machines avec protecteurs fixes et dispositifs de sécurité",
+          "Installer des systèmes de type « gant métallique » pour la découpe manuelle",
+          "Fournir des brosses de nettoyage pour éviter le contact direct avec les lames",
+          "Choisir des outils ergonomiques adaptés (manches antidérapants)"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux techniques de découpe sécuritaires",
+          "Établir des procédures de consignation avant nettoyage des machines",
+          "Éviter de précipiter les tâches lors des coups de feu (organisation du travail)",
+          "Prévoir un kit de premiers secours et formation aux gestes d'urgence",
+          "Entretenir régulièrement l'affûtage des couteaux"
+        ],
+        "individuelle": [
+          "Porter des gants anticoupure (en cotte de mailles ou fibres HPPE)",
+          "Utiliser des tabliers de protection renforcés",
+          "Porter des chaussures de sécurité pour protéger contre les chutes d'objets tranchants"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-1 à R4323-28 du Code du travail (utilisation des équipements de travail)",
+        "Articles R4321-1 à R4321-5 (conception des équipements de travail)"
+      ],
+      "ressources_inrs": [
+        "ED 6077 - Restauration traditionnelle",
+        "ED 135 - Prévention des coupures dans les métiers de bouche",
+        "TMS Pros Restauration"
+      ]
+    },
+    {
+      "id": "RREST002",
+      "intitule": "Brûlures thermiques et chimiques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Brûlures par contact, projection",
+      "famille_inrs": "2 (risques physiques) / 4 (chimiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manipulation de casseroles, plats, fours et plaques chauffantes",
+        "Friture et manipulation d'huile chaude",
+        "Utilisation de fours vapeur et marmites sous pression",
+        "Manipulation de produits chimiques (détergents, dégraissants concentrés)",
+        "Nettoyage avec produits chimiques agressifs"
+      ],
+      "dangers": [
+        "Surfaces et récipients brûlants",
+        "Projections d'huile, d'eau bouillante ou de vapeur",
+        "Ouverture intempestive de fours ou autoclaves",
+        "Contact cutané ou oculaire avec produits chimiques corrosifs",
+        "Mélange accidentel de produits incompatibles (acide/base)"
+      ],
+      "dommages_potentiels": [
+        "Brûlures thermiques du 1er au 3ème degré",
+        "Brûlures chimiques (peau, yeux)",
+        "Cicatrices permanentes et limitation fonctionnelle",
+        "Choc thermique ou toxique"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des équipements avec protections thermiques (poignées isolées)",
+          "Utiliser des systèmes de filtration et d'aspiration au-dessus des friteuses",
+          "Équiper les zones de travail de fontaines oculaires et douches de sécurité",
+          "Stocker les produits chimiques dans des armoires dédiées avec FDS accessibles",
+          "Installer des plans de travail et espaces dégagés pour poser les récipients chauds"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux risques thermiques et chimiques",
+          "Établir des procédures de manipulation sécuritaires (refroidissement avant nettoyage)",
+          "Respecter les dosages des produits chimiques (dilution)",
+          "Utiliser des produits moins dangereux (substitution lorsque possible)",
+          "Afficher les consignes de sécurité et pictogrammes"
+        ],
+        "individuelle": [
+          "Porter des gants thermiques pour manipulation de plats chauds",
+          "Utiliser des gants résistants aux produits chimiques (nitrile, néoprène)",
+          "Porter des tabliers imperméables et résistants à la chaleur",
+          "Utiliser des lunettes de protection lors de manipulation de produits chimiques",
+          "Porter des vêtements ajustés pour éviter les accrochages"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-1 à R4412-57 du Code du travail (risques chimiques)",
+        "Articles R4223-13 à R4223-15 (ambiances thermiques)",
+        "Règlement CLP (1272/2008) sur l'étiquetage des produits chimiques"
+      ],
+      "ressources_inrs": [
+        "ED 6077 - Restauration traditionnelle",
+        "ED 6026 - Produits chimiques : stockage",
+        "Fiche pratique « Brûlures »"
+      ]
+    },
+    {
+      "id": "RREST003",
+      "intitule": "Chutes de plain-pied et glissades",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Déplacements en cuisine sur sols humides, gras ou mouillés",
+        "Circulation entre cuisines et zones de stockage (chambres froides)",
+        "Service en salle avec plateaux chargés",
+        "Nettoyage des sols en fin de service",
+        "Circulation dans des zones encombrées (cartons, bacs)"
+      ],
+      "dangers": [
+        "Sols glissants (graisses, eau, épluchures)",
+        "Revêtements inadaptés ou usés",
+        "Encombrement des allées de circulation",
+        "Éclairage insuffisant (réserves, zones de plonge)",
+        "Différences de niveau (marches, seuils) non signalées",
+        "Port de charges limitant la visibilité"
+      ],
+      "dommages_potentiels": [
+        "Entorses, fractures (poignets, chevilles)",
+        "Contusions et traumatismes crâniens",
+        "Brûlures aggravantes en cas de chute avec liquides chauds",
+        "Arrêts de travail prolongés"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements de sol antidérapants (carrelage R10/R11)",
+          "Assurer l'évacuation rapide des eaux (pente, siphons)",
+          "Maintenir un éclairage homogène et suffisant (≥300 lux)",
+          "Organiser les espaces pour éviter l'encombrement",
+          "Installer des tapis antidérapants dans les zones critiques",
+          "Signaler les zones glissantes et les obstacles"
+        ],
+        "organisationnelle": [
+          "Nettoyer immédiatement les liquides renversés",
+          "Planifier le nettoyage en dehors des heures de circulation intense",
+          "Établir des circuits de circulation clairs et dégagés",
+          "Former le personnel à la marche sécuritaire (pas pressés, attention)",
+          "Organiser les livraisons pour éviter l'encombrement temporaire"
+        ],
+        "individuelle": [
+          "Porter des chaussures de sécurité antidérapantes (SRC)",
+          "Adapter la vitesse de déplacement selon les conditions",
+          "Porter des vêtements adaptés (pas trop longs)",
+          "Utiliser des dispositifs d'aide au port de charges (chariots, rolls)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail (circulations)",
+        "Articles R4228-1 à R4228-7 (éclairage des locaux)",
+        "Recommandation R477 (Cnam) - Prévention des chutes de plain-pied"
+      ],
+      "ressources_inrs": [
+        "ED 6077 - Restauration traditionnelle",
+        "ED 117 - Les chutes de plain-pied",
+        "Brochure INRS « Glissades et chutes »"
+      ]
+    },
+    {
+      "id": "RREST004",
+      "intitule": "Troubles musculosquelettiques (TMS)",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Gestes répétitifs, postures contraignantes, port de charges",
+      "famille_inrs": "3 (manutentions manuelles) / 9 (activité physique)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Épluchage, découpe et préparation répétitive de légumes",
+        "Port de charges (sacs de 25 kg, bidons, caisses)",
+        "Manutention de bacs gastronomes et marmites lourdes",
+        "Travail debout prolongé (8-12h)",
+        "Gestes répétitifs en plonge (vaisselle, essuyage)",
+        "Postures contraignantes (dos courbé, bras tendus)"
+      ],
+      "dangers": [
+        "Répétition de mouvements des membres supérieurs (couper, mélanger)",
+        "Port de charges lourdes sans aide (sacs, bidons, marmites)",
+        "Station debout prolongée sur sols durs",
+        "Plans de travail inadaptés (hauteur, profondeur)",
+        "Cadences élevées en période de service (coup de feu)",
+        "Absence de pauses et de récupération"
+      ],
+      "dommages_potentiels": [
+        "Tendinites (épaule, coude, poignet) - syndrome du canal carpien",
+        "Lombalgies et hernies discales",
+        "Douleurs cervicales et dorsales",
+        "Troubles circulatoires (jambes lourdes, varices)",
+        "Épicondylites, ténosynovites"
+      ],
+      "prevention": {
+        "collective": [
+          "Adapter la hauteur des plans de travail à la taille des opérateurs",
+          "Fournir des tapis anti-fatigue aux postes statiques",
+          "Utiliser des aides à la manutention (transpalettes, chariots)",
+          "Installer des robinets mitigeurs à déclenchement automatique (plonge)",
+          "Mécaniser certaines tâches (éplucheurs, trancheurs, mixeurs)",
+          "Aménager des zones de stockage à hauteur de travail (éviter sol et hauteur)"
+        ],
+        "organisationnelle": [
+          "Alterner les tâches pour limiter la répétitivité",
+          "Prévoir des pauses régulières (15 min toutes les 2h)",
+          "Adapter les effectifs aux pics d'activité",
+          "Former aux gestes et postures adaptés",
+          "Limiter les charges unitaires (conditionnements plus petits)",
+          "Organiser le travail pour éviter les coups de feu excessifs"
+        ],
+        "individuelle": [
+          "Porter des chaussures adaptées avec semelles amortissantes",
+          "Utiliser des outils ergonomiques (manches adaptés)",
+          "Pratiquer des exercices d'étirement en pause",
+          "Porter des ceintures lombaires en complément (non substitution)",
+          "Signaler rapidement les douleurs pour prise en charge précoce"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail (manutentions manuelles)",
+        "Articles R4541-3 à R4541-6 (obligations de l'employeur)",
+        "Directive 90/269/CEE concernant la manutention manuelle de charges"
+      ],
+      "ressources_inrs": [
+        "ED 6077 - Restauration traditionnelle",
+        "TMS Pros - Diagnostic et action",
+        "ED 6015 - Manutentions manuelles"
+      ]
+    },
+    {
+      "id": "RREST005",
+      "intitule": "Risques liés aux ambiances thermiques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Chaleur, froid, chocs thermiques",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travail en cuisine chaude à proximité de fourneaux, fours, friteuses",
+        "Exposition à la chaleur radiante en période estivale",
+        "Entrées/sorties fréquentes des chambres froides (0-4°C) et congélateurs (-18°C)",
+        "Alternance chaud/froid lors des déplacements cuisine-réserve",
+        "Travail en plonge avec vapeur d'eau chaude"
+      ],
+      "dangers": [
+        "Températures élevées en cuisine (>30°C l'été)",
+        "Chaleur radiante des équipements de cuisson",
+        "Humidité et vapeur (stress thermique accru)",
+        "Chocs thermiques répétés (passages chaud/froid)",
+        "Exposition prolongée au froid (chambres froides, congélateurs)",
+        "Absence de systèmes de ventilation ou de climatisation"
+      ],
+      "dommages_potentiels": [
+        "Déshydratation, coups de chaleur, malaises",
+        "Crampes musculaires liées à la chaleur",
+        "Troubles circulatoires",
+        "Pathologies ORL (rhinites, angines) par chocs thermiques",
+        "Fatigue accrue et perte de vigilance",
+        "Aggravation de pathologies cardiovasculaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des systèmes de ventilation efficaces (hottes aspirantes)",
+          "Climatiser les locaux ou installer des ventilateurs",
+          "Aménager des sas thermiques entre zones chaudes et froides",
+          "Isoler thermiquement les équipements de cuisson",
+          "Installer des fontaines à eau accessibles et visibles",
+          "Prévoir des zones de repos climatisées"
+        ],
+        "organisationnelle": [
+          "Adapter les horaires de travail en cas de canicule (débuter tôt)",
+          "Prévoir des pauses régulières en zone tempérée",
+          "Limiter les temps d'exposition en chambres froides",
+          "Former le personnel aux signes d'alerte (coup de chaleur)",
+          "Organiser le travail pour réduire les allers-retours chaud/froid",
+          "Déclencher le plan canicule si nécessaire"
+        ],
+        "individuelle": [
+          "S'hydrater fréquemment (1,5 à 2 L d'eau par jour en été)",
+          "Porter des vêtements légers et respirants en cuisine",
+          "Utiliser des vestes adaptées pour les chambres froides",
+          "Se protéger la tête (calot, bandana humidifié)",
+          "Adapter les EPI selon les zones (légers en cuisine, chauds en froid)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4223-13 à R4223-15 du Code du travail (ambiances thermiques)",
+        "Recommandations INRS et Santé Publique France (canicule et grand froid)",
+        "Directive 89/654/CEE concernant les prescriptions minimales de sécurité"
+      ],
+      "ressources_inrs": [
+        "ED 931 - Travail par forte chaleur",
+        "ED 6147 - Travail et chaleur d'été",
+        "Fiche pratique « Ambiances thermiques »"
+      ]
+    },
+    {
+      "id": "RREST006",
+      "intitule": "Risques infectieux et biologiques",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Contaminations microbiologiques",
+      "famille_inrs": "5 (risques biologiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manipulation de denrées alimentaires crues (viandes, poissons, œufs)",
+        "Nettoyage de surfaces et ustensiles contaminés",
+        "Contact avec des déchets organiques (poubelles, bacs à compost)",
+        "Travail en restauration collective (risque de contamination croisée)",
+        "Évacuation des eaux usées et entretien des plonges"
+      ],
+      "dangers": [
+        "Présence de bactéries pathogènes (Salmonella, E. coli, Listeria)",
+        "Virus (Norovirus, Hépatite A)",
+        "Parasites et moisissures",
+        "Contamination croisée entre aliments crus et cuits",
+        "Contact avec déchets organiques et eaux usées"
+      ],
+      "dommages_potentiels": [
+        "Toxi-infections alimentaires collectives (TIAC)",
+        "Gastro-entérites, diarrhées, vomissements",
+        "Infections cutanées (panaris, mycoses)",
+        "Hépatite A",
+        "Infections parasitaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Séparer les zones de travail (marche en avant : propre/sale)",
+          "Utiliser des plans de travail et ustensiles spécifiques par type d'aliments",
+          "Installer des lave-mains à commande non manuelle avec savon et essuie-mains",
+          "Maintenir la chaîne du froid et du chaud (respect des températures)",
+          "Assurer un entretien régulier et une désinfection des surfaces"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux bonnes pratiques d'hygiène (HACCP)",
+          "Respecter les protocoles de nettoyage et désinfection",
+          "Contrôler régulièrement les températures des équipements froids/chauds",
+          "Établir un plan de maîtrise sanitaire",
+          "Former aux premiers secours et gestes en cas de contamination",
+          "Vacciner contre l'hépatite A (recommandé)",
+          "Interdire le travail en cas de maladie contagieuse"
+        ],
+        "individuelle": [
+          "Porter des gants à usage unique lors de manipulation d'aliments crus",
+          "Se laver les mains fréquemment (avant/après chaque tâche)",
+          "Porter des vêtements de travail propres et changés régulièrement",
+          "Utiliser des masques en cas de toux ou rhume",
+          "Couvrir les plaies avec des pansements étanches",
+          "Porter des tabliers imperméables en plonge"
+        ]
+      },
+      "references_reglementaires": [
+        "Règlement (CE) n° 852/2004 relatif à l'hygiène des denrées alimentaires",
+        "Articles R4421-1 à R4421-5 du Code du travail (risques biologiques)",
+        "Arrêté du 21 décembre 2009 relatif aux règles sanitaires (restauration collective)"
+      ],
+      "ressources_inrs": [
+        "ED 6077 - Restauration traditionnelle",
+        "ED 6022 - Risques biologiques",
+        "Guide des bonnes pratiques d'hygiène - Restauration collective"
+      ]
+    },
+    {
+      "id": "RREST007",
+      "intitule": "Stress et risques psychosociaux",
+      "categorie_principale": "Risques psychosociaux (RPS)",
+      "sous_categorie": "Charge mentale, stress, relations de travail",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Coups de feu (afflux massif de clients en peu de temps)",
+        "Travail en horaires décalés (soirées, week-ends, jours fériés)",
+        "Pression pour respecter les délais et la qualité",
+        "Relations difficiles avec la clientèle (réclamations, agressivité)",
+        "Travail isolé (plonge, préparation en début de matinée)",
+        "Instabilité de l'emploi (saisonnalité, CDD)"
+      ],
+      "dangers": [
+        "Charge de travail intense et variable selon les services",
+        "Horaires atypiques (coupures, soirées tardives)",
+        "Exigences émotionnelles (contact client, gestion du stress)",
+        "Manque de reconnaissance professionnelle",
+        "Conflits interpersonnels (cuisine = ambiance sous pression)",
+        "Précarité de l'emploi et turn-over élevé"
+      ],
+      "dommages_potentiels": [
+        "Stress chronique, épuisement professionnel (burn-out)",
+        "Troubles anxieux et dépressifs",
+        "Troubles du sommeil et fatigue chronique",
+        "Addictions (alcool, tabac, substances)",
+        "Conflits familiaux liés aux horaires",
+        "Maladies cardiovasculaires et troubles digestifs"
+      ],
+      "prevention": {
+        "collective": [
+          "Adapter les effectifs aux périodes de forte activité",
+          "Limiter les amplitudes horaires excessives",
+          "Aménager des espaces de pause confortables et isolés du bruit",
+          "Installer des systèmes de communication efficaces (passe-plats, sonnettes)",
+          "Organiser l'espace de travail pour fluidifier les déplacements"
+        ],
+        "organisationnelle": [
+          "Planifier les horaires en concertation avec les équipes",
+          "Alterner les services (midi/soir) pour équilibrer la charge",
+          "Reconnaître le travail accompli (encouragements, valorisation)",
+          "Organiser des réunions d'équipe régulières pour dialogue social",
+          "Former les managers à la gestion d'équipe et à la prévention des RPS",
+          "Mettre en place un dispositif d'écoute et de soutien psychologique",
+          "Respecter les temps de repos légaux et organiser des pauses effectives"
+        ],
+        "individuelle": [
+          "Développer des techniques de gestion du stress (respiration, relaxation)",
+          "Participer aux formations proposées",
+          "Signaler les situations difficiles à l'encadrement",
+          "Préserver son équilibre vie professionnelle/vie personnelle",
+          "Solliciter le service de santé au travail en cas de difficulté"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 à L4121-5 du Code du travail (obligation de sécurité)",
+        "Accord national interprofessionnel sur le stress au travail (2 juillet 2008)",
+        "Articles L3121-1 et suivants (durée du travail et repos)"
+      ],
+      "ressources_inrs": [
+        "ED 6140 - Risques psychosociaux",
+        "ED 6250 - RPS dans la restauration",
+        "Outil RPS-DU (Évaluation des RPS)"
+      ]
+    },
+    {
+      "id": "RREST008",
+      "intitule": "Risques liés au bruit",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Exposition sonore",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travail en cuisine ouverte ou semi-ouverte (bruit de salle)",
+        "Utilisation d'équipements bruyants (lave-vaisselle, hottes, batteurs)",
+        "Vaisselle (chocs, bruits métalliques)",
+        "Environnement sonore global (musique, conversations, bruits de service)",
+        "Utilisation d'extracteurs, mixeurs, hachoirs"
+      ],
+      "dangers": [
+        "Niveaux sonores élevés en cuisine (70-85 dB(A))",
+        "Pics de bruit (chocs d'ustensiles, machines)",
+        "Exposition prolongée sans protection (8-12h)",
+        "Réverbération acoustique (matériaux réfléchissants)",
+        "Cumul bruit + stress + chaleur"
+      ],
+      "dommages_potentiels": [
+        "Fatigue auditive et troubles de concentration",
+        "Surdité progressive (exposition prolongée)",
+        "Acouphènes",
+        "Stress accru et irritabilité",
+        "Difficultés de communication entre collègues"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des équipements peu bruyants (labels, certifications)",
+          "Installer des matériaux absorbants (plafonds acoustiques, panneaux)",
+          "Poser des tapis anti-bruit sous les machines",
+          "Utiliser des planches de découpe souples",
+          "Séparer acoustiquement les zones bruyantes (plonge, extraction)",
+          "Entretenir les équipements pour limiter les bruits anormaux"
+        ],
+        "organisationnelle": [
+          "Limiter les temps d'exposition aux zones bruyantes (rotation)",
+          "Organiser le travail pour réduire les pics de bruit simultanés",
+          "Sensibiliser le personnel à la maîtrise du bruit (manipulation douce)",
+          "Réaliser des mesures d'exposition sonore si nécessaire"
+        ],
+        "individuelle": [
+          "Fournir des bouchons d'oreille sur demande (zones >80 dB(A))",
+          "Encourager les pauses en zone calme",
+          "Proposer un suivi médical audiométrique en cas d'exposition élevée"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4431-1 à R4437-4 du Code du travail (exposition au bruit)",
+        "Valeurs limites : 80 dB(A) action, 85 dB(A) limite, 87 dB(A) max avec protections",
+        "Directive 2003/10/CE concernant le bruit"
+      ],
+      "ressources_inrs": [
+        "ED 6035 - Le bruit",
+        "ED 6020 - Exposition au bruit",
+        "Brochure INRS « Bruit en restauration »"
+      ]
+    },
+    {
+      "id": "RREST009",
+      "intitule": "Risques d'incendie et d'explosion",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie, explosion (gaz)",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de gaz (cuisinières, fours, brûleurs)",
+        "Présence de graisses et huiles inflammables (friteuses)",
+        "Encrassement des hottes et conduits d'extraction",
+        "Stockage de produits inflammables (alcools, produits d'entretien)",
+        "Installations électriques surchargées ou défectueuses"
+      ],
+      "dangers": [
+        "Fuite de gaz (branchements défectueux)",
+        "Inflammation de graisses accumulées dans les hottes",
+        "Surchauffe d'huiles (feux de friteuse)",
+        "Court-circuit électrique",
+        "Accumulation de matériaux combustibles (cartons, papiers)",
+        "Évacuation insuffisante en cas de sinistre"
+      ],
+      "dommages_potentiels": [
+        "Brûlures graves, intoxications par fumées",
+        "Explosion (gaz) avec traumatismes multiples",
+        "Décès, destruction totale de l'établissement",
+        "Incendie se propageant rapidement (graisses)"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des détecteurs de fumée et de gaz",
+          "Équiper la cuisine d'extincteurs adaptés (type F pour feux de friteuses, CO2)",
+          "Mettre en place un système d'extinction automatique au-dessus des friteuses",
+          "Nettoyer régulièrement les hottes et conduits d'extraction (dégraissage)",
+          "Assurer la conformité des installations gaz et électriques",
+          "Prévoir des issues de secours dégagées et signalées",
+          "Installer un système de coupure d'urgence du gaz"
+        ],
+        "organisationnelle": [
+          "Vérifier périodiquement les installations gaz et électriques (contrôles réglementaires)",
+          "Former le personnel à l'utilisation des extincteurs et à l'évacuation",
+          "Établir des consignes d'urgence (plan d'évacuation, point de rassemblement)",
+          "Réaliser des exercices d'évacuation réguliers",
+          "Ne jamais laisser les équipements de cuisson sans surveillance",
+          "Stocker les produits inflammables dans des locaux ventilés et dédiés"
+        ],
+        "individuelle": [
+          "Connaître l'emplacement des extincteurs et issues de secours",
+          "Savoir utiliser les extincteurs",
+          "Ne jamais éteindre un feu de friteuse avec de l'eau (utiliser couverture ou extincteur adapté)",
+          "Signaler toute odeur de gaz ou anomalie électrique"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail (prévention incendie)",
+        "Règlement de sécurité ERP (établissements recevant du public)",
+        "Arrêté du 25 juin 1980 modifié (sécurité incendie dans les ERP)",
+        "Articles R4216-1 à R4216-34 (dégagements, éclairage de sécurité)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie et lieu de travail",
+        "ED 6061 - Consignes de sécurité incendie",
+        "Brochure INRS « Prévention incendie en restauration »"
+      ]
+    },
+    {
+      "id": "RREST010",
+      "intitule": "Risques routiers (livraisons, déplacements professionnels)",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements routiers",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Livraison de repas à domicile ou en entreprise",
+        "Approvisionnements et courses (restaurateurs)",
+        "Déplacements pour traiteur (événements, banquets)",
+        "Réceptions de marchandises (manœuvres de véhicules)",
+        "Déplacements entre sites (restauration collective multi-sites)"
+      ],
+      "dangers": [
+        "Conduite sous pression (livraison dans les délais)",
+        "Utilisation du téléphone au volant",
+        "Fatigue liée aux horaires atypiques",
+        "Conditions météorologiques défavorables",
+        "Manœuvres dangereuses (recul, déchargement sur voie publique)"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la route (collisions, sorties de route)",
+        "Traumatismes multiples, polytraumatismes",
+        "Décès",
+        "Dommages matériels"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des véhicules entretenus et équipés (GPS, kit mains-libres)",
+          "Équiper les véhicules de systèmes d'aide à la conduite (caméra de recul)",
+          "Installer des zones de chargement/déchargement sécurisées",
+          "Optimiser les tournées pour limiter les déplacements"
+        ],
+        "organisationnelle": [
+          "Planifier les livraisons en évitant les heures de pointe",
+          "Former à la conduite préventive et aux risques routiers",
+          "Interdire l'utilisation du téléphone en conduisant (kit mains-libres uniquement)",
+          "Prévoir des temps de déplacement réalistes sans précipitation",
+          "Établir une charte de sécurité routière",
+          "Contrôler régulièrement l'entretien des véhicules"
+        ],
+        "individuelle": [
+          "Respecter le code de la route et les limitations de vitesse",
+          "Porter la ceinture de sécurité",
+          "Adapter la conduite aux conditions météo",
+          "Éviter de conduire en état de fatigue",
+          "Faire des pauses régulières sur longs trajets (pause toutes les 2h)"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de la route",
+        "Articles R4543-1 à R4543-13 du Code du travail (circulation dans l'entreprise)",
+        "Décret n° 2001-1016 du 5 novembre 2001 (usage du téléphone en conduisant)"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier en mission",
+        "ED 6119 - Conduite de véhicules",
+        "Brochure INRS « Risque routier professionnel »"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "44,3 pour 1000 salariés (2020, CNAMTS)",
+    "accidents_graves": "Chutes et glissades (32%), coupures (25%), brûlures (18%)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 85% des MP",
+      "Affections péri-articulaires (tableau 57)",
+      "Dermatoses professionnelles (tableaux 65, 95)",
+      "Allergies respiratoires et cutanées (tableaux 66, 84)",
+      "Affections chroniques du rachis lombaire (tableau 98)"
+    ]
+  },
+  "sources": [
+    "CNAMTS - Statistiques AT/MP 2020-2022",
+    "INRS - Fiche sectorielle ED 6077 Restauration traditionnelle",
+    "Code du travail - Partie IV (Santé et sécurité)",
+    "Règlement (CE) n° 852/2004 (hygiène alimentaire)",
+    "Recommandations CNAMTS R477, R482",
+    "TMS Pros Restauration - Assurance Maladie"
+  ]
+}

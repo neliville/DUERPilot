@@ -1,0 +1,700 @@
+{
+  "metadata": {
+    "description": "Index complet des risques par famille INRS",
+    "date": "2026-01-10"
+  },
+  "familles": {
+    "FAM01": {
+      "nom": "Risques mécaniques",
+      "risques": [
+        {
+          "id": "R006",
+          "intitule": "Écrasement par équipements ou charges",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "R009",
+          "intitule": "Effondrement de matériel ou d’ouvrage",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "R010",
+          "intitule": "Ensevelissement et effondrement de tranchées",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "RREST001",
+          "intitule": "Coupures et blessures par objets tranchants",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R11",
+          "intitule": "Risque électrique et maintenance des équipements",
+          "secteur": "SANTE",
+          "criticite_score": 8
+        },
+        {
+          "id": "IND_R11",
+          "intitule": "Chocs électriques et électrocution",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "LOG006",
+          "intitule": "Écrasement et coincement",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR001",
+          "intitule": "Accidents liés aux machines et équipements agricoles",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 12
+        }
+      ]
+    },
+    "FAM02": {
+      "nom": "Risques physiques",
+      "risques": [
+        {
+          "id": "R004",
+          "intitule": "Vibrations mécaniques",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "R005",
+          "intitule": "Exposition au bruit",
+          "secteur": "BTP",
+          "criticite_score": 9
+        },
+        {
+          "id": "R018",
+          "intitule": "Incendie et explosion",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "RREST002",
+          "intitule": "Brûlures thermiques et chimiques",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "RREST005",
+          "intitule": "Risques liés aux ambiances thermiques",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "RREST008",
+          "intitule": "Risques liés au bruit",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "BUREAU002",
+          "intitule": "Fatigue visuelle et troubles oculaires",
+          "secteur": "BUREAU",
+          "criticite_score": 3
+        },
+        {
+          "id": "BUREAU007",
+          "intitule": "Risques électriques",
+          "secteur": "BUREAU",
+          "criticite_score": 4
+        },
+        {
+          "id": "BUREAU008",
+          "intitule": "Qualité de l'air intérieur et confinement",
+          "secteur": "BUREAU",
+          "criticite_score": 3
+        },
+        {
+          "id": "IND_R5",
+          "intitule": "Bruits et vibrations",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 9
+        },
+        {
+          "id": "IND_R6",
+          "intitule": "Risques thermiques et brûlures",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 8
+        },
+        {
+          "id": "LOG007",
+          "intitule": "Exposition au froid (chambres froides, hiver)",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SERV007",
+          "intitule": "Risques électriques",
+          "secteur": "SERVICES",
+          "criticite_score": 8
+        },
+        {
+          "id": "SERV008",
+          "intitule": "Exposition à la chaleur (canicule)",
+          "secteur": "SERVICES",
+          "criticite_score": 4
+        },
+        {
+          "id": "RAGR006",
+          "intitule": "Exposition aux conditions climatiques extrêmes",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR008",
+          "intitule": "Risques liés au bruit",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR010",
+          "intitule": "Risques électriques",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 8
+        },
+        {
+          "id": "EDU007",
+          "intitule": "Troubles de la voix",
+          "secteur": "EDUCATION",
+          "criticite_score": 3
+        }
+      ]
+    },
+    "FAM03": {
+      "nom": "Risques liés aux manutentions manuelles",
+      "risques": [
+        {
+          "id": "R003",
+          "intitule": "Manutentions manuelles et postures contraignantes",
+          "secteur": "BTP",
+          "criticite_score": 12
+        },
+        {
+          "id": "RREST004",
+          "intitule": "Troubles musculosquelettiques (TMS)",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "R1",
+          "intitule": "Manutention manuelle et postures contraignantes",
+          "secteur": "COMMERCE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R1",
+          "intitule": "Manutention de patients et activité physique",
+          "secteur": "SANTE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R1",
+          "intitule": "Manutentions manuelles et postures contraignantes",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "LOG002",
+          "intitule": "Troubles musculosquelettiques (TMS)",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SERV001",
+          "intitule": "Troubles musculosquelettiques (TMS)",
+          "secteur": "SERVICES",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR004",
+          "intitule": "Troubles musculosquelettiques (TMS)",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 6
+        }
+      ]
+    },
+    "FAM04": {
+      "nom": "Risques chimiques",
+      "risques": [
+        {
+          "id": "R011",
+          "intitule": "Exposition à l’amiante",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "R012",
+          "intitule": "Exposition à la silice cristalline",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "R013",
+          "intitule": "Exposition aux agents chimiques (solvants, peintures, résines, bitume, ciment)",
+          "secteur": "BTP",
+          "criticite_score": 9
+        },
+        {
+          "id": "R6",
+          "intitule": "Expositions à des agents chimiques (produits de nettoyage, ammoniac, pesticides)",
+          "secteur": "COMMERCE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R5",
+          "intitule": "Risque chimique (produits de nettoyage, gaz anesthésiques, médicaments)",
+          "secteur": "SANTE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R4",
+          "intitule": "Exposition aux produits chimiques et émissions",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R10",
+          "intitule": "Incendie et explosion",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R12",
+          "intitule": "Poussières et fumées (cancérigènes et irritantes)",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "SERV006",
+          "intitule": "Exposition aux produits chimiques ménagers",
+          "secteur": "SERVICES",
+          "criticite_score": 3
+        },
+        {
+          "id": "RAGR002",
+          "intitule": "Exposition aux produits phytosanitaires et engrais",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 9
+        },
+        {
+          "id": "EDU004",
+          "intitule": "Risques chimiques (laboratoires, ateliers)",
+          "secteur": "EDUCATION",
+          "criticite_score": 6
+        }
+      ]
+    },
+    "FAM05": {
+      "nom": "Risques biologiques",
+      "risques": [
+        {
+          "id": "R016",
+          "intitule": "Risques biologiques",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "RREST006",
+          "intitule": "Risques infectieux et biologiques",
+          "secteur": "RESTO",
+          "criticite_score": 4
+        },
+        {
+          "id": "R7",
+          "intitule": "Exposition à des agents biologiques et contamination alimentaire",
+          "secteur": "COMMERCE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R4",
+          "intitule": "Risque infectieux et biologique",
+          "secteur": "SANTE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R13",
+          "intitule": "Risques biologiques",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 4
+        },
+        {
+          "id": "SERV003",
+          "intitule": "Risques infectieux et biologiques",
+          "secteur": "SERVICES",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR003",
+          "intitule": "Risques liés aux animaux (morsures, coups, zoonoses)",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 6
+        },
+        {
+          "id": "EDU003",
+          "intitule": "Risques infectieux et biologiques",
+          "secteur": "EDUCATION",
+          "criticite_score": 6
+        }
+      ]
+    },
+    "FAM06": {
+      "nom": "Risques liés aux rayonnements",
+      "risques": [
+        {
+          "id": "R015",
+          "intitule": "Exposition aux rayonnements (UV, lasers, champs électromagnétiques, rayonnements ionisants)",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "IND_R7",
+          "intitule": "Radiations ionisantes et non ionisantes",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 8
+        }
+      ]
+    },
+    "FAM07": {
+      "nom": "Risques psychosociaux",
+      "risques": [
+        {
+          "id": "R017",
+          "intitule": "Risques psychosociaux (RPS)",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "RREST007",
+          "intitule": "Stress et risques psychosociaux",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "BUREAU003",
+          "intitule": "Risques psychosociaux (stress, charge mentale)",
+          "secteur": "BUREAU",
+          "criticite_score": 6
+        },
+        {
+          "id": "R5",
+          "intitule": "Risques psychosociaux (stress, agressions, incivilités)",
+          "secteur": "COMMERCE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R7",
+          "intitule": "Risques psychosociaux et charge émotionnelle",
+          "secteur": "SANTE",
+          "criticite_score": 12
+        },
+        {
+          "id": "SANTE_R9",
+          "intitule": "Violences et agressions externes",
+          "secteur": "SANTE",
+          "criticite_score": 8
+        },
+        {
+          "id": "IND_R9",
+          "intitule": "Risques psychosociaux (RPS)",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 9
+        },
+        {
+          "id": "SERV004",
+          "intitule": "Risques psychosociaux et violences",
+          "secteur": "SERVICES",
+          "criticite_score": 6
+        },
+        {
+          "id": "EDU002",
+          "intitule": "Risques psychosociaux et violences",
+          "secteur": "EDUCATION",
+          "criticite_score": 6
+        }
+      ]
+    },
+    "FAM08": {
+      "nom": "Risques liés aux circulations et déplacements",
+      "risques": [
+        {
+          "id": "R001",
+          "intitule": "Chutes de hauteur",
+          "secteur": "BTP",
+          "criticite_score": 12
+        },
+        {
+          "id": "R002",
+          "intitule": "Chutes de plain‑pied et glissades",
+          "secteur": "BTP",
+          "criticite_score": 6
+        },
+        {
+          "id": "R007",
+          "intitule": "Collisions entre engins et piétons",
+          "secteur": "BTP",
+          "criticite_score": 12
+        },
+        {
+          "id": "R008",
+          "intitule": "Risque routier (trajets et missions)",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "RREST003",
+          "intitule": "Chutes de plain-pied et glissades",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "RREST010",
+          "intitule": "Risques routiers (livraisons, déplacements professionnels)",
+          "secteur": "RESTO",
+          "criticite_score": 6
+        },
+        {
+          "id": "BUREAU004",
+          "intitule": "Chutes de plain-pied et glissades",
+          "secteur": "BUREAU",
+          "criticite_score": 4
+        },
+        {
+          "id": "BUREAU005",
+          "intitule": "Risque routier (déplacements professionnels)",
+          "secteur": "BUREAU",
+          "criticite_score": 8
+        },
+        {
+          "id": "R2",
+          "intitule": "Chutes de plain‑pied et glissades",
+          "secteur": "COMMERCE",
+          "criticite_score": 9
+        },
+        {
+          "id": "R9",
+          "intitule": "Risques routiers et déplacements professionnels",
+          "secteur": "COMMERCE",
+          "criticite_score": 8
+        },
+        {
+          "id": "SANTE_R2",
+          "intitule": "Chutes de plain‑pied et de hauteur",
+          "secteur": "SANTE",
+          "criticite_score": 9
+        },
+        {
+          "id": "SANTE_R3",
+          "intitule": "Risque routier (déplacements et transports)",
+          "secteur": "SANTE",
+          "criticite_score": 8
+        },
+        {
+          "id": "IND_R2",
+          "intitule": "Chutes de hauteur et de plain‑pied",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "IND_R8",
+          "intitule": "Circulation interne et risque routier",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "LOG001",
+          "intitule": "Accidents de la route et risque routier",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 12
+        },
+        {
+          "id": "LOG003",
+          "intitule": "Chutes de plain-pied et glissades",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 6
+        },
+        {
+          "id": "LOG004",
+          "intitule": "Chutes de hauteur",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 8
+        },
+        {
+          "id": "LOG005",
+          "intitule": "Collision avec engins de manutention",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 8
+        },
+        {
+          "id": "SERV002",
+          "intitule": "Risques routiers et déplacements",
+          "secteur": "SERVICES",
+          "criticite_score": 12
+        },
+        {
+          "id": "SERV005",
+          "intitule": "Chutes de plain-pied et dans les escaliers",
+          "secteur": "SERVICES",
+          "criticite_score": 6
+        },
+        {
+          "id": "RAGR005",
+          "intitule": "Risques routiers et circulation sur l'exploitation",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 9
+        },
+        {
+          "id": "RAGR007",
+          "intitule": "Risques de chutes de hauteur",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 8
+        },
+        {
+          "id": "EDU006",
+          "intitule": "Chutes de plain-pied et dans les escaliers",
+          "secteur": "EDUCATION",
+          "criticite_score": 4
+        }
+      ]
+    },
+    "FAM09": {
+      "nom": "Risques liés à l'activité physique",
+      "risques": [
+        {
+          "id": "BUREAU001",
+          "intitule": "Troubles musculosquelettiques (TMS) liés au travail sur écran",
+          "secteur": "BUREAU",
+          "criticite_score": 6
+        },
+        {
+          "id": "R4",
+          "intitule": "Troubles musculo‑squelettiques liés aux gestes répétitifs et postures statiques",
+          "secteur": "COMMERCE",
+          "criticite_score": 8
+        },
+        {
+          "id": "EDU001",
+          "intitule": "Troubles musculosquelettiques (TMS)",
+          "secteur": "EDUCATION",
+          "criticite_score": 6
+        }
+      ]
+    },
+    "FAM10": {
+      "nom": "Risques liés aux équipements de travail",
+      "risques": [
+        {
+          "id": "R014",
+          "intitule": "Risque électrique",
+          "secteur": "BTP",
+          "criticite_score": 8
+        },
+        {
+          "id": "RREST009",
+          "intitule": "Risques d'incendie et d'explosion",
+          "secteur": "RESTO",
+          "criticite_score": 8
+        },
+        {
+          "id": "BUREAU006",
+          "intitule": "Incendie et évacuation",
+          "secteur": "BUREAU",
+          "criticite_score": 8
+        },
+        {
+          "id": "R3",
+          "intitule": "Coupures et blessures par outils ou machines",
+          "secteur": "COMMERCE",
+          "criticite_score": 6
+        },
+        {
+          "id": "R8",
+          "intitule": "Exposition au froid, au chaud et au bruit",
+          "secteur": "COMMERCE",
+          "criticite_score": 4
+        },
+        {
+          "id": "R10",
+          "intitule": "Incendie, explosion et électricité",
+          "secteur": "COMMERCE",
+          "criticite_score": 4
+        },
+        {
+          "id": "SANTE_R6",
+          "intitule": "Exposition aux rayonnements ionisants et non ionisants",
+          "secteur": "SANTE",
+          "criticite_score": 8
+        },
+        {
+          "id": "SANTE_R8",
+          "intitule": "Horaires atypiques (travail de nuit et travail posté)",
+          "secteur": "SANTE",
+          "criticite_score": 6
+        },
+        {
+          "id": "SANTE_R10",
+          "intitule": "Coupures, piqûres et risques liés aux équipements de travail",
+          "secteur": "SANTE",
+          "criticite_score": 12
+        },
+        {
+          "id": "SANTE_R12",
+          "intitule": "Incendie, explosion et atmosphères explosives",
+          "secteur": "SANTE",
+          "criticite_score": 4
+        },
+        {
+          "id": "SANTE_R13",
+          "intitule": "Bruit et ambiance sonore",
+          "secteur": "SANTE",
+          "criticite_score": 4
+        },
+        {
+          "id": "SANTE_R14",
+          "intitule": "Vibrations et positions statiques",
+          "secteur": "SANTE",
+          "criticite_score": 4
+        },
+        {
+          "id": "IND_R3",
+          "intitule": "Blessures, amputations et écrasement par machines",
+          "secteur": "INDUSTRIE",
+          "criticite_score": 12
+        },
+        {
+          "id": "LOG008",
+          "intitule": "Incendie et explosion",
+          "secteur": "LOGISTIQUE",
+          "criticite_score": 8
+        },
+        {
+          "id": "RAGR009",
+          "intitule": "Risques d'incendie et d'explosion",
+          "secteur": "AGRICULTURE",
+          "criticite_score": 8
+        },
+        {
+          "id": "EDU005",
+          "intitule": "Incendie et évacuation",
+          "secteur": "EDUCATION",
+          "criticite_score": 8
+        },
+        {
+          "id": "EDU008",
+          "intitule": "Risques liés aux activités sportives (EPS)",
+          "secteur": "EDUCATION",
+          "criticite_score": 4
+        }
+      ]
+    }
+  }
+}

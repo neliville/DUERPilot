@@ -1,0 +1,559 @@
+{
+  "secteur": {
+    "nom": "Services à la personne",
+    "code": "SERVICES",
+    "code_naf": "Q (87-88)",
+    "description": "Le secteur des services à la personne comprend l'aide à domicile auprès de personnes âgées, handicapées ou dépendantes, les services de ménage, de garde d'enfants, d'accompagnement et d'assistance. Les activités incluent les soins d'hygiène, l'aide aux déplacements, l'entretien du domicile, la préparation des repas et l'accompagnement social."
+  },
+  "risques": [
+    {
+      "id": "SERV001",
+      "intitule": "Troubles musculosquelettiques (TMS)",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Manutention de personnes, port de charges",
+      "famille_inrs": "3 (manutentions manuelles)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Aide aux transferts et à la mobilité (lit, fauteuil, toilettes)",
+        "Toilette et habillage de personnes dépendantes",
+        "Port de courses et charges lourdes",
+        "Ménage (aspirateur, repassage, nettoyage)",
+        "Postures contraignantes (penché, accroupi, bras levés)",
+        "Gestes répétitifs d'entretien"
+      ],
+      "dangers": [
+        "Manutention de personnes sans aide technique",
+        "Postures en porte-à-faux (lit bas, baignoire)",
+        "Gestes répétitifs (ménage, repassage)",
+        "Port de charges (courses, linge)",
+        "Absence de pauses et cadences soutenues",
+        "Espaces restreints et mobilier inadapté au domicile"
+      ],
+      "dommages_potentiels": [
+        "Lombalgies et hernies discales",
+        "Tendinites des épaules et coudes",
+        "Syndrome du canal carpien",
+        "Gonarthrose",
+        "Douleurs chroniques multiples"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des aides techniques (lève-personne, draps de glisse, disques de transfert)",
+          "Équiper de matériel de ménage ergonomique (aspirateurs légers, manches télescopiques)",
+          "Prévoir des chariots pour le transport de charges",
+          "Fournir des sièges pliants pour certaines tâches"
+        ],
+        "organisationnelle": [
+          "Former aux gestes et postures, aux manutentions de personnes",
+          "Planifier des interventions réalistes en durée",
+          "Adapter le nombre d'intervenants selon la dépendance",
+          "Prévoir des temps de récupération entre interventions",
+          "Évaluer les situations à domicile et adapter les moyens",
+          "Organiser des binômes pour les personnes lourdes"
+        ],
+        "individuelle": [
+          "Utiliser systématiquement les aides techniques",
+          "Adopter les bonnes postures enseignées",
+          "Faire des pauses et étirements",
+          "Porter des chaussures adaptées",
+          "Signaler rapidement les douleurs"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail (manutentions)",
+        "Recommandation R546 (CNAMTS) - Manutention de personnes"
+      ],
+      "ressources_inrs": [
+        "ED 6296 - Aide à domicile",
+        "ED 6285 - Manutention de personnes",
+        "TMS Pros - Aide à domicile"
+      ]
+    },
+    {
+      "id": "SERV002",
+      "intitule": "Risques routiers et déplacements",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements domicile-domicile",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Critique"
+      },
+      "situations_travail": [
+        "Déplacements multiples entre domiciles des bénéficiaires",
+        "Conduite en milieu urbain dense",
+        "Utilisation de véhicules personnels",
+        "Trajets par tous temps et horaires",
+        "Pression pour respecter les plannings serrés"
+      ],
+      "dangers": [
+        "Nombreux trajets quotidiens (10-15/jour)",
+        "Fatigue liée aux déplacements",
+        "Stress des plannings serrés",
+        "Conditions météorologiques défavorables",
+        "Véhicules personnels parfois mal entretenus",
+        "Utilisation du téléphone pour coordonner"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la route graves ou mortels",
+        "Polytraumatismes",
+        "Invalidité",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des véhicules de service ou indemnités kilométriques",
+          "Équiper de GPS et téléphones mains-libres",
+          "Optimiser les tournées géographiquement",
+          "Limiter les distances entre interventions"
+        ],
+        "organisationnelle": [
+          "Planifier des horaires réalistes avec temps de trajet",
+          "Regrouper les interventions par secteur",
+          "Former à la conduite préventive et éco-conduite",
+          "Établir une charte de sécurité routière",
+          "Prévoir des temps de pause entre interventions",
+          "Adapter les plannings en cas d'intempéries"
+        ],
+        "individuelle": [
+          "Respecter le code de la route",
+          "Porter la ceinture de sécurité",
+          "Adapter la vitesse aux conditions",
+          "Ne pas téléphoner en conduisant",
+          "Signaler les difficultés de planning"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de la route",
+        "Articles R4543-1 à R4543-13 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier en mission",
+        "ED 6296 - Aide à domicile"
+      ]
+    },
+    {
+      "id": "SERV003",
+      "intitule": "Risques infectieux et biologiques",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Contact avec agents infectieux",
+      "famille_inrs": "5 (risques biologiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Soins d'hygiène et toilette de personnes",
+        "Aide à l'élimination (changes, bassins)",
+        "Contact avec liquides biologiques (urine, selles, sang)",
+        "Nettoyage de surfaces souillées",
+        "Traitement du linge sale",
+        "Gestion des déchets de soins"
+      ],
+      "dangers": [
+        "Contact avec excréta et liquides biologiques",
+        "Piqûres accidentelles (aiguilles de diabétiques)",
+        "Exposition à des personnes malades contagieuses",
+        "Hygiène des mains insuffisante",
+        "Absence ou non-port d'EPI",
+        "Locaux insalubres chez certains bénéficiaires"
+      ],
+      "dommages_potentiels": [
+        "Infections (gastro-entérites, grippe, COVID-19)",
+        "Hépatites B et C",
+        "Infections cutanées",
+        "Gale, mycoses",
+        "Maladies transmissibles"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des EPI adaptés et en quantité (gants, masques, surblouses)",
+          "Mettre à disposition du gel hydroalcoolique",
+          "Fournir des conteneurs à aiguilles (DASRI)",
+          "Équiper de sacs pour linge sale",
+          "Proposer des vaccinations (hépatite B, grippe, COVID-19)"
+        ],
+        "organisationnelle": [
+          "Former aux précautions standard d'hygiène",
+          "Établir des protocoles de soins d'hygiène",
+          "Organiser la vaccination du personnel",
+          "Prévoir des procédures en cas d'AES (accident d'exposition au sang)",
+          "Évaluer l'état sanitaire des logements",
+          "Sensibiliser les bénéficiaires à l'hygiène"
+        ],
+        "individuelle": [
+          "Se laver les mains systématiquement (avant/après chaque intervention)",
+          "Porter des gants pour les soins d'hygiène",
+          "Utiliser des surblouses si risque de projection",
+          "Porter un masque si personne malade",
+          "Se faire vacciner",
+          "Couvrir les plaies avec pansements étanches"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421-1 à R4421-5 du Code du travail (risques biologiques)",
+        "Arrêté du 10 juillet 2013 (risques biologiques)"
+      ],
+      "ressources_inrs": [
+        "ED 6022 - Risques biologiques",
+        "ED 6296 - Aide à domicile"
+      ]
+    },
+    {
+      "id": "SERV004",
+      "intitule": "Risques psychosociaux et violences",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Charge mentale, isolement, violences",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travail isolé au domicile des bénéficiaires",
+        "Charge émotionnelle (maladie, dépendance, décès)",
+        "Relations difficiles avec bénéficiaires ou familles",
+        "Agressions verbales ou physiques",
+        "Plannings morcelés et temps partiels subis",
+        "Manque de reconnaissance professionnelle"
+      ],
+      "dangers": [
+        "Isolement professionnel (travail seul à domicile)",
+        "Confrontation à la souffrance et à la mort",
+        "Agressions verbales (reproches, insultes)",
+        "Agressions physiques (personnes confuses, alzheimer)",
+        "Harcèlement moral de bénéficiaires ou familles",
+        "Charge de travail intense et horaires fractionnés",
+        "Précarité (CDD, temps partiel, bas salaires)"
+      ],
+      "dommages_potentiels": [
+        "Stress chronique et burn-out",
+        "Anxiété et dépression",
+        "Troubles du sommeil",
+        "Syndrome de stress post-traumatique (après agression)",
+        "Absentéisme",
+        "Abandon du métier"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des systèmes d'alerte (PTI, téléphone)",
+          "Organiser des temps d'échange collectifs réguliers",
+          "Créer un réseau de soutien entre pairs",
+          "Aménager des lieux de pause et de rencontre"
+        ],
+        "organisationnelle": [
+          "Former à la gestion des situations difficiles",
+          "Mettre en place un dispositif d'écoute et de soutien psychologique",
+          "Organiser des réunions d'équipe et analyses de pratiques",
+          "Établir des procédures en cas d'agression",
+          "Valoriser le travail et les compétences",
+          "Proposer des contrats stables et temps pleins",
+          "Prévoir des solutions de repli (binômes, signalement)",
+          "Ne pas isoler les professionnels en difficulté"
+        ],
+        "individuelle": [
+          "Participer aux temps d'échange collectifs",
+          "Signaler les situations difficiles ou dangereuses",
+          "Solliciter le soutien de l'encadrement",
+          "Prendre soin de soi (activités, repos)",
+          "Utiliser les dispositifs d'alerte si besoin"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 à L4121-5 du Code du travail",
+        "Accord national interprofessionnel sur les RPS",
+        "Loi du 6 août 2012 (harcèlement sexuel)"
+      ],
+      "ressources_inrs": [
+        "ED 6140 - Risques psychosociaux",
+        "ED 6296 - Aide à domicile",
+        "ED 6250 - Violences au travail"
+      ]
+    },
+    {
+      "id": "SERV005",
+      "intitule": "Chutes de plain-pied et dans les escaliers",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Chutes, glissades",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Déplacements dans des logements encombrés",
+        "Accès à des immeubles sans ascenseur",
+        "Montée/descente d'escaliers multiples fois par jour",
+        "Sols glissants après nettoyage",
+        "Aide à la marche des bénéficiaires (risque de chute entraînée)",
+        "Port de charges dans les escaliers"
+      ],
+      "dangers": [
+        "Logements mal rangés et encombrés",
+        "Tapis non fixés, fils électriques au sol",
+        "Éclairage insuffisant",
+        "Escaliers sans rampes ou en mauvais état",
+        "Sols glissants (cire, produits)",
+        "Précipitation liée aux plannings",
+        "Port de charges dans les escaliers"
+      ],
+      "dommages_potentiels": [
+        "Entorses et fractures",
+        "Traumatismes crâniens",
+        "Lombalgies suite à faux mouvements",
+        "Arrêts de travail prolongés"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des lampes frontales ou torches",
+          "Équiper de chaussures antidérapantes",
+          "Fournir des chariots pour monter les courses"
+        ],
+        "organisationnelle": [
+          "Évaluer les risques à chaque domicile",
+          "Sensibiliser les bénéficiaires au rangement",
+          "Adapter le temps d'intervention pour éviter la précipitation",
+          "Former aux techniques de déplacement sécuritaires",
+          "Prévoir des interventions à plusieurs si escaliers difficiles"
+        ],
+        "individuelle": [
+          "Porter des chaussures antidérapantes fermées",
+          "Utiliser les rampes d'escalier",
+          "Éclairer les zones sombres",
+          "Ne pas courir, adapter sa vitesse",
+          "Ranger les obstacles rencontrés",
+          "Signaler les situations dangereuses"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Chutes de plain-pied",
+        "ED 6296 - Aide à domicile"
+      ]
+    },
+    {
+      "id": "SERV006",
+      "intitule": "Exposition aux produits chimiques ménagers",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Produits d'entretien",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Faible",
+        "score": 3,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Utilisation de détergents, dégraissants, désinfectants",
+        "Nettoyage de sanitaires (javel, détartrants acides)",
+        "Utilisation de produits fournis par les bénéficiaires",
+        "Mélange accidentel de produits incompatibles",
+        "Absence de ventilation pendant l'utilisation"
+      ],
+      "dangers": [
+        "Inhalation de vapeurs irritantes",
+        "Contact cutané répété avec détergents",
+        "Projections oculaires",
+        "Mélange javel/acide (dégagement de chlore)",
+        "Produits non étiquetés ou dosages inadaptés",
+        "Espaces confinés mal ventilés"
+      ],
+      "dommages_potentiels": [
+        "Irritations cutanées et dermatoses",
+        "Eczéma des mains",
+        "Irritations respiratoires et asthme",
+        "Intoxications aiguës (mélanges dangereux)",
+        "Allergies"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des produits d'entretien écolabellisés peu dangereux",
+          "Équiper de pulvérisateurs pour éviter les vapeurs",
+          "Fournir des gants résistants aux produits chimiques",
+          "Mettre à disposition des lunettes de protection"
+        ],
+        "organisationnelle": [
+          "Former aux risques chimiques et aux FDS",
+          "Interdire les mélanges de produits",
+          "Privilégier les produits prêts à l'emploi (dosage)",
+          "Sensibiliser à la ventilation pendant l'utilisation",
+          "Établir des fiches réflexe par produit",
+          "Sensibiliser les bénéficiaires aux risques"
+        ],
+        "individuelle": [
+          "Porter des gants pour tous les travaux de nettoyage",
+          "Lire les étiquettes et respecter les dosages",
+          "Ne jamais mélanger les produits",
+          "Aérer pendant et après utilisation",
+          "Se laver les mains après usage",
+          "Utiliser les lunettes si risque de projection"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-1 à R4412-57 du Code du travail (risques chimiques)",
+        "Règlement CLP (étiquetage)"
+      ],
+      "ressources_inrs": [
+        "ED 6026 - Produits chimiques",
+        "ED 6296 - Aide à domicile"
+      ]
+    },
+    {
+      "id": "SERV007",
+      "intitule": "Risques électriques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Contact électrique",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation d'appareils électriques (aspirateur, fer à repasser)",
+        "Nettoyage à proximité de prises et appareils électriques",
+        "Utilisation d'eau près de sources électriques",
+        "Installations vétustes au domicile des bénéficiaires",
+        "Branchement/débranchement d'appareils"
+      ],
+      "dangers": [
+        "Installations électriques non conformes chez bénéficiaires",
+        "Prises et câbles endommagés",
+        "Utilisation d'eau à proximité de prises",
+        "Appareils défectueux",
+        "Absence de mise à la terre"
+      ],
+      "dommages_potentiels": [
+        "Électrisation",
+        "Électrocution",
+        "Brûlures",
+        "Chutes provoquées par le choc",
+        "Arrêt cardiaque"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir du matériel électrique aux normes",
+          "Équiper les appareils de câbles renforcés",
+          "Fournir des rallonges conformes si nécessaires"
+        ],
+        "organisationnelle": [
+          "Former aux risques électriques",
+          "Vérifier l'état des équipements régulièrement",
+          "Établir une procédure de signalement des installations dangereuses",
+          "Sensibiliser les bénéficiaires aux risques",
+          "Interdire l'intervention sur installations défectueuses"
+        ],
+        "individuelle": [
+          "Vérifier l'état des câbles et prises avant usage",
+          "Débrancher les appareils avant nettoyage",
+          "Ne jamais toucher un appareil avec les mains mouillées",
+          "Éloigner l'eau des prises et appareils",
+          "Signaler les installations défectueuses",
+          "Ne pas intervenir sur installations électriques"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4215-1 à R4215-17 du Code du travail",
+        "Norme NFC 15-100"
+      ],
+      "ressources_inrs": [
+        "ED 6187 - Prévention du risque électrique"
+      ]
+    },
+    {
+      "id": "SERV008",
+      "intitule": "Exposition à la chaleur (canicule)",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Températures extrêmes",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Travail estival sans climatisation chez bénéficiaires",
+        "Activités physiques (ménage, transferts) par forte chaleur",
+        "Déplacements multiples en extérieur l'été",
+        "Repassage et cuisine par temps chaud",
+        "Bénéficiaires surchauffant leur logement"
+      ],
+      "dangers": [
+        "Températures élevées dans les logements (>30°C)",
+        "Activité physique soutenue par forte chaleur",
+        "Déshydratation",
+        "Absence de climatisation ou ventilation",
+        "Accumulation de fatigue sur la journée"
+      ],
+      "dommages_potentiels": [
+        "Déshydratation",
+        "Coup de chaleur",
+        "Malaise",
+        "Crampes",
+        "Fatigue accrue"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des bouteilles d'eau",
+          "Fournir des ventilateurs portatifs si nécessaire"
+        ],
+        "organisationnelle": [
+          "Adapter les horaires (interventions tôt le matin ou tard)",
+          "Prévoir des pauses régulières",
+          "Déclencher le plan canicule si nécessaire",
+          "Sensibiliser les bénéficiaires à aérer et ventiler",
+          "Alléger certaines tâches physiques en période chaude"
+        ],
+        "individuelle": [
+          "S'hydrater régulièrement (1,5L d'eau/jour minimum)",
+          "Porter des vêtements légers et amples",
+          "Utiliser un brumisateur",
+          "Faire des pauses à l'ombre ou au frais",
+          "Signaler les signes d'alerte (vertiges, nausées)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4223-13 à R4223-15 du Code du travail",
+        "Plan canicule"
+      ],
+      "ressources_inrs": [
+        "ED 931 - Travail par forte chaleur",
+        "ED 6147 - Chaleur d'été"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "48 pour 1000 salariés (2020, CNAMTS)",
+    "accidents_graves": "TMS (60%), chutes (20%), risque routier (15%)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 85% des MP",
+      "Lombalgies (tableau 98)",
+      "Dermatoses (tableaux 65, 95)",
+      "Affections respiratoires"
+    ]
+  },
+  "sources": [
+    "INRS - Services à la personne",
+    "ED 6296 - Aide et soins à domicile",
+    "CNAMTS - Statistiques AT/MP",
+    "Code du travail",
+    "Recommandation R546 (manutention de personnes)"
+  ]
+}

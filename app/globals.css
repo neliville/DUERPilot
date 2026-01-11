@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fond principal : Gris très clair #F5F7FA */
+    --background: 210 20% 96%;
+    /* Texte principal : Gris foncé #1F2933 */
+    --foreground: 210 23% 18%;
+    /* Card : Fond principal */
+    --card: 210 20% 96%;
+    --card-foreground: 210 23% 18%;
+    /* Popover : Fond principal */
+    --popover: 210 20% 96%;
+    --popover-foreground: 210 23% 18%;
+    /* Primaire : Bleu QSE #2563EB */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    /* Secondaire : Fond secondaire (Gris clair #E5E7EB) */
+    --secondary: 210 13% 91%;
+    --secondary-foreground: 210 23% 18%;
+    /* Muted : Fond secondaire */
+    --muted: 210 13% 91%;
+    /* Texte secondaire : Gris moyen #6B7280 */
+    --muted-foreground: 210 11% 47%;
+    /* Accent discret : Bleu clair #93C5FD */
+    --accent: 213 93% 68%;
+    --accent-foreground: 210 23% 18%;
+    /* Erreur : Rouge #DC2626 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    /* Border : Fond secondaire */
+    --border: 210 13% 91%;
+    --input: 210 13% 91%;
+    /* Ring : Primaire */
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+    /* Chart colors */
+    --chart-1: 221 83% 53%;
+    --chart-2: 142 76% 36%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 213 93% 68%;
+    
+    /* Couleurs personnalisées supplémentaires */
+    /* Succès : Vert doux #16A34A */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    /* Alerte : Orange #F59E0B */
+    --alert: 38 92% 50%;
+    --alert-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Amélioration de la lisibilité pour les textes */
+  p, span, div, li, td, th {
+    @apply text-base;
+    font-weight: 400;
+  }
+  
+  /* Titres avec poids plus élevé pour meilleure lisibilité */
+  h1 {
+    @apply text-4xl font-bold;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+  
+  h4 {
+    @apply text-xl font-semibold;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+  
+  h5 {
+    @apply text-lg font-medium;
+    line-height: 1.6;
+  }
+  
+  h6 {
+    @apply text-base font-medium;
+    line-height: 1.6;
+  }
+  
+  /* Amélioration du contraste pour les textes secondaires */
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+    font-weight: 400;
+  }
+  
+  /* Textes dans les tableaux avec meilleure lisibilité */
+  table {
+    @apply text-base;
+  }
+  
+  th {
+    @apply font-semibold;
+  }
+  
+  td {
+    @apply font-normal;
+  }
+  
+  /* Labels et inputs avec meilleure lisibilité */
+  label {
+    @apply text-sm font-medium;
+  }
+  
+  input, textarea, select {
+    @apply text-base;
+    font-weight: 400;
+  }
+  
+  /* Boutons avec texte plus lisible */
+  button {
+    @apply font-medium;
+  }
+  
+  /* Liens sans soulignement */
+  a {
+    @apply font-medium;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  
+  /* Liens dans les textes avec couleur primaire */
+  a:not(.no-style) {
+    color: hsl(var(--primary));
+  }
+  
+  a:not(.no-style):hover {
+    color: hsl(var(--primary));
+    opacity: 0.8;
+  }
+}
+
+/* Accessibilité : Focus visible pour tous les éléments interactifs */
+@layer utilities {
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  }
+  
+  /* Screen reader only - pour les éléments cachés visuellement mais accessibles aux lecteurs d'écran */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .sr-only-focusable:focus,
+  .sr-only-focusable:active {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+

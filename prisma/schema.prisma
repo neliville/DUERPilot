@@ -1,0 +1,987 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tenant {
+  id                        String                      @id @default(cuid())
+  name                      String
+  slug                      String                      @unique
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @updatedAt
+  auditLogs                 AuditLog[]
+  companies                 Company[]
+  duerpVersions             DuerpVersion[]
+  hazardRefs                HazardRef[]
+  observations              Observation[]
+  users                     UserProfile[]
+  imports                   DuerpImport[]
+  aiUsageLogs               AIUsageLog[]
+  subscription              Subscription?
+  emailLogs                 EmailLog[]
+  activitySectors           ActivitySector[]
+  dangerousSituations       DangerousSituation[]
+  duerpilotReferences       DuerpilotReference[]
+  papripact                 PAPRIPACT[]
+  participationTravailleurs ParticipationTravailleurs[]
+
+  @@index([slug])
+  @@map("tenants")
+}
+
+model Company {
+  id                        String                      @id @default(cuid())
+  tenantId                  String
+  legalName                 String
+  siret                     String?                     @unique
+  activity                  String?
+  sector                    String?
+  nafCode                   String? // Code NAF (optionnel mais recommandé)
+  employeeCount             Int? // Effectif total (obligatoire pour PAPRIPACT si >= 50)
+  address                   String?
+  city                      String?
+  postalCode                String?
+  country                   String                      @default("France")
+  phone                     String?
+  email                     String?
+  website                   String?
+  hasCSE                    Boolean                     @default(false)
+  logoUrl                   String? // URL logo entreprise (bucket duerpilot-company-logos)
+  // Champs de traçabilité DUERP (conformité réglementaire)
+  duerpCreationDate         DateTime? // Date de création du DUERP (première version)
+  duerpLastUpdateDate       DateTime? // Date de dernière mise à jour
+  duerpLastUpdateReason     String? // Justification de la dernière mise à jour (modification conditions, nouvel équipement, accident, annuel, etc.)
+  // Champs admin
+  lastDuerpGeneration       DateTime?
+  lastActivity              DateTime?
+  methodsUsed               String[]                    @default([]) // duerp_generique, inrs
+  subscriptionId            String?
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @updatedAt
+  tenant                    Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  duerpVersions             DuerpVersion[]
+  sites                     Site[]
+  aiUsageLogs               AIUsageLog[]
+  subscription              Subscription?               @relation(fields: [subscriptionId], references: [id], onDelete: SetNull)
+  papripact                 PAPRIPACT[] // PAPRIPACT (si employeeCount >= 50) - un par année
+  participationTravailleurs ParticipationTravailleurs[]
+
+  @@index([tenantId])
+  @@index([siret])
+  @@index([subscriptionId])
+  @@index([employeeCount]) // Pour calculer si PAPRIPACT requis
+  @@map("companies")
+}
+
+model Site {
+  id            String     @id @default(cuid())
+  companyId     String
+  name          String
+  address       String?
+  city          String?
+  postalCode    String?
+  country       String     @default("France")
+  employeeCount Int?
+  isMainSite    Boolean    @default(false)
+  status        String     @default("active")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  company       Company    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  workUnits     WorkUnit[]
+
+  @@index([companyId])
+  @@map("sites")
+}
+
+model WorkUnit {
+  id                String   @id @default(cuid())
+  siteId            String
+  name              String
+  description       String?
+  exposedCount      Int?
+  responsibleName   String?
+  responsibleEmail  String?
+  suggestedSectorId String? // Nouveau champ
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  site            Site             @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  suggestedSector ActivitySector?  @relation("SectorSuggestions", fields: [suggestedSectorId], references: [id])
+  actionPlans     ActionPlan[]
+  observations    Observation[]
+  riskAssessments RiskAssessment[]
+  assignedUsers   UserProfile[]    @relation("WorkUnitAssignments")
+
+  @@index([siteId])
+  @@index([suggestedSectorId])
+  @@map("work_units")
+}
+
+model HazardRef {
+  id            String   @id @default(cuid())
+  tenantId      String?
+  category      String
+  shortLabel    String
+  description   String?
+  examples      String?
+  keywords      String[]
+  normativeRefs String[]
+  isCustom      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  tenant        Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([category])
+  @@index([shortLabel])
+  @@map("hazard_refs")
+}
+
+// ============================================
+// RÉFÉRENTIEL DUERP PROPRIÉTAIRE
+// ============================================
+
+model ActivitySector {
+  id          String   @id @default(cuid())
+  code        String   @unique // Ex: "BTP", "RESTO", "BUREAU"
+  label       String // Ex: "Bâtiment et travaux publics"
+  description String?
+  order       Int? // Ordre d'affichage
+  active      Boolean  @default(true)
+  isCustom    Boolean  @default(false) // Secteur personnalisé par tenant
+  tenantId    String? // null = secteur global, sinon tenant-specific
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant             Tenant?    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  suggestedWorkUnits WorkUnit[] @relation("SectorSuggestions")
+
+  @@index([tenantId])
+  @@index([code])
+  @@index([active])
+  @@map("activity_sectors")
+}
+
+// ============================================
+// RÉFÉRENTIELS SECTORIELS DE RISQUES
+// ============================================
+
+// Référentiel sectoriel complet (versionnable, non modifiable)
+model SectorRiskReference {
+  id         String   @id @default(cuid())
+  sectorCode String // Code du secteur (BTP, RESTO, etc.)
+  version    String   @default("1.0.0") // Version du référentiel
+  sourceFile String // Nom du fichier source (risques_btp.json)
+  sectorData Json // Données complètes du secteur (nom, code_naf, description)
+  risksData  Json // Données complètes des risques (array)
+  importedAt DateTime @default(now())
+  isActive   Boolean  @default(true)
+
+  risks SectorRiskItem[]
+
+  @@unique([sectorCode, version])
+  @@index([sectorCode])
+  @@index([isActive])
+  @@map("sector_risk_references")
+}
+
+// Risques individuels extraits du référentiel (pour recherche et sélection)
+model SectorRiskItem {
+  id                       String   @id @default(cuid())
+  referenceId              String
+  riskId                   String // ID du risque dans le JSON (ex: "R001", "RAGR001")
+  intitule                 String // Titre du risque
+  categoriePrincipale      String // Catégorie principale
+  sousCategorie            String? // Sous-catégorie
+  familleInrs              String? // Famille INRS (stockée mais non affichée)
+  situationsTravail        String[] // Array de situations de travail
+  dangers                  String[] // Array de dangers
+  dommagesPotentiels       String[] // Array de dommages
+  preventionCollective     String[] // Mesures de prévention collective
+  preventionOrga           String[] // Mesures organisationnelles
+  preventionIndividuelle   String[] // Mesures individuelles
+  referencesReglementaires String[] // Références réglementaires
+  ressourcesInrs           String[] // Ressources INRS (stockées mais non affichées)
+  criticiteFrequence       String? // Fréquence (Fréquente, Occasionnelle, etc.)
+  criticiteGravite         String? // Gravité (Très grave, Grave, etc.)
+  criticiteScore           Int? // Score de criticité
+  criticiteNiveau          String? // Niveau (Critique, Élevé, etc.)
+  fullData                 Json // Données complètes du risque (pour référence)
+  createdAt                DateTime @default(now())
+
+  reference SectorRiskReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@index([referenceId])
+  @@index([categoriePrincipale])
+  @@index([intitule])
+  @@index([riskId])
+  @@map("sector_risk_items")
+}
+
+// ============================================
+// RÉFÉRENTIEL CENTRAL CONSOLIDÉ DUERPILOT
+// ============================================
+
+// Référentiel central consolidé (socle métier principal)
+model DuerpilotReference {
+  id           String   @id @default(cuid())
+  version      String   @default("1.0.0")
+  dateCreation DateTime @default(now())
+  description  String?
+  isActive     Boolean  @default(true)
+  fullData     Json // Données complètes du référentiel (metadata + secteurs)
+  tenantId     String? // null = global, sinon tenant-specific
+
+  tenant           Tenant?               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  risks            DuerpilotRisk[]
+  taxonomyFamilies TaxonomyFamily[]
+  prevalenceMatrix RiskPrevalence[]
+  transversalRisks TransversalRisk[]
+  regulatoryRefs   RegulatoryReference[]
+
+  @@unique([version, tenantId])
+  @@index([isActive])
+  @@index([version])
+  @@index([tenantId])
+  @@map("duerpilot_references")
+}
+
+// Risques du référentiel central (unifiés par secteur)
+model DuerpilotRisk {
+  id                       String   @id @default(cuid())
+  referenceId              String
+  riskId                   String // ID unique du risque (ex: "R001", "RAGR001")
+  intitule                 String
+  secteurCode              String // Code du secteur (BTP, RESTO, etc.)
+  categoriePrincipale      String // Famille de risque (niveau 1)
+  sousCategorie            String? // Sous-catégorie (niveau 2)
+  familleInrs              String? // Famille INRS (stockée mais non affichée)
+  situationsTravail        String[]
+  dangers                  String[]
+  dommagesPotentiels       String[]
+  preventionCollective     String[]
+  preventionOrga           String[]
+  preventionIndividuelle   String[]
+  referencesReglementaires String[]
+  ressourcesInrs           String[] // Stockées mais non affichées
+  criticiteFrequence       String?
+  criticiteGravite         String?
+  criticiteScore           Int?
+  criticiteNiveau          String?
+  isTransversal            Boolean  @default(false) // Présent dans plusieurs secteurs
+  prevalenceLevel          String? // "tres_frequent", "frequent", "occasionnel", "rare" (calculé)
+  trend                    String? // "emergent", "stable", "regressif" (si disponible)
+  fullData                 Json // Données complètes du risque
+  createdAt                DateTime @default(now())
+
+  reference DuerpilotReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([referenceId, riskId, secteurCode])
+  @@index([referenceId])
+  @@index([secteurCode])
+  @@index([categoriePrincipale])
+  @@index([sousCategorie])
+  @@index([isTransversal])
+  @@index([prevalenceLevel])
+  @@index([criticiteScore])
+  @@map("duerpilot_risks")
+}
+
+// Taxonomie hiérarchique (familles → sous-catégories)
+model TaxonomyFamily {
+  id             String                @id @default(cuid())
+  referenceId    String
+  code           String // Code famille (ex: "FAM01")
+  nom            String // Nom de la famille (ex: "Risques mécaniques")
+  order          Int // Ordre d'affichage
+  description    String?
+  sousCategories TaxonomySubCategory[]
+
+  reference DuerpilotReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([referenceId, code])
+  @@index([referenceId])
+  @@index([order])
+  @@map("taxonomy_families")
+}
+
+// Sous-catégories de la taxonomie
+model TaxonomySubCategory {
+  id          String  @id @default(cuid())
+  familyId    String
+  code        String // Code sous-catégorie
+  nom         String // Nom de la sous-catégorie
+  order       Int // Ordre d'affichage
+  description String?
+
+  family TaxonomyFamily @relation(fields: [familyId], references: [id], onDelete: Cascade)
+
+  @@unique([familyId, code])
+  @@index([familyId])
+  @@index([order])
+  @@map("taxonomy_sub_categories")
+}
+
+// Matrice de prévalence par secteur (pour hiérarchisation intelligente)
+model RiskPrevalence {
+  id              String  @id @default(cuid())
+  referenceId     String
+  riskId          String // ID du risque
+  secteurCode     String // Code du secteur
+  prevalenceLevel String // "tres_frequent", "frequent", "occasionnel", "rare"
+  prevalenceScore Int? // Score numérique (pour tri)
+  note            String? // Note pédagogique ("Fréquemment observé dans ce secteur")
+
+  reference DuerpilotReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([referenceId, riskId, secteurCode])
+  @@index([referenceId])
+  @@index([secteurCode])
+  @@index([prevalenceLevel])
+  @@index([prevalenceScore])
+  @@map("risk_prevalence")
+}
+
+// Risques majeurs transverses (présents dans plusieurs secteurs)
+model TransversalRisk {
+  id                  String   @id @default(cuid())
+  referenceId         String
+  riskId              String // ID du risque transverse
+  intitule            String // Titre du risque
+  categoriePrincipale String // Famille
+  secteursApplicables String[] // Codes des secteurs où ce risque est présent
+  prevalenceGlobal    String? // Prévalence globale ("tres_frequent", etc.)
+  description         String? // Description du caractère transverse
+  createdAt           DateTime @default(now())
+
+  reference DuerpilotReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([referenceId, riskId])
+  @@index([referenceId])
+  @@index([categoriePrincipale])
+  @@map("transversal_risks")
+}
+
+// Références réglementaires globales (pour contextualisation)
+model RegulatoryReference {
+  id           String   @id @default(cuid())
+  referenceId  String
+  code         String // Code de la référence (ex: "R4121-1")
+  titre        String // Titre de la référence
+  description  String? // Description
+  url          String? // URL si disponible
+  applicableTo String[] // Secteurs concernés (codes)
+  type         String? // "code_travail", "arrete", "recommandation", etc.
+
+  reference DuerpilotReference @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([referenceId, code])
+  @@index([referenceId])
+  @@index([type])
+  @@map("regulatory_references")
+}
+
+model DangerCategory {
+  id        String   @id @default(cuid())
+  code      String   @unique // PHY, CHI, BIO, ERG, PSY, MEC, ELEC, INC, ORG
+  label     String // Physiques, Chimiques, etc.
+  order     Int
+  createdAt DateTime @default(now())
+
+  dangerousSituations DangerousSituation[]
+
+  @@index([code])
+  @@map("danger_categories")
+}
+
+model DangerousSituation {
+  id              String   @id @default(cuid())
+  categoryId      String
+  code            String   @unique // Code unique (ex: "PHY_001_BRUIT")
+  label           String // "Exposition au bruit"
+  description     String? // Description neutre
+  examples        String? // Exemples concrets
+  keywords        String[] // Mots-clés pour recherche
+  suggestedSector String? // Code secteur suggéré (optionnel)
+  mandatory       Boolean  @default(false) // Situation obligatoire réglementairement
+  isCustom        Boolean  @default(false)
+  tenantId        String? // null = global, sinon tenant-specific
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  category        DangerCategory   @relation(fields: [categoryId], references: [id])
+  tenant          Tenant?          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  riskAssessments RiskAssessment[] @relation("SituationRisks")
+
+  @@index([categoryId])
+  @@index([tenantId])
+  @@index([suggestedSector])
+  @@index([code])
+  @@map("dangerous_situations")
+}
+
+model PreventionMeasure {
+  id               String   @id @default(cuid())
+  riskAssessmentId String
+  type             String // technique, organisationnelle, humaine, collective, individuelle
+  description      String
+  existing         Boolean  @default(false) // Mesure déjà en place ou à mettre en place
+  effectiveness    Int? // Efficacité estimée (1-4)
+  priority         String? // basse, moyenne, haute, critique
+  aiSuggested      Boolean  @default(false) // Suggérée par IA
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  riskAssessment RiskAssessment @relation(fields: [riskAssessmentId], references: [id], onDelete: Cascade)
+  actionPlans    ActionPlan[]
+
+  @@index([riskAssessmentId])
+  @@index([type])
+  @@map("prevention_measures")
+}
+
+model RiskAssessment {
+  id                 String    @id @default(cuid())
+  workUnitId         String
+  situationId        String // Nouveau champ (remplace hazardRefId)
+  contextDescription String // Description contextualisée par l'utilisateur
+  exposedPersons     String?
+  frequency          Int       @default(1)
+  probability        Int       @default(1)
+  severity           Int       @default(1)
+  control            Int       @default(1)
+  riskScore          Int // Calculé : F x P x G
+  priorityLevel      String // faible, à_améliorer, prioritaire
+  existingMeasures   String? // Mesures déjà en place
+  aiSuggestions      Json? // Suggestions IA (non décisionnaires)
+  validatedBy        String?
+  validatedAt        DateTime?
+  source             String    @default("manual") // manual, ai_assisted, imported
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  workUnit               WorkUnit            @relation(fields: [workUnitId], references: [id], onDelete: Cascade)
+  dangerousSituation     DangerousSituation  @relation("SituationRisks", fields: [situationId], references: [id])
+  preventionMeasures     PreventionMeasure[]
+  actionPlans            ActionPlan[]
+  integratedObservations Observation[]
+
+  @@index([workUnitId])
+  @@index([situationId])
+  @@index([priorityLevel])
+  @@index([riskScore])
+  @@map("risk_assessments")
+}
+
+model ActionPlan {
+  id                  String    @id @default(cuid())
+  riskAssessmentId    String?
+  preventionMeasureId String? // Nouveau champ
+  workUnitId          String
+  type                String // technique, organisationnelle, humaine
+  description         String
+  priority            String
+  responsibleName     String?
+  responsibleEmail    String?
+  dueDate             DateTime?
+  status              String    @default("à_faire")
+  completedAt         DateTime?
+  attachmentUrls      String[]  @default([]) // URLs pièces jointes (bucket duerpilot-attachments)
+  notes               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  riskAssessment    RiskAssessment?    @relation(fields: [riskAssessmentId], references: [id])
+  preventionMeasure PreventionMeasure? @relation(fields: [preventionMeasureId], references: [id])
+  workUnit          WorkUnit           @relation(fields: [workUnitId], references: [id], onDelete: Cascade)
+
+  @@index([workUnitId])
+  @@index([riskAssessmentId])
+  @@index([preventionMeasureId])
+  @@index([status])
+  @@index([priority])
+  @@index([dueDate])
+  @@map("action_plans")
+}
+
+model DuerpVersion {
+  id                  String                 @id @default(cuid())
+  tenantId            String
+  companyId           String
+  year                Int
+  versionNumber       Int
+  generationMode      String
+  generatedBy         String // Email de l'auteur
+  generatedById       String? // ID de l'auteur (UserProfile)
+  pdfUrl              String?
+  summary             String?
+  updateReason        String? // Justification de la mise à jour (conformité réglementaire)
+  workUnitCount       Int                    @default(0)
+  riskCount           Int                    @default(0)
+  priorityActionCount Int                    @default(0)
+  createdAt           DateTime               @default(now())
+  snapshots           DuerpVersionSnapshot[]
+  company             Company                @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tenant              Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  generatedByUser     UserProfile?           @relation("DuerpVersionAuthor", fields: [generatedById], references: [id])
+
+  @@unique([companyId, year, versionNumber])
+  @@index([tenantId])
+  @@index([companyId])
+  @@index([year])
+  @@index([generatedById])
+  @@map("duerp_versions")
+}
+
+model DuerpVersionSnapshot {
+  id             String       @id @default(cuid())
+  duerpVersionId String
+  snapshotType   String
+  snapshotData   Json
+  entityId       String?
+  duerpVersion   DuerpVersion @relation(fields: [duerpVersionId], references: [id], onDelete: Cascade)
+
+  @@index([duerpVersionId])
+  @@index([snapshotType])
+  @@map("duerp_version_snapshots")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  accounts      Account[]
+  sessions      Session[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model UserProfile {
+  id                      String                      @id @default(cuid())
+  tenantId                String
+  email                   String                      @unique
+  firstName               String?
+  lastName                String?
+  phone                   String?
+  function                String?
+  roles                   String[]
+  plan                    String                      @default("free") // free, essentiel, pro, expert
+  // Champs admin
+  lastLoginAt             DateTime?
+  isSuperAdmin            Boolean                     @default(false)
+  createdAt               DateTime                    @default(now())
+  updatedAt               DateTime                    @updatedAt
+  password                String?
+  emailVerified           Boolean                     @default(false)
+  emailVerificationToken  String?
+  emailVerificationExpiry DateTime?
+  auditLogs               AuditLog[]                  @relation("AuditLogActor")
+  observations            Observation[]
+  tenant                  Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  assignedWorkUnits       WorkUnit[]                  @relation("WorkUnitAssignments")
+  iaaUsage                IAAUsage[]
+  imports                 DuerpImport[]
+  aiUsageLogs             AIUsageLog[]
+  emailLogs               EmailLog[]
+  emailPreferences        EmailPreferences?
+  avatarUrl               String? // URL publique avatar (bucket duerpilot-avatars)
+  duerpVersionsGenerated  DuerpVersion[]              @relation("DuerpVersionAuthor")
+  participationOrganized  ParticipationTravailleurs[] @relation("ParticipationOrganizer")
+
+  @@index([tenantId])
+  @@index([email])
+  @@index([emailVerificationToken])
+  @@index([plan])
+  @@index([isSuperAdmin])
+  @@map("user_profiles")
+}
+
+model AuditLog {
+  id         String       @id @default(cuid())
+  tenantId   String
+  entityType String
+  entityId   String
+  action     String
+  actorEmail String
+  actorId    String?
+  actorRole  String?
+  ipAddress  String?
+  details    Json?
+  createdAt  DateTime     @default(now())
+  actor      UserProfile? @relation("AuditLogActor", fields: [actorId], references: [id])
+  tenant     Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([entityType, entityId])
+  @@index([actorEmail])
+  @@index([actorId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model Observation {
+  id                         String          @id @default(cuid())
+  tenantId                   String
+  workUnitId                 String
+  submittedByEmail           String
+  submittedById              String?
+  description                String
+  location                   String?
+  photoUrl                   String? // @deprecated - Utiliser photoUrls
+  photoUrls                  String[]        @default([]) // URLs photos terrain (bucket duerpilot-attachments)
+  status                     String          @default("nouvelle")
+  reviewerEmail              String?
+  reviewerNotes              String?
+  integratedRiskAssessmentId String?
+  createdAt                  DateTime        @default(now())
+  updatedAt                  DateTime        @updatedAt
+  integratedRiskAssessment   RiskAssessment? @relation(fields: [integratedRiskAssessmentId], references: [id])
+  submittedBy                UserProfile?    @relation(fields: [submittedById], references: [id])
+  tenant                     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  workUnit                   WorkUnit        @relation(fields: [workUnitId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([workUnitId])
+  @@index([status])
+  @@index([submittedByEmail])
+  @@index([submittedById])
+  @@map("observations")
+}
+
+// Suivi de l'utilisation IA par utilisateur et mois (ancien système - conservé pour compatibilité)
+model IAAUsage {
+  id         String      @id @default(cuid())
+  userId     String
+  month      DateTime // Premier jour du mois (YYYY-MM-01)
+  callsCount Int         @default(0)
+  quotaLimit Int // Limite selon le plan
+  plan       String // Plan au moment de l'utilisation
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  user       UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, month])
+  @@index([userId])
+  @@index([month])
+  @@map("iaa_usage")
+}
+
+// ============================================
+// ADMIN - LOGGING IA DÉTAILLÉ (PRIORITÉ ABSOLUE)
+// ============================================
+
+model AIUsageLog {
+  id            String   @id @default(cuid())
+  tenantId      String
+  userId        String
+  companyId     String?
+  function      String // import, cotation, actions, reformulation, structuration, enrichment
+  provider      String // openai, anthropic
+  model         String // gpt-4o, claude-3-5-sonnet
+  inputTokens   Int
+  outputTokens  Int
+  totalTokens   Int
+  estimatedCost Float // Coût estimé en €
+  confidence    Float? // Confiance IA (0-100)
+  result        String   @default("pending") // validated, rejected, pending
+  metadata      Json? // Détails supplémentaires
+  createdAt     DateTime @default(now())
+
+  tenant  Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user    UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company?    @relation(fields: [companyId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId])
+  @@index([userId])
+  @@index([companyId])
+  @@index([function])
+  @@index([createdAt])
+  @@index([provider])
+  @@index([result])
+  @@map("ai_usage_logs")
+}
+
+// ============================================
+// ADMIN - ABONNEMENTS & FACTURATION
+// ============================================
+
+model Subscription {
+  id                   String    @id @default(cuid())
+  tenantId             String    @unique
+  plan                 String // free, starter, pro, expert
+  billingMode          String // monthly, annual
+  status               String // active, trial, suspended, cancelled
+  startDate            DateTime
+  renewalDate          DateTime
+  cancelledAt          DateTime?
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  companies Company[]
+
+  @@index([plan])
+  @@index([status])
+  @@index([renewalDate])
+  @@map("subscriptions")
+}
+
+// ============================================
+// ADMIN - CONFIGURATION ADMIN
+// ============================================
+
+model AdminSettings {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       Json
+  description String?
+  updatedBy   String
+  updatedAt   DateTime @updatedAt
+
+  @@map("admin_settings")
+}
+
+// ============================================
+// EMAIL - LOGGING & PRÉFÉRENCES
+// ============================================
+
+model EmailLog {
+  id             String    @id @default(cuid())
+  tenantId       String?
+  userId         String?
+  email          String
+  templateId     String // Ex: "account_activation"
+  category       String // transactional, marketing, system
+  variables      Json // Variables dynamiques envoyées
+  status         String // sent, delivered, bounced, failed, opened, clicked
+  brevoMessageId String?
+  sentAt         DateTime  @default(now())
+  deliveredAt    DateTime?
+  openedAt       DateTime?
+  clickedAt      DateTime?
+  error          String?
+  unsubscribedAt DateTime?
+
+  tenant Tenant?      @relation(fields: [tenantId], references: [id], onDelete: SetNull)
+  user   UserProfile? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId])
+  @@index([userId])
+  @@index([email])
+  @@index([templateId])
+  @@index([sentAt])
+  @@index([status])
+  @@map("email_logs")
+}
+
+model EmailPreferences {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  unsubscribedAll Boolean  @default(false) // Ne reçoit AUCUN email (sauf transactionnel légal)
+  marketingEmails Boolean  @default(true) // Emails marketing/upsell
+  productUpdates  Boolean  @default(true) // Nouvelles fonctionnalités
+  monthlyDigest   Boolean  @default(true) // Synthèse mensuelle QSE
+  aiInsights      Boolean  @default(true) // Insights IA avancés
+  updatedAt       DateTime @updatedAt
+
+  user UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("email_preferences")
+}
+
+// ============================================
+// IMPORT DUERP
+// ============================================
+
+model DuerpImport {
+  id             String   @id @default(cuid())
+  userId         String
+  tenantId       String
+  fileName       String
+  fileSize       Int // Taille en octets
+  format         String // pdf, word, excel, csv
+  fileUrl        String? // URL S3 ou chemin fichier
+  status         String   @default("uploading") // uploading, analyzing, validated, completed, failed
+  extractionData Json? // Données extraites par IA (structure brute)
+  validatedData  Json? // Données validées par utilisateur
+  errorMessage   String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user   UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([tenantId])
+  @@index([status])
+  @@map("imports")
+}
+
+// ============================================
+// PAPRIPACT (PLAN D'ACTIONS DE PRÉVENTION DES RISQUES ET D'AMÉLIORATION DES CONDITIONS DE TRAVAIL)
+// Obligatoire pour les entreprises de 50 salariés et plus
+// ============================================
+
+model PAPRIPACT {
+  id          String    @id @default(cuid())
+  companyId   String // Une entreprise peut avoir plusieurs PAPRIPACT (un par année)
+  tenantId    String
+  year        Int // Année du PAPRIPACT (obligatoire pour conformité réglementaire)
+  status      String    @default("brouillon") // brouillon, validé, en_cours, terminé
+  validatedAt DateTime?
+  validatedBy String? // Email du validateur
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Contenu du PAPRIPACT (conformité réglementaire)
+  actions    PAPRIPACTAction[]
+  indicators PAPRIPACTIndicator[]
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tenant  Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, year]) // Un seul PAPRIPACT par entreprise et par année
+  @@index([tenantId])
+  @@index([companyId])
+  @@index([year])
+  @@index([status])
+  @@map("papripact")
+}
+
+// Actions du PAPRIPACT (issues des plans d'actions du DUERP)
+model PAPRIPACTAction {
+  id                  String    @id @default(cuid())
+  papripactId         String
+  actionPlanId        String? // Référence au plan d'action DUERP source
+  title               String // Titre de l'action
+  description         String? // Description détaillée
+  priority            String // priorité_1, priorité_2, priorité_3
+  responsibleName     String? // Responsable de l'action
+  responsibleEmail    String?
+  conditionsExecution String? // Conditions d'exécution (obligatoire PAPRIPACT)
+  plannedStartDate    DateTime? // Date prévue de démarrage
+  plannedEndDate      DateTime? // Date prévue de fin
+  actualStartDate     DateTime? // Date réelle de démarrage
+  actualEndDate       DateTime? // Date réelle de fin
+  status              String    @default("planifiée") // planifiée, en_cours, réalisée, reportée, annulée
+  progress            Int       @default(0) // Pourcentage de réalisation (0-100)
+  notes               String? // Notes complémentaires
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  papripact PAPRIPACT @relation(fields: [papripactId], references: [id], onDelete: Cascade)
+
+  @@index([papripactId])
+  @@index([priority])
+  @@index([status])
+  @@index([actionPlanId])
+  @@map("papripact_actions")
+}
+
+// Indicateurs de suivi du PAPRIPACT (obligatoire pour suivi annuel)
+model PAPRIPACTIndicator {
+  id             String    @id @default(cuid())
+  papripactId    String
+  name           String // Nom de l'indicateur (ex: "Taux de réalisation", "Nombre d'accidents", etc.)
+  type           String // quantitatif, qualitatif
+  unit           String? // Unité de mesure (%, nombre, etc.)
+  targetValue    String? // Valeur cible
+  currentValue   String? // Valeur actuelle
+  frequency      String // mensuel, trimestriel, annuel
+  lastUpdateDate DateTime?
+  notes          String? // Commentaires sur l'indicateur
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  papripact PAPRIPACT @relation(fields: [papripactId], references: [id], onDelete: Cascade)
+
+  @@index([papripactId])
+  @@index([type])
+  @@map("papripact_indicators")
+}
+
+// ============================================
+// PARTICIPATION DES TRAVAILLEURS (CONFORMITÉ RÉGLEMENTAIRE)
+// Consultation, information, association au processus DUERP
+// ============================================
+
+model ParticipationTravailleurs {
+  id                String   @id @default(cuid())
+  companyId         String
+  tenantId          String
+  type              String // consultation, information, association
+  date              DateTime // Date de la consultation/participation
+  organizerEmail    String // Email de l'organisateur
+  organizerId       String? // ID de l'organisateur (UserProfile)
+  isRealized        Boolean  @default(false) // Consultation réalisée : oui/non
+  participantsCount Int? // Nombre de participants
+  participants      String[] @default([]) // Liste des participants (noms/emails)
+  subject           String? // Sujet de la consultation (ex: "Révision DUERP annuelle", "Nouveau risque identifié", etc.)
+  summary           String? // Résumé des échanges
+  observations      String? // Observations et retours des travailleurs
+  decisions         String? // Décisions prises suite à la consultation
+  nextSteps         String? // Prochaines étapes
+  attachmentUrls    String[] @default([]) // Pièces jointes (comptes-rendus, PV, etc.)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  company   Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tenant    Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  organizer UserProfile? @relation("ParticipationOrganizer", fields: [organizerId], references: [id])
+
+  @@index([companyId])
+  @@index([tenantId])
+  @@index([type])
+  @@index([date])
+  @@index([organizerId])
+  @@index([isRealized])
+  @@map("participation_travailleurs")
+}

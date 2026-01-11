@@ -1,0 +1,581 @@
+{
+  "secteur": {
+    "nom": "Établissements d'enseignement",
+    "code": "EDUCATION",
+    "code_naf": "P (85)",
+    "description": "Le secteur de l'éducation comprend les établissements d'enseignement primaire, secondaire, supérieur et formation professionnelle (écoles maternelles et élémentaires, collèges, lycées, universités, centres de formation). Les activités incluent l'enseignement, l'animation, la surveillance, l'entretien, la restauration scolaire et les activités périscolaires."
+  },
+  "risques": [
+    {
+      "id": "EDU001",
+      "intitule": "Troubles musculosquelettiques (TMS)",
+      "categorie_principale": "Risques liés à l'activité physique",
+      "sous_categorie": "Postures statiques, gestes répétitifs",
+      "famille_inrs": "9 (activité physique)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Station debout prolongée (enseignants)",
+        "Écriture au tableau répétée (bras levés)",
+        "Correction de copies (posture assise prolongée)",
+        "Manipulation d'enfants en maternelle (portage, habillage)",
+        "Manutention de matériel pédagogique et mobilier",
+        "Travail sur ordinateur (personnel administratif)"
+      ],
+      "dangers": [
+        "Position debout statique plusieurs heures par jour",
+        "Gestes répétitifs d'écriture au tableau",
+        "Posture penchée pour correction ou aide aux élèves",
+        "Port d'enfants en bas âge (maternelle)",
+        "Mobilier inadapté (hauteur de bureau pour petits)",
+        "Absence de pauses actives"
+      ],
+      "dommages_potentiels": [
+        "Tendinites de l'épaule (tableau)",
+        "Lombalgies et cervicalgies",
+        "Syndrome du canal carpien (corrections)",
+        "Varices et troubles circulatoires (station debout)",
+        "Douleurs dorsales chroniques"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir du mobilier ergonomique adapté",
+          "Installer des tableaux interactifs réduisant l'écriture répétitive",
+          "Équiper de sièges réglables pour le travail assis",
+          "Fournir des tapis anti-fatigue pour zones de station debout",
+          "Prévoir des tables de travail adaptées pour maternelle"
+        ],
+        "organisationnelle": [
+          "Organiser les emplois du temps pour alterner activités debout/assis",
+          "Prévoir des pauses régulières",
+          "Former aux gestes et postures (notamment maternelle)",
+          "Encourager les micro-pauses et changements de position",
+          "Réduire le volume de corrections papier (numérique)"
+        ],
+        "individuelle": [
+          "Alterner position debout/assise",
+          "Adopter une posture droite",
+          "Faire des exercices d'étirement pendant les pauses",
+          "Utiliser un repose-pieds alterné en station debout",
+          "Porter des chaussures confortables"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail",
+        "Articles R4542-1 à R4542-19 (travail sur écran)"
+      ],
+      "ressources_inrs": [
+        "ED 6057 - Travail sur écran",
+        "TMS Pros - Enseignement"
+      ]
+    },
+    {
+      "id": "EDU002",
+      "intitule": "Risques psychosociaux et violences",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Stress, violence, charge mentale",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Gestion de classes nombreuses ou difficiles",
+        "Incivilités et violences verbales d'élèves",
+        "Agressions physiques (établissements sensibles)",
+        "Pression des résultats et évaluations",
+        "Conflits avec parents d'élèves",
+        "Charge de travail importante (préparation, corrections)",
+        "Harcèlement entre élèves (gestion difficile)"
+      ],
+      "dangers": [
+        "Violences verbales et physiques d'élèves",
+        "Incivilités répétées et manque de respect",
+        "Pression hiérarchique sur les résultats",
+        "Contestations de parents agressifs",
+        "Charge émotionnelle (situations d'élèves difficiles)",
+        "Isolement professionnel (peu d'échanges entre pairs)",
+        "Cyberharcèlement par élèves ou parents (réseaux sociaux)"
+      ],
+      "dommages_potentiels": [
+        "Stress chronique et burn-out",
+        "Anxiété et dépression",
+        "Troubles du sommeil",
+        "Syndrome de stress post-traumatique (après agression)",
+        "Absentéisme",
+        "Abandon du métier"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des systèmes d'alerte dans les classes",
+          "Aménager des espaces de pause et de retrait",
+          "Mettre en place des cellules de médiation",
+          "Sécuriser les établissements (contrôle d'accès, surveillance)"
+        ],
+        "organisationnelle": [
+          "Former à la gestion de classe et des conflits",
+          "Mettre en place un soutien psychologique (psychologue scolaire)",
+          "Organiser des analyses de pratiques entre pairs",
+          "Établir des procédures claires en cas de violence",
+          "Limiter les effectifs par classe",
+          "Soutenir les enseignants en difficulté (tutorat, accompagnement)",
+          "Organiser des réunions d'équipe régulières",
+          "Sanctionner les comportements violents d'élèves",
+          "Encadrer les relations avec les parents"
+        ],
+        "individuelle": [
+          "Participer aux temps d'échange collectifs",
+          "Signaler les situations de violence ou harcèlement",
+          "Solliciter le soutien de la direction et des collègues",
+          "Utiliser les dispositifs d'alerte si nécessaire",
+          "Préserver un équilibre vie professionnelle/personnelle"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 à L4121-5 du Code du travail",
+        "Loi du 6 août 2012 (harcèlement sexuel)",
+        "Circulaires Éducation Nationale sur les violences scolaires"
+      ],
+      "ressources_inrs": [
+        "ED 6140 - Risques psychosociaux",
+        "ED 6250 - Violences au travail"
+      ]
+    },
+    {
+      "id": "EDU003",
+      "intitule": "Risques infectieux et biologiques",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Maladies contagieuses",
+      "famille_inrs": "5 (risques biologiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Contact rapproché avec de nombreux enfants/jeunes",
+        "Maternelle : change, mouchage, soins d'hygiène",
+        "Gestion des maladies infantiles contagieuses",
+        "Laboratoires et ateliers (manipulations biologiques)",
+        "Restauration scolaire",
+        "Locaux confinés (classes surchargées)"
+      ],
+      "dangers": [
+        "Maladies infantiles contagieuses (gastro-entérites, varicelle, rougeole)",
+        "Infections respiratoires (grippe, COVID-19, rhumes)",
+        "Contact avec fluides corporels (vomissements, sang, urine)",
+        "Pédiculose (poux)",
+        "Gale et autres parasitoses",
+        "Manque de ventilation des locaux"
+      ],
+      "dommages_potentiels": [
+        "Gastro-entérites et infections digestives",
+        "Infections respiratoires fréquentes",
+        "Maladies éruptives (varicelle, rougeole si non immunisé)",
+        "Parasitoses",
+        "Hépatites (contact avec sang)"
+      ],
+      "prevention": {
+        "collective": [
+          "Assurer une ventilation efficace des locaux (25 m³/h/personne)",
+          "Installer des points de lavage des mains accessibles",
+          "Fournir du savon, essuie-mains et gel hydroalcoolique",
+          "Équiper les infirmeries de matériel de protection",
+          "Désinfecter régulièrement les surfaces et jouets (maternelle)"
+        ],
+        "organisationnelle": [
+          "Former aux précautions d'hygiène",
+          "Établir des protocoles de nettoyage et désinfection",
+          "Organiser la vaccination du personnel (DTP, grippe, COVID-19, rougeole)",
+          "Éviction des enfants malades contagieux",
+          "Aérer les salles régulièrement",
+          "Former aux gestes en cas de contact avec fluides corporels",
+          "Informer sur les maladies contagieuses et leur prévention"
+        ],
+        "individuelle": [
+          "Se laver les mains fréquemment (avant/après contact)",
+          "Porter des gants pour les soins d'hygiène (maternelle)",
+          "Se faire vacciner selon recommandations",
+          "Aérer la salle de classe régulièrement",
+          "Éviter de se toucher le visage",
+          "Rester à domicile si malade contagieux"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421-1 à R4421-5 du Code du travail",
+        "Circulaires Santé/Éducation Nationale sur les maladies contagieuses en milieu scolaire"
+      ],
+      "ressources_inrs": [
+        "ED 6022 - Risques biologiques",
+        "Guides Santé Publique France - Maladies infectieuses en collectivités"
+      ]
+    },
+    {
+      "id": "EDU004",
+      "intitule": "Risques chimiques (laboratoires, ateliers)",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Produits chimiques de laboratoire",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Enseignement en laboratoire de chimie (collège, lycée, université)",
+        "Travaux pratiques avec produits dangereux",
+        "Ateliers professionnels (peinture, soudure, mécanique)",
+        "Stockage de produits chimiques",
+        "Gestion des déchets chimiques"
+      ],
+      "dangers": [
+        "Manipulation de produits CMR (cancérogènes, mutagènes, reprotoxiques)",
+        "Inhalation de vapeurs toxiques",
+        "Contact cutané ou oculaire avec produits corrosifs/irritants",
+        "Réactions chimiques dangereuses (TP mal maîtrisés)",
+        "Stockage inadéquat (mélanges incompatibles)",
+        "Absence d'EPI ou d'extraction"
+      ],
+      "dommages_potentiels": [
+        "Intoxications aiguës ou chroniques",
+        "Brûlures chimiques (peau, yeux)",
+        "Irritations respiratoires et asthme",
+        "Allergies",
+        "Cancers (exposition CMR long terme)"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des hottes aspirantes fonctionnelles dans les laboratoires",
+          "Équiper de douches de sécurité et rince-œil",
+          "Stocker les produits dans des armoires ventilées et sécurisées",
+          "Utiliser des produits substitués moins dangereux lorsque possible",
+          "Limiter les quantités manipulées au strict nécessaire"
+        ],
+        "organisationnelle": [
+          "Former les enseignants et préparateurs aux risques chimiques",
+          "Établir des protocoles de TP sécurisés et validés",
+          "Tenir à jour l'inventaire des produits et FDS",
+          "Organiser la collecte des déchets chimiques",
+          "Vérifier régulièrement les hottes et installations",
+          "Limiter l'accès aux laboratoires (personnel autorisé)",
+          "Interdire de manger, boire et fumer dans les labos"
+        ],
+        "individuelle": [
+          "Porter des lunettes de protection et blouse",
+          "Utiliser des gants adaptés aux produits manipulés",
+          "Travailler sous hotte aspirante",
+          "Se laver les mains après manipulation",
+          "Lire les FDS avant utilisation",
+          "Respecter les protocoles établis"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-1 à R4412-160 du Code du travail (risques chimiques)",
+        "Règlement CLP (étiquetage)",
+        "Circulaires Éducation Nationale sur la sécurité en laboratoire"
+      ],
+      "ressources_inrs": [
+        "ED 6026 - Produits chimiques",
+        "Guides INRS - Enseigner la chimie en sécurité"
+      ]
+    },
+    {
+      "id": "EDU005",
+      "intitule": "Incendie et évacuation",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie dans ERP",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Établissements recevant un grand nombre de personnes (élèves, personnel)",
+        "Laboratoires avec produits inflammables",
+        "Ateliers avec risques de feu (soudure, travail du bois)",
+        "Cuisines de restauration scolaire",
+        "Installations électriques anciennes",
+        "Stockage de matériel combustible (papier, livres)"
+      ],
+      "dangers": [
+        "Présence de nombreuses personnes (dont enfants et PMR)",
+        "Produits inflammables en laboratoires et ateliers",
+        "Installations électriques vétustes",
+        "Graisses en cuisine",
+        "Stockage important de papier et matériel combustible",
+        "Méconnaissance des procédures par les élèves"
+      ],
+      "dommages_potentiels": [
+        "Intoxication par fumées (enfants particulièrement vulnérables)",
+        "Brûlures",
+        "Bousculades et traumatismes lors de l'évacuation",
+        "Décès",
+        "Destruction de l'établissement"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des détecteurs de fumée et systèmes d'alarme",
+          "Équiper de RIA et extincteurs adaptés et accessibles",
+          "Baliser clairement les issues de secours",
+          "Installer un éclairage de sécurité",
+          "Maintenir les dégagements libres en permanence",
+          "Compartimenter les bâtiments (portes coupe-feu)",
+          "Vérifier les installations électriques"
+        ],
+        "organisationnelle": [
+          "Établir et afficher un plan d'évacuation",
+          "Former les équipiers d'évacuation (enseignants, personnel)",
+          "Réaliser des exercices d'évacuation réguliers (3/an minimum)",
+          "Vérifier périodiquement les extincteurs et alarmes",
+          "Contrôler que les issues ne sont pas obstruées",
+          "Former les élèves aux consignes de sécurité",
+          "Établir des protocoles spécifiques pour laboratoires et ateliers"
+        ],
+        "individuelle": [
+          "Connaître les issues de secours et points de rassemblement",
+          "Participer aux exercices d'évacuation",
+          "Ne pas obstruer les dégagements",
+          "Éteindre les équipements en fin de cours",
+          "Signaler les anomalies (odeurs, fumées, défauts électriques)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail",
+        "Règlement de sécurité ERP (arrêté du 25 juin 1980 modifié)",
+        "Code de l'éducation (sécurité dans les établissements scolaires)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie et lieux de travail",
+        "Guides Éducation Nationale - Sécurité incendie"
+      ]
+    },
+    {
+      "id": "EDU006",
+      "intitule": "Chutes de plain-pied et dans les escaliers",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Circulation dans les couloirs lors des interclasses",
+        "Accès aux étages par escaliers multiples fois par jour",
+        "Surveillance de cours de récréation",
+        "Déplacements avec du matériel pédagogique",
+        "Sols mouillés après nettoyage ou intempéries"
+      ],
+      "dangers": [
+        "Affluence et bousculades dans les couloirs et escaliers",
+        "Sols glissants après nettoyage ou pluie",
+        "Encombrement des circulations (cartables, matériel)",
+        "Escaliers nombreux et fréquentés",
+        "Revêtements usés ou inégaux",
+        "Éclairage insuffisant dans certaines zones"
+      ],
+      "dommages_potentiels": [
+        "Entorses et foulures",
+        "Fractures",
+        "Contusions",
+        "Traumatismes crâniens (escaliers)"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements antidérapants dans les escaliers",
+          "Assurer un éclairage suffisant (≥150 lux dans escaliers)",
+          "Installer des rampes des deux côtés des escaliers",
+          "Matérialiser les zones de circulation",
+          "Réparer rapidement les revêtements dégradés",
+          "Organiser les flux de circulation (sens unique si possible)"
+        ],
+        "organisationnelle": [
+          "Échelonner les horaires de sortie de cours",
+          "Organiser la surveillance des circulations",
+          "Nettoyer hors des heures de circulation intensive",
+          "Sensibiliser les élèves à la sécurité (pas de course)",
+          "Dégager les circulations du matériel et cartables",
+          "Signaler les zones glissantes temporairement"
+        ],
+        "individuelle": [
+          "Porter des chaussures adaptées et fermées",
+          "Utiliser les rampes dans les escaliers",
+          "Adapter sa vitesse de déplacement",
+          "Rester vigilant lors des interclasses",
+          "Ne pas porter de charges masquant la vue"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail",
+        "Code de l'éducation (sécurité des établissements)"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Chutes de plain-pied"
+      ]
+    },
+    {
+      "id": "EDU007",
+      "intitule": "Troubles de la voix",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Sollicitation vocale intensive",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Faible",
+        "score": 3,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Enseignement avec sollicitation vocale intensive (plusieurs heures/jour)",
+        "Classes nombreuses et bruyantes nécessitant de hausser la voix",
+        "Enseignement en environnement bruyant (gymnase, ateliers)",
+        "Manque de matériel d'amplification",
+        "Mauvaise acoustique des salles"
+      ],
+      "dangers": [
+        "Utilisation intensive de la voix sans repos",
+        "Forçage vocal pour couvrir le bruit ambiant",
+        "Mauvaise acoustique (réverbération)",
+        "Absence de microphone dans grandes salles",
+        "Stress augmentant les tensions vocales",
+        "Manque de formation à la technique vocale"
+      ],
+      "dommages_potentiels": [
+        "Fatigue vocale chronique",
+        "Enrouement et extinction de voix",
+        "Nodules ou polypes des cordes vocales",
+        "Dysphonie",
+        "Arrêts de travail"
+      ],
+      "prevention": {
+        "collective": [
+          "Améliorer l'acoustique des salles (panneaux absorbants)",
+          "Fournir des systèmes d'amplification (micros, enceintes portatives)",
+          "Réduire les sources de bruit dans l'établissement",
+          "Limiter les effectifs des classes",
+          "Installer une bonne ventilation (air sec = fatigue vocale)"
+        ],
+        "organisationnelle": [
+          "Former à la technique vocale et à la gestion de classe",
+          "Organiser les emplois du temps pour alterner cours magistraux et autres activités",
+          "Prévoir des pauses vocales suffisantes",
+          "Encourager les méthodes pédagogiques moins demandeuses en voix",
+          "Proposer un suivi orthophonique préventif"
+        ],
+        "individuelle": [
+          "Utiliser les techniques vocales appropriées (respiration, articulation)",
+          "S'hydrater régulièrement",
+          "Éviter de crier ou forcer sur la voix",
+          "Faire des pauses vocales pendant la journée",
+          "Consulter en cas de symptômes persistants",
+          "Éviter le tabac et les atmosphères enfumées"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 et suivants du Code du travail",
+        "Reconnaissance possible en maladie professionnelle (hors tableau)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Troubles de la voix",
+        "Guides spécifiques enseignants"
+      ]
+    },
+    {
+      "id": "EDU008",
+      "intitule": "Risques liés aux activités sportives (EPS)",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Activités physiques et sportives",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Enseignement de l'éducation physique et sportive",
+        "Utilisation d'équipements sportifs (agrès, ballons, tapis)",
+        "Surveillance d'activités à risque (piscine, escalade, sports collectifs)",
+        "Démonstrations et participation aux activités",
+        "Déplacements pour activités extérieures (ski, voile, etc.)"
+      ],
+      "dangers": [
+        "Chutes et impacts lors des activités sportives",
+        "Équipements mal entretenus ou défectueux",
+        "Chocs avec d'autres participants",
+        "Risque de noyade (piscine)",
+        "Surmenage physique",
+        "Conditions climatiques défavorables (activités extérieures)"
+      ],
+      "dommages_potentiels": [
+        "Entorses, foulures, fractures",
+        "Traumatismes crâniens",
+        "Noyade",
+        "TMS liés aux démonstrations répétées",
+        "Contusions"
+      ],
+      "prevention": {
+        "collective": [
+          "Vérifier régulièrement l'état des équipements sportifs",
+          "Installer des protections (tapis de réception, filets)",
+          "Assurer la présence de surveillants de baignade qualifiés (piscine)",
+          "Équiper d'un défibrillateur accessible",
+          "Maintenir les installations aux normes"
+        ],
+        "organisationnelle": [
+          "Former aux premiers secours (PSC1, SST)",
+          "Établir des protocoles de sécurité par activité",
+          "Adapter les activités aux capacités des élèves",
+          "Vérifier l'aptitude médicale des élèves",
+          "Prévoir un échauffement systématique",
+          "Limiter les effectifs par séance",
+          "Organiser les sorties avec encadrement renforcé"
+        ],
+        "individuelle": [
+          "Porter une tenue adaptée aux activités",
+          "Utiliser les équipements de protection (casques, protections)",
+          "S'échauffer avant les démonstrations",
+          "Rester vigilant pendant les séances",
+          "Connaître les gestes de premiers secours"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de l'éducation (enseignement de l'EPS)",
+        "Circulaires Éducation Nationale sur la sécurité en EPS",
+        "Normes AFNOR sur les équipements sportifs"
+      ],
+      "ressources_inrs": [
+        "ED 6308 - Activités sportives et sécurité"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "18 pour 1000 salariés (2020, ensemble éducation)",
+    "accidents_graves": "TMS (35%), chutes (25%), violence et agressions (20%), RPS (émergent)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 55% des MP",
+      "Troubles de la voix (hors tableau, reconnaissance possible)",
+      "Allergies respiratoires (poussières, craie)",
+      "Infections contagieuses"
+    ]
+  },
+  "sources": [
+    "INRS - Secteur de l'enseignement",
+    "Ministère de l'Éducation Nationale - Guides sécurité",
+    "CNAMTS - Statistiques AT/MP éducation",
+    "Code du travail",
+    "Code de l'éducation"
+  ]
+}

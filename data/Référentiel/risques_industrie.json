@@ -1,0 +1,724 @@
+{
+  "secteur": {
+    "nom": "Industrie manufacturière",
+    "code_naf": "C",
+    "description": "Le secteur de l'industrie manufacturière englobe de nombreux métiers (mécanique industrielle, travail et traitement des métaux, plasturgie, etc.) dans lesquels les salariés transforment ou usinent des matériaux. Il implique l'utilisation de machines, d'outillages portatifs, de produits chimiques et des opérations de manutention et d'assemblage qui exposent les travailleurs à des risques variés."
+  },
+  "risques": [
+    {
+      "id": "IND_R1",
+      "intitule": "Manutentions manuelles et postures contraignantes",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Port de charges lourdes, gestes répétitifs, positions pénibles",
+      "famille_inrs": "3",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Port de pièces métalliques, sacs de granulés plastiques ou composants lors des opérations de production ou de conditionnement",
+        "Opérations de montage, d’assemblage ou de manutention sur les lignes de fabrication",
+        "Nettoyage et réglage de machines nécessitant des positions penchées ou accroupies"
+      ],
+      "dangers": [
+        "Efforts intenses lors du levage ou du déplacement de charges, pouvant dépasser les capacités physiques",
+        "Répétition de gestes et de mouvements (manipulation d’outils, contrôle et conditionnement) provoquant une sursollicitation des muscles et articulations",
+        "Postures contraignantes (bras levés, torsions du tronc, accroupissement) dues à l’aménagement des postes"
+      ],
+      "dommages_potentiels": [
+        "Douleurs lombaires et dorsales (lombalgies) et entorses【651827950872741†L33-L38】【8027255155448†L155-L157】",
+        "Troubles musculo-squelettiques (tendinites, syndromes du canal carpien, douleurs aux mains, poignets, épaules)【8027255155448†L150-L154】",
+        "Fatigue chronique et accidents cardiovasculaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Réduire les charges et aménager des aides mécaniques (ponts roulants, transpalettes, tables élévatrices) afin de limiter les efforts【651827950872741†L45-L60】【8027255155448†L242-L244】",
+          "Prévoir des zones de stockage et d’approvisionnement à hauteur d’homme pour limiter le travail en hauteur et les portées longues",
+          "Réorganiser les postes pour éviter les gestes inutiles et limiter les torsions du tronc"
+        ],
+        "organisationnelle": [
+          "Planifier les interventions et préparer le matériel pour limiter les urgences et les manutentions improvisées",
+          "Mettre en place une rotation des tâches pour réduire la répétition des mouvements et permettre le repos musculaire【651827950872741†L45-L60】",
+          "Former les salariés à la prévention des TMS (méthodes Prap) et à l’Approche gestes et postures"
+        ],
+        "individuelle": [
+          "Porter des chaussures de sécurité, des gants et vêtements de travail adaptés",
+          "Utiliser les techniques de levage sécuritaires : garder le dos droit, fléchir les genoux, se rapprocher de la charge",
+          "Signaler toute douleur ou difficulté pour adapter le poste"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail (manutention manuelle)",
+        "Articles R4121-1 à R4121-4 relatifs à l’évaluation des risques et au DUERP"
+      ],
+      "ressources_inrs": [
+        "ED 6398",
+        "ED 6425",
+        "ED 6408"
+      ]
+    },
+    {
+      "id": "IND_R2",
+      "intitule": "Chutes de hauteur et de plain‑pied",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Chute de hauteur, glissade, trébuchement",
+      "famille_inrs": "8",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Travaux en hauteur sur des machines, plateformes ou passerelles d’accès",
+        "Déplacements dans des ateliers encombrés, aux sols glissants ou mal éclairés【8027255155448†L162-L163】【92947298694522†L152-L154】",
+        "Montée et descente d’escaliers non sécurisés ou utilisation d’échelles instables"
+      ],
+      "dangers": [
+        "Absence de garde-corps ou de points d’ancrage lors du travail en hauteur【651827950872741†L61-L76】",
+        "Sol recouvert d’huile ou de produits chimiques provoquant des glissades【8027255155448†L162-L163】",
+        "Obstacles dans les zones de circulation (pièces stockées, câbles, déchets) et mauvaise visibilité"
+      ],
+      "dommages_potentiels": [
+        "Fractures, entorses et contusions consécutives à une chute ou une glissade",
+        "Traumatismes crâniens en cas de chute de hauteur",
+        "Accidents graves pouvant conduire à une incapacité permanente ou un décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des garde‑corps, des planchers sécurisés et des dispositifs antichute sur les passerelles et plateformes【651827950872741†L61-L76】",
+          "Mettre en place des revêtements antidérapants et assurer l’entretien régulier des sols",
+          "Maintenir les zones de circulation dégagées et bien éclairées ; signaliser les obstacles"
+        ],
+        "organisationnelle": [
+          "Établir un plan de circulation séparant les piétons des engins de manutention",
+          "Former les salariés à l’utilisation correcte des échelles, échafaudages et plates‑formes de travail",
+          "Planifier les travaux en hauteur pour éviter l’urgence et contrôler les équipements avant utilisation"
+        ],
+        "individuelle": [
+          "Utiliser des harnais et longes d’arrêt de chute lorsque nécessaire",
+          "Porter des chaussures de sécurité antidérapantes",
+          "Informer immédiatement en cas de sol glissant ou d’éclairage défaillant"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4223-1 à R4223-15 (éclairage et atmosphères de travail)",
+        "Articles R4323-58 à R4323-82 (utilisation des équipements de travail pour le levage et le travail en hauteur)"
+      ],
+      "ressources_inrs": [
+        "ED 6398",
+        "ED 6425",
+        "ED 6408"
+      ]
+    },
+    {
+      "id": "IND_R3",
+      "intitule": "Blessures, amputations et écrasement par machines",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Utilisation de machines-outils, presses, scies, robots",
+      "famille_inrs": "10",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de machines de découpe (scies, presses plieuses, extrudeuses, carotteuses)【92947298694522†L148-L150】【8027255155448†L158-L161】",
+        "Maintenance et réglage des machines sans consignation adéquate",
+        "Chargement et déchargement de pièces sur machines en mouvement"
+      ],
+      "dangers": [
+        "Absence ou contournement de dispositifs de protection (carters, grilles, capteurs)",
+        "Pièces en mouvement provoquant des coincements ou des écrasements【92947298694522†L148-L150】",
+        "Ré-enclenchement intempestif de l’énergie (électrique, hydraulique, pneumatique) lors de la maintenance"
+      ],
+      "dommages_potentiels": [
+        "Amputations de doigts ou de membres【92947298694522†L148-L150】",
+        "Fractures, écrasement des mains ou des pieds, plaies profondes et hémorragies",
+        "Décès en cas d’écrasement par une presse ou une machine lourde"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des protecteurs fixes ou mobiles et des dispositifs d’arrêt d’urgence sur toutes les machines【651827950872741†L84-L100】",
+          "Sécuriser les zones dangereuses par des barrières immatérielles ou des commandes bimanuelles",
+          "Mettre en place des systèmes de verrouillage et consignation de l’énergie (Lock‑out/Tag‑out)"
+        ],
+        "organisationnelle": [
+          "Établir des procédures de travail et des consignes claires pour l’utilisation et la maintenance des machines",
+          "Former les opérateurs aux risques mécaniques et aux dispositifs de sécurité",
+          "Programmer des opérations de maintenance préventive et vérifier périodiquement les protections"
+        ],
+        "individuelle": [
+          "Porter des EPI (gants anti‑coupure, chaussures coquées, lunettes, visières, vêtements ajustés)",
+          "Ne jamais retirer ou neutraliser les dispositifs de sécurité et couper l’alimentation avant toute intervention sur la machine",
+          "Faire appel à un collègue pour aider lors des opérations lourdes ou délicates"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4321-1 à R4323-96 (conception, utilisation et maintenance des équipements de travail)",
+        "Articles R4544-5 à R4544-9 (consignation et déconsignation des installations électriques)"
+      ],
+      "ressources_inrs": [
+        "ED 6398",
+        "ED 6425",
+        "ED 6408",
+        "securite-machine.fr"
+      ]
+    },
+    {
+      "id": "IND_R4",
+      "intitule": "Exposition aux produits chimiques et émissions",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Manipulation de solvants, huiles, peintures, produits de traitement, fumées et poussières",
+      "famille_inrs": "4",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Dégraissage et préparation de surfaces métalliques avec solvants ou ultrasons【345703228432428†L160-L166】",
+        "Application de peintures, vernis, colles, bains de galvanoplastie ou bains chimiques chauffés【345703228432428†L161-L165】",
+        "Manipulation de pigments, additifs et solvants dans la plasturgie et le caoutchouc【8027255155448†L164-L169】"
+      ],
+      "dangers": [
+        "Inhalation de vapeurs organiques, de solvants, de monomères et de fumées de dégradation des matières plastiques【8027255155448†L164-L169】",
+        "Contact cutané avec des produits irritants ou corrosifs entraînant des brûlures chimiques",
+        "Risque d’incendie ou d’explosion lié à l’utilisation de produits inflammables"
+      ],
+      "dommages_potentiels": [
+        "Intoxications aiguës (nausées, vertiges, migraines)【345703228432428†L161-L166】",
+        "Dermatoses et brûlures chimiques【8027255155448†L164-L169】",
+        "Pathologies chroniques : asthme, maladies respiratoires, cancers et hémopathies liées à des expositions prolongées【8027255155448†L164-L169】"
+      ],
+      "prevention": {
+        "collective": [
+          "Substituer les produits les plus dangereux par des alternatives moins toxiques lorsque c’est possible【345703228432428†L219-L224】",
+          "Installer des systèmes de captation à la source et de ventilation pour évacuer les vapeurs et poussières【345703228432428†L232-L233】",
+          "Stocker les produits chimiques dans des zones dédiées avec bacs de rétention et armoires ventilées【345703228432428†L221-L223】"
+        ],
+        "organisationnelle": [
+          "Étiqueter clairement les produits chimiques et respecter les fiches de données de sécurité (FDS)",
+          "Mettre en place des procédures de préparation, transfert et nettoyage des bains chimiques et former les salariés à leur usage",
+          "Mettre en œuvre un système de permis de travail pour les opérations à risque (travaux en cuve, maintenance d’installations chimiques)"
+        ],
+        "individuelle": [
+          "Porter des EPI adaptés : gants nitrile, lunettes ou visière de protection, combinaison résistante aux produits chimiques, masques respiratoires appropriés",
+          "Se laver les mains et les parties exposées immédiatement après manipulation",
+          "Maintenir à jour la vaccination (tétanos) et signaler toute intoxication présumée au médecin du travail"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-1 à R4412-160 (prévention des risques chimiques)",
+        "Articles R4227-28 à R4227-44 (prévention des incendies et explosions)"
+      ],
+      "ressources_inrs": [
+        "ED 6425",
+        "ED 6408",
+        "ED 6398",
+        "Fiche solution ED 6455",
+        "Fiches 'Comment bien choisir'"
+      ]
+    },
+    {
+      "id": "IND_R5",
+      "intitule": "Bruits et vibrations",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Exposition au bruit intense, vibrations des machines et outils portatifs",
+      "famille_inrs": "2",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de broyeurs, presses, injection plastique et autres équipements bruyants dans les ateliers【8027255155448†L169-L170】",
+        "Maniement d’outils portatifs (perceuses, riveteuses, meuleuses) provoquant des vibrations dans les mains et les bras【8027255155448†L150-L156】",
+        "Conduite de chariots élévateurs ou d’engins générant des vibrations corporelles"
+      ],
+      "dangers": [
+        "Exposition prolongée à des niveaux sonores élevés entraînant une détérioration de l’audition et des acouphènes",
+        "Vibrations transmises aux mains, aux bras et au corps pouvant provoquer le syndrome du canal carpien et des troubles circulatoires",
+        "Stress, fatigue et perte de vigilance liés aux nuisances sonores"
+      ],
+      "dommages_potentiels": [
+        "Perte auditive progressive et acouphènes",
+        "Troubles musculo-squelettiques et neurologiques (douleurs articulaires, fourmillements)【8027255155448†L150-L156】",
+        "Fatigue, troubles du sommeil et risques psychosociaux liés au bruit constant"
+      ],
+      "prevention": {
+        "collective": [
+          "Réduire le bruit à la source (choisir des machines moins bruyantes, insonoriser les installations)【8027255155448†L237-L238】",
+          "Mettre en place des écrans acoustiques et aménager des locaux spécifiques pour les machines bruyantes",
+          "Réduire les vibrations en utilisant des outils vibrants de dernière génération et en amortissant les postes de travail"
+        ],
+        "organisationnelle": [
+          "Établir un programme de maintenance préventive pour maintenir les équipements en bon état",
+          "Définir des périodes de rotation pour limiter le temps d’exposition et alterner avec des tâches moins bruyantes",
+          "Informer et former les travailleurs à l’usage des protections auditives et à la prévention des vibrations"
+        ],
+        "individuelle": [
+          "Porter des protections auditives (casques ou bouchons) lorsque le niveau sonore dépasse 80 dB(A)",
+          "Utiliser des gants anti‑vibrations pour les travaux manuels",
+          "Effectuer des pauses régulières pour permettre la récupération"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4441-1 à R4447-6 du Code du travail (bruit et vibrations)",
+        "Articles R4222-1 à R4222-23 (aération et ventilation)"
+      ],
+      "ressources_inrs": [
+        "ED 6471",
+        "ED 6408",
+        "Fiche 'Réduire le bruit dans les ateliers'"
+      ]
+    },
+    {
+      "id": "IND_R6",
+      "intitule": "Risques thermiques et brûlures",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Exposition à la chaleur, brûlures, coups de chaleur",
+      "famille_inrs": "2",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Manipulation de bains chimiques chauffés ou de métal en fusion lors des traitements de surface【345703228432428†L161-L165】",
+        "Opérations de moulage et d’injection de plastique où la matière est portée à haute température【8027255155448†L121-L124】",
+        "Travaux réalisés dans des ateliers peu ventilés, exposés à des sources de chaleur (fourneaux, étuves, soudage)"
+      ],
+      "dangers": [
+        "Contact direct avec des surfaces chaudes, liquides ou gaz brûlants provoquant des brûlures",
+        "Rayonnement thermique intense pouvant entraîner des coups de chaleur ou une hyperthermie",
+        "Projections de métal ou de plastique en fusion et de vapeurs chaudes"
+      ],
+      "dommages_potentiels": [
+        "Brûlures du premier au troisième degré (peau, yeux)【345703228432428†L161-L165】",
+        "Coup de chaleur, déshydratation et malaise",
+        "Cicatrices et séquelles permanentes en cas de brûlure profonde"
+      ],
+      "prevention": {
+        "collective": [
+          "Isoler les sources de chaleur (capotage, écrans thermiques) et installer des protections contre les projections",
+          "Mettre en place un système de ventilation efficace pour réduire la température ambiante et l’humidité",
+          "Sécuriser les bains chauffés avec des dispositifs anti‑retournement et de contrôle de température"
+        ],
+        "organisationnelle": [
+          "Former les salariés aux risques thermiques et aux gestes d’urgence en cas de brûlure",
+          "Planifier les pauses et assurer l’accès à de l’eau fraîche pour prévenir la déshydratation",
+          "Définir des procédures de manutention sécurisée pour les matières chaudes"
+        ],
+        "individuelle": [
+          "Porter des vêtements ignifugés, des gants thermiques et des écrans faciaux pour se protéger des projections",
+          "Utiliser des pinces et des outils adaptés pour manipuler les pièces chaudes",
+          "En cas de brûlure, rincer immédiatement à l’eau froide et consulter le service de santé"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4222-25 à R4225-3 (exposition à la chaleur et conditions thermiques)",
+        "Articles R4323-91 à R4323-96 (mesures de protection contre les risques thermiques)"
+      ],
+      "ressources_inrs": [
+        "ED 6425",
+        "ED 6408"
+      ]
+    },
+    {
+      "id": "IND_R7",
+      "intitule": "Radiations ionisantes et non ionisantes",
+      "categorie_principale": "Risques liés aux rayonnements",
+      "sous_categorie": "Rayonnements UV/IR (soudage, découpe laser) et ionisants (contrôle non destructif)",
+      "famille_inrs": "6",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Soudage et découpe laser des métaux générant des rayons UV et IR",
+        "Utilisation de lasers dans les procédés de micro‑usinage ou de marquage",
+        "Contrôle non destructif par radiographie industrielle (rayons X) ou gammagraphie"
+      ],
+      "dangers": [
+        "Rayonnements UV provoquant des lésions oculaires et des brûlures cutanées",
+        "Rayonnements IR entraînant un échauffement des tissus et des brûlures internes",
+        "Rayonnements ionisants exposant les opérateurs à un risque accru de cancers ou de maladies hématopoïétiques"
+      ],
+      "dommages_potentiels": [
+        "Atteintes oculaires irréversibles et cataracte",
+        "Brûlures cutanées et altération des tissus",
+        "Cancers liés aux expositions ionisantes à long terme"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les postes de soudage avec des écrans et rideaux anti‑UV/IR et interverrouillage des lasers",
+          "Mettre en place des zones contrôlées et signalisées pour les appareils de radiographie industrielle, avec blindage adéquat",
+          "Limiter la durée d’exposition et maintenir une distance suffisante par rapport aux sources de rayonnements"
+        ],
+        "organisationnelle": [
+          "Former les opérateurs aux risques liés aux rayonnements et au port des équipements de protection",
+          "Suivre un programme de dosimétrie pour les travailleurs exposés à des sources ionisantes",
+          "Contrôler périodiquement les appareils de radiographie et de découpe laser et maintenir les certifications nécessaires"
+        ],
+        "individuelle": [
+          "Porter des écrans faciaux ou des lunettes filtrantes adaptées aux UV/IR lors des opérations de soudage et de découpe",
+          "Utiliser des gants et vêtements à manches longues pour protéger la peau",
+          "Porter un dosimètre passif et se soumettre aux examens médicaux spécifiques en cas d’exposition à des rayonnements ionisants"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4451-1 à R4456-9 (protection contre les rayonnements ionisants)",
+        "Articles R4452-1 à R4452-5 (prévention des risques liés aux rayonnements optiques artificiels)"
+      ],
+      "ressources_inrs": [
+        "Guide INRS 'Rayonnements optiques'",
+        "Guide INRS 'Radioprotection industrielle'"
+      ]
+    },
+    {
+      "id": "IND_R8",
+      "intitule": "Circulation interne et risque routier",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Circulation d’engins et de véhicules sur site, déplacements routiers professionnels",
+      "famille_inrs": "8",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Déplacement de chariots élévateurs et de transpalettes dans les ateliers et entrepôts",
+        "Utilisation de camions et de véhicules utilitaires pour les livraisons, le transport de matériaux et les interventions chez les clients",
+        "Passage des salariés à proximité d’engins mobiles et croisement avec des piétons"
+      ],
+      "dangers": [
+        "Collision entre engins ou entre engins et piétons due à une visibilité réduite ou une co‑activité sur le site",
+        "Risque d’accident de la route lié à la fatigue, la vitesse excessive, l’utilisation du téléphone ou l’état des véhicules",
+        "Chute de charges lors du transport ou du transbordement"
+      ],
+      "dommages_potentiels": [
+        "Traumatismes graves : fractures, écrasement, blessures multiples",
+        "Décès en cas de collision routière ou d’écrasement par un engin lourd",
+        "Dommages matériels importants et interruption de l’activité"
+      ],
+      "prevention": {
+        "collective": [
+          "Établir un plan de circulation interne avec voies séparées pour piétons et véhicules, marquages au sol et signaux lumineux",
+          "Installer des zones de stockage et de chargement sécurisées et bien éclairées afin d’éviter les manœuvres dangereuses",
+          "Équiper les véhicules d’aides à la conduite (rétroviseurs panoramiques, alarmes de recul, limitateurs de vitesse)"
+        ],
+        "organisationnelle": [
+          "Former les conducteurs d’engins au CACES et renouveler leurs habilitations",
+          "Planifier les trajets routiers pour éviter la précipitation et prévoir des temps de repos suffisants",
+          "Interdire l’usage du téléphone au volant et veiller à l’entretien régulier des véhicules"
+        ],
+        "individuelle": [
+          "Porter un gilet haute visibilité dans les zones de circulation",
+          "Respecter les limitations de vitesse et les règles de circulation sur site",
+          "Signaler toute anomalie d’un engin avant son utilisation"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4141-1 à R4141-19 (formation à la conduite d’engins) et R4225-1 à R4225-9 (signalisation de sécurité)",
+        "Code de la route (conduite et sécurité routière)"
+      ],
+      "ressources_inrs": [
+        "ED 6398",
+        "Guides de conduite d’engins",
+        "ED 6455"
+      ]
+    },
+    {
+      "id": "IND_R9",
+      "intitule": "Risques psychosociaux (RPS)",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Stress, exigences de production, monotonie, harcèlement",
+      "famille_inrs": "7",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Pics d’activité, pression liée aux délais de production et aux exigences de qualité【92947298694522†L158-L160】",
+        "Répétitivité des tâches et absence de latitude dans l’organisation du travail",
+        "Horaires décalés ou travail posté, isolement ou conflit entre collègues"
+      ],
+      "dangers": [
+        "Stress chronique, surcharge mentale et perte de sens dans le travail",
+        "Harcèlement moral ou sexuel, violence verbale ou physique au sein de l’atelier",
+        "Incertitude sur l’avenir (pérennité de l’emploi, transformations numériques)"
+      ],
+      "dommages_potentiels": [
+        "Troubles anxieux et dépressifs, burn‑out, troubles du sommeil et fatigue【8027255155448†L169-L170】",
+        "Aggravation des TMS et des maladies cardiovasculaires liées au stress",
+        "Absentéisme, perte de motivation et accidents du travail liés à une baisse de vigilance"
+      ],
+      "prevention": {
+        "collective": [
+          "Améliorer l’ergonomie des postes et encourager la polyvalence pour limiter la monotonie",
+          "Favoriser la communication et la participation des salariés aux décisions organisationnelles",
+          "Mettre en place des espaces de dialogue, un dispositif d’écoute et un soutien psychologique"
+        ],
+        "organisationnelle": [
+          "Planifier le travail de façon réaliste et répartir les charges équitablement",
+          "Former les managers à détecter les signes de stress et de souffrance au travail et à prévenir le harcèlement",
+          "Mettre en place un accord ou une démarche RPS avec le comité social et économique (CSE)"
+        ],
+        "individuelle": [
+          "Sensibiliser chaque salarié à l’importance du repos et de l’équilibre vie professionnelle/vie personnelle",
+          "Encourager la pratique d’exercices de relaxation et de pauses régulières",
+          "Consulter le médecin du travail en cas de symptômes de stress ou d’épuisement"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 et L4121-2 (obligation générale de sécurité)",
+        "Accords nationaux interprofessionnels sur la qualité de vie au travail et la prévention des RPS"
+      ],
+      "ressources_inrs": [
+        "Dossiers RPS INRS",
+        "Guide 'Oser en parler' (INRS)"
+      ]
+    },
+    {
+      "id": "IND_R10",
+      "intitule": "Incendie et explosion",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Incendie de liquides inflammables et explosion de poussières ou de gaz",
+      "famille_inrs": "4",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Stockage et transfert de solvants et de combustibles dans les ateliers【345703228432428†L219-L223】",
+        "Opérations générant des poussières (sablage, meulage, usinage du plastique ou du bois) en présence de sources d’ignition",
+        "Travaux par points chauds (soudage, meulage) à proximité de produits inflammables"
+      ],
+      "dangers": [
+        "Libération de vapeurs inflammables pouvant s’enflammer au contact d’étincelles ou de surfaces chaudes",
+        "Accumulation de poussières combustibles pouvant provoquer une explosion si elles sont mises en suspension",
+        "Non-conformité des installations électriques ou absence de mise à la terre des appareils"
+      ],
+      "dommages_potentiels": [
+        "Brûlures graves, asphyxie ou intoxication par inhalation de fumées toxiques",
+        "Destruction de l’outil de production et arrêt prolongé de l’activité",
+        "Décès ou blessures multiples en cas d’explosion"
+      ],
+      "prevention": {
+        "collective": [
+          "Stocker les produits inflammables dans des armoires et locaux résistants au feu équipés de bacs de rétention【345703228432428†L221-L223】",
+          "Installer des systèmes de ventilation et d’aspiration pour éliminer les poussières et vapeurs combustibles",
+          "Mettre en place un réseau d’extincteurs adaptés, des détecteurs d’incendie et un système d’alarme"
+        ],
+        "organisationnelle": [
+          "Élaborer un plan de prévention des travaux par points chauds et délivrer des permis de feu",
+          "Former le personnel à la manipulation des extincteurs et à la conduite à tenir en cas d’incendie",
+          "Entretenir régulièrement les installations électriques et vérifier la conformité ATEX des équipements"
+        ],
+        "individuelle": [
+          "Respecter l’interdiction de fumer et de créer des étincelles à proximité des produits inflammables",
+          "Utiliser des EPI ignifugés et des masques filtrants en cas de présence de fumées",
+          "Signaler toute fuite ou odeur suspecte au responsable sécurité"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 (prévention incendie et explosion)",
+        "Arrêté du 4 novembre 1993 relatif à la signalisation de sécurité et de santé au travail"
+      ],
+      "ressources_inrs": [
+        "Guide INRS sur la prévention du risque d’incendie",
+        "ED 6455"
+      ]
+    },
+    {
+      "id": "IND_R11",
+      "intitule": "Chocs électriques et électrocution",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Travaux d’entretien, de dépannage et d’utilisation d’installations électriques",
+      "famille_inrs": "1",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Réglage et maintenance de machines ou de tableaux électriques sous tension",
+        "Utilisation de rallonges et d’outils électriques en milieu humide",
+        "Intervention sur des armoires électriques sans consignation adéquate"
+      ],
+      "dangers": [
+        "Contact direct avec des conducteurs sous tension ou pièces métalliques mal isolées",
+        "Présence d’eau ou d’humidité augmentant la conductivité",
+        "Utilisation d’équipements de protection ou de câbles défectueux"
+      ],
+      "dommages_potentiels": [
+        "Brûlures internes et externes dues au passage du courant",
+        "Arrêt cardiaque ou fibrillation ventriculaire en cas d’électrocution",
+        "Chutes secondaires causées par le choc électrique"
+      ],
+      "prevention": {
+        "collective": [
+          "Séparer et isoler les parties actives des installations, utiliser des capots et des armoires fermées à clé",
+          "Mettre en place des dispositifs différentiels haute sensibilité et des disjoncteurs adaptés",
+          "Prévoir un plan de consignation (Lock‑out/Tag‑out) pour les interventions sur les installations électriques"
+        ],
+        "organisationnelle": [
+          "Assurer la formation et l’habilitation électrique des intervenants conformément aux normes NF C18‑510",
+          "Tenir à jour le carnet d’entretien des installations et faire réaliser des vérifications périodiques",
+          "Interdire l’utilisation de matériels électriques non conformes ou bricolés"
+        ],
+        "individuelle": [
+          "Utiliser des EPI isolants (gants électriques, chaussures isolantes) et des outils isolés",
+          "Vérifier l’absence de tension avant d’intervenir et respecter les procédures de consignation",
+          "Ne pas toucher une personne électrocutée sans couper l’alimentation et alerter les secours"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4544-1 à R4544-12 (travaux sous tension et habilitations électriques)",
+        "Articles R4226-1 à R4226-21 (prévention du risque électrique)"
+      ],
+      "ressources_inrs": [
+        "Guide INRS 'Sécurité des installations électriques'",
+        "CATEC (Certificat d’Aptitude au Travail en Environnement Confiné)"
+      ]
+    },
+    {
+      "id": "IND_R12",
+      "intitule": "Poussières et fumées (cancérigènes et irritantes)",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Poussières de bois, de métal, de plastique, fumées de soudage et de découpe",
+      "famille_inrs": "4",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Sablage, découpe, meulage et polissage de métaux générant des poussières fines et des fumées de soudage",
+        "Usinage et sciage de plastiques et de composites libérant des particules et des vapeurs toxiques",
+        "Travail en atmosphère poussiéreuse (manutention de granulés plastiques, nettoyage des filtres et des silos)"
+      ],
+      "dangers": [
+        "Inhalation de poussières fines contenant du chrome, du nickel, des métaux lourds ou des fibres irritantes",
+        "Inhalation de fumées de soudage et de gaz d’oxydes d’azote, d’ozone ou de monoxyde de carbone",
+        "Accumulation de poussières combustibles pouvant conduire à une explosion"
+      ],
+      "dommages_potentiels": [
+        "Irritation des voies respiratoires, toux, asthme et allergies",
+        "Maladies pulmonaires chroniques (silicose, fibroses) et cancers liés à des agents cancérogènes présents dans les fumées de soudage",
+        "Dermatoses et atteintes oculaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des dispositifs d’aspiration et de filtration (bras aspirants, hottes) à la source des émissions",
+          "Recourir à la ventilation générale et aux systèmes de dépoussiérage pour maintenir une atmosphère saine",
+          "Choisir des procédés de soudage et de découpe moins polluants ou automatisés"
+        ],
+        "organisationnelle": [
+          "Établir une cartographie des zones à risque et limiter l’accès aux personnels formés",
+          "Établir des procédures de nettoyage régulières et humides pour éviter la remise en suspension des poussières",
+          "Former le personnel aux risques d’inhalation et à l’utilisation des systèmes de captage"
+        ],
+        "individuelle": [
+          "Porter des masques respiratoires adaptés (FFP2/FFP3 ou masques à cartouche) et des lunettes étanches",
+          "Porter des gants et des vêtements couvrants pour limiter le contact cutané",
+          "Respecter les procédures de maintenance des filtres et des aspirateurs afin de garantir leur efficacité"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-149 à R4412-160 (substances CMR)",
+        "Articles R4222-14 à R4222-23 (aération et assainissement des locaux)"
+      ],
+      "ressources_inrs": [
+        "Guides INRS sur les fumées de soudage",
+        "ED 6408"
+      ]
+    },
+    {
+      "id": "IND_R13",
+      "intitule": "Risques biologiques",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Exposition à des micro-organismes dans les circuits d’eau, systèmes de refroidissement et déchets",
+      "famille_inrs": "5",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Maintenance de tours de refroidissement ou de systèmes d’eau susceptibles de contenir des bactéries (Légionella)",
+        "Nettoyage de filtres et d’installations humides favorisant la prolifération de moisissures",
+        "Manipulation de déchets et de boues industrielles pouvant contenir des micro-organismes"
+      ],
+      "dangers": [
+        "Inhalation d’aérosols contaminés par des bactéries (Légionella, pseudomonas)",
+        "Contact avec des moisissures ou des champignons présents sur les surfaces humides",
+        "Piqûres et morsures d’animaux (rongeurs, insectes) attirés par les déchets"
+      ],
+      "dommages_potentiels": [
+        "Infections respiratoires (légionellose) et dermatites",
+        "Allergies, asthme et hypersensibilité due aux moisissures",
+        "Maladies zoonotiques transmises par les animaux nuisibles"
+      ],
+      "prevention": {
+        "collective": [
+          "Maintenir les circuits d’eau et les tours aéroréfrigérantes propres et désinfectés, contrôler régulièrement la qualité microbiologique",
+          "Mettre en place des barrières physiques et des grilles pour empêcher l’accès des nuisibles aux installations",
+          "Équiper les installations de points de vidange et de purge pour éviter la stagnation de l’eau"
+        ],
+        "organisationnelle": [
+          "Établir un plan d’entretien et de nettoyage des systèmes de refroidissement et des canalisations",
+          "Faire appel à des prestataires qualifiés pour la désinfection et l’analyse des eaux",
+          "Former les salariés aux risques biologiques et aux mesures d’hygiène"
+        ],
+        "individuelle": [
+          "Porter des gants, masques FFP2 et lunettes lors des opérations de nettoyage ou de maintenance",
+          "Se laver les mains et utiliser des solutions hydroalcooliques après la manipulation de déchets",
+          "Consulter le service médical en cas de symptômes infectieux"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421-1 à R4428-1 (risques biologiques)",
+        "Décret n° 2013-110 du 18 février 2013 relatif aux légionelles"
+      ],
+      "ressources_inrs": [
+        "INRS Dossier Légionella",
+        "ED 6153"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "En 2022, le secteur de l’industrie manufacturière a enregistré environ 80 020 accidents du travail (source Dares), après un pic à 88 000 en 2018 et une baisse à 72 050 en 2023【328973206700578†L289-L303】.",
+    "accidents_graves": "Plus de 50 % des accidents sont liés à la manutention manuelle et environ 20 % aux outils à main dans la mécanique industrielle【651827950872741†L33-L38】.",
+    "maladies_professionnelles_courantes": [
+      "Troubles musculo‑squelettiques affectant le dos et les membres supérieurs【651827950872741†L33-L38】【8027255155448†L150-L154】",
+      "Surdité et autres troubles auditifs liés au bruit【8027255155448†L169-L170】",
+      "Dermatoses, asthme et cancers professionnels liés aux expositions chimiques【8027255155448†L164-L169】",
+      "Pathologies dues au stress et aux risques psychosociaux"
+    ]
+  },
+  "sources": [
+    "INRS – Mécanique industrielle (ED 6398) : statistiques et mesures de prévention【651827950872741†L21-L31】【651827950872741†L45-L60】",
+    "Ameli – Mécanique industrielle : liste des principaux risques et situations【92947298694522†L142-L160】",
+    "Ameli – Traitement et revêtement des métaux : situations à risque et mesures de prévention【345703228432428†L150-L170】【345703228432428†L219-L233】",
+    "Ameli – Industries du plastique et du caoutchouc : principaux risques professionnels et actions de prévention【8027255155448†L150-L169】【8027255155448†L223-L247】",
+    "Dares – Accidents du travail : données par secteur (2017‑2023)【328973206700578†L289-L303】"
+  ]
+}

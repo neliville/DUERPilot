@@ -1,0 +1,86 @@
+{
+  "referentiel": "OiRA - Restauration rapide",
+  "source": "OiRA / INRS",
+  "date_revision": "2025-09-22",
+  "structure": {
+    "niveau_0": "Activite",
+    "niveau_1": "Domaine / Situation de travail",
+    "niveau_2": "Question d_evaluation",
+    "niveau_3": "Mesures de prevention de reference"
+  },
+  "activite": {
+    "code": "RESTAURATION_RAPIDE",
+    "libelle": "Restauration rapide",
+    "domaines": [
+      {
+        "code": "D1",
+        "libelle": "Aménagement des locaux",
+        "questions": [
+          {
+            "code": "D1.1",
+            "question": "Des mesures ont-elles été prises pour maîtriser le niveau sonore dans l'établissement ?",
+            "mesures": [
+              "Intégrer la prévention du bruit dans la conception et l'organisation de l'établissement",
+              "Permettre aux salariés d'interrompre ou d'ajuster la sonorisation",
+              "Installer des panneaux d'absorption acoustique"
+            ]
+          },
+          {
+            "code": "D1.2",
+            "question": "Les espaces de circulation et les postes de travail sont-ils éclairés de façon suffisante ?",
+            "mesures": [
+              "Vérifier et assurer un éclairage suffisant dans tous les locaux",
+              "Privilégier des éclairages à longue durée de vie",
+              "Installer un éclairage à détection de présence dans les zones de stockage",
+              "Prévoir des dispositifs pour limiter l’éblouissement"
+            ]
+          },
+          {
+            "code": "D1.3",
+            "question": "Des mesures sont-elles prévues pour limiter le risque de chute ?",
+            "mesures": [
+              "Prévoir des espaces de circulation suffisants",
+              "Repérer et réparer les sols dégradés ou glissants",
+              "Dégager les accès et lieux de circulation",
+              "Installer des mains courantes dans les escaliers",
+              "Équiper les marches de revêtements antidérapants"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D2",
+        "libelle": "Aménagement de la cuisine",
+        "questions": [
+          {
+            "code": "D2.1",
+            "question": "Les plans de travail sont-ils dégagés et à une hauteur confortable ?",
+            "mesures": [
+              "Installer des plans de travail en nombre suffisant et ajustables",
+              "Favoriser la variation des postures",
+              "Positionner les équipements chauds à hauteur adaptée"
+            ]
+          },
+          {
+            "code": "D2.2",
+            "question": "Le sol de la cuisine est-il maintenu propre et sec ?",
+            "mesures": [
+              "Choisir un revêtement de sol antidérapant",
+              "Assurer une bonne évacuation des eaux",
+              "Faire porter des chaussures antidérapantes"
+            ]
+          },
+          {
+            "code": "D2.3",
+            "question": "La cuisine est-elle correctement ventilée ?",
+            "mesures": [
+              "Vérifier régulièrement le fonctionnement de la hotte",
+              "Nettoyer les grilles de ventilation",
+              "Assurer un apport d’air neuf suffisant"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

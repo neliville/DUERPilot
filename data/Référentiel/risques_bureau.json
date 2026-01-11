@@ -1,0 +1,561 @@
+{
+  "secteur": {
+    "nom": "Travail de bureau et activités tertiaires",
+    "code": "BUREAU",
+    "code_naf": "K, L, M, N (64-82)",
+    "description": "Le secteur tertiaire comprend les activités de bureau (administration, banques, assurances, comptabilité, conseil, services aux entreprises, immobilier, informatique). Les activités principales sont le travail sur écran, la gestion administrative, l'accueil, les réunions et les déplacements professionnels."
+  },
+  "risques": [
+    {
+      "id": "BUREAU001",
+      "intitule": "Troubles musculosquelettiques (TMS) liés au travail sur écran",
+      "categorie_principale": "Risques liés à l'activité physique",
+      "sous_categorie": "Postures statiques prolongées, gestes répétitifs",
+      "famille_inrs": "9 (activité physique)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travail sur ordinateur prolongé (6-8h/jour)",
+        "Utilisation intensive de la souris et du clavier",
+        "Position assise statique devant l'écran",
+        "Téléphone coincé entre l'épaule et l'oreille",
+        "Écran mal positionné (hauteur, distance, luminosité)",
+        "Mobilier inadapté (bureau, chaise non ergonomique)"
+      ],
+      "dangers": [
+        "Posture assise prolongée sans variation",
+        "Mouvements répétitifs des mains et poignets",
+        "Position inadaptée du cou et des épaules",
+        "Absence de pauses régulières",
+        "Aménagement de poste non ergonomique",
+        "Mauvais réglage du siège et de l'écran"
+      ],
+      "dommages_potentiels": [
+        "Syndrome du canal carpien",
+        "Tendinites des membres supérieurs (épaule, coude, poignet)",
+        "Cervicalgies et dorsalgies",
+        "Lombalgies chroniques",
+        "Troubles circulatoires des membres inférieurs"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir du mobilier ergonomique (sièges réglables, bureaux adaptables en hauteur)",
+          "Installer des supports de documents et repose-pieds",
+          "Équiper de souris ergonomiques et claviers adaptés",
+          "Fournir des casques téléphoniques pour les postes d'accueil",
+          "Assurer un éclairage adapté sans reflets sur les écrans",
+          "Proposer des bureaux assis-debout (sit-stand)"
+        ],
+        "organisationnelle": [
+          "Former à l'ergonomie du poste de travail",
+          "Imposer des pauses régulières (5 min toutes les heures)",
+          "Encourager les micro-pauses et changements de posture",
+          "Organiser des exercices d'étirement collectifs",
+          "Limiter le temps d'écran continu sans variation",
+          "Réaliser des diagnostics ergonomiques individuels"
+        ],
+        "individuelle": [
+          "Régler correctement son siège (hauteur, dossier, accoudoirs)",
+          "Positionner l'écran à hauteur des yeux et à distance de bras",
+          "Adopter une posture droite avec pieds au sol",
+          "Faire des pauses actives (marche, étirements)",
+          "Alterner les tâches pour varier les positions",
+          "Pratiquer des exercices oculaires (règle 20-20-20)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4542-1 à R4542-19 du Code du travail (travail sur écran)",
+        "Article R4542-4 : obligation d'analyse ergonomique",
+        "Directive 90/270/CEE concernant le travail sur écran"
+      ],
+      "ressources_inrs": [
+        "ED 6057 - Travail sur écran",
+        "ED 842 - Aménagement des postes de travail de bureau",
+        "TMS Pros - Bureaux et tertiaire"
+      ]
+    },
+    {
+      "id": "BUREAU002",
+      "intitule": "Fatigue visuelle et troubles oculaires",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Sollicitation visuelle intensive",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Faible",
+        "score": 3,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Fixation prolongée de l'écran sans pauses",
+        "Lecture intensive de documents sur écran",
+        "Travail avec plusieurs écrans",
+        "Éclairage inadapté (trop fort, trop faible, reflets)",
+        "Contraste et luminosité mal réglés"
+      ],
+      "dangers": [
+        "Sollicitation visuelle intensive et continue",
+        "Éblouissement par l'éclairage ou le soleil",
+        "Reflets sur l'écran",
+        "Sécheresse oculaire (climatisation, clignements réduits)",
+        "Alternance écran lumineux/document papier"
+      ],
+      "dommages_potentiels": [
+        "Fatigue visuelle et maux de tête",
+        "Sécheresse oculaire",
+        "Vision floue temporaire",
+        "Irritations oculaires",
+        "Aggravation de troubles visuels existants"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer un éclairage indirect et modulable",
+          "Équiper les fenêtres de stores ou films anti-reflets",
+          "Fournir des écrans avec traitement antireflet",
+          "Assurer un éclairage homogène (300-500 lux)",
+          "Positionner les postes perpendiculairement aux fenêtres"
+        ],
+        "organisationnelle": [
+          "Imposer des pauses visuelles régulières (règle 20-20-20 : toutes les 20 min, regarder à 20 pieds pendant 20 sec)",
+          "Proposer des examens ophtalmologiques réguliers",
+          "Former aux bonnes pratiques visuelles",
+          "Adapter les tâches pour varier les sollicitations visuelles"
+        ],
+        "individuelle": [
+          "Régler la luminosité et le contraste de l'écran",
+          "Positionner l'écran perpendiculairement aux sources lumineuses",
+          "Cligner régulièrement des yeux",
+          "Utiliser des larmes artificielles si nécessaire",
+          "Porter ses lunettes de correction si prescrites",
+          "Faire des pauses visuelles en regardant au loin"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4542-1 à R4542-19 du Code du travail (travail sur écran)",
+        "Article R4542-17 : surveillance médicale de la vision"
+      ],
+      "ressources_inrs": [
+        "ED 6057 - Travail sur écran",
+        "ED 6049 - Éclairage naturel et travail"
+      ]
+    },
+    {
+      "id": "BUREAU003",
+      "intitule": "Risques psychosociaux (stress, charge mentale)",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Charge mentale, stress, relations de travail",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Charge de travail importante et délais serrés",
+        "Interruptions fréquentes et multitâches",
+        "Relations difficiles (conflits, management)",
+        "Isolement ou open-space bruyant",
+        "Manque d'autonomie et de reconnaissance",
+        "Incertitude sur l'avenir (restructurations)"
+      ],
+      "dangers": [
+        "Surcharge de travail et objectifs irréalistes",
+        "Pression temporelle constante",
+        "Conflits interpersonnels ou harcèlement",
+        "Déséquilibre vie professionnelle/personnelle",
+        "Changements organisationnels fréquents",
+        "Manque de soutien hiérarchique ou collectif",
+        "Télétravail mal encadré (isolement, hyperconnexion)"
+      ],
+      "dommages_potentiels": [
+        "Stress chronique et épuisement professionnel (burn-out)",
+        "Anxiété et troubles dépressifs",
+        "Troubles du sommeil",
+        "Maladies cardiovasculaires",
+        "Addictions (alcool, médicaments)",
+        "Absentéisme et turnover"
+      ],
+      "prevention": {
+        "collective": [
+          "Organiser les espaces pour limiter les nuisances sonores",
+          "Aménager des espaces de détente et d'isolement",
+          "Installer des salles de réunion pour limiter les interruptions",
+          "Fournir des outils de collaboration efficaces",
+          "Créer une salle de repos ou de relaxation"
+        ],
+        "organisationnelle": [
+          "Clarifier les rôles et responsabilités de chacun",
+          "Fixer des objectifs réalistes et mesurables",
+          "Organiser des réunions d'équipe régulières",
+          "Former les managers à la prévention des RPS",
+          "Mettre en place un droit à la déconnexion",
+          "Établir une politique de télétravail équilibrée",
+          "Proposer un dispositif d'écoute (psychologue du travail)",
+          "Encourager la reconnaissance du travail accompli"
+        ],
+        "individuelle": [
+          "Apprendre à gérer son stress (relaxation, respiration)",
+          "Respecter ses temps de pause",
+          "Communiquer sur les difficultés rencontrées",
+          "Solliciter le service de santé au travail si besoin",
+          "Maintenir un équilibre vie pro/perso"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 à L4121-5 du Code du travail (obligation de sécurité)",
+        "Accord national interprofessionnel sur le stress (2 juillet 2008)",
+        "Loi du 8 août 2016 (droit à la déconnexion)"
+      ],
+      "ressources_inrs": [
+        "ED 6140 - Risques psychosociaux",
+        "ED 6251 - Prévention du stress au travail",
+        "Outil RPS-DU"
+      ]
+    },
+    {
+      "id": "BUREAU004",
+      "intitule": "Chutes de plain-pied et glissades",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements, obstacles",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Déplacements dans les couloirs et entre bureaux",
+        "Accès aux archives et locaux de stockage",
+        "Circulation dans les escaliers",
+        "Nettoyage des sols (surfaces glissantes)",
+        "Encombrement des allées (cartons, câbles)"
+      ],
+      "dangers": [
+        "Sols glissants après nettoyage",
+        "Câbles électriques au sol",
+        "Obstacles et encombrements (cartons, mobilier)",
+        "Revêtements inadaptés ou abîmés",
+        "Éclairage insuffisant (archives, locaux techniques)",
+        "Précipitation et distraction (téléphone)"
+      ],
+      "dommages_potentiels": [
+        "Entorses et foulures",
+        "Fractures (poignet, cheville)",
+        "Contusions",
+        "Traumatismes crâniens"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements antidérapants",
+          "Assurer un éclairage suffisant (≥150 lux)",
+          "Installer des passe-câbles et goulottes",
+          "Matérialiser les zones de circulation",
+          "Installer des rampes dans les escaliers",
+          "Signaler les zones temporairement glissantes"
+        ],
+        "organisationnelle": [
+          "Maintenir les allées dégagées et rangées",
+          "Nettoyer hors des heures de circulation ou par zones",
+          "Former aux risques de chute",
+          "Sensibiliser aux distractions (téléphone)",
+          "Réparer rapidement les revêtements dégradés"
+        ],
+        "individuelle": [
+          "Porter des chaussures adaptées",
+          "Rester vigilant lors des déplacements",
+          "Ne pas utiliser son téléphone en marchant",
+          "Signaler les obstacles et anomalies",
+          "Utiliser les mains courantes dans les escaliers"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail (circulations)",
+        "Recommandation R447 (CNAMTS)"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Prévention des chutes de plain-pied"
+      ]
+    },
+    {
+      "id": "BUREAU005",
+      "intitule": "Risque routier (déplacements professionnels)",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements en mission",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Déplacements clients/fournisseurs",
+        "Trajets domicile-travail (mission)",
+        "Réunions externes et formations",
+        "Utilisation du téléphone en conduisant",
+        "Conduite sous pression des délais"
+      ],
+      "dangers": [
+        "Fatigue et stress liés aux trajets",
+        "Utilisation du téléphone au volant",
+        "Pression pour respecter les horaires",
+        "Conditions météorologiques défavorables",
+        "Méconnaissance des itinéraires",
+        "Véhicules mal entretenus"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la route graves ou mortels",
+        "Polytraumatismes",
+        "Invalidité permanente",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des véhicules récents et bien équipés",
+          "Installer des kits mains-libres",
+          "Proposer des GPS et aides à la navigation",
+          "Encourager les transports en commun",
+          "Organiser des visioconférences quand possible"
+        ],
+        "organisationnelle": [
+          "Planifier des horaires de réunion réalistes",
+          "Interdire l'usage du téléphone en conduisant",
+          "Former à la conduite préventive",
+          "Établir une charte de sécurité routière",
+          "Contrôler l'entretien des véhicules",
+          "Encourager les pauses sur longs trajets"
+        ],
+        "individuelle": [
+          "Respecter le code de la route",
+          "Porter la ceinture de sécurité",
+          "Éviter la conduite en état de fatigue",
+          "Faire des pauses toutes les 2 heures",
+          "Adapter sa vitesse aux conditions"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de la route",
+        "Articles R4543-1 à R4543-13 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier en mission"
+      ]
+    },
+    {
+      "id": "BUREAU006",
+      "intitule": "Incendie et évacuation",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie dans les locaux",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Présence d'équipements électriques nombreux",
+        "Stockage de papiers et archives",
+        "Utilisation d'appareils de chauffage d'appoint",
+        "Locaux avec public (accueil)",
+        "Bâtiments de grande hauteur (IGH)"
+      ],
+      "dangers": [
+        "Surcharge électrique (multiprises)",
+        "Court-circuit sur équipements vétustes",
+        "Accumulation de matériaux combustibles (papier)",
+        "Obstruction des issues de secours",
+        "Méconnaissance des procédures d'évacuation",
+        "Absence de détection/alarme"
+      ],
+      "dommages_potentiels": [
+        "Intoxication par fumées",
+        "Brûlures",
+        "Traumatismes lors de l'évacuation",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des détecteurs de fumée et systèmes d'alarme",
+          "Équiper de RIA et extincteurs adaptés (CO2 pour électrique)",
+          "Baliser et dégager les issues de secours",
+          "Installer un éclairage de sécurité",
+          "Contrôler les installations électriques",
+          "Ventiler les locaux techniques"
+        ],
+        "organisationnelle": [
+          "Établir un plan d'évacuation et afficher les consignes",
+          "Former les équipiers d'évacuation (ESI)",
+          "Réaliser des exercices d'évacuation réguliers",
+          "Vérifier périodiquement les extincteurs et alarmes",
+          "Limiter le stockage de papier et archives",
+          "Interdire les chauffages d'appoint non conformes"
+        ],
+        "individuelle": [
+          "Connaître les issues de secours et points de rassemblement",
+          "Ne pas obstruer les dégagements",
+          "Éteindre les équipements en fin de journée",
+          "Signaler les anomalies électriques",
+          "Participer aux exercices d'évacuation"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail (incendie)",
+        "Règlement de sécurité ERP (arrêté du 25 juin 1980)",
+        "Code de la construction (IGH)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie et lieux de travail"
+      ]
+    },
+    {
+      "id": "BUREAU007",
+      "intitule": "Risques électriques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Contact électrique",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Utilisation d'équipements électriques multiples",
+        "Branchement d'appareils personnels",
+        "Intervention sur photocopieurs, imprimantes",
+        "Utilisation de multiprises en cascade",
+        "Locaux humides (cuisines, sanitaires)"
+      ],
+      "dangers": [
+        "Surcharge des circuits électriques",
+        "Câbles et prises endommagés",
+        "Utilisation de multiprises non conformes",
+        "Contact avec conducteurs dénudés",
+        "Absence de mise à la terre",
+        "Intervention non qualifiée sur équipements"
+      ],
+      "dommages_potentiels": [
+        "Électrisation et électrocution",
+        "Arrêt cardiaque",
+        "Brûlures par arc électrique",
+        "Chutes provoquées par le choc"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des dispositifs différentiels 30 mA",
+          "Mettre à la terre toutes les masses métalliques",
+          "Utiliser du matériel électrique normalisé (CE)",
+          "Vérifier périodiquement les installations",
+          "Protéger les câbles contre les détériorations"
+        ],
+        "organisationnelle": [
+          "Interdire les multiprises en cascade",
+          "Faire intervenir des personnes habilitées pour les réparations",
+          "Contrôler les installations électriques annuellement",
+          "Sensibiliser aux risques électriques",
+          "Déconnecter les appareils non utilisés"
+        ],
+        "individuelle": [
+          "Vérifier l'état des câbles avant utilisation",
+          "Ne jamais intervenir sur un équipement sous tension",
+          "Débrancher les appareils avant nettoyage",
+          "Signaler les équipements défectueux",
+          "Ne pas surcharger les prises électriques"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4215-1 à R4215-17 du Code du travail (installations électriques)",
+        "Norme NFC 15-100"
+      ],
+      "ressources_inrs": [
+        "ED 6187 - Prévention du risque électrique"
+      ]
+    },
+    {
+      "id": "BUREAU008",
+      "intitule": "Qualité de l'air intérieur et confinement",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Ambiance de travail, qualité de l'air",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Faible",
+        "score": 3,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Locaux mal ventilés ou climatisés",
+        "Salles de réunion confinées",
+        "Open-space surchargés",
+        "Présence de polluants (imprimantes, produits d'entretien)",
+        "Humidité et moisissures"
+      ],
+      "dangers": [
+        "Renouvellement d'air insuffisant",
+        "Concentration de CO2 élevée",
+        "Émissions de COV (mobilier, imprimantes)",
+        "Climatisation mal entretenue (légionellose)",
+        "Température inadaptée (trop chaud/froid)",
+        "Humidité excessive ou insuffisante"
+      ],
+      "dommages_potentiels": [
+        "Maux de tête et fatigue",
+        "Irritations ORL et respiratoires",
+        "Allergies",
+        "Diminution de la concentration",
+        "Maladies liées au bâtiment (SBS)"
+      ],
+      "prevention": {
+        "collective": [
+          "Assurer une ventilation efficace (25 m³/h/personne minimum)",
+          "Entretenir régulièrement les systèmes de ventilation",
+          "Choisir des mobiliers et équipements à faibles émissions",
+          "Installer des capteurs de CO2",
+          "Maintenir une température confortable (19-21°C en hiver, <26°C en été)"
+        ],
+        "organisationnelle": [
+          "Aérer les locaux plusieurs fois par jour",
+          "Limiter le nombre de personnes par salle",
+          "Utiliser des produits d'entretien écolabellisés",
+          "Contrôler périodiquement la qualité de l'air",
+          "Éloigner les imprimantes des postes de travail"
+        ],
+        "individuelle": [
+          "Ouvrir les fenêtres régulièrement",
+          "Signaler les odeurs anormales",
+          "S'hydrater suffisamment",
+          "Faire des pauses à l'extérieur"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4222-1 à R4222-26 du Code du travail (aération, ventilation)",
+        "Code de la santé publique (QAI dans les ERP)"
+      ],
+      "ressources_inrs": [
+        "ED 6153 - Qualité de l'air intérieur"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "12-15 pour 1000 salariés (secteur tertiaire)",
+    "accidents_graves": "Risque routier (45%), chutes (25%), RPS (croissant)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 70% des MP",
+      "Troubles psychosociaux (reconnaissance limitée)",
+      "Lombalgies (tableau 98)"
+    ]
+  },
+  "sources": [
+    "INRS - Secteur tertiaire et bureaux",
+    "Code du travail - Travail sur écran (R4542)",
+    "CNAMTS - Statistiques AT/MP secteur tertiaire",
+    "ANACT - Conditions de travail dans les bureaux"
+  ]
+}

@@ -1,0 +1,977 @@
+{
+  "secteur": {
+    "nom": "Bâtiment et Travaux Publics (BTP)",
+    "code_naf": "F (41-43)",
+    "description": "Le secteur du BTP regroupe les activités de construction de bâtiments, de travaux de génie civil et de travaux de construction spécialisés (gros œuvre, second œuvre, travaux publics, infrastructures). Les chantiers sont souvent temporaires et exposent les travailleurs à des environnements variés (structures en hauteur, tranchées, ateliers, routes)."
+  },
+  "risques": [
+    {
+      "id": "R001",
+      "intitule": "Chutes de hauteur",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Travail en hauteur (toitures, échafaudages, échelles, terrasses, plateformes)",
+      "famille_inrs": "Circulations et déplacements",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Travaux de couverture, maçonnerie ou charpente sur des toitures ou terrasses",
+        "Montage et utilisation d’échafaudages ou de plateformes élévatrices",
+        "Travaux sur échelles ou lors du coffrage/décoffrage en hauteur",
+        "Travail à proximité d’ouvertures ou de trémies sans protection"
+      ],
+      "dangers": [
+        "Absence de protections collectives (garde‑corps, filets, plinthes)",
+        "Surfaces instables ou glissantes sur toits, terrasses et échafaudages",
+        "Mauvais assemblage des échafaudages ou ancrages insuffisants",
+        "Conditions météorologiques défavorables (vent, pluie, gel)"
+      ],
+      "dommages_potentiels": [
+        "Fractures, traumatismes crâniens ou rachidiens",
+        "Polytraumatismes entraînant des incapacités permanentes",
+        "Décès suite à la chute"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des gardes‑corps, filets anti‑chute et systèmes d’arrêt de chute sur les toitures et plateformes",
+          "Utiliser des échafaudages conformes, montés et vérifiés par des personnels compétents (respect des notices fabricant)",
+          "Planifier le travail en hauteur pour limiter les interventions (préfabrication au sol, utilisation de nacelles)"
+        ],
+        "organisationnelle": [
+          "Réaliser une analyse de risque avant travaux et définir un mode opératoire spécifique",
+          "Délivrer des autorisations de travail en hauteur et veiller à la compétence des intervenants",
+          "Surveiller les conditions météorologiques et interrompre le travail en cas de vent fort ou de givre"
+        ],
+        "individuelle": [
+          "Porter un harnais antichute avec longe double et amortisseur relié à un point d’ancrage",
+          "Utiliser des chaussures antidérapantes et un casque de chantier",
+          "Suivre une formation au travail en hauteur et au port des EPI"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323‑58 à R4323‑80 du Code du travail (utilisation d’équipements pour travaux temporaires en hauteur)",
+        "Articles R4216‑1 à R4216‑30 sur la conception des lieux de travail (dégagements, désenfumage)【933701674610477†L443-L457】",
+        "Recommandation R.408 (Cnam) sur le montage et l’utilisation des échafaudages"
+      ],
+      "ressources_inrs": ["ED 6002", "ED 6186"]
+    },
+    {
+      "id": "R002",
+      "intitule": "Chutes de plain‑pied et glissades",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, faux‑pas, trébuchements et autres pertes d’équilibre sur surface plane",
+      "famille_inrs": "Circulations et déplacements",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Circulation dans les allées des chantiers encombrés ou mal éclairés",
+        "Marche sur des surfaces inégales, boueuses, humides ou grasses",
+        "Transport d’objets volumineux masquant la vue",
+        "Déplacement rapide ou marche en reculant lors de manutentions"
+      ],
+      "dangers": [
+        "Présence d’obstacles (outils, câbles, matériaux) ou de trous non balisés",
+        "Sol glissant (pluie, huile, laitance de béton) ou irrégulier (gravats, galets)【66471512166807†L68-L83】",
+        "Manque d’entretien et de nettoyage des chantiers"  
+      ],
+      "dommages_potentiels": [
+        "Entorses des chevilles, fractures du poignet ou de la clavicule【66471512166807†L91-L104】",
+        "Plaies et contusions",
+        "Traumatismes crâniens en cas de chute sur la tête"
+      ],
+      "prevention": {
+        "collective": [
+          "Planifier et matérialiser les cheminements piétons (marquage au sol, passerelles, caillebotis)【66471512166807†L81-L83】",
+          "Installer un éclairage suffisant des zones de circulation",
+          "Mettre en place des systèmes d’évacuation des eaux et nettoyer régulièrement les sols"
+        ],
+        "organisationnelle": [
+          "Maintenir le chantier propre et ranger systématiquement les matériaux et outils【66471512166807†L139-L151】",
+          "Limiter la co‑activité dans les zones exiguës et organiser le stockage pour laisser les allées libres",
+          "Informer et sensibiliser le personnel aux risques de plain‑pied"
+        ],
+        "individuelle": [
+          "Porter des chaussures de sécurité antidérapantes",
+          "Adapter la vitesse de déplacement et regarder où l’on marche",
+          "Utiliser des dispositifs d’aide au transport (chariots) pour maintenir une bonne visibilité"
+        ]
+      },
+      "references_reglementaires": [
+        "Article R4214‑3 du Code du travail (libre circulation et absence d’obstacles)",
+        "Article R4224‑20 sur l’éclairage des lieux de travail",
+        "Obligation générale de sécurité L4121‑1"
+      ],
+      "ressources_inrs": ["ED 918", "ED 722"]
+    },
+    {
+      "id": "R003",
+      "intitule": "Manutentions manuelles et postures contraignantes",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Port de charges, gestes répétitifs, postures pénibles",
+      "famille_inrs": "Manutentions manuelles",
+      "criticite": {
+        "frequence": "Permanente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Chargement et déchargement de matériaux lourds (parpaings, sacs de ciment, plaques de plâtre)",
+        "Pose d’éléments lourds ou volumineux (fenêtres, portes, poutres)",
+        "Tâches répétitives de vissage, coffrage, nivellement, finition",
+        "Travail au sol ou au ras du sol (tuiles, carrelage) nécessitant des postures accroupies ou à genoux"
+      ],
+      "dangers": [
+        "Charges trop lourdes ou mal préhensible",
+        "Postures de torsion du dos, flexion prolongée ou étirement des bras",
+        "Efforts brusques lors du levage ou du dépôt des charges",
+        "Environnement encombré empêchant une bonne ergonomie"
+      ],
+      "dommages_potentiels": [
+        "Troubles musculo‑squelettiques (tendinites, canal carpien, bursites)【850915166225902†L117-L159】",
+        "Lombalgies aiguës ou chroniques, hernies discales",
+        "Fatigue, diminution de la capacité de travail"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des aides mécaniques (chariots, diables, palans, grues) pour limiter l’effort physique",
+          "Organiser l’atelier ou le chantier de manière à réduire les distances et hauteurs de portage",
+          "Utiliser des engins de levage adaptés pour poser les éléments lourds (ventouses, lève‑vitres, treuils)"
+        ],
+        "organisationnelle": [
+          "Évaluer et planifier la manutention dès la préparation du chantier",
+          "Former les salariés aux techniques de portage et aux principes d’ergonomie",
+          "Adapter les charges à la capacité des travailleurs, prévoir un travail en binôme pour les charges lourdes",
+          "Rythmer les postes et alterner les tâches pour éviter la répétitivité"
+        ],
+        "individuelle": [
+          "Porter des ceintures lombaires ou des exosquelettes lorsque cela est pertinent",
+          "Adopter des postures de levage sécuritaires (dos droit, charge proche du corps)",
+          "Faire des pauses et exercices d’étirement pour prévenir la fatigue"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541‑1 à R4541‑9 du Code du travail sur la manutention manuelle",
+        "Article R4541‑4 : obligation de l’employeur d’organiser la manutention afin de limiter l’effort physique et de réduire le risque【207704935451222†L24-L42】"
+      ],
+      "ressources_inrs": ["ED 6182", "ED 975"]
+    },
+    {
+      "id": "R004",
+      "intitule": "Vibrations mécaniques",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Vibrations transmises aux mains‑bras et au corps entier",
+      "famille_inrs": "Risques physiques (vibrations)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Utilisation d’outils vibrants portatifs (perforateurs, meuleuses, burineurs, marteaux‑piqueurs)【808155888746135†L60-L75】",
+        "Conduite d’engins de chantier (compacteurs, pelles, camions) transmettant des vibrations au corps entier【808155888746135†L75-L107】",
+        "Travaux de découpe, de ponçage et de démolition de matériaux durs",
+        "Longues périodes d’utilisation d’équipements mal entretenus ou non adaptés"
+      ],
+      "dangers": [
+        "Oscillations mécaniques transmises au corps provoquant des lésions",
+        "Fréquences basses entraînant des atteintes tendineuses et articulaires【808155888746135†L123-L125】",
+        "Fréquences élevées affectant la vascularisation périphérique et les nerfs【808155888746135†L123-L129】"
+      ],
+      "dommages_potentiels": [
+        "Troubles musculo‑squelettiques, douleurs articulaires et tendineuses",
+        "Syndrome des vibrations main‑bras (engourdissement, blanchissement des doigts)",
+        "Lombalgies et hernies discales chez les conducteurs d’engins【808155888746135†L104-L107】"
+      ],
+      "prevention": {
+        "collective": [
+          "Sélectionner des machines à faible niveau vibratoire et les maintenir régulièrement (affûtage des outils, amortissement)【808155888746135†L146-L149】",
+          "Mettre en place des postes de travail amortis (sièges suspendus, plots antivibratoires)",
+          "Limiter l’exposition en adaptant la durée d’utilisation et en alternant les tâches"
+        ],
+        "organisationnelle": [
+          "Évaluer le niveau d’exposition au moyen d’un accéléromètre et respecter les valeurs limites réglementaires",
+          "Former les opérateurs aux risques vibratoires et au bon usage des outils",
+          "Planifier les temps de pause et l’entretien des équipements"
+        ],
+        "individuelle": [
+          "Utiliser des gants antivibratoires et des vêtements chauds favorisant la circulation sanguine",
+          "Adopter une bonne prise en main et éviter les poignées rigides",
+          "Signaler immédiatement toute sensation de fourmillement ou de douleur"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4441‑1 à R4447‑2 du Code du travail (vibrations)",
+        "Directive 2002/44/CE relative à l’exposition des travailleurs aux risques dus aux vibrations"
+      ],
+      "ressources_inrs": ["ED 984", "ED 6169"]
+    },
+    {
+      "id": "R005",
+      "intitule": "Exposition au bruit",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Bruit sur les chantiers et dans les ateliers",
+      "famille_inrs": "Risques physiques (bruit)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de machines et d’outils bruyants : meuleuses, marteaux‑piqueurs, scies, burineurs, perceuses【204627006574623†L90-L100】",
+        "Travaux de terrassement ou de démolition générant un bruit continu",
+        "Travail à proximité de moteurs et de groupes électrogènes",
+        "Co‑activité de plusieurs intervenants utilisant simultanément des équipements bruyants"
+      ],
+      "dangers": [
+        "Expositions prolongées dépassant 81 dB(A) en moyenne sur 8 h ou 135 dB de crête nécessitant des protecteurs individuels contre le bruit (PICB)【204627006574623†L132-L144】",
+        "Exposition supérieure à 85 dB(A) et 137 dB de crête imposant un programme de réduction du bruit【204627006574623†L145-L149】",
+        "Risque de perte auditive, surdité professionnelle, acouphènes et troubles cardiovasculaires【204627006574623†L68-L74】"
+      ],
+      "dommages_potentiels": [
+        "Diminution irréversible de l’audition (surdité) et acouphènes",
+        "Troubles du sommeil et fatigue chronique",
+        "Stress et augmentation de la tension artérielle"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des équipements moins bruyants et effectuer un entretien régulier (affûtage, lubrification)【204627006574623†L112-L115】",
+          "Installer des écrans et barrières acoustiques, limiter la propagation du bruit et isoler les postes bruyants",
+          "Réduire la durée d’exposition en organisant des rotations et en décalant les travaux bruyants"
+        ],
+        "organisationnelle": [
+          "Mesurer régulièrement le niveau sonore et consigner les résultats dans le DUERP",
+          "Établir un programme de prévention lorsque l’exposition dépasse 85 dB(A)【204627006574623†L145-L149】",
+          "Sensibiliser les travailleurs au risque bruit et aux moyens de se protéger"
+        ],
+        "individuelle": [
+          "Fournir et porter des bouchons d’oreille ou des casques antibruit adaptés (PICB) dès 81 dB(A)【204627006574623†L132-L145】",
+          "Porter un casque avec visière pour se protéger des projections associées",
+          "Effectuer un suivi audiométrique régulier"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4431‑1 à R4437‑4 du Code du travail (bruit)",
+        "Directive 2003/10/CE sur les risques liés au bruit"
+      ],
+      "ressources_inrs": ["ED 964", "ED 971"]
+    },
+    {
+      "id": "R006",
+      "intitule": "Écrasement par équipements ou charges",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Écrasement des membres ou du corps par des charges, machines ou éléments de construction",
+      "famille_inrs": "Risques mécaniques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Guidage et pose d’éléments préfabriqués ou d’enveloppe (panneaux, charpentes)【344113256534519†L69-L83】",
+        "Manutention de charges lourdes au moyen d’une grue ou d’un engin de levage【344113256534519†L105-L108】",
+        "Utilisation de presses, cisailles ou machines à commande bimanuelle【344113256534519†L124-L133】",
+        "Travail à proximité de dispositifs en mouvement (poulies, courroies, treuils)"
+      ],
+      "dangers": [
+        "Mauvaise prise en charge ou déséquilibre d’une charge suspendue (risque de mouvement imprévu)【344113256534519†L69-L83】",
+        "Absence de guides ou de signaleurs lors des manœuvres d’engins",
+        "Utilisation d’outillage manuel sans maîtrise entraînant le pincement des doigts",
+        "Défaillance de la machine (absence de dispositif d’arrêt d’urgence ou commande bimanuelle)"
+      ],
+      "dommages_potentiels": [
+        "Écrasement des mains ou des pieds entraînant fractures, amputations ou nécroses",
+        "Écrasement du corps entier conduisant à des traumatismes internes ou au décès【344113256534519†L85-L87】",
+        "Blessures graves par cisaillement ou écrasement par une machine"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des dispositifs de protection intégrés aux machines (capots, barrières immatérielles, commandes bimanuelles)【344113256534519†L124-L133】",
+          "Utiliser des systèmes d’élingage et de guidage des charges et désigner un signaleur pour diriger les manœuvres【344113256534519†L110-L119】",
+          "Délimiter et interdire l’accès aux zones de manœuvre des engins de levage"
+        ],
+        "organisationnelle": [
+          "Former les opérateurs à l’utilisation des machines et au guidage des charges【344113256534519†L115-L124】",
+          "Vérifier la conformité des machines et leur entretien régulier",
+          "Planifier les manutentions lourdes en tenant compte des capacités des engins et des voies de circulation"
+        ],
+        "individuelle": [
+          "Porter des gants de protection, des chaussures de sécurité à coque et un casque",
+          "Ne jamais se placer sous une charge suspendue et rester en dehors du rayon d’action des engins",
+          "Être attentif aux mouvements des machines et signaler toute anomalie"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323‑1 à R4323‑55 du Code du travail (utilisation des équipements de travail)",
+        "Annexe II de la Directive Machines 2006/42/CE (dispositifs de sécurité sur presses plieuses, cisailles, etc.)"
+      ],
+      "ressources_inrs": ["ED 904", "ED 826"]
+    },
+    {
+      "id": "R007",
+      "intitule": "Collisions entre engins et piétons",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Heurt ou collision entre véhicules, engins et travailleurs",
+      "famille_inrs": "Circulations et déplacements",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Circulation simultanée d’engins de terrassement et de piétons sur un même chantier",
+        "Manœuvres d’engins sur des zones encombrées ou aux abords du chantier",
+        "Retournement d’engins dans les pentes ou renversement d’engins lors de virages serrés",
+        "Croisement de véhicules de chantier avec des véhicules de livraison ou de transport en zone urbaine"
+      ],
+      "dangers": [
+        "Manque de visibilité depuis la cabine des engins, angles morts et rétroviseurs mal réglés",
+        "Vitesse excessive, distraction du conducteur (téléphone, fatigue, usage de stupéfiants)【102438207689611†L95-L115】",
+        "Zones de circulation non délimitées et absence de signalisation au sol ou de barrières【102438207689611†L117-L139】",
+        "Engins vétustes, freinage inefficace ou dispositifs d’avertissement défaillants"
+      ],
+      "dommages_potentiels": [
+        "Heurt de piétons entraînant fractures graves ou écrasement mortel",
+        "Collisions entre engins provoquant des blessures multiples ou des incendies",
+        "Retournement ou renversement d’un engin causant la mort de l’opérateur et la destruction de matériel"
+      ],
+      "prevention": {
+        "collective": [
+          "Établir un plan de circulation avec des voies dédiées aux engins et d’autres aux piétons, matérialisées au sol",
+          "Installer une signalisation horizontale et verticale, des feux, miroirs et alarmes de recul【102438207689611†L117-L139】",
+          "Mettre en place des dispositifs d’aide à la conduite (caméras, radars, détecteurs d’angle mort) et maintenir les engins en bon état"
+        ],
+        "organisationnelle": [
+          "Réaliser un balisage clair et nommer un coordinateur circulation ou chef de manœuvre",
+          "Limiter la vitesse des engins et instaurer un sens de circulation unique lorsque cela est possible",
+          "Sensibiliser les conducteurs au respect du code de circulation interne et vérifier leur aptitude (CACES)"
+        ],
+        "individuelle": [
+          "Porter des EPI haute visibilité (gilet fluorescent, casque de couleur vive)",
+          "S’arrêter, regarder et écouter avant de traverser une voie d’engins",
+          "Ne jamais se placer dans l’angle mort d’un engin et maintenir un contact visuel avec le conducteur"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323‑50 à R4323‑56 du Code du travail (conduite d’engins), articles R4141‑1 à R4141‑3 sur la circulation dans l’entreprise",
+        "Recommandations CNAM R482 (engins de chantier)"
+      ],
+      "ressources_inrs": ["ED 986", "ED 6226"]
+    },
+    {
+      "id": "R008",
+      "intitule": "Risque routier (trajets et missions)",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Accidents de la route lors des déplacements professionnels et trajets domicile‑travail",
+      "famille_inrs": "Circulations et déplacements",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Conduite d’un véhicule utilitaire pour se rendre sur un chantier, livrer des matériaux ou aller chez un fournisseur",
+        "Déplacements entre plusieurs chantiers sur la même journée",
+        "Trajet domicile–travail tôt le matin ou tard le soir",
+        "Conduite d’un véhicule tractant une remorque, un compresseur ou une benne"  
+      ],
+      "dangers": [
+        "Véhicules vétustes ou mal entretenus, charge mal arrimée【999591751826108†L97-L100】",
+        "Utilisation du téléphone au volant, consommation d’alcool ou de médicaments altérant la vigilance【999591751826108†L97-L100】",
+        "Fatigue et stress liés aux horaires et à la pression des délais【999591751826108†L69-L76】",
+        "Non‑respect du code de la route, excès de vitesse, intempéries"  
+      ],
+      "dommages_potentiels": [
+        "Accidents de la route causant des traumatismes multiples ou mortels",
+        "Traumatismes cervicaux (coup du lapin), fractures, traumatismes crâniens",
+        "Retombées psychologiques pour les victimes et l’entreprise (stress post‑traumatique)"
+      ],
+      "prevention": {
+        "collective": [
+          "Élaborer un plan de prévention routière incluant l’entretien régulier des véhicules et la vérification de l’état des pneumatiques, freins et éclairages",
+          "Prévoir un arrimage correct des charges et limiter leur poids pour ne pas déstabiliser le véhicule",
+          "Sensibiliser aux dangers de l’alcool, des stupéfiants et de l’utilisation du téléphone au volant【999591751826108†L135-L139】"
+        ],
+        "organisationnelle": [
+          "Planifier les trajets pour limiter les allers‑retours et éviter les heures de pointe【999591751826108†L129-L133】",
+          "Former les conducteurs à l’éco‑conduite et au respect du code de la route",
+          "Vérifier régulièrement les permis de conduire et mettre en place des règles internes sur l’usage des véhicules d’entreprise"
+        ],
+        "individuelle": [
+          "Adapter sa vitesse aux conditions climatiques et à la charge transportée",
+          "Faire des pauses régulières pour éviter la fatigue (au moins toutes les deux heures)",
+          "Porter la ceinture de sécurité et s’abstenir de toute distraction au volant"
+        ]
+      },
+      "references_reglementaires": [
+        "L’article L4121‑1 du Code du travail imposant à l’employeur de protéger la santé et la sécurité des salariés sur les trajets et missions",
+        "Code de la route (articles R413‑1 et suivants) sur la vitesse, l’alcoolémie et l’usage du téléphone",
+        "Recommandation CNAM R469 (prévention du risque routier)"
+      ],
+      "ressources_inrs": ["ED 6140", "ED 941"]
+    },
+    {
+      "id": "R009",
+      "intitule": "Effondrement de matériel ou d’ouvrage",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Effondrement d’échafaudages, de coffrages, de structures provisoires ou d’étaiements",
+      "famille_inrs": "Risques mécaniques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Montage et utilisation d’échafaudages, étaiements et coffrages",
+        "Stockage de charges lourdes sur racks ou plateformes", 
+        "Utilisation de banches ou de coffrages non renforcés pendant le coulage du béton",
+        "Réalisation de toitures provisoires ou de structures temporaires sans calcul de stabilité"
+      ],
+      "dangers": [
+        "Faiblesse de la structure ou assemblage non conforme causant un effondrement【971933527718757†L58-L103】",
+        "Surcharge des plateformes, racks ou échafaudages au‑delà de leur capacité portant【971933527718757†L114-L143】",
+        "Absence d’inspection régulière et de maintenance", 
+        "Souffle du vent et vibrations des engins provoquant un déséquilibre"
+      ],
+      "dommages_potentiels": [
+        "Chute des travailleurs et ensevelissement sous la structure effondrée",
+        "Fractures, traumatismes et écrasements mortels",
+        "Dommages matériels importants, retard du chantier et surcoût"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des échafaudages et étaiements certifiés et respecter les notices de montage et de charge【971933527718757†L58-L103】",
+          "Faire vérifier les structures temporaires par une personne compétente avant utilisation et à intervalles réguliers",
+          "Installer des contreventements et des ancrages adaptés et protéger contre le vent"
+        ],
+        "organisationnelle": [
+          "Former le personnel au montage et au démontage des échafaudages et prévoir un plan de calepinage",
+          "Gérer les flux de matériaux pour ne pas surcharger les plateformes ou racks",
+          "Établir une procédure d’inspection quotidienne des structures provisoires"
+        ],
+        "individuelle": [
+          "Ne pas modifier ou déplacer les éléments structuraux sans autorisation",
+          "Porter casque et chaussures de sécurité, et ne jamais travailler sous une structure non étayée",
+          "Signaler immédiatement toute déformation, jeu ou bruit inhabituel dans les structures"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4534‑108 à R4534‑116 du Code du travail (montage et démontage des échafaudages)",
+        "Recommandation CNAM R408 sur le montage, l’utilisation et le démontage des échafaudages",
+        "Norme NF EN 12811 relative aux échafaudages temporaires"
+      ],
+      "ressources_inrs": ["ED 1493", "ED 6377"]
+    },
+    {
+      "id": "R010",
+      "intitule": "Ensevelissement et effondrement de tranchées",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Travaux de fouilles et de tranchées avec risque d’éboulement",
+      "famille_inrs": "Risques mécaniques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Ouverture de tranchées pour la pose de canalisations, câbles ou fondations【294271217706437†L60-L103】",
+        "Travaux de terrassement, de fouille ou de reprise en sous‑œuvre",
+        "Présence de charges à proximité des parois (matériaux stockés, engins) ou circulation d’engins provoquant des vibrations【294271217706437†L109-L123】",
+        "Travaux dans un sol hétérogène ou gorgé d’eau sans étude géotechnique"
+      ],
+      "dangers": [
+        "Manque de blindage ou d’étaiement des parois entraînant l’effondrement de la fouille (1 m³ de terre pèse environ 1,8 à 2 tonnes)【294271217706437†L60-L103】",
+        "Facteurs aggravants : profondeur > 1,3 m, vibrations d’engins, humidité du sol et charges proches【294271217706437†L109-L123】",
+        "Absence d’accès sécurisé pour évacuer rapidement la tranchée"
+      ],
+      "dommages_potentiels": [
+        "Écrasement ou asphyxie des opérateurs ensevelis sous la terre",
+        "Traumatismes multiples dus à l’effondrement des parois",
+        "Décès par suffocation et difficultés de secours en milieu confiné"
+      ],
+      "prevention": {
+        "collective": [
+          "Réaliser une étude géotechnique et choisir des techniques de blindage (plaques, étais, caissons) adaptées à la nature du sol",
+          "Mettre en place des talus ou des banquettes avec des pentes sécurisées lorsque la profondeur le permet",
+          "Délimiter la zone de travail, interdire la circulation d’engins près des parois et stocker les matériaux à distance"
+        ],
+        "organisationnelle": [
+          "Former les équipes aux risques d’ensevelissement et établir un plan d’intervention d’urgence",
+          "Surveiller en permanence l’état des parois et arrêter le travail en cas de fissure ou de glissement",
+          "Prévoir une voie d’accès sécurisé (échelle) pour évacuer rapidement la tranchée"
+        ],
+        "individuelle": [
+          "Porter un casque et des chaussures de sécurité",
+          "Ne jamais descendre dans une tranchée non étayée ou sans protection",
+          "Signaler immédiatement tout signe d’instabilité et se retirer"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4534‑1 à R4534‑87 du Code du travail (travaux de fouilles et de terrassement)",
+        "Recommandation CNAM R474 (travaux en tranchée)"
+      ],
+      "ressources_inrs": ["ED 6107", "ED 6117"]
+    },
+    {
+      "id": "R011",
+      "intitule": "Exposition à l’amiante",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Exposition aux fibres d’amiante lors de travaux de rénovation ou de démolition",
+      "famille_inrs": "Risques chimiques (CMR)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Dépose ou découpe de matériaux contenant de l’amiante (plaques ondulées, dalles de sol, mortiers, flocages)【850915166225902†L217-L239】",
+        "Travaux dans des bâtiments construits avant 1997 sans repérage préalable",
+        "Intervention sur canalisations en fibrociment ou flocages isolants",
+        "Perçage ou ponçage de matériaux amiantés"
+      ],
+      "dangers": [
+        "Libération de fibres d’amiante lors de la manipulation, de la découpe ou de la démolition des matériaux【850915166225902†L217-L239】",
+        "Inhalation des fibres (invisibles à l’œil nu) et contamination de l’environnement de travail",
+        "Travail sans confinement ni dépression suffisante"  
+      ],
+      "dommages_potentiels": [
+        "Maladies pulmonaires graves (asbestose, plaques pleurales)",
+        "Cancers broncho‑pulmonaires, mésothéliomes pleuraux et péritonéaux",
+        "Décès à long terme après une période de latence"
+      ],
+      "prevention": {
+        "collective": [
+          "Faire réaliser un repérage amiante avant travaux (RAAT) et classer les opérations selon les niveaux d’empoussièrement",
+          "Mettre en œuvre des techniques de retrait sous confinement, avec mise en dépression et filtration absolue",
+          "Assurer un nettoyage par aspiration à filtration HEPA et empêcher la dispersion des fibres"
+        ],
+        "organisationnelle": [
+          "Former et habiliter les salariés (sous‑section 3 ou 4) et désigner un coordonnateur SPS pour les opérations d’amiante",
+          "Établir un mode opératoire, un plan de retrait et une surveillance médicale renforcée",
+          "Gérer les déchets amiantés conformément à la réglementation (emballages étanches, filière spécialisée)"
+        ],
+        "individuelle": [
+          "Porter des appareils de protection respiratoire (APR) de type P3, des combinaisons jetables et des gants",
+          "Ne pas manger, boire ni fumer sur les zones de travail",
+          "Prendre une douche en sortie de zone et respecter les procédures de décontamination"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412‑94 à R4412‑148 du Code du travail (amiante)",
+        "Décret n° 2012‑639 du 4 mai 2012 relatif au risque amiante",
+        "Norme NF X46‑010 (repérage amiante avant travaux)"
+      ],
+      "ressources_inrs": ["ED 809", "ED 814"]
+    },
+    {
+      "id": "R012",
+      "intitule": "Exposition à la silice cristalline",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Inhalation de poussières de silice lors de la découpe et du ponçage des matériaux",
+      "famille_inrs": "Risques chimiques (poussières)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Sciage, perçage et ponçage de béton, mortier, briques ou pierres contenant du quartz【371342782036653†L64-L83】",
+        "Démolition ou carottage de sols et murs",
+        "Rabotage de chapes ou coupes de dalles",
+        "Utilisation de sable ou de matières abrasives contenant de la silice (sablage)"
+      ],
+      "dangers": [
+        "Formation de poussières fines invisibles contenant de la silice cristalline alvéolaire", 
+        "Inhalation de ces poussières dans des espaces mal ventilés",
+        "Absence de captage à la source ou d’arrosage des matériaux pendant la découpe"
+      ],
+      "dommages_potentiels": [
+        "Silicose (fibrose pulmonaire irréversible) et bronchite chronique",
+        "Cancers broncho‑pulmonaires et maladies auto‑immunes",
+        "Atteintes rénales et aggravation de l’asthme"
+      ],
+      "prevention": {
+        "collective": [
+          "Utiliser des outils équipés de systèmes de captage des poussières et de filtration (aspiration locale)【371342782036653†L121-L165】",
+          "Privilégier les procédés humides (arrosage ou injection d’eau) lors des coupes et des ponçages",
+          "Installer des systèmes de ventilation générale ou des extracteurs pour renouveler l’air"
+        ],
+        "organisationnelle": [
+          "Évaluer l’exposition et réaliser un suivi médical adapté des travailleurs exposés",
+          "Limiter le temps d’exposition et planifier les travaux poussiéreux en dehors des heures de co‑activité",
+          "Former les opérateurs à l’utilisation des dispositifs de captage et à l’entretien des équipements"
+        ],
+        "individuelle": [
+          "Porter des masques respiratoires FFP2/FFP3 et des lunettes étanches",
+          "Se laver les mains et changer de vêtements après l’intervention pour éviter de contaminer le domicile",
+          "Utiliser des gants et combinaisons limitant le contact cutané avec la poussière"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412‑149 à R4412‑150 du Code du travail (agents chimiques dangereux)",
+        "Arrêté du 25 avril 2023 classant la silice cristalline alvéolaire en agent cancérogène",
+        "Valeur limite d’exposition professionnelle (VLEP) de 0,05 mg/m³ (fraction alvéolaire)"
+      ],
+      "ressources_inrs": ["ED 6167", "ND 2313"]
+    },
+    {
+      "id": "R013",
+      "intitule": "Exposition aux agents chimiques (solvants, peintures, résines, bitume, ciment)",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Utilisation ou émission de substances chimiques dangereuses",
+      "famille_inrs": "Risques chimiques",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Application de peintures, vernis, résines, colles et enduits contenant des solvants【538424583824131†L33-L40】",
+        "Manipulation de bitume chaud ou d’émulsions lors de travaux d’étanchéité ou de voirie",
+        "Utilisation de produits de nettoyage, décapants, ciment et chaux",
+        "Soudage ou meulage générant des fumées métalliques ou des gaz d’échappement"
+      ],
+      "dangers": [
+        "Inhalation ou contact cutané avec des composés organiques volatils (COV), hydrocarbures aromatiques, isocyanates, pigments métalliques",
+        "Émission de gaz toxiques, inflammables ou explosifs",
+        "Formulation mal contrôlée (mauvais mélange ou température excessive) entraînant des rejets toxiques"
+      ],
+      "dommages_potentiels": [
+        "Intoxications aiguës (céphalées, nausées, irritation des voies respiratoires)【850915166225902†L244-L268】",
+        "Dermatites, eczémas de contact et allergies cutanées", 
+        "Effets chroniques : troubles neurologiques, hépatites toxiques, cancers (exposition à des CMR)"
+      ],
+      "prevention": {
+        "collective": [
+          "Recenser l’ensemble des produits chimiques et éliminer ou substituer ceux présentant des dangers importants (substitution)",
+          "Mettre en œuvre des dispositifs de ventilation générale et d’aspiration localisée lors des applications ou mélanges",
+          "Conserver les produits dans des emballages d’origine et les stocker dans des armoires ventilées, séparées par compatibilité"
+        ],
+        "organisationnelle": [
+          "Établir des fiches de données de sécurité accessibles et former les travailleurs à la lecture des pictogrammes et des phrases H/P",
+          "Planifier les travaux chimiques en dehors des périodes de co‑activité et assurer la surveillance de l’air (explosimètre) en cas de risque d’explosion",
+          "Prévoir des procédures de gestion des déchets chimiques et de lutte contre l’incendie (extincteurs appropriés)"
+        ],
+        "individuelle": [
+          "Porter des gants en nitrile ou néoprène, des lunettes de protection, des combinaisons, et des masques respiratoires adaptés (A2P3 pour solvants, etc.)",
+          "Éviter tout contact cutané et se laver soigneusement les mains avant de manger ou de fumer",
+          "Utiliser de la crème barrière et des vêtements à manches longues lors de l’application de bitume ou de solvants"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412‑1 à R4412‑93 du Code du travail (prévention des risques chimiques)",
+        "Réglementation CLP (règlement n°1272/2008) sur la classification et l’étiquetage des substances et des mélanges",
+        "Arrêté du 8 avril 2013 relatif aux valeurs limites d’exposition professionnelle pour certains agents chimiques"
+      ],
+      "ressources_inrs": ["ED 912", "ED 991", "ED 995"]
+    },
+    {
+      "id": "R014",
+      "intitule": "Risque électrique",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Électrisation et électrocution lors des interventions et à proximité des réseaux",
+      "famille_inrs": "Équipements de travail",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Interventions sur les armoires électriques, tableaux ou circuits sous tension",
+        "Travaux à proximité de lignes aériennes ou de réseaux enterrés endommagés【341305774518372†L94-L103】",
+        "Perçage ou sciage de cloisons contenant des câbles électriques【341305774518372†L120-L123】",
+        "Utilisation d’outils ou de rallonges électriques défectueuses ou inadaptées"
+      ],
+      "dangers": [
+        "Contact direct avec une partie active sous tension ou contact indirect avec une masse métallique reliée à un conducteur",
+        "Arc électrique provoqué par un court‑circuit (projection de particules en fusion à 3 000 °C)【341305774518372†L163-L164】",
+        "Travail sans consignation ni habilitation, absence de protection collective ou individuelle",
+        "Endommagement d’un réseau enterré lors d’un terrassement (sectionnement de câble)【341305774518372†L94-L99】"
+      ],
+      "dommages_potentiels": [
+        "Électrisation entraînant brûlures superficielles ou profondes et contractures musculaires",
+        "Électrocution provoquant fibrillation cardiaque et décès", 
+        "Brûlures oculaires (coup d’arc), commotions et lésions cutanées【341305774518372†L159-L161】"
+      ],
+      "prevention": {
+        "collective": [
+          "Consigner les installations électriques (mise hors tension, condamnation, vérification d’absence de tension) avant toute intervention【341305774518372†L105-L108】",
+          "Mettre en place des écrans ou des barrières isolantes entre l’opérateur et les pièces nues sous tension【341305774518372†L105-L108】",
+          "Respecter la réglementation anti‑endommagement : déclarations préalables de travaux (DT/DICT) pour les réseaux enterrés【341305774518372†L111-L114】"
+        ],
+        "organisationnelle": [
+          "Vérifier régulièrement l’état des matériels électriques et des câbles, remplacer les équipements défectueux",
+          "Attribuer une habilitation électrique adaptée (B0, H0V, B1V, etc.) aux travailleurs concernés et organiser des recyclages périodiques【341305774518372†L105-L108】",
+          "Établir des procédures de prévention des risques électriques et former les salariés aux gestes de premiers secours"
+        ],
+        "individuelle": [
+          "Porter des gants isolants, des lunettes, des vêtements et tapis isolants, selon la tension d’intervention",
+          "Utiliser des outils isolés conformes à la norme NF EN 60900",
+          "Ne jamais intervenir seul sur une installation électrique et respecter les distances de sécurité près des lignes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4544‑1 à R4544‑11 du Code du travail (travaux sous tension)",
+        "Articles R4226‑1 à R4226‑21 (utilisation du matériel électrique)",
+        "Norme NF C15‑100 concernant les installations électriques basse tension"
+      ],
+      "ressources_inrs": ["ED 6035", "ED 6147"]
+    },
+    {
+      "id": "R015",
+      "intitule": "Exposition aux rayonnements (UV, lasers, champs électromagnétiques, rayonnements ionisants)",
+      "categorie_principale": "Risques liés aux rayonnements",
+      "sous_categorie": "Rayonnements optiques naturels et artificiels, champs électromagnétiques, rayons X/gamma",
+      "famille_inrs": "Rayonnements",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travaux en extérieur exposant au rayonnement solaire (couvreurs, façadiers, travaux routiers)【191043296343063†L76-L79】",
+        "Utilisation de lasers de classe 1 et 2 pour l’alignement ou la mesure sur chantier【191043296343063†L80-L84】",
+        "Travail à proximité d’antennes relais, de pylônes de transmission ou de chauffages par induction【191043296343063†L83-L88】",
+        "Manipulation d’appareils contenant des sources radioactives scellées (gammadensimètres, humidimètres) sur des chantiers routiers【191043296343063†L92-L97】"
+      ],
+      "dangers": [
+        "Rayonnement ultraviolet provoquant coups de soleil, brûlures, allergies et cancers de la peau【191043296343063†L76-L79】",
+        "Rayonnement laser susceptible d’endommager la rétine ou la cornée si les faisceaux sont dirigés vers l’œil【191043296343063†L121-L124】",
+        "Champs électromagnétiques pouvant induire vertiges, nausées et troubles neurologiques chez les personnes sensibles【191043296343063†L83-L88】",
+        "Rayonnements ionisants (rayons X, gamma) présentant un risque de brûlures, de stérilité et de cancers【191043296343063†L92-L97】"
+      ],
+      "dommages_potentiels": [
+        "Brûlures cutanées, coups de soleil et kératoses actiniques",
+        "Ophtalmies, cataractes et lésions rétiniennes liées aux lasers",
+        "Risque accru de cancers de la peau ou de maladies radio‑induites",
+        "Effets neurologiques transitoires (vertiges) et, à long terme, cancers et troubles cardiovasculaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des abris et organiser les tâches en extérieur en évitant les heures de forte irradiation solaire (11 h–15 h)",
+          "Délimiter les zones où des lasers ou des appareils radioactifs sont utilisés et y restreindre l’accès",
+          "Maintenir les appareils contenant des sources radioactives en conformité et désigner une personne compétente en radioprotection (PCR)【191043296343063†L138-L154】"
+        ],
+        "organisationnelle": [
+          "Évaluer l’exposition au rayonnement solaire et former les salariés aux risques et à la protection (lunettes, crème solaire)",
+          "Classer les lasers selon leur dangerosité et respecter les notices (classes 1 à 4)【191043296343063†L121-L124】",
+          "Déclarer les sources radioactives à l’Autorité de sûreté nucléaire (ASN) et mettre à jour le plan de prévention"
+        ],
+        "individuelle": [
+          "Porter des vêtements couvrants, des lunettes de protection UV et appliquer une crème solaire à indice élevé",
+          "Porter des lunettes spécifiques aux lasers et ne jamais regarder directement le faisceau",
+          "Utiliser des dosimètres individuels pour les opérateurs exposés aux rayonnements ionisants et respecter les limites d’exposition"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4452‑1 à R4452‑30 du Code du travail (protection contre les rayonnements ionisants)",
+        "Directive 2006/25/CE sur les risques liés aux rayonnements optiques artificiels",
+        "Articles R4453‑1 à R4453‑34 (exposition aux champs électromagnétiques)"
+      ],
+      "ressources_inrs": ["ED 6165", "ED 6166"]
+    },
+    {
+      "id": "R016",
+      "intitule": "Risques biologiques",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Exposition à des agents infectieux, allergènes ou toxiques (bactéries, virus, champignons, parasites)",
+      "famille_inrs": "Risques biologiques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travaux en milieux humides (stations d’épuration, berges de plans d’eau) exposant à la légionellose ou à la leptospirose【502074100248023†L85-L90】",
+        "Travaux en tranchées d’assainissement ou sur les réseaux d’eaux usées contenant des microorganismes【502074100248023†L85-L90】",
+        "Travaux en bordure de forêts ou zones rurales exposant aux tiques (maladie de Lyme)【502074100248023†L85-L90】",
+        "Contacts avec des animaux porteurs ou des déchets biologiques"
+      ],
+      "dangers": [
+        "Présence de bactéries (Legionella spp., Leptospira), virus et parasites dans les eaux stagnantes ou les sols contaminés【502074100248023†L59-L70】",
+        "Inhalation de gouttelettes contaminées, pénétration cutanée ou contact avec des blessures",
+        "Absence d’hygiène (lavage des mains, sanitaires) et mauvaise gestion des déchets favorisant la contamination【502074100248023†L104-L116】"
+      ],
+      "dommages_potentiels": [
+        "Infections aiguës (légionellose, leptospirose, salmonellose) avec fièvre, troubles respiratoires ou hépatiques【502074100248023†L85-L90】",
+        "Maladie de Lyme et autres maladies transmissibles par les tiques",
+        "Réactions allergiques, dermatites ou asthme professionnel"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre à disposition des installations sanitaires propres (eau courante, savon, gel hydroalcoolique, essuie‑mains jetables)【502074100248023†L161-L164】",
+          "Installer des vestiaires et zones de douche pour permettre la décontamination après travail",
+          "Mettre en place des procédures de nettoyage et de gestion des déchets biologiques (tri, stockage, élimination)"
+        ],
+        "organisationnelle": [
+          "Évaluer les risques biologiques et les consigner dans le DUERP (document unique)【502074100248023†L145-L148】",
+          "Informer et former les salariés aux gestes barrières (lavage des mains, port du masque) et aux modes de transmission des agents biologiques",
+          "Prévoir un suivi médical adapté pour les travailleurs exposés et vacciner contre les maladies spécifiques (tétanos, leptospirose)"
+        ],
+        "individuelle": [
+          "Porter des gants, des bottes étanches et un masque FFP2/FFP3 lors de l’exposition à des eaux contaminées",
+          "Nettoyer et désinfecter les blessures immédiatement et consulter un médecin en cas de morsure ou de piqûre",
+          "Se couvrir pour éviter les piqûres de tiques (pantalon long, répulsif) et inspecter son corps après le travail en forêt"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421‑1 à R4427‑5 du Code du travail (agents biologiques)",
+        "Arrêté du 23 décembre 1994 classant les agents biologiques en quatre groupes de risque",
+        "Guide national d’hygiène sur les chantiers (OPPBTP)"
+      ],
+      "ressources_inrs": ["ED 942", "ED 989"]
+    },
+    {
+      "id": "R017",
+      "intitule": "Risques psychosociaux (RPS)",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Stress, violences internes ou externes, harcèlement, surcharge de travail",
+      "famille_inrs": "Risques psychosociaux",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Charges de travail élevées et pressions sur les délais de livraison des chantiers【449882693151336†L71-L77】",
+        "Conflits entre salariés, harcèlement moral ou sexuel, incivilités de la part de clients ou de riverains【449882693151336†L75-L80】",
+        "Isolement des salariés travaillant seuls sur un chantier ou opérant en hauteur",
+        "Manque de reconnaissance, précarité de l’emploi et incertitude sur la charge de travail future"
+      ],
+      "dangers": [
+        "Stress chronique lié à la pression des délais, à la complexité technique ou à un manque d’autonomie【449882693151336†L71-L83】",
+        "Violences internes (harcèlement, conflits) ou externes (insultes, agressions)【449882693151336†L75-L80】",
+        "Déséquilibre entre la vie professionnelle et personnelle, travail isolé ou itinérant"
+      ],
+      "dommages_potentiels": [
+        "Troubles psychosomatiques : troubles du sommeil, palpitations, angoisse, épuisement professionnel (burn‑out)【449882693151336†L59-L63】",
+        "Dépression, addictions, risques suicidaires",
+        "TMS et maladies cardiovasculaires liés au stress【449882693151336†L82-L110】"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des espaces de dialogue et d’expression (réunions d’équipe, comité social et économique)",
+          "Adapter les charges de travail et planifier les chantiers en tenant compte des capacités humaines et matérielles",
+          "Développer un management participatif et reconnaître le travail réalisé (valorisation, formation, perspectives)"
+        ],
+        "organisationnelle": [
+          "Évaluer les facteurs de RPS dans le DUERP et élaborer un plan d’action (organisation du travail, horaires, autonomie)",
+          "Former les managers et chefs de chantier à détecter les signaux de stress et à prévenir les conflits",
+          "Mettre à disposition des ressources d’écoute (psychologues du travail, médiateurs)"
+        ],
+        "individuelle": [
+          "Encourager les salariés à signaler les situations de stress ou de violence et à ne pas rester isolés",
+          "Favoriser des pauses régulières et un équilibre entre vie professionnelle et personnelle",
+          "Sensibiliser à la gestion du stress et proposer des actions de formation (gestion du temps, relaxation)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121‑1 à L4121‑5 du Code du travail (obligation de prévenir les RPS)",
+        "Accords nationaux interprofessionnels sur le stress au travail (2008) et sur la qualité de vie au travail (2013)"
+      ],
+      "ressources_inrs": ["ED 6140", "ED 907"]
+    },
+    {
+      "id": "R018",
+      "intitule": "Incendie et explosion",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Départ de feu ou explosion sur chantier ou dans les locaux de stockage",
+      "famille_inrs": "Risques physiques (incendie/explosion)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Stockage et manipulation de produits inflammables (peintures, solvants, gaz, carburants) et de déchets combustibles",
+        "Travaux à chaud : soudage, découpe, meulage, bitume chaud",
+        "Présence d’installations électriques provisoires non conformes",
+        "Travaux à proximité de réseaux de gaz ou de conduites de carburant"
+      ],
+      "dangers": [
+        "Risque d’ignition par flamme nue, étincelle, chauffage ou court‑circuit",
+        "Absence de moyens d’extinction (extincteurs, RIA) et de systèmes d’alarme",
+        "Propagation rapide du feu liée au stockage inapproprié des matériaux et à l’absence de cloisonnement【933701674610477†L405-L420】",
+        "Présence de sources de gaz, de poussières combustibles ou d’atmosphères explosibles"
+      ],
+      "dommages_potentiels": [
+        "Brûlures graves, asphyxie ou intoxication par inhalation de fumées toxiques",
+        "Destruction de bâtiments, d’outillages et interruption prolongée des chantiers",
+        "Explosion entraînant des blessures multiples et des décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Éliminer ou réduire les sources d’ignition : consigner les installations électriques, éloigner les flammes des produits inflammables",
+          "Installer des systèmes de détection incendie et des moyens d’extinction (extincteurs, robinets incendie armés) en nombre suffisant et accessibles",
+          "Organiser les espaces de stockage des produits dangereux (armoires ventilées, séparation des zones à risques)"
+        ],
+        "organisationnelle": [
+          "Réaliser une analyse de risque incendie et définir des consignes d’évacuation et un plan d’intervention (rôle des guides et des serre‑files)【933701674610477†L410-L420】",
+          "Former les travailleurs à la manipulation des extincteurs, à l’utilisation d’appareils à gaz et aux consignes de sécurité incendie【933701674610477†L451-L457】",
+          "Organiser des exercices d’évacuation réguliers et vérifier l’accessibilité des voies de secours"
+        ],
+        "individuelle": [
+          "Ne pas fumer ni utiliser de flamme nue à proximité de produits inflammables",
+          "Respecter les consignes de mise en sécurité lors des travaux à chaud (permis de feu) et porter des EPI adaptés (tenue ignifugée, gants, écran facial)",
+          "Alerter immédiatement en cas de départ de feu et utiliser le moyen d’extinction adapté"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227‑1 à R4227‑57 du Code du travail (prévention incendie)【933701674610477†L451-L457】",
+        "Articles R4216‑1 à R4216‑34 (obligations des maîtres d’ouvrage lors de la construction)【933701674610477†L443-L449】",
+        "Règlement de sécurité contre l’incendie et la panique dans les ERP et IGH"
+      ],
+      "ressources_inrs": ["TJ 20", "ED 954"]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "Le secteur du BTP enregistre 56 accidents du travail pour 1 000 salariés, soit un taux supérieur à la moyenne nationale (34 pour 1 000)【550950916899782†L136-L139】.",
+    "accidents_graves": "Selon l’Assurance Maladie, chaque année, plus de 8 millions de jours de travail sont perdus dans le BTP (soit l’équivalent de 36 000 emplois à temps plein)【550950916899782†L117-L125】. En moyenne, un accident du travail entraîne 71 jours d’arrêt et près de 19 % des accidents mortels recensés concernent ce secteur【550950916899782†L150-L156】. Les travailleurs du BTP subissent environ 2,5 accidents au cours de leur carrière, entraînant 220 jours d’absence au total【550950916899782†L196-L205】.",
+    "maladies_professionnelles_courantes": [
+      "Troubles musculo‑squelettiques (représentent 87 % des maladies professionnelles reconnues dans le BTP)【398298752046818†L52-L71】",
+      "Maladies liées à l’inhalation de poussières d’amiante (7 %) et autres cancers professionnels (0,9 %)【398298752046818†L52-L71】",
+      "Surdité professionnelle (environ 2 % des maladies professionnelles)【398298752046818†L52-L71】",
+      "Affections respiratoires ou dermatologiques liées aux poussières et aux agents chimiques"
+    ]
+  },
+  "sources": [
+    "ameli.fr – Accidents du travail et maladies professionnelles dans le BTP : chiffres clés (03/2025)【550950916899782†L117-L125】【550950916899782†L136-L139】",
+    "ameli.fr – Types de risques professionnels dans le secteur du BTP (troubles musculo‑squelettiques, chutes, amiante, risques chimiques)【850915166225902†L117-L159】【850915166225902†L163-L184】",
+    "Prévention BTP – Bruit sur les chantiers : les risques professionnels et mesures de prévention【204627006574623†L68-L74】【204627006574623†L132-L149】",
+    "Prévention BTP – Les risques liés à l’utilisation d’outils et d’engins émettant des vibrations【808155888746135†L60-L75】【808155888746135†L107-L109】",
+    "Prévention BTP – Les risques d’écrasement sur les chantiers【344113256534519†L69-L83】【344113256534519†L110-L119】",
+    "Prévention BTP – Risques de collision entre engins et obstacles et solutions de prévention【102438207689611†L95-L115】【102438207689611†L117-L139】",
+    "Prévention BTP – Risques routiers : accidents sur la voie publique【999591751826108†L69-L76】【999591751826108†L97-L100】",
+    "Prévention BTP – Effondrement d’ouvrage ou de matériel (sécuriser les échafaudages et racks)【971933527718757†L58-L103】【971933527718757†L114-L143】",
+    "Prévention BTP – Ensevelissement : risques d’effondrement de tranchées【294271217706437†L60-L103】【294271217706437†L109-L123】",
+    "Prévention BTP – Les risques de coupures et de sectionnements (machines et outils)【486432233068381†L60-L75】【486432233068381†L96-L112】",
+    "Prévention BTP – Chutes de plain‑pied : risques sur les chantiers et dans les ateliers【66471512166807†L68-L83】【66471512166807†L91-L104】",
+    "Prévention BTP – Risque électrique : qu’est‑ce que c’est ?【341305774518372†L94-L103】【341305774518372†L105-L108】",
+    "Prévention BTP – Rayons ultraviolets, lasers et champs électromagnétiques : risques d’exposition【191043296343063†L76-L79】【191043296343063†L83-L97】",
+    "Prévention BTP – Risques biologiques dans le BTP【502074100248023†L59-L70】【502074100248023†L85-L90】",
+    "Prévention BTP – Risques psychosociaux : un enjeu pour la santé des salariés【449882693151336†L71-L83】【449882693151336†L82-L110】",
+    "INRS – Incendie sur le lieu de travail : réglementation et textes de référence (principes généraux de la prévention incendie)【933701674610477†L405-L420】【933701674610477†L443-L457】"
+  ]
+}

@@ -1,0 +1,737 @@
+{
+  "secteur": {
+    "nom": "Santé (hôpitaux, EHPAD, aide à domicile)",
+    "code_naf": "86.10Z ; 87.10A ; 88.10A",
+    "description": "Ce secteur comprend les établissements de soins hospitaliers (publics ou privés), les établissements d’hébergement pour personnes âgées dépendantes (EHPAD) et les services d’aide à domicile. Les activités vont des soins médicaux (chirurgie, médecine, radiologie, bloc opératoire) à l’accompagnement quotidien des résidents dépendants et aux interventions au domicile des patients."
+  },
+  "risques": [
+    {
+      "id": "SANTE_R1",
+      "intitule": "Manutention de patients et activité physique",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Port de charges et transferts de personnes",
+      "famille_inrs": "Risques liés à l’activité physique",
+      "criticite": {
+        "frequence": "Permanente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Levée et transfert de patients en hospitalisation, en EHPAD ou à domicile",
+        "Aide à la toilette, à l’habillage et aux déplacements de personnes dépendantes",
+        "Manipulation et déplacement de lits, chariots, fauteuils roulants"
+      ],
+      "dangers": [
+        "Efforts physiques importants pour porter ou soutenir des patients incapables de se mouvoir",
+        "Postures pénibles (accroupie, dos courbé) et gestes répétitifs",
+        "Absence d’aides mécaniques ou de binôme lors des transferts à domicile【527235332238819†L147-L158】"
+      ],
+      "dommages_potentiels": [
+        "Troubles musculo‑squelettiques (TMS) : lombalgies, tendinites, canal carpien【441609045613745†L50-L55】",
+        "Entorses et traumatismes liés à une charge mal maîtrisée",
+        "Accidents cardio‑vasculaires liés à l’effort【527235332238819†L123-L125】"
+      ],
+      "prevention": {
+        "collective": [
+          "Utiliser des aides techniques (lève‑malades, verticalisateurs, draps de glissement) pour réduire l’effort",
+          "Concevoir des locaux adaptés (rails plafonniers, lits médicalisés réglables) et des plans de soin limitant les transferts fréquents",
+          "Équiper les services d’aides à domicile d’aides mécaniques portables"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux gestes et postures ainsi qu’à l’Approche de manutention de personnes (ALM) pour encourager la participation de la personne et réduire l’effort【209185969857962†L195-L221】",
+          "Planifier des interventions à deux pour les transferts lourds ; limiter la durée d’expositions répétées en répartissant les tâches",
+          "Mettre en place une démarche TMS Pros et adapter le planning en fonction de l’état de santé des salariés"
+        ],
+        "individuelle": [
+          "Porter des chaussures antidérapantes et confortables",
+          "Réaliser des exercices d’échauffement et de renforcement musculaire",
+          "Utiliser une ceinture de maintien lombaire si nécessaire"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4541‑1 à R.4541‑9 du Code du travail sur la manutention manuelle de charges (obligation d’évaluer et de réduire le risque)",
+        "Article L.4121‑1 : obligation générale de sécurité de l’employeur"
+      ],
+      "ressources_inrs": ["ED 6296", "ED 4359", "Guide ALM"]
+    },
+    {
+      "id": "SANTE_R2",
+      "intitule": "Chutes de plain‑pied et de hauteur",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements et chutes d’escaliers",
+      "famille_inrs": "Risques liés à l’activité physique",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Déplacements rapides dans les couloirs et les escaliers des hôpitaux et EHPAD",
+        "Visites successives chez plusieurs bénéficiaires en aide à domicile",
+        "Travail de nuit ou en urgence, souvent dans l’obscurité ou dans des locaux encombrés"
+      ],
+      "dangers": [
+        "Sols glissants (liquides, produits de nettoyage), obstacles au sol, tapis",
+        "Escaliers étroits et surfaces mal éclairées",
+        "Precipitation et fatigue liées à l’urgence des soins【527235332238819†L170-L172】"
+      ],
+      "dommages_potentiels": [
+        "Fractures, contusions, traumatismes crâniens",
+        "Arrêts de travail prolongés et perte d’autonomie",
+        "Crainte des déplacements et diminution de la vigilance"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements de sol antidérapants, des bandes de couleur sur les marches et des mains courantes",
+          "Éclairer correctement les circulations (veilleuse nocturne, détecteurs de mouvement)",
+          "Débarrasser les couloirs de tout obstacle et maintenir l’ordre et la propreté"
+        ],
+        "organisationnelle": [
+          "Évaluer les itinéraires lors des soins à domicile pour identifier les dangers (escaliers, seuils) et sensibiliser les bénéficiaires à leur aménagement",
+          "Former le personnel à l’importance de la vigilance et du rangement",
+          "Prévoir un temps suffisant entre les interventions pour éviter la précipitation"
+        ],
+        "individuelle": [
+          "Porter des chaussures à semelles antidérapantes",
+          "Utiliser des aides à la mobilité (cannes, déambulateurs) pour les patients lorsque cela réduit l’effort de l’intervenant",
+          "Adopter une marche sûre (jamais courir), maintenir les mains libres pour se tenir"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4224‑20 à R.4224‑23 (aménagement des lieux de travail, escaliers et voies de circulation)",
+        "Articles R.4512‑6 et R.4225‑1 (éclairage et signalisation de sécurité)"
+      ],
+      "ressources_inrs": ["ED 952", "ED 969", "Fiche pratique : prévenir les chutes de plain‑pied"]
+    },
+    {
+      "id": "SANTE_R3",
+      "intitule": "Risque routier (déplacements et transports)",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Accidents de la route et de mission",
+      "famille_inrs": "Risques liés aux déplacements",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Trajets quotidiens des aides à domicile entre plusieurs domiciles et les centres de soins",
+        "Transports urgents de patients en ambulance ou VSL (véhicule sanitaire léger)",
+        "Livraison et collecte de matériel médical à domicile"
+      ],
+      "dangers": [
+        "Conduite sur de longues distances, parfois sous pression de temps et par tous les temps【527235332238819†L327-L337】",
+        "Amplitudes horaires étendues, travail de nuit ou de week‑end",
+        "Utilisation de véhicules insuffisamment entretenus ou chargés de matériel encombrant"
+      ],
+      "dommages_potentiels": [
+        "Accidents graves et blessures multiples (traumatismes, fractures, décès)",
+        "Stress post‑traumatique et anxiété",
+        "Arrêts de travail et désorganisation des services"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les véhicules de sécurité passive (airbags, ABS) et d’aides à la conduite",
+          "Programmer un entretien régulier des véhicules (freins, pneus, éclairage)",
+          "Adopter des plans de mobilité réduisant les trajets et privilégiant les interventions par secteur"
+        ],
+        "organisationnelle": [
+          "Planifier les tournées de soins pour réduire la pression temporelle et les kilomètres parcourus",
+          "Former les personnels à la conduite prudente et à la gestion du stress, interdire l’usage du téléphone au volant",
+          "Prévoir des temps de repos suffisants et limiter les amplitudes horaires, particulièrement la nuit"
+        ],
+        "individuelle": [
+          "Porter la ceinture de sécurité et adapter sa conduite aux conditions météo",
+          "S’assurer du bon arrimage du matériel dans le véhicule",
+          "Signaler toute fatigue ou problème mécanique à l’employeur"
+        ]
+      },
+      "references_reglementaires": [
+        "Article L.4121‑1 du Code du travail (obligation générale de sécurité)",
+        "Articles R.4224‑15 à R.4224‑17 (véhicules mis à disposition par l’employeur)"
+      ],
+      "ressources_inrs": ["Brochure INRS ""Risques routiers liés au travail"""]
+    },
+    {
+      "id": "SANTE_R4",
+      "intitule": "Risque infectieux et biologique",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Exposition à des agents pathogènes (sang, liquides biologiques, aérosols)",
+      "famille_inrs": "Risques biologiques",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Soins infirmiers (pansements, injections, perfusions) et prélèvements sanguins",
+        "Manipulation de matériel contaminé et gestion des déchets infectieux (DASRI)",
+        "Nettoyage et désinfection, gestion du linge sale et de la literie",
+        "Interventions à domicile auprès de personnes malades (toux, fièvre)【527235332238819†L177-L193】"
+      ],
+      "dangers": [
+        "Agents biologiques (virus, bactéries, champignons) pouvant transmettre des maladies professionnelles【678804075239463†L74-L80】",
+        "Accidents d’exposition au sang (piqûres d’aiguille, coupures, projections de sang)",
+        "Absence de vaccination ou non-respect des précautions standard"
+      ],
+      "dommages_potentiels": [
+        "Infections aiguës ou chroniques (hépatite B/C, VIH, tuberculose, grippe, gastroentérites)",
+        "Réactions allergiques et sensibilisation (dermatites, asthme)",
+        "Cancers (par exemple, exposition à certains virus oncogènes)"
+      ],
+      "prevention": {
+        "collective": [
+          "Appliquer les précautions standard (hygiène des mains, port de gants, de masques, de lunettes de protection)【209185969857962†L288-L307】",
+          "Mettre à disposition des équipements d’élimination sécurisée (collecteurs d’aiguilles, sacs DASRI)",
+          "Mettre en œuvre un plan de vaccination professionnelle (hépatite B, grippe) et fournir des locaux dédiés pour le nettoyage du matériel"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux procédures d’hygiène, à la gestion des accidents d’exposition au sang et au port des équipements de protection",
+          "Élaborer des protocoles de soins et des procédures de nettoyage, entretenir et vérifier les équipements de protection respiratoire",
+          "Planifier des audits d’hygiène et de lutte contre les infections nosocomiales"
+        ],
+        "individuelle": [
+          "Respecter l’hygiène des mains (lavage ou friction hydroalcoolique) avant et après chaque soin",
+          "Porter les EPI adaptés (gants, surblouses, masques, lunettes) lors d’une exposition potentielle",
+          "Signaler immédiatement tout accident d’exposition au sang pour bénéficier d’un suivi médical rapide"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4421‑1 à R.4426‑3 (prévention des risques biologiques)",
+        "Articles L.4311‑1 et R.4312‑66 (conditions d’exercice des actes infirmiers)",
+        "Circulaire DGS/DH du 20/04/1998 relative à la prévention des AES"
+      ],
+      "ressources_inrs": ["ED 6034", "ED 6495", "Fiche pratique : hygiène des mains"]
+    },
+    {
+      "id": "SANTE_R5",
+      "intitule": "Risque chimique (produits de nettoyage, gaz anesthésiques, médicaments)",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Exposition à des agents chimiques dangereux",
+      "famille_inrs": "Risques chimiques",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de détergents, désinfectants, antiseptiques pour le nettoyage des locaux et du matériel【527235332238819†L268-L270】",
+        "Exposition aux gaz anesthésiques et aux MEOPA en bloc opératoire ou en ambulatoire【527235332238819†L271-L274】",
+        "Manipulation de médicaments cytotoxiques ou de nouveaux anticorps monoclonaux en pharmacie ou en oncologie【527235332238819†L275-L283】",
+        "Utilisation de gants en latex et d’autres produits allergènes"
+      ],
+      "dangers": [
+        "Contact cutané ou inhalation de produits irritants ou sensibilisants",
+        "Effets toxiques des anesthésiques halogénés et du protoxyde d’azote",
+        "Exposition à des agents chimiothérapeutiques cancérogènes ou mutagènes"
+      ],
+      "dommages_potentiels": [
+        "Dermatites, eczémas et allergies de contact",
+        "Asthme professionnel et troubles respiratoires",
+        "Intoxication aiguë (céphalées, nausées) ou effets chroniques (cancers, malformations congénitales)"
+      ],
+      "prevention": {
+        "collective": [
+          "Substituer les produits dangereux par des alternatives moins toxiques lorsque cela est possible",
+          "Installer des systèmes de ventilation et d’aspiration locaux (sorbonnes, hottes aspirantes) dans les zones de préparation et d’administration",
+          "Utiliser des armoires et des zones de stockage ventilées pour les produits chimiques et cytotoxiques"
+        ],
+        "organisationnelle": [
+          "Réaliser l’inventaire des substances et évaluer les risques avec les Fiches de données de sécurité (FDS)",
+          "Former le personnel à la manipulation sûre, au port des EPI adaptés et à la conduite à tenir en cas de déversement",
+          "Mettre en place des procédures de préparation et d’élimination des déchets chimiques et cytotoxiques"
+        ],
+        "individuelle": [
+          "Porter des gants adaptés (nitrile), des lunettes, des blouses imperméables et, si nécessaire, des appareils de protection respiratoire",
+          "Se laver les mains après chaque manipulation et éviter l’exposition cutanée",
+          "Ne pas manger ni boire dans les zones de préparation et signaler les symptômes d’irritation ou d’allergie"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4412‑1 à R.4412‑150 (prévention des risques chimiques)",
+        "Articles R.4451‑1 à R.4451‑138 (rayonnements ionisants) pour les gaz anesthésiques radio‑étiquetés le cas échéant",
+        "Articles R.231‑54 (substances dangereuses)"
+      ],
+      "ressources_inrs": ["ED 720", "ED 6264", "ED 4203"]
+    },
+    {
+      "id": "SANTE_R6",
+      "intitule": "Exposition aux rayonnements ionisants et non ionisants",
+      "categorie_principale": "Risques physiques (rayonnements)",
+      "sous_categorie": "Rayonnements ionisants (radiologie, radiothérapie) et non ionisants (IRM, lasers, UV)",
+      "famille_inrs": "Risques liés aux rayonnements",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 8,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Personnel de radiologie et de médecine nucléaire manipulant des sources scellées ou non scellées de radioactivité【527235332238819†L289-L316】",
+        "Personnel des blocs opératoires et laboratoires utilisant des lasers chirurgicaux ou des lampes UV【527235332238819†L305-L320】",
+        "Personnel exposé aux champs électromagnétiques dans le cadre de l’imagerie par résonance magnétique (IRM)【527235332238819†L289-L320】"
+      ],
+      "dangers": [
+        "Exposition externe et interne aux rayonnements ionisants pouvant altérer les tissus et augmenter le risque de cancers",
+        "Effets neurologiques et cardiovasculaires possibles lors d’expositions à de forts champs électromagnétiques (IRM)【527235332238819†L301-L304】",
+        "Rayonnements optiques (lasers, UV) entraînant des brûlures ou lésions oculaires"
+      ],
+      "dommages_potentiels": [
+        "Syndrome d’irradiation aiguë (fortes doses) ou cancers radio‑induits",
+        "Problèmes cardiaques et neurologiques liés à l’exposition aux champs magnétiques",
+        "Brûlures de la peau et lésions des yeux causées par les lasers et les UV"
+      ],
+      "prevention": {
+        "collective": [
+          "Limiter l’exposition par des protections collectives (blindages, sas, salles plombées)",
+          "Utiliser des dispositifs de confinement et de hotte lors de la manipulation de sources non scellées",
+          "Équiper les lasers de dispositifs de sécurité et installer des panneaux de signalisation lumineux"
+        ],
+        "organisationnelle": [
+          "Appliquer le principe ALARA (As Low As Reasonably Achievable) lors de l’utilisation de rayonnements ionisants",
+          "Former les opérateurs à la radioprotection et désigner un conseiller en radioprotection (CRP)",
+          "Mettre en place un suivi dosimétrique individuel et tenir des registres d’exposition"
+        ],
+        "individuelle": [
+          "Porter des dosimètres, tabliers et lunettes plombés pour les rayons X",
+          "Respecter les procédures d’éloignement et de limitation du temps d’exposition",
+          "Utiliser des lunettes de protection adaptées pour les lasers et éviter toute exposition directe"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4451‑1 à R.4451‑138 (protection contre les rayonnements ionisants)",
+        "Articles R.4453‑1 à R.4453‑34 (champs électromagnétiques)",
+        "Articles R.4216‑1 à R.4216‑30 (aménagements contre les rayonnements optiques)"
+      ],
+      "ressources_inrs": ["ED 4209", "ED 956", "ED 4350"]
+    },
+    {
+      "id": "SANTE_R7",
+      "intitule": "Risques psychosociaux et charge émotionnelle",
+      "categorie_principale": "Risques psychosociaux (RPS)",
+      "sous_categorie": "Stress, surcharge émotionnelle, burn‑out et suicide",
+      "famille_inrs": "Risques psychosociaux",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Confrontation à la maladie, à la fin de vie et à la mort (soins palliatifs, EHPAD)【527235332238819†L199-L205】",
+        "Gestion d’agressivité et de troubles cognitifs des patients (psychiatrie, urgences, EHPAD)【527235332238819†L199-L205】",
+        "Charge de travail élevée, sous‑effectif et rythme soutenu",
+        "Isolement professionnel lors des soins à domicile, absence de soutien d’équipe【527235332238819†L219-L224】",
+        "Horaires atypiques et rotation jour/nuit【527235332238819†L230-L244】"
+      ],
+      "dangers": [
+        "Pression psychologique permanente et absence de reconnaissance",
+        "Agressions verbales ou physiques de la part de patients ou de leurs proches",
+        "Conflits interpersonnels, harcèlement et incivilités",
+        "Cumul de contraintes physiques et administratives"
+      ],
+      "dommages_potentiels": [
+        "Stress chronique, troubles anxio‑dépressifs et burn‑out【527235332238819†L207-L214】",
+        "Maladies cardiovasculaires et troubles du sommeil",
+        "Suicides et comportements addictifs"
+      ],
+      "prevention": {
+        "collective": [
+          "Réorganiser le travail pour réduire la charge (recrutement, rotation) et favoriser le travail d’équipe",
+          "Créer des espaces de parole et de soutien psychologique (supervision, groupes de parole)",
+          "Mettre en place des systèmes d’alerte et d’intervention pour gérer les situations d’agression (boutons d’appel, équipe de sécurité)"
+        ],
+        "organisationnelle": [
+          "Former les managers à la prévention des RPS et au repérage des signes d’épuisement",
+          "Développer des protocoles de prise en charge des conflits et des agressions externes【873820211418651†L80-L103】",
+          "Mettre en place des plannings favorisant l’équilibre vie professionnelle/vie privée et limiter les rotations nocturnes"
+        ],
+        "individuelle": [
+          "Accéder à des formations de gestion du stress et des émotions",
+          "Recourir au soutien psychologique (psychologues du travail, médecine du travail)",
+          "Pratiquer des techniques de relaxation et de récupération (activités physiques, méditation)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L.4121‑1 et suivants (obligation de santé mentale et physique)",
+        "Accords nationaux interprofessionnels sur les RPS et le harcèlement moral",
+        "Articles R.4222‑1 (équipements de protection pour les agressions)"
+      ],
+      "ressources_inrs": ["ED 6140", "Guide RPS", "DO 33"]
+    },
+    {
+      "id": "SANTE_R8",
+      "intitule": "Horaires atypiques (travail de nuit et travail posté)",
+      "categorie_principale": "Risques liés à l’activité physique et aux rythmes de travail",
+      "sous_categorie": "Travail posté, horaires alternants, service continu",
+      "famille_inrs": "Risques liés à l’activité physique",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Service de garde 24 h/24 dans les hôpitaux et EHPAD",
+        "Interventions à domicile tôt le matin ou tard le soir",
+        "Travail en équipes successives alternantes (rotation jour/nuit)【527235332238819†L230-L244】"
+      ],
+      "dangers": [
+        "Somnolence, baisse de vigilance et de mémoire due à la perturbation du rythme circadien【527235332238819†L241-L244】",
+        "Perturbations digestives et cardiovasculaires, troubles hormonaux et augmentation du risque de cancers【527235332238819†L244-L247】",
+        "Déséquilibre social et familial lié aux horaires atypiques【527235332238819†L248-L253】"
+      ],
+      "dommages_potentiels": [
+        "Accidents du travail liés à la fatigue et à la baisse de vigilance",
+        "Troubles du sommeil, irritabilité, dépression",
+        "Maladies chroniques (hypertension, diabète) et problèmes de grossesse"
+      ],
+      "prevention": {
+        "collective": [
+          "Planifier une rotation des équipes limitant la durée du travail de nuit",
+          "Aménager des salles de repos et des pauses récupératrices pendant les gardes",
+          "Améliorer l’éclairage et la signalisation nocturne des locaux"
+        ],
+        "organisationnelle": [
+          "Consultation des salariés lors de l’élaboration des horaires et respect des temps de repos légaux",
+          "Mise en place d’un suivi médical renforcé pour les travailleurs de nuit",
+          "Programme d’éducation au sommeil et hygiène de vie (nutrition, activité physique)"
+        ],
+        "individuelle": [
+          "Adopter une bonne hygiène de sommeil (exposition à la lumière, siestes récupératrices)",
+          "Éviter l’usage d’alcool ou de stimulants pour se maintenir éveillé",
+          "Consulter la médecine du travail en cas de troubles persistants"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L.3122‑1 à L.3122‑49 (durée du travail et travail de nuit)",
+        "Articles R.3131‑1 à R.3132‑5 (travail posté)"
+      ],
+      "ressources_inrs": ["ED 4241", "Guide travail de nuit"]
+    },
+    {
+      "id": "SANTE_R9",
+      "intitule": "Violences et agressions externes",
+      "categorie_principale": "Risques psychosociaux (RPS)",
+      "sous_categorie": "Violences verbales, physiques et menaces extérieures",
+      "famille_inrs": "Risques psychosociaux",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 8,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Services d’urgence et de psychiatrie où les patients peuvent être agressifs",
+        "Accueil du public au guichet des hôpitaux ou en EHPAD (familles, visiteurs)",
+        "Interventions au domicile de personnes souffrant de troubles cognitifs (démence, maladie d’Alzheimer)"
+      ],
+      "dangers": [
+        "Incivilités, menaces, agressions verbales ou physiques de la part de patients ou de leurs proches【873820211418651†L80-L89】",
+        "Absence de mesures de sécurité (bouton d’alerte, personnel suffisant)",
+        "Transport de valeurs (encaissements, médicaments) favorisant les actes de prédation"
+      ],
+      "dommages_potentiels": [
+        "Blessures physiques et traumatismes psychologiques",
+        "Stress post‑traumatique, anxiété et perte de motivation",
+        "Absentéisme et turnover important du personnel"
+      ],
+      "prevention": {
+        "collective": [
+          "Aménager les locaux pour limiter les situations de tension (cloisons vitrées, issues de secours)",
+          "Installer des dispositifs d’alerte et de vidéosurveillance, augmenter la présence d’agents de sécurité",
+          "Mettre en œuvre une politique de tolérance zéro face aux violences et informer le public des sanctions"
+        ],
+        "organisationnelle": [
+          "Former les salariés à la gestion des situations conflictuelles et au désamorçage de l’agressivité",
+          "Établir des procédures d’alerte et de prise en charge immédiate des victimes",
+          "Organiser la rotation des équipes de manière à ne pas laisser de personnels seuls dans des situations à risque"
+        ],
+        "individuelle": [
+          "Apprendre à détecter les signes précurseurs d’agressivité et à prendre du recul",
+          "Utiliser un langage calme et respectueux, maintenir la distance de sécurité",
+          "Signaler systématiquement les actes de violence à l’employeur et porter plainte si nécessaire"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L.4121‑1 et L.1152‑1 (lutte contre les violences et harcèlements)",
+        "Circulaire interministérielle du 03/09/2020 relative à la prévention des violences envers les professionnels de santé"
+      ],
+      "ressources_inrs": ["Dossier INRS sur les violences externes", "ED 6255"]
+    },
+    {
+      "id": "SANTE_R10",
+      "intitule": "Coupures, piqûres et risques liés aux équipements de travail",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Coupures avec instruments tranchants et piqûres accidentelles",
+      "famille_inrs": "Risques mécaniques",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 12,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation d’aiguilles, scalpels, bistouris et autres instruments tranchants lors des actes médicaux et chirurgicaux",
+        "Utilisation de coupe‑vignettes et de ciseaux dans les services de soins et de laboratoire",
+        "Maintenance et nettoyage des instruments sans précaution"
+      ],
+      "dangers": [
+        "Lames et aiguilles exposées pouvant causer des coupures ou piqûres accidentelles",
+        "Recyclage et tri des déchets coupants mal organisé",
+        "Réutilisation ou recapuchonnage des aiguilles lors des injections"
+      ],
+      "dommages_potentiels": [
+        "Plaies ouvertes, hémorragies et infections locales",
+        "Accidents d’exposition au sang et transmission de maladies infectieuses (VIH, hépatite B/C)",
+        "Allergies au latex ou sensibilisation au nickel des instruments"
+      ],
+      "prevention": {
+        "collective": [
+          "Utiliser des dispositifs de sécurité (aiguilles et scalpels à dispositifs rétractables), des collecteurs d’instruments tranchants à proximité des postes de soins",
+          "Mettre en place des procédures d’élimination des objets piquants et coupants (OPCT/DASRI)",
+          "Fournir des instruments à usage unique ou stériles pour éviter la réutilisation"
+        ],
+        "organisationnelle": [
+          "Former les salariés à l’utilisation correcte des dispositifs de sécurité et à l’interdiction de recapuchonner les aiguilles",
+          "Planifier l’entretien des instruments par un service spécialisé et vérifier l’état des dispositifs avant usage",
+          "Mettre en œuvre un protocole post‑exposition pour la prise en charge immédiate des accidents"
+        ],
+        "individuelle": [
+          "Porter des gants de protection adaptés, des lunettes et des surblouses lors d’actes à risque",
+          "Ne pas recapuchonner les aiguilles après usage et les éliminer directement dans un conteneur",
+          "Éviter l’utilisation d’instruments défectueux et signaler tout matériel endommagé"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4312‑66 à R.4312‑71 (actes professionnels des infirmiers)",
+        "Articles R.4452‑1 et suivants (équipements de travail et protections contre les risques de coupure)",
+        "Articles R.4424‑1 à R.4424‑6 (gestion des déchets d’activités de soins à risques infectieux)"
+      ],
+      "ressources_inrs": ["ED 4139", "Fiche AES", "ED 3917"]
+    },
+    {
+      "id": "SANTE_R11",
+      "intitule": "Risque électrique et maintenance des équipements",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Contact électrique, électrisation ou électrocution",
+      "famille_inrs": "Risques liés aux équipements de travail",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Maintenance des équipements électriques et biomédicaux (moniteurs, respirateurs, incubateurs)",
+        "Utilisation d’appareils de diagnostic ou de traitement (défibrillateurs, bistouris électriques)",
+        "Interventions dans les locaux techniques et armoires électriques des établissements de santé"
+      ],
+      "dangers": [
+        "Contacts directs avec des pièces sous tension lors de travaux de maintenance",
+        "Utilisation d’appareils défectueux ou de câbles dénudés",
+        "Absence de consignation électrique lors des réparations"
+      ],
+      "dommages_potentiels": [
+        "Électrocution, brûlures graves et fibrillation cardiaque",
+        "Accidents entraînant la chute ou l’incendie des équipements",
+        "Arrêts cardiorespiratoires ou décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des dispositifs de protection différentielle, des prises médicales étanches et des disjoncteurs adaptés",
+          "Afficher des procédures de consignation électrique (cadenassage) et installer des interrupteurs d’arrêt d’urgence",
+          "Assurer la mise à la terre de tous les équipements et contrôler régulièrement les installations électriques"
+        ],
+        "organisationnelle": [
+          "Former le personnel de maintenance aux habilitations électriques et respecter la norme NF C 15‑100",
+          "Planifier des contrôles périodiques par un organisme agréé et tenir un registre de maintenance",
+          "Établir des plans de prévention en cas d’intervention d’entreprises extérieures"
+        ],
+        "individuelle": [
+          "Porter des équipements isolants (gants diélectriques, chaussures isolantes) et utiliser des outils isolés",
+          "Vérifier l’absence de tension avant toute intervention et utiliser un détecteur de tension",
+          "Ne jamais intervenir seul et signaler tout dysfonctionnement électrique"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4226‑1 à R.4226‑24 (risques électriques)",
+        "Articles R.4323‑1 à R.4323‑55 (utilisation des équipements de travail)"
+      ],
+      "ressources_inrs": ["ED 6127", "ED 4237", "ED 6104"]
+    },
+    {
+      "id": "SANTE_R12",
+      "intitule": "Incendie, explosion et atmosphères explosives",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendies liés aux gaz médicaux et aux produits inflammables",
+      "famille_inrs": "Risques mécaniques/physiques",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Utilisation et stockage d’oxygène médical et de gaz combustibles dans les blocs opératoires et services de réanimation",
+        "Manipulation de solvants inflammables (alcool, produits de stérilisation) dans les blocs opératoires et laboratoires",
+        "Maintenance des installations de gaz médicaux et des réseaux électriques"
+      ],
+      "dangers": [
+        "Fuites de gaz médicaux (oxygène, protoxyde d’azote) augmentant la concentration de comburant dans l’air",
+        "Présence de sources d’ignition (étincelles électriques, surfaces chaudes, cigarettes) à proximité de produits inflammables",
+        "Accumulation de vapeurs inflammables dans les salles de stockage mal ventilées"
+      ],
+      "dommages_potentiels": [
+        "Brûlures graves, asphyxie et décès des patients et du personnel",
+        "Explosion des bouteilles de gaz ou destruction du matériel médical",
+        "Évacuation d’urgence et interruption d’activité, pertes matérielles considérables"
+      ],
+      "prevention": {
+        "collective": [
+          "Entreposer les bouteilles de gaz dans des locaux ventilés et séparés, respecter l’étiquetage des produits inflammables",
+          "Installer des systèmes de détection incendie et des extincteurs adaptés (classe B, C) et vérifier leur maintenance",
+          "Interdire toute flamme ou source d’étincelle dans les zones de stockage de gaz et de produits inflammables"
+        ],
+        "organisationnelle": [
+          "Former le personnel à l’utilisation des appareils de gaz médicaux et aux procédures d’urgence (évacuation, mise en sécurité des patients)",
+          "Établir un plan d’urgence incendie avec des exercices réguliers (évacuation horizontale puis verticale),
+          comme recommandé pour les établissements de soins【527235332238819†L170-L174】",
+          "Établir des fiches de données de sécurité pour chaque produit et contrôler le respect des consignes par audits"
+        ],
+        "individuelle": [
+          "Ne pas fumer ni utiliser d’appareil produisant des étincelles près des stocks de gaz",
+          "Fermer les valves des bouteilles et vérifier l’absence de fuites lors de chaque utilisation",
+          "Signaler toute odeur suspecte ou fuite et appliquer immédiatement les consignes d’urgence"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4227‑1 à R.4227‑57 (prévention des incendies et évacuation)",
+        "Articles R.4216‑1 à R.4216‑30 (systèmes de ventilation et désenfumage)"
+      ],
+      "ressources_inrs": ["ED 808", "ED 6109", "Dossier incendie INRS"]
+    },
+    {
+      "id": "SANTE_R13",
+      "intitule": "Bruit et ambiance sonore",
+      "categorie_principale": "Risques physiques (bruit)",
+      "sous_categorie": "Exposition aux alarmes, machines et ventilations",
+      "famille_inrs": "Risques physiques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Travail en milieu hospitalier (bloc opératoire, services de réanimation) où les alarmes et respirateurs sonnent en continu",
+        "Utilisation de machines de stérilisation, de hottes aspirantes et de générateurs",
+        "Travail dans des services techniques (chaufferies, centrales de traitement d’air)"
+      ],
+      "dangers": [
+        "Exposition à un bruit continu supérieur à 80 dB(A) produit par les équipements médicaux et les systèmes de ventilation",
+        "Alarmes stridentes répétées provoquant une fatigue auditive et mentale",
+        "Manque d’insonorisation des locaux et mauvais entretien des machines"
+      ],
+      "dommages_potentiels": [
+        "Perte auditive progressive ou surdité professionnelle",
+        "Stress, maux de tête et irritabilité",
+        "Augmentation du risque d’erreur due à la fatigue sensorielle"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements acoustiques et des portes insonorisantes dans les unités techniques",
+          "Choisir des équipements à faible bruit et les entretenir régulièrement",
+          "Centraliser les alarmes et ajuster leur volume pour réduire les nuisances"
+        ],
+        "organisationnelle": [
+          "Effectuer des mesures sonores et établir un plan de réduction du bruit (évaluation du risque bruit)",
+          "Organiser des pauses régulières pour permettre une récupération auditive",
+          "Former le personnel au risque bruit et à l’utilisation correcte des alarmes"
+        ],
+        "individuelle": [
+          "Utiliser des protections auditives (bouchons moulés) dans les zones bruyantes",
+          "Éviter l’exposition prolongée à des sources sonores élevées et signaler les bruits anormaux",
+          "Consulter la médecine du travail pour un suivi audiométrique régulier"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4431‑1 à R.4437‑4 (risques dus au bruit)"
+      ],
+      "ressources_inrs": ["ED 964", "Brochure bruit en milieu hospitalier"]
+    },
+    {
+      "id": "SANTE_R14",
+      "intitule": "Vibrations et positions statiques",
+      "categorie_principale": "Risques physiques (vibrations)",
+      "sous_categorie": "Vibrations transmises par les véhicules et positions prolongées",
+      "famille_inrs": "Risques physiques",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Conduite d’ambulances ou de véhicules sanitaires soumis aux vibrations du véhicule",
+        "Utilisation d’appareils portatifs générant de légères vibrations (scies plâtre, fraises dentaires)",
+        "Positions assises prolongées devant des postes de surveillance (monitorage)"
+      ],
+      "dangers": [
+        "Vibrations mécaniques générant des micro‑traumatismes sur les membres et la colonne vertébrale",
+        "Positions statiques prolongées entraînant des troubles circulatoires et musculo‑squelettiques",
+        "Absence de sièges ergonomiques et de temps de pause"
+      ],
+      "dommages_potentiels": [
+        "Douleurs lombaires, hernies discales et sciatiques",
+        "Problèmes circulatoires (varices, oedèmes) et engourdissements",
+        "Fatigue et diminution de la concentration"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les véhicules de sièges amortisseurs et limiter les vibrations (suspensions adaptées)",
+          "Mettre à disposition des postes de travail ergonomiques avec supports ajustables et sièges adaptés",
+          "Adapter les temps de conduite en alternant les tâches pour limiter l’exposition prolongée"
+        ],
+        "organisationnelle": [
+          "Former les conducteurs à une conduite souple pour réduire les vibrations",
+          "Organiser des pauses régulières pour permettre des étirements et des changements de posture",
+          "Adopter des programmes d’exercices et d’étirements pour les postes sédentaires"
+        ],
+        "individuelle": [
+          "Régler correctement son siège et adopter une posture ergonomique lors de la conduite ou du travail assis",
+          "Faire des pauses actives (marche, étirements) toutes les heures",
+          "Porter un soutien lombaire si nécessaire"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R.4441‑1 à R.4447‑1 (vibrations)"
+      ],
+      "ressources_inrs": ["ED 984", "Brochure vibrations"]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "Les troubles musculo‑squelettiques représentent 94 % des maladies professionnelles reconnues dans le secteur sanitaire et médico‑social et 32 % des accidents de travail sont liés au mal de dos【441609045613745†L50-L55】. Plus de 2,3 millions de journées de travail sont perdues chaque année en raison des arrêts liés au mal de dos, soit plus de 6 800 emplois à temps plein【759083532150726†L51-L54】.",
+    "accidents_graves": "Le secteur de l’aide à domicile enregistre plus de 2 250 000 journées de travail perdues par an à cause des accidents et pathologies liés aux manutentions, aux chutes, au risque routier et au risque infectieux【498551300972255†L180-L189】. Dans les EHPAD, 2/3 des accidents de travail sont dus aux manutentions et plus d’un tiers concernent le dos【209185969857962†L149-L158】.",
+    "maladies_professionnelles_courantes": [
+      "Troubles musculo‑squelettiques (TMS)",
+      "Lombalgies et hernies discales",
+      "Maladies infectieuses (hépatites, VIH, tuberculose, grippe)",
+      "Dermatites, asthmes et cancers liés aux produits chimiques",
+      "Affections psychiques (stress, dépression, burn‑out)"
+    ]
+  },
+  "sources": [
+    "Ameli – Types de risques professionnels dans le secteur de l’aide et des soins à la personne【527235332238819†L116-L158】【527235332238819†L160-L296】【527235332238819†L286-L351】",
+    "Ameli – TMS : métiers du secteur sanitaire et médico‑social【423085463267657†L107-L117】【759083532150726†L51-L54】",
+    "Ameli – Communiqué de presse aide à domicile : prévention des risques au travail【498551300972255†L180-L190】",
+    "INRS – EHPAD : principaux risques et prévention【209185969857962†L149-L178】【209185969857962†L195-L221】",
+    "INRS – Agressions et violences externes【873820211418651†L80-L103】",
+    "INRS – Risques biologiques : ce qu’il faut retenir【678804075239463†L74-L89】"
+  ]
+}

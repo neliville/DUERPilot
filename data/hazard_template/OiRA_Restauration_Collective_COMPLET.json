@@ -1,0 +1,231 @@
+{
+  "referentiel": "OiRA - Restauration collective",
+  "source": "OiRA INRS",
+  "date_revision": "2025-11-15",
+  "structure": {
+    "niveau_0": "Activite",
+    "niveau_1": "Domaine de risque",
+    "niveau_2": "Question d_evaluation",
+    "niveau_3": "Mesures de prevention de reference"
+  },
+  "activite": {
+    "code": "RESTAURATION_COLLECTIVE",
+    "libelle": "Restauration collective",
+    "domaines": [
+      {
+        "code": "D1",
+        "libelle": "Réception des matières premières et stockage",
+        "questions": [
+          {
+            "code": "D1.1",
+            "question": "Les lieux de stockage sont-ils facilement accessibles depuis le point de livraison ?",
+            "mesures": [
+              "Identifier clairement le point de livraison par une signalétique adaptée",
+              "Communiquer aux fournisseurs le point de livraison et les accès",
+              "Limiter les dénivellations et maintenir les circulations dégagées",
+              "Réparer les sols endommagés",
+              "Mettre en place un protocole de sécurité avec les transporteurs"
+            ]
+          },
+          {
+            "code": "D1.2",
+            "question": "Les produits livrés sont-ils faciles à prendre en main (poids, dimensions, etc.) ?",
+            "mesures": [
+              "Adapter les conditionnements avec les fournisseurs",
+              "Mettre à disposition des aides à la manutention",
+              "Organiser les stocks pour limiter les contraintes physiques",
+              "Installer un monte-charges si nécessaire",
+              "Former les salariés à la prévention des risques liés à l'activité physique (PRAP)"
+            ]
+          },
+          {
+            "code": "D1.3",
+            "question": "Les quais de chargement et déchargement sont-ils sécurisés ?",
+            "mesures": [
+              "Installer des niveleurs de quai",
+              "Mettre en place des butées anti-écrasement",
+              "Installer des garde-corps ou barrières",
+              "Assurer un éclairage suffisant de la zone de quai"
+            ]
+          },
+          {
+            "code": "D1.4",
+            "question": "Les salariés sont-ils protégés du froid dans les chambres froides ?",
+            "mesures": [
+              "Limiter le temps de travail en chambre froide",
+              "Installer un dispositif d’alarme dans la chambre froide",
+              "Vérifier le bon fonctionnement des dispositifs d’ouverture",
+              "Fournir des EPI contre le froid"
+            ]
+          },
+          {
+            "code": "D1.5",
+            "question": "Le risque de coupure lors du déballage a-t-il été pris en compte ?",
+            "mesures": [
+              "Organiser un espace spécifique de déballage",
+              "Utiliser des outils de coupe sécurisés",
+              "Supprimer les cutters à lame sécable",
+              "Fournir des gants anti-coupures"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D2",
+        "libelle": "Déplacements au sein des locaux",
+        "questions": [
+          {
+            "code": "D2.1",
+            "question": "Des mesures sont-elles prises pour limiter le risque de chutes de plain-pied ?",
+            "mesures": [
+              "Organiser le travail pour limiter les déplacements inutiles",
+              "Maintenir les sols propres et dégagés",
+              "Signaler les zones à risque",
+              "Fournir des chaussures antidérapantes"
+            ]
+          },
+          {
+            "code": "D2.2",
+            "question": "Les espaces de circulation sont-ils suffisamment éclairés ?",
+            "mesures": [
+              "Assurer un éclairage adapté en toutes circonstances",
+              "Installer des détecteurs de présence",
+              "Maintenir un stock d’ampoules de rechange"
+            ]
+          },
+          {
+            "code": "D2.3",
+            "question": "Les salariés disposent-ils d’aides à la manutention pour les déplacements avec charges ?",
+            "mesures": [
+              "Mettre à disposition des équipements d’aide à la manutention",
+              "Former les salariés à leur utilisation",
+              "Entretenir régulièrement ces équipements"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D3",
+        "libelle": "Production froide et chaude",
+        "questions": [
+          {
+            "code": "D3.1",
+            "question": "Les plans de travail sont-ils confortables pour le travail debout ?",
+            "mesures": [
+              "Installer des plans de travail ajustables",
+              "Limiter les postures contraignantes",
+              "Former les salariés aux réglages"
+            ]
+          },
+          {
+            "code": "D3.2",
+            "question": "Les machines et appareils sont-ils sûrs et utilisés en sécurité ?",
+            "mesures": [
+              "Vérifier la conformité des machines",
+              "Assurer la maintenance régulière",
+              "Former les salariés à leur utilisation"
+            ]
+          },
+          {
+            "code": "D3.3",
+            "question": "Les salariés utilisent-ils des couteaux adaptés et bien aiguisés ?",
+            "mesures": [
+              "Utiliser des couteaux adaptés à la tâche",
+              "Entretenir régulièrement les couteaux",
+              "Former les salariés à leur utilisation",
+              "Fournir des gants anti-coupures"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D4",
+        "libelle": "Livraison aux clients ou sites satellites",
+        "questions": [
+          {
+            "code": "D4.1",
+            "question": "Une visite préalable est-elle réalisée sur les sites de livraison ?",
+            "mesures": [
+              "Rédiger un protocole de sécurité",
+              "Informer les chauffeurs des contraintes spécifiques",
+              "Mettre à disposition les documents dans les véhicules"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D5",
+        "libelle": "Distribution directe et salle à manger",
+        "questions": [
+          {
+            "code": "D5.1",
+            "question": "L’agencement de la salle permet-il une circulation facile ?",
+            "mesures": [
+              "Organiser les flux de circulation",
+              "Installer des hublots aux portes"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D6",
+        "libelle": "Plonge",
+        "questions": [
+          {
+            "code": "D6.1",
+            "question": "La hauteur et la profondeur des bacs de plonge sont-elles adaptées ?",
+            "mesures": [
+              "Installer des dispositifs réglables",
+              "Adapter les bacs à la morphologie des salariés"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D7",
+        "libelle": "Nettoyage et gestion des déchets",
+        "questions": [
+          {
+            "code": "D7.1",
+            "question": "Les produits de nettoyage ont-ils fait l’objet d’une évaluation du risque chimique ?",
+            "mesures": [
+              "Inventorier les produits",
+              "Former les salariés au risque chimique",
+              "Fournir des EPI adaptés"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D8",
+        "libelle": "Risques psychosociaux",
+        "questions": [
+          {
+            "code": "D8.1",
+            "question": "La charge de travail est-elle équilibrée ?",
+            "mesures": [
+              "Répartir équitablement les tâches",
+              "Anticiper les périodes de forte activité",
+              "Favoriser la communication"
+            ]
+          }
+        ]
+      },
+      {
+        "code": "D9",
+        "libelle": "Management de la santé et sécurité",
+        "questions": [
+          {
+            "code": "D9.1",
+            "question": "Les nouveaux arrivants sont-ils accueillis et informés sur la sécurité ?",
+            "mesures": [
+              "Mettre en place une procédure d’accueil sécurité",
+              "Former les tuteurs",
+              "Diffuser un livret d’accueil"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

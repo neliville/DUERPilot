@@ -1,0 +1,333 @@
+{
+  "referentiel": "OiRA - Test Evaluation Générique",
+  "source": "OiRA générique (INRS)",
+  "date_revision": "2025-09-22",
+  "description": "Référentiel générique OiRA structuré pour l’évaluation des risques professionnels et le DUERP",
+  "structure": {
+    "niveau_1": "Famille de risques",
+    "niveau_2": "Question d’évaluation / Sous-risque",
+    "niveau_3": "Mesures de prévention de référence (à décrire par l’entreprise)"
+  },
+  "risques": [
+    {
+      "code": "R1",
+      "libelle": "Chutes",
+      "questions": [
+        {
+          "code": "R1.1",
+          "question": "Des mesures sont-elles prises pour limiter le risque de chutes de plain-pied ?",
+          "mesures": [
+            "Organiser le travail pour limiter les déplacements",
+            "Veiller au bon état des sols",
+            "Déblayer et éclairer les zones de circulation",
+            "Organiser le nettoyage régulier des sols",
+            "Signaler les zones à risque",
+            "Proscrire les tâches pendant les déplacements",
+            "Choisir un revêtement antidérapant",
+            "Évacuer les substances glissantes",
+            "Faire porter des chaussures adaptées"
+          ]
+        },
+        {
+          "code": "R1.2",
+          "question": "Les escaliers sont-ils correctement éclairés et aménagés ?",
+          "mesures": [
+            "Maintenir les escaliers propres et dégagés",
+            "Installer des nez de marche antidérapants",
+            "Installer des mains courantes",
+            "Prévoir un éclairage adapté ou automatique"
+          ]
+        },
+        {
+          "code": "R1.3",
+          "question": "Le travail est-il organisé pour prévenir les chutes de hauteur ?",
+          "mesures": [
+            "Limiter le stockage en hauteur",
+            "Installer des équipements fixes avec garde-corps",
+            "Utiliser des matériels permettant de travailler au sol",
+            "Utiliser des équipements sécurisés d’accès en hauteur",
+            "Sécuriser les espaces ouverts"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R2",
+      "libelle": "Livraison, manutention et stockage",
+      "questions": [
+        {
+          "code": "R2.1",
+          "question": "Les points de livraison sont-ils matérialisés et fonctionnels ?",
+          "mesures": [
+            "Positionner les zones de livraison hors circulation",
+            "Mettre en place un plan de circulation",
+            "Libérer les zones autour des hayons",
+            "Sécuriser la mise à quai",
+            "Réaliser un protocole de sécurité transporteur",
+            "Fournir des gilets réfléchissants"
+          ]
+        },
+        {
+          "code": "R2.2",
+          "question": "Les salariés sont-ils amenés à soulever des charges lourdes ?",
+          "mesures": [
+            "Mettre à disposition des aides à la manutention",
+            "Limiter le poids des charges",
+            "Stocker les objets à bonne hauteur",
+            "Former les salariés (PRAP)",
+            "Adapter les conditionnements avec les fournisseurs"
+          ]
+        },
+        {
+          "code": "R2.3",
+          "question": "Le stockage des produits et matériels est-il bien organisé ?",
+          "mesures": [
+            "Organiser le rangement selon le poids",
+            "Installer des protections contre la chute d’objets",
+            "Désencombrer les réserves",
+            "Installer des rayonnages adaptés",
+            "Séparer produits dangereux et non dangereux",
+            "Mettre à disposition des équipements de manutention"
+          ]
+        },
+        {
+          "code": "R2.4",
+          "question": "Le risque de coupure lors du déballage est-il pris en compte ?",
+          "mesures": [
+            "Utiliser des emballages sans outils",
+            "Organiser un espace dédié au déballage",
+            "Utiliser des outils sécurisés",
+            "Supprimer les cutters à lame sécable",
+            "Fournir des gants anti-coupures"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R3",
+      "libelle": "Locaux de travail",
+      "questions": [
+        {
+          "code": "R3.1",
+          "question": "L’éclairage est-il adapté aux travaux réalisés ?",
+          "mesures": [
+            "Privilégier l’éclairage naturel",
+            "Compléter par un éclairage artificiel adapté",
+            "Prévoir des sources lumineuses multiples",
+            "Installer des détecteurs de présence"
+          ]
+        },
+        {
+          "code": "R3.2",
+          "question": "Des mesures sont-elles prises pour maîtriser le bruit ?",
+          "mesures": [
+            "Réduire le bruit à la source",
+            "Agir sur la propagation du bruit",
+            "Fournir des protections auditives",
+            "Former les salariés au risque auditif"
+          ]
+        },
+        {
+          "code": "R3.3",
+          "question": "Les postes de travail sont-ils confortables et ajustables ?",
+          "mesures": [
+            "Aménager les postes pour éviter les postures contraignantes",
+            "Utiliser du mobilier réglable",
+            "Former les salariés à l’ergonomie"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R4",
+      "libelle": "Produits dangereux et déchets",
+      "questions": [
+        {
+          "code": "R4.1",
+          "question": "La gestion des produits chimiques est-elle adaptée ?",
+          "mesures": [
+            "Définir des procédures d’achat",
+            "Substituer les produits dangereux",
+            "Stocker les produits dans des locaux dédiés",
+            "Gérer les incompatibilités chimiques",
+            "Mettre en place des bacs de rétention"
+          ]
+        },
+        {
+          "code": "R4.2",
+          "question": "Les salariés sont-ils informés des risques chimiques ?",
+          "mesures": [
+            "Informer les salariés",
+            "Former à la lecture des pictogrammes",
+            "Fournir les EPI adaptés"
+          ]
+        },
+        {
+          "code": "R4.3",
+          "question": "Les polluants sont-ils captés et ventilés ?",
+          "mesures": [
+            "Limiter les émissions",
+            "Ventiler ou capter les polluants",
+            "Nettoyer par aspiration",
+            "Contrôler les VLEP"
+          ]
+        },
+        {
+          "code": "R4.4",
+          "question": "Les déchets dangereux sont-ils correctement gérés ?",
+          "mesures": [
+            "Collecter les déchets dans des contenants adaptés",
+            "Identifier et séparer les déchets dangereux",
+            "Fournir des gants adaptés"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R5",
+      "libelle": "Machines, outils et équipements",
+      "questions": [
+        {
+          "code": "R5.1",
+          "question": "Les équipements sont-ils adaptés à la tâche ?",
+          "mesures": [
+            "Élaborer un cahier des charges",
+            "Vérifier la notice d’instructions",
+            "Choisir des équipements limitant bruit et vibrations"
+          ]
+        },
+        {
+          "code": "R5.2",
+          "question": "Les machines sont-elles en bon état et entretenues ?",
+          "mesures": [
+            "Réaliser la maintenance préventive",
+            "Effectuer les vérifications périodiques",
+            "Former le personnel de maintenance"
+          ]
+        },
+        {
+          "code": "R5.3",
+          "question": "Les salariés sont-ils formés à l’utilisation des machines ?",
+          "mesures": [
+            "Former à l’utilisation des machines",
+            "Autoriser uniquement le personnel habilité",
+            "Rédiger des fiches de poste"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R6",
+      "libelle": "Risque routier",
+      "questions": [
+        {
+          "code": "R6.1",
+          "question": "Les déplacements sont-ils organisés ?",
+          "mesures": [
+            "Limiter les déplacements",
+            "Optimiser les trajets",
+            "Intégrer les temps de pause"
+          ]
+        },
+        {
+          "code": "R6.2",
+          "question": "Les véhicules sont-ils adaptés ?",
+          "mesures": [
+            "Choisir des véhicules sécurisés",
+            "Entretenir régulièrement les véhicules",
+            "Former les salariés à la conduite"
+          ]
+        },
+        {
+          "code": "R6.3",
+          "question": "L’usage du téléphone au volant est-il évité ?",
+          "mesures": [
+            "Interdire l’usage du téléphone en conduite",
+            "Organiser les appels à l’arrêt"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R7",
+      "libelle": "Intervention extérieure",
+      "questions": [
+        {
+          "code": "R7.1",
+          "question": "Un plan de prévention est-il établi avec les entreprises extérieures ?",
+          "mesures": [
+            "Réaliser un plan de prévention",
+            "Informer les salariés",
+            "Balisage des zones d’intervention"
+          ]
+        },
+        {
+          "code": "R7.2",
+          "question": "Les interventions chez des tiers sont-elles sécurisées ?",
+          "mesures": [
+            "Exiger un plan de prévention",
+            "Réaliser une visite commune",
+            "Vérifier la mise en œuvre des mesures"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R8",
+      "libelle": "Organisation du travail et RPS",
+      "questions": [
+        {
+          "code": "R8.1",
+          "question": "La charge de travail est-elle équilibrée ?",
+          "mesures": [
+            "Répartir équitablement le travail",
+            "Anticiper les pics d’activité",
+            "Favoriser la communication"
+          ]
+        },
+        {
+          "code": "R8.2",
+          "question": "Les risques psychosociaux sont-ils pris en compte ?",
+          "mesures": [
+            "Clarifier les rôles",
+            "Prévenir les conflits",
+            "Former à la gestion des situations difficiles"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "R9",
+      "libelle": "Management de la santé et sécurité",
+      "questions": [
+        {
+          "code": "R9.1",
+          "question": "Les nouveaux arrivants sont-ils accueillis et informés ?",
+          "mesures": [
+            "Organiser un accueil sécurité",
+            "Mettre en place un tutorat",
+            "Diffuser un livret d’accueil"
+          ]
+        },
+        {
+          "code": "R9.2",
+          "question": "Les situations d’urgence sont-elles gérées ?",
+          "mesures": [
+            "Définir des procédures d’urgence",
+            "Former des SST",
+            "Mettre à disposition des moyens de secours"
+          ]
+        },
+        {
+          "code": "R9.3",
+          "question": "Les formations sécurité sont-elles assurées ?",
+          "mesures": [
+            "Identifier les besoins de formation",
+            "Former les salariés exposés",
+            "Mettre à jour les formations"
+          ]
+        }
+      ]
+    }
+  ]
+}

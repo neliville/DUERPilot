@@ -1,0 +1,1397 @@
+{
+  "secteur": {
+    "nom": "Référentiel générique transversal",
+    "code": "GENERIQUE",
+    "code_naf": "Tous secteurs",
+    "description": "Référentiel de risques professionnels transversaux applicables à l'ensemble des secteurs d'activité. Ce catalogue présente les dangers communs rencontrés dans la majorité des entreprises, quels que soient leur taille et leur domaine d'activité. Il constitue une base minimale d'évaluation des risques pour tout Document Unique."
+  },
+  "risques": [
+    {
+      "id": "GEN001",
+      "intitule": "Chutes de plain-pied",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements, faux pas",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Déplacements dans les locaux professionnels (bureaux, ateliers, entrepôts)",
+        "Circulation entre différentes zones de travail",
+        "Déplacements en portant du matériel ou des documents",
+        "Nettoyage des sols pendant les heures d'activité",
+        "Traversée de zones encombrées ou mal éclairées",
+        "Accès aux installations extérieures (parking, quais)"
+      ],
+      "dangers": [
+        "Sols humides ou glissants suite au nettoyage ou à des écoulements",
+        "Obstacles au sol (câbles, cartons, outils, mobilier mal rangé)",
+        "Revêtements de sol dégradés, irréguliers ou inadaptés",
+        "Passages encombrés ou circulation entravée",
+        "Éclairage défaillant ou zones d'ombre",
+        "Différences de niveau non signalisées (seuils, marches isolées)",
+        "Précipitation liée aux contraintes de temps",
+        "Port de charges masquant la vision du sol"
+      ],
+      "dommages_potentiels": [
+        "Entorses (chevilles, genoux, poignets)",
+        "Foulures et élongations musculaires",
+        "Contusions et hématomes",
+        "Fractures (membres supérieurs ou inférieurs)",
+        "Traumatismes crâniens en cas de choc contre un obstacle",
+        "Plaies et coupures",
+        "Lombalgies suite à un faux mouvement de rattrapage"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des revêtements de sol antidérapants adaptés aux activités",
+          "Installer un éclairage suffisant et homogène dans tous les espaces (minimum 100 lux en circulation)",
+          "Matérialiser les voies de circulation par marquage au sol",
+          "Prévoir des zones de stockage délimitées pour éviter l'encombrement des passages",
+          "Installer des systèmes de drainage et d'évacuation des liquides",
+          "Poser des bandes antidérapantes sur les seuils et marches isolées",
+          "Mettre en place des passe-câbles pour protéger les câblages au sol",
+          "Signaler les obstacles temporaires par balisage ou panneau"
+        ],
+        "organisationnelle": [
+          "Établir des règles de rangement et maintenir les espaces dégagés",
+          "Organiser le nettoyage en dehors des heures d'activité ou par zones alternées",
+          "Signaler immédiatement les déversements et nettoyer sans délai",
+          "Planifier l'entretien régulier des sols et la réparation des dégradations",
+          "Sensibiliser le personnel aux risques de chute et aux bonnes pratiques",
+          "Organiser les postes de travail pour limiter les déplacements inutiles",
+          "Proscrire l'exécution d'autres tâches pendant les déplacements (consultation de documents, téléphone)",
+          "Adapter les cadences pour éviter la précipitation"
+        ],
+        "individuelle": [
+          "Porter des chaussures de sécurité ou de travail antidérapantes adaptées",
+          "Maintenir une vigilance constante lors des déplacements",
+          "Adapter sa vitesse de marche aux conditions du sol et de l'environnement",
+          "Utiliser les mains courantes lorsqu'elles sont disponibles",
+          "Signaler tout obstacle, dégradation ou zone dangereuse constatée",
+          "Éclairer les zones sombres avec une lampe si nécessaire",
+          "Éviter de porter des charges masquant la vue"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail (aménagement des lieux de travail)",
+        "Articles R4228-1 à R4228-7 du Code du travail (éclairage des lieux de travail)",
+        "Recommandation R447 de la CNAMTS sur la prévention des chutes de plain-pied"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Prévention des chutes de plain-pied",
+        "Dépliant INRS - Chutes de plain-pied : attention à la marche"
+      ]
+    },
+    {
+      "id": "GEN002",
+      "intitule": "Chutes dans les escaliers",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Chutes dans les escaliers et dégagements",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Montée et descente d'escaliers reliant différents niveaux",
+        "Utilisation d'escaliers de service ou d'accès aux sous-sols",
+        "Évacuation d'urgence par les escaliers",
+        "Transport de charges dans les escaliers",
+        "Circulation dans des escaliers peu fréquentés ou mal entretenus"
+      ],
+      "dangers": [
+        "Marches usées, glissantes ou de hauteur irrégulière",
+        "Absence ou défaillance de mains courantes",
+        "Éclairage insuffisant ou défectueux",
+        "Encombrement des marches ou des paliers",
+        "Contremarches absentes ou trop basses",
+        "Nez de marche peu contrastés ou non signalés",
+        "Précipitation ou port de charges déséquilibrant",
+        "Distraction (téléphone, documents)"
+      ],
+      "dommages_potentiels": [
+        "Chutes pouvant entraîner des traumatismes multiples",
+        "Fractures (membres, vertèbres, crâne)",
+        "Entorses graves et luxations",
+        "Traumatismes crâniens et rachidiens",
+        "Plaies et contusions sévères",
+        "Invalidité temporaire ou permanente",
+        "Dans les cas graves : décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des mains courantes robustes des deux côtés de l'escalier",
+          "Assurer un éclairage adapté (minimum 150 lux dans les escaliers)",
+          "Poser des nez de marche antidérapants et contrastés visuellement",
+          "Veiller à l'uniformité de la hauteur des marches (giron et contremarche)",
+          "Installer des paliers de repos tous les 3 mètres de dénivelé",
+          "Maintenir les escaliers dégagés de tout obstacle",
+          "Prévoir des revêtements antidérapants sur les marches",
+          "Signaler le début et la fin de chaque volée d'escaliers"
+        ],
+        "organisationnelle": [
+          "Contrôler régulièrement l'état des escaliers et effectuer les réparations",
+          "Organiser la circulation pour éviter les croisements difficiles",
+          "Interdire le stockage même temporaire dans les escaliers",
+          "Prévoir des moyens de manutention alternatifs (monte-charge, ascenseur)",
+          "Sensibiliser le personnel à l'utilisation correcte des escaliers",
+          "Organiser le nettoyage en dehors des heures de forte circulation"
+        ],
+        "individuelle": [
+          "Utiliser systématiquement les mains courantes",
+          "Porter des chaussures adaptées avec semelles antidérapantes",
+          "Ne pas courir ou descendre en regardant son téléphone",
+          "Adapter sa vitesse et rester concentré",
+          "Porter les charges lourdes à deux personnes",
+          "Signaler toute dégradation ou dysfonctionnement constaté"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail",
+        "Norme NF P01-012 sur les dimensions des escaliers"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Prévention des chutes de plain-pied et dans les escaliers"
+      ]
+    },
+    {
+      "id": "GEN003",
+      "intitule": "Chutes de hauteur",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Travail en hauteur, accès aux toitures",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Travaux sur toitures ou plateformes en hauteur",
+        "Utilisation d'échelles, escabeaux ou échafaudages",
+        "Interventions de maintenance en hauteur",
+        "Accès à des mezzanines ou passerelles",
+        "Nettoyage de vitres ou façades en hauteur",
+        "Stockage ou déstockage sur rayonnages hauts"
+      ],
+      "dangers": [
+        "Absence de protections collectives (garde-corps, filets)",
+        "Échelles ou escabeaux inadaptés ou instables",
+        "Échafaudages non conformes ou mal montés",
+        "Ouvertures dans le sol non protégées (trémies, fosses)",
+        "Toitures fragiles ou couvertures non porteuses",
+        "Surfaces de travail en hauteur glissantes ou encombrées",
+        "Absence de point d'ancrage pour harnais",
+        "Travail près de vides (bordures de toitures, quais)"
+      ],
+      "dommages_potentiels": [
+        "Chutes pouvant être mortelles dès 2 mètres de hauteur",
+        "Fractures multiples et polytraumatismes",
+        "Traumatismes crâniens et rachidiens graves",
+        "Lésions internes (organes, hémorragies)",
+        "Handicap définitif (paralysie, traumatisme crânien sévère)",
+        "Décès immédiat ou des suites des blessures"
+      ],
+      "prevention": {
+        "collective": [
+          "Privilégier les solutions évitant le travail en hauteur (nacelles, plates-formes)",
+          "Installer des protections collectives permanentes (garde-corps, plinthes)",
+          "Utiliser des échafaudages normalisés et montés par des personnes compétentes",
+          "Mettre en place des filets de sécurité sous les zones de travail",
+          "Protéger les ouvertures dans les planchers par des dispositifs fixes",
+          "Prévoir des lignes de vie et points d'ancrage certifiés pour les harnais",
+          "Installer des moyens d'accès sécurisés (escaliers avec garde-corps)"
+        ],
+        "organisationnelle": [
+          "Évaluer systématiquement la nécessité du travail en hauteur",
+          "Former le personnel aux travaux en hauteur et au port du harnais",
+          "Établir des modes opératoires détaillés pour chaque intervention",
+          "Vérifier périodiquement les équipements (échelles, harnais, lignes de vie)",
+          "Délivrer des autorisations de travail pour les interventions à risque",
+          "Prévoir des mesures spécifiques en cas d'intempéries",
+          "Interdire le travail isolé en hauteur"
+        ],
+        "individuelle": [
+          "Porter un harnais antichute relié à un point d'ancrage certifié",
+          "Utiliser un casque de protection",
+          "Porter des chaussures de sécurité antidérapantes",
+          "Vérifier l'état du matériel avant chaque utilisation",
+          "Respecter les consignes d'utilisation des équipements",
+          "Ne jamais improviser une solution non prévue",
+          "Signaler immédiatement toute situation dangereuse"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-58 à R4323-90 du Code du travail (travail en hauteur)",
+        "Recommandation R430 de la CNAMTS",
+        "Décret n°2004-924 du 1er septembre 2004"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Travail en hauteur",
+        "ED 6109 - Échelles portables",
+        "ED 6159 - Échafaudages de pied"
+      ]
+    },
+    {
+      "id": "GEN004",
+      "intitule": "Manutentions manuelles et port de charges",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Port, soulèvement, déplacement de charges",
+      "famille_inrs": "3 (manutentions manuelles)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Réception, déballage et mise en stock de marchandises",
+        "Approvisionnement de postes de travail",
+        "Déplacement de mobilier, équipements ou cartons",
+        "Manipulation de charges lourdes ou volumineuses",
+        "Chargement et déchargement de véhicules",
+        "Port répété de petites charges tout au long de la journée"
+      ],
+      "dangers": [
+        "Charges trop lourdes pour être portées manuellement (> 25 kg, > 15 kg pour les femmes)",
+        "Manutentions répétées sans temps de récupération",
+        "Postures contraignantes (dos courbé, torsion du tronc, bras éloignés du corps)",
+        "Prises difficiles ou charges instables",
+        "Distances de transport importantes",
+        "Absence d'aide mécanique à la manutention",
+        "Sol irrégulier ou encombré",
+        "Manque de formation aux gestes et postures"
+      ],
+      "dommages_potentiels": [
+        "Lombalgies aiguës et chroniques",
+        "Hernies discales",
+        "Lumbagos et sciatiques",
+        "Troubles musculosquelettiques des membres supérieurs",
+        "Tendinites des épaules et coudes",
+        "Déchirures musculaires",
+        "Incapacité de travail temporaire ou permanente"
+      ],
+      "prevention": {
+        "collective": [
+          "Mécaniser les manutentions (diables, transpalettes, chariots, convoyeurs)",
+          "Installer des tables élévatrices pour limiter les flexions",
+          "Réduire le poids des unités de conditionnement",
+          "Concevoir les postes de travail pour limiter les ports de charges",
+          "Aménager les zones de stockage pour faciliter l'accès (hauteurs adaptées)",
+          "Installer des aides à la manipulation (potences, palans)",
+          "Améliorer les prises sur les charges (poignées, emballages adaptés)"
+        ],
+        "organisationnelle": [
+          "Former l'ensemble du personnel aux principes de manutention sécuritaire",
+          "Limiter le poids maximum des charges : 25 kg pour les hommes, 15 kg pour les femmes",
+          "Organiser le travail pour éviter les manutentions répétées",
+          "Prévoir des pauses et une rotation des tâches",
+          "Privilégier le travail à deux pour les charges lourdes ou volumineuses",
+          "Évaluer régulièrement les situations de manutention",
+          "Impliquer les salariés dans l'amélioration des conditions de manutention"
+        ],
+        "individuelle": [
+          "Appliquer les principes enseignés en formation gestes et postures",
+          "Se positionner face à la charge, pieds écartés pour stabilité",
+          "Fléchir les genoux et garder le dos droit",
+          "Saisir la charge fermement en rapprochant les bras du corps",
+          "Porter des chaussures de sécurité et des gants adaptés",
+          "Demander de l'aide pour les charges lourdes ou encombrantes",
+          "Signaler les situations de manutention difficiles"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail (manutentions manuelles)",
+        "Article R4541-8 : obligation de formation",
+        "Décret n°92-958 du 3 septembre 1992"
+      ],
+      "ressources_inrs": [
+        "ED 6015 - Manutentions manuelles",
+        "ED 6290 - Mal de dos",
+        "Outil TMS Pros"
+      ]
+    },
+    {
+      "id": "GEN005",
+      "intitule": "Circulation et accès aux zones de livraison",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Circulation des véhicules, coactivité",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Livraisons et enlèvements de marchandises",
+        "Circulation de véhicules sur le site (livraisons, visiteurs, personnel)",
+        "Coactivité piétons/véhicules dans les zones de circulation",
+        "Manœuvres de recul de véhicules",
+        "Chargement et déchargement sur quais ou aires dédiées"
+      ],
+      "dangers": [
+        "Absence de séparation piétons/véhicules",
+        "Zones de livraison non matérialisées ou mal conçues",
+        "Angles morts des véhicules lors des manœuvres",
+        "Absence de signalisation ou d'avertisseurs sonores",
+        "Circulation non organisée (absence de plan de circulation)",
+        "Vitesse excessive des véhicules",
+        "Quais de chargement sans dispositifs de sécurité",
+        "Éclairage insuffisant dans les zones de circulation"
+      ],
+      "dommages_potentiels": [
+        "Écrasement par véhicule",
+        "Collisions piétons/véhicules",
+        "Chutes de quai",
+        "Polytraumatismes graves",
+        "Fractures multiples",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Matérialiser clairement les zones de livraison et les voies de circulation",
+          "Séparer physiquement les flux piétons et véhicules (barrières, marquages)",
+          "Installer des dispositifs de sécurité sur les quais (butoirs, cales, niveleurs)",
+          "Équiper les zones de circulation d'un éclairage adapté",
+          "Installer des miroirs de sécurité dans les angles morts",
+          "Prévoir des zones de manœuvre et de stationnement dédiées",
+          "Limiter la vitesse par des ralentisseurs si nécessaire"
+        ],
+        "organisationnelle": [
+          "Élaborer un plan de circulation et le faire respecter",
+          "Définir des créneaux horaires pour les livraisons",
+          "Former les chauffeurs aux consignes de sécurité du site",
+          "Désigner un responsable pour superviser les opérations de chargement/déchargement",
+          "Établir une procédure de communication entre chauffeurs et personnel au sol",
+          "Limiter la vitesse de circulation sur site (10-20 km/h maximum)",
+          "Entretenir régulièrement les voies de circulation et le marquage"
+        ],
+        "individuelle": [
+          "Porter un gilet haute visibilité dans les zones de circulation",
+          "Respecter les voies réservées aux piétons",
+          "Établir un contact visuel avec les conducteurs avant de s'approcher",
+          "Rester vigilant et ne pas utiliser son téléphone en marchant",
+          "Signaler immédiatement tout dysfonctionnement ou danger",
+          "Respecter la signalisation et les consignes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail",
+        "Articles R4543-1 à R4543-13 (circulation des véhicules)"
+      ],
+      "ressources_inrs": [
+        "ED 975 - Plan de circulation en entreprise"
+      ]
+    },
+    {
+      "id": "GEN006",
+      "intitule": "Aménagement et maintenance des locaux",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Locaux de travail, installations fixes",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Faible"
+      },
+      "situations_travail": [
+        "Travail quotidien dans les locaux (bureaux, ateliers, entrepôts)",
+        "Utilisation des installations sanitaires et vestiaires",
+        "Pause dans les locaux de repos ou restauration",
+        "Circulation dans les couloirs et dégagements",
+        "Accès aux locaux techniques"
+      ],
+      "dangers": [
+        "Locaux exigus ou mal agencés",
+        "Ventilation insuffisante (air vicié, concentration de polluants)",
+        "Température inadaptée (trop chaud en été, trop froid en hiver)",
+        "Éclairage déficient (naturel ou artificiel)",
+        "Installations sanitaires insuffisantes ou mal entretenues",
+        "Absence de locaux de pause appropriés",
+        "Locaux non conformes aux normes (surface, hauteur, accès)",
+        "Absence de plan d'entretien régulier"
+      ],
+      "dommages_potentiels": [
+        "Fatigue accrue et baisse de concentration",
+        "Troubles musculosquelettiques liés aux postures contraintes",
+        "Problèmes respiratoires et ORL",
+        "Maux de tête et irritations",
+        "Stress et inconfort psychologique",
+        "Risques sanitaires (hygiène insuffisante)",
+        "Diminution de la productivité"
+      ],
+      "prevention": {
+        "collective": [
+          "Respecter les surfaces minimales réglementaires par personne (10 m³ minimum par occupant)",
+          "Assurer une ventilation efficace (25 m³/h d'air neuf par personne en bureau)",
+          "Maintenir une température confortable (19-21°C en hiver, <26°C en été)",
+          "Installer un éclairage adapté aux tâches (300-500 lux en bureau, 200 lux en circulation)",
+          "Prévoir des sanitaires en nombre suffisant (un pour 20 personnes)",
+          "Aménager des locaux de pause séparés des zones de travail",
+          "Faciliter l'accès aux personnes à mobilité réduite"
+        ],
+        "organisationnelle": [
+          "Établir un plan de maintenance préventive des locaux",
+          "Contrôler régulièrement la qualité de l'air intérieur",
+          "Vérifier le bon fonctionnement du chauffage et de la ventilation",
+          "Organiser un entretien régulier des locaux (nettoyage, désinfection)",
+          "Consulter les représentants du personnel sur l'aménagement des locaux",
+          "Adapter les locaux lors de changements d'effectifs ou d'activités"
+        ],
+        "individuelle": [
+          "Aérer les locaux plusieurs fois par jour",
+          "Signaler tout dysfonctionnement ou inconfort",
+          "Respecter les règles d'hygiène (locaux sanitaires, restauration)",
+          "Utiliser correctement les équipements mis à disposition",
+          "Adapter sa tenue vestimentaire aux températures"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4213-1 à R4213-13 du Code du travail (locaux de travail)",
+        "Articles R4222-1 à R4222-26 (aération, ventilation)",
+        "Articles R4223-13 à R4223-15 (ambiances thermiques)",
+        "Articles R4228-1 à R4228-29 (éclairage)"
+      ],
+      "ressources_inrs": [
+        "ED 773 - Aération et assainissement des lieux de travail",
+        "ED 6153 - Qualité de l'air intérieur"
+      ]
+    },
+    {
+      "id": "GEN007",
+      "intitule": "Risque électrique",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Contact direct ou indirect avec l'électricité",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation d'équipements électriques",
+        "Interventions sur installations électriques",
+        "Travaux à proximité de lignes ou d'armoires électriques",
+        "Utilisation d'outils électroportatifs",
+        "Branchement et débranchement d'appareils",
+        "Nettoyage à proximité d'installations électriques"
+      ],
+      "dangers": [
+        "Contact direct avec des pièces nues sous tension",
+        "Contact indirect par défaut d'isolement ou absence de mise à la terre",
+        "Installations électriques vétustes ou non conformes",
+        "Câbles et prises endommagés",
+        "Intervention sur installations sous tension sans habilitation",
+        "Utilisation d'eau ou de liquides conducteurs près de sources électriques",
+        "Absence de dispositifs de protection (disjoncteurs différentiels)",
+        "Matériel non conforme ou bricolé"
+      ],
+      "dommages_potentiels": [
+        "Électrisation (passage du courant dans le corps)",
+        "Électrocution (électrisation mortelle)",
+        "Brûlures électriques internes et externes",
+        "Arrêt cardio-respiratoire",
+        "Tétanisation musculaire",
+        "Chutes provoquées par le choc électrique",
+        "Incendies et explosions d'origine électrique",
+        "Séquelles neurologiques permanentes"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des dispositifs différentiels 30 mA sur tous les circuits",
+          "Mettre à la terre toutes les masses métalliques des équipements",
+          "Utiliser du matériel électrique conforme aux normes (marquage CE)",
+          "Protéger les câbles contre les détériorations mécaniques",
+          "Isoler ou mettre hors de portée les pièces nues sous tension",
+          "Installer des armoires électriques fermées à clé",
+          "Prévoir des installations adaptées aux locaux humides (IP adapté)",
+          "Séparer les circuits électriques des circuits de fluides"
+        ],
+        "organisationnelle": [
+          "Faire réaliser les installations par des professionnels qualifiés",
+          "Contrôler les installations électriques annuellement par un organisme agréé",
+          "Former et habiliter le personnel intervenant sur les installations électriques",
+          "Établir des consignes d'utilisation des équipements électriques",
+          "Interdire les interventions sur installations sous tension",
+          "Vérifier périodiquement l'état des câbles et prises",
+          "Consigner et baliser les installations lors d'interventions",
+          "Tenir à jour le schéma des installations électriques"
+        ],
+        "individuelle": [
+          "Ne jamais intervenir sur une installation électrique sans habilitation",
+          "Vérifier l'état des câbles et des prises avant utilisation",
+          "Débrancher les appareils avant nettoyage ou maintenance",
+          "Ne pas surcharger les prises (pas de multiprises en cascade)",
+          "Signaler immédiatement tout équipement défectueux",
+          "Ne pas manipuler d'appareils électriques avec les mains mouillées",
+          "Éloigner les sources d'eau des installations électriques",
+          "Respecter les consignes et habilitations"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4215-1 à R4215-17 du Code du travail (installations électriques)",
+        "Norme NF C 15-100 (installations électriques basse tension)",
+        "Décret n°2010-1118 du 22 septembre 2010 (habilitation électrique)",
+        "Publication UTE C 18-510 (habilitations électriques)"
+      ],
+      "ressources_inrs": [
+        "ED 6187 - Prévention du risque électrique",
+        "ED 6127 - Habilitation électrique"
+      ]
+    },
+    {
+      "id": "GEN008",
+      "intitule": "Incendie et évacuation",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie, explosion, fumées",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Présence de matériaux combustibles (papier, carton, bois, plastique)",
+        "Utilisation ou stockage de produits inflammables",
+        "Activités générant des points chauds (soudure, découpe)",
+        "Installations électriques défectueuses",
+        "Chauffage d'appoint non conforme",
+        "Accumulation de poussières combustibles"
+      ],
+      "dangers": [
+        "Sources d'inflammation (étincelles, flammes, points chauds)",
+        "Produits inflammables ou combustibles mal stockés",
+        "Court-circuits électriques",
+        "Installations de chauffage non conformes",
+        "Absence ou insuffisance de moyens de détection et d'extinction",
+        "Issues de secours obstruées ou verrouillées",
+        "Système d'alarme défaillant ou absent",
+        "Absence de plan d'évacuation et de formation du personnel",
+        "Compartimentage insuffisant entre zones"
+      ],
+      "dommages_potentiels": [
+        "Intoxication par fumées (cause principale de décès)",
+        "Brûlures thermiques de degrés divers",
+        "Asphyxie par manque d'oxygène",
+        "Traumatismes lors de l'évacuation (bousculades, chutes)",
+        "Décès",
+        "Destruction totale ou partielle des locaux",
+        "Arrêt prolongé de l'activité"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des détecteurs automatiques d'incendie et systèmes d'alarme",
+          "Équiper les locaux d'extincteurs adaptés et accessibles (un tous les 200 m²)",
+          "Prévoir des RIA (Robinets d'Incendie Armés) si nécessaire",
+          "Baliser clairement les issues de secours avec éclairage de sécurité",
+          "Maintenir les dégagements libres en permanence (largeur minimale 0,90 m)",
+          "Compartimenter les zones à risque avec portes coupe-feu",
+          "Désenfumer les circulations et escaliers",
+          "Séparer les matières combustibles des sources d'inflammation"
+        ],
+        "organisationnelle": [
+          "Élaborer et afficher un plan d'évacuation",
+          "Former des équipiers de première intervention (EPI)",
+          "Réaliser des exercices d'évacuation réguliers (2 par an minimum)",
+          "Vérifier périodiquement les extincteurs et les alarmes",
+          "Établir un permis de feu pour les travaux par points chauds",
+          "Interdire de fumer dans les zones à risque",
+          "Limiter le stockage de produits combustibles",
+          "Organiser l'entretien régulier des installations électriques et de chauffage",
+          "Tenir un registre de sécurité incendie"
+        ],
+        "individuelle": [
+          "Connaître l'emplacement des extincteurs et des issues de secours",
+          "Participer aux exercices d'évacuation et formations incendie",
+          "Ne pas obstruer les dégagements et issues",
+          "Éteindre les appareils électriques en fin de journée",
+          "Ne pas surcharger les prises électriques",
+          "Respecter l'interdiction de fumer",
+          "Signaler toute anomalie (odeur de brûlé, fumées, étincelles)",
+          "En cas d'alarme : évacuer calmement vers le point de rassemblement"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail (prévention incendie)",
+        "Règlement de sécurité contre l'incendie dans les ERP (arrêté du 25 juin 1980)",
+        "Code de la construction et de l'habitation (IGH)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie et lieux de travail",
+        "ED 6029 - Extinction",
+        "ED 6060 - Évacuation"
+      ]
+    },
+    {
+      "id": "GEN009",
+      "intitule": "Produits chimiques dangereux",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Manipulation, stockage, exposition",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de produits d'entretien et de nettoyage",
+        "Manipulation de produits de maintenance",
+        "Utilisation de colles, solvants, dégraissants",
+        "Stockage de produits chimiques",
+        "Gestion des déchets chimiques",
+        "Transvasement ou mélange de produits"
+      ],
+      "dangers": [
+        "Produits toxiques, corrosifs, irritants ou sensibilisants",
+        "Inhalation de vapeurs, aérosols ou poussières dangereuses",
+        "Contact cutané ou oculaire avec des produits agressifs",
+        "Mélanges incompatibles générant des réactions dangereuses",
+        "Produits CMR (Cancérogènes, Mutagènes, Reprotoxiques)",
+        "Stockage inadéquat (proximité de produits incompatibles)",
+        "Absence d'information sur les dangers (FDS non disponibles)",
+        "Ventilation insuffisante lors de l'utilisation"
+      ],
+      "dommages_potentiels": [
+        "Intoxications aiguës ou chroniques",
+        "Brûlures chimiques cutanées et oculaires",
+        "Dermatoses et eczémas",
+        "Irritations des voies respiratoires",
+        "Asthmes professionnels",
+        "Allergies et sensibilisations",
+        "Cancers (exposition aux CMR)",
+        "Atteintes neurologiques",
+        "Troubles de la reproduction"
+      ],
+      "prevention": {
+        "collective": [
+          "Substituer les produits dangereux par des alternatives moins nocives",
+          "Utiliser des produits prêts à l'emploi pour éviter les transvasements",
+          "Installer des systèmes d'aspiration localisée (hottes, captages à la source)",
+          "Stocker les produits dans des armoires ventilées spécifiques",
+          "Séparer les produits incompatibles (acides/bases, oxydants/combustibles)",
+          "Installer des douches de sécurité et rince-œil à proximité des zones d'utilisation",
+          "Prévoir des zones de stockage dédiées et sécurisées",
+          "Équiper de kits anti-pollution pour les déversements"
+        ],
+        "organisationnelle": [
+          "Tenir un inventaire à jour de tous les produits chimiques",
+          "Mettre à disposition les Fiches de Données de Sécurité (FDS) actualisées",
+          "Former le personnel aux risques chimiques et à la lecture des étiquettes",
+          "Établir des procédures d'utilisation sécuritaires pour chaque produit",
+          "Limiter les quantités stockées au strict nécessaire",
+          "Organiser la collecte des déchets chimiques par filières spécialisées",
+          "Interdire de manger, boire ou fumer dans les zones de manipulation",
+          "Évaluer régulièrement l'exposition des salariés (métrologie)",
+          "Mettre en place un suivi médical renforcé pour les expositions aux CMR"
+        ],
+        "individuelle": [
+          "Porter les équipements de protection individuelle adaptés (gants chimiques, lunettes, masque)",
+          "Lire les étiquettes et FDS avant toute utilisation",
+          "Utiliser les produits conformément aux instructions",
+          "Ne jamais mélanger des produits sans connaître les risques",
+          "Aérer les locaux pendant et après utilisation",
+          "Se laver les mains après manipulation",
+          "Signaler tout incident (projection, déversement, malaise)",
+          "Conserver les produits dans leur emballage d'origine étiqueté"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412-1 à R4412-57 du Code du travail (risques chimiques)",
+        "Articles R4412-59 à R4412-93 (agents chimiques dangereux)",
+        "Articles R4412-94 à R4412-160 (CMR)",
+        "Règlement CLP (Classification, Labelling, Packaging) n°1272/2008"
+      ],
+      "ressources_inrs": [
+        "ED 6026 - Produits chimiques : les 9 pictogrammes de danger",
+        "ED 954 - Les Fiches de Données de Sécurité",
+        "ED 6027 - Fiche toxicologique",
+        "Base de données INRS Substitution des agents chimiques dangereux"
+      ]
+    },
+    {
+      "id": "GEN010",
+      "intitule": "Gestion des déchets",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Collecte, tri, stockage des déchets",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Production et accumulation de déchets d'activité",
+        "Tri et conditionnement des déchets",
+        "Stockage temporaire avant enlèvement",
+        "Manipulation de conteneurs et poubelles",
+        "Nettoyage des zones de stockage",
+        "Gestion des déchets dangereux ou spéciaux"
+      ],
+      "dangers": [
+        "Déchets contaminés par des produits chimiques ou biologiques",
+        "Coupures par objets tranchants mal conditionnés",
+        "Piqûres par aiguilles ou objets pointus",
+        "Exposition à des odeurs nauséabondes",
+        "Risques biologiques (moisissures, bactéries)",
+        "Incendie lié aux déchets inflammables",
+        "Débordement ou déversement de conteneurs",
+        "Absence de filières d'élimination adaptées"
+      ],
+      "dommages_potentiels": [
+        "Coupures et plaies",
+        "Infections suite à piqûre ou contact",
+        "Intoxications par inhalation d'émanations",
+        "Dermatoses par contact avec déchets contaminés",
+        "Troubles respiratoires",
+        "Contaminations biologiques",
+        "Pollution environnementale en cas de mauvaise gestion"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des conteneurs adaptés à chaque type de déchet",
+          "Installer des conteneurs pour objets tranchants (DASRI si nécessaire)",
+          "Prévoir des zones de stockage ventilées et accessibles",
+          "Séparer les filières de déchets (DIB, DIS, DEEE, etc.)",
+          "Fermer et protéger les conteneurs de déchets",
+          "Prévoir des moyens de manutention pour les conteneurs lourds",
+          "Organiser des collectes régulières pour éviter l'accumulation"
+        ],
+        "organisationnelle": [
+          "Établir une procédure de tri et de gestion des déchets",
+          "Former le personnel au tri et aux risques associés",
+          "Mettre en place des contrats avec des prestataires agréés",
+          "Tenir un registre des déchets dangereux",
+          "Organiser le nettoyage régulier des zones de stockage",
+          "Limiter la production de déchets à la source",
+          "Sensibiliser à la réduction et au recyclage",
+          "Vérifier la traçabilité des déchets dangereux (bordereaux BSD)"
+        ],
+        "individuelle": [
+          "Porter des gants résistants pour la manipulation des déchets",
+          "Utiliser les conteneurs appropriés pour chaque type de déchet",
+          "Ne jamais plonger les mains dans un conteneur",
+          "Se laver les mains après manipulation des déchets",
+          "Signaler tout débordement ou conteneur endommagé",
+          "Respecter les consignes de tri",
+          "Porter un masque si nécessaire (déchets odorants, poussiéreux)"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R541-7 à R541-13 du Code de l'environnement",
+        "Décret n°2021-950 du 16 juillet 2021 (5 flux de déchets)",
+        "Arrêté du 7 juillet 2005 (déchets dangereux)",
+        "Directive européenne 2008/98/CE"
+      ],
+      "ressources_inrs": [
+        "ED 6026 - Produits chimiques dangereux",
+        "Guides ADEME sur la gestion des déchets en entreprise"
+      ]
+    },
+    {
+      "id": "GEN011",
+      "intitule": "Machines et équipements de travail",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Utilisation de machines et outils",
+      "famille_inrs": "1 (risques mécaniques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation de machines de production ou de transformation",
+        "Manipulation d'outils électroportatifs",
+        "Maintenance et nettoyage des équipements",
+        "Réglage et changement d'outils",
+        "Utilisation de machines dangereuses (scies, presses, tours, etc.)",
+        "Interventions en mode dégradé"
+      ],
+      "dangers": [
+        "Éléments mobiles accessibles (courroies, engrenages, arbres tournants)",
+        "Zone de coupe ou de pincement non protégée",
+        "Absence ou neutralisation des protecteurs",
+        "Démarrage intempestif lors d'interventions",
+        "Absence de dispositifs d'arrêt d'urgence",
+        "Machines non conformes ou modifiées",
+        "Formation insuffisante des opérateurs",
+        "Absence de procédures de consignation"
+      ],
+      "dommages_potentiels": [
+        "Coincement, écrasement de membres",
+        "Coupures, sectionnements",
+        "Happement par élément en rotation",
+        "Amputations partielles ou totales",
+        "Projections de pièces ou de matière",
+        "Fractures et polytraumatismes",
+        "Décès",
+        "Invalidité permanente"
+      ],
+      "prevention": {
+        "collective": [
+          "Acquérir uniquement des machines conformes (marquage CE)",
+          "Installer des protecteurs fixes ou mobiles sur toutes les zones dangereuses",
+          "Équiper les machines de dispositifs d'arrêt d'urgence accessibles",
+          "Installer des dispositifs de verrouillage empêchant le démarrage en mode ouvert",
+          "Prévoir des systèmes de captation des poussières et projections",
+          "Limiter l'accès aux machines aux seules personnes autorisées",
+          "Installer une signalisation de sécurité appropriée"
+        ],
+        "organisationnelle": [
+          "Former les opérateurs à l'utilisation sûre de chaque machine",
+          "Établir des procédures d'utilisation et de maintenance sécurisées",
+          "Mettre en place des procédures de consignation/déconsignation",
+          "Interdire toute neutralisation de dispositifs de sécurité",
+          "Réaliser des contrôles périodiques réglementaires (vérifications générales périodiques)",
+          "Tenir à jour un registre de sécurité",
+          "Effectuer une maintenance préventive planifiée",
+          "Analyser les incidents et accidents pour améliorer la prévention"
+        ],
+        "individuelle": [
+          "Porter les équipements de protection individuelle requis (lunettes, gants, protections auditives)",
+          "Ne jamais neutraliser ou contourner les dispositifs de sécurité",
+          "Respecter strictement les procédures d'utilisation",
+          "Ne jamais intervenir sur une machine en marche",
+          "Utiliser les dispositifs d'arrêt d'urgence en cas de danger",
+          "Signaler immédiatement tout dysfonctionnement",
+          "S'assurer de la formation avant d'utiliser une nouvelle machine",
+          "Maintenir la zone de travail propre et dégagée"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4321-1 à R4324-31 du Code du travail (équipements de travail)",
+        "Directive Machines 2006/42/CE",
+        "Arrêtés de vérifications périodiques",
+        "Articles R4323-1 à R4323-28 (utilisation des équipements)"
+      ],
+      "ressources_inrs": [
+        "ED 6122 - Conception des machines",
+        "ED 6123 - Marquage CE des machines",
+        "ED 6154 - Protecteurs",
+        "ED 6040 - Maintenance et prévention"
+      ]
+    },
+    {
+      "id": "GEN012",
+      "intitule": "Risque routier professionnel",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements en mission, trajets",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Critique"
+      },
+      "situations_travail": [
+        "Déplacements professionnels chez les clients, fournisseurs ou partenaires",
+        "Tournées commerciales ou techniques",
+        "Livraisons et collectes",
+        "Déplacements pour formations, réunions externes",
+        "Utilisation du véhicule personnel ou de service",
+        "Conduite dans diverses conditions météorologiques et de trafic"
+      ],
+      "dangers": [
+        "Fatigue liée à la conduite prolongée",
+        "Pression pour respecter les horaires et délais",
+        "Utilisation du téléphone en conduisant",
+        "Conditions météorologiques défavorables (pluie, neige, brouillard)",
+        "Véhicules mal entretenus ou inadaptés",
+        "Itinéraires mal planifiés ou méconnus",
+        "Conduite en état de stress ou de fatigue",
+        "Défaut de concentration (préoccupations professionnelles)"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la circulation graves ou mortels",
+        "Polytraumatismes",
+        "Traumatismes crâniens et rachidiens",
+        "Invalidité permanente",
+        "Décès",
+        "Conséquences psychologiques",
+        "Répercussions sur l'activité de l'entreprise"
+      ],
+      "prevention": {
+        "collective": [
+          "Fournir des véhicules récents, bien entretenus et équipés (ABS, ESP, airbags)",
+          "Équiper de systèmes d'aide à la conduite (régulateur, aide au stationnement)",
+          "Installer des kits mains-libres Bluetooth",
+          "Fournir des GPS ou systèmes de navigation",
+          "Prévoir des véhicules adaptés aux missions (volume, charge, conditions climatiques)",
+          "Proposer des solutions de mobilité alternatives (visioconférence, transport en commun)"
+        ],
+        "organisationnelle": [
+          "Planifier les déplacements de manière réaliste (temps de trajet suffisant)",
+          "Éviter les déplacements aux heures de pointe ou en cas d'intempéries sévères",
+          "Former à la conduite préventive et à l'éco-conduite",
+          "Établir une charte de sécurité routière",
+          "Interdire formellement l'usage du téléphone en conduisant",
+          "Organiser les contrôles techniques et l'entretien régulier des véhicules",
+          "Analyser les accidents et incidents pour améliorer la prévention",
+          "Sensibiliser régulièrement aux risques routiers",
+          "Prévoir des temps de pause lors des longs trajets (15 min toutes les 2h)"
+        ],
+        "individuelle": [
+          "Porter systématiquement la ceinture de sécurité",
+          "Respecter le code de la route et les limitations de vitesse",
+          "Adapter sa vitesse aux conditions de circulation et météorologiques",
+          "Ne jamais utiliser son téléphone en conduisant (même en mains-libres si distraction)",
+          "Faire des pauses régulières sur les longs trajets",
+          "Ne pas prendre le volant en état de fatigue",
+          "Vérifier l'état du véhicule avant chaque départ (pneus, niveaux, éclairage)",
+          "Signaler tout défaut ou dysfonctionnement du véhicule",
+          "Planifier son itinéraire à l'avance"
+        ]
+      },
+      "references_reglementaires": [
+        "Code de la route",
+        "Articles R4543-1 à R4543-13 du Code du travail (utilisation des véhicules)",
+        "Loi n°2003-87 du 3 février 2003 (téléphone au volant)"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier en mission",
+        "ED 6119 - Véhicules utilitaires légers",
+        "Dossier web INRS - Risque routier"
+      ]
+    },
+    {
+      "id": "GEN013",
+      "intitule": "Coactivité avec entreprises extérieures",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Interventions d'entreprises extérieures",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Interventions de maintenance par prestataires externes",
+        "Travaux de rénovation ou d'aménagement",
+        "Livraisons par transporteurs",
+        "Prestations de nettoyage, sécurité, restauration",
+        "Inspections et contrôles réglementaires",
+        "Interventions en urgence (dépannages)"
+      ],
+      "dangers": [
+        "Méconnaissance des risques du site par les intervenants extérieurs",
+        "Absence de coordination entre l'entreprise d'accueil et les prestataires",
+        "Interférences entre activités (bruit, poussières, circulation)",
+        "Accès à des zones dangereuses sans autorisation",
+        "Utilisation de produits ou méthodes incompatibles",
+        "Absence de plan de prévention ou de protocole de sécurité",
+        "Communication défaillante entre les équipes",
+        "Travaux simultanés dans des espaces confinés ou en hauteur"
+      ],
+      "dommages_potentiels": [
+        "Accidents du travail des intervenants extérieurs ou du personnel d'accueil",
+        "Incidents sur les installations",
+        "Incendies ou explosions",
+        "Exposition à des produits dangereux",
+        "Chutes, électrisations, intoxications",
+        "Dommages matériels",
+        "Arrêt de l'activité"
+      ],
+      "prevention": {
+        "collective": [
+          "Délimiter et baliser les zones d'intervention",
+          "Séparer physiquement les zones d'activité si nécessaire",
+          "Installer une signalisation temporaire adaptée",
+          "Mettre à disposition des installations sécurisées (électricité, eau)",
+          "Prévoir des accès et circulations spécifiques"
+        ],
+        "organisationnelle": [
+          "Élaborer un plan de prévention obligatoire (si >400h de travaux ou travaux dangereux)",
+          "Établir un protocole de sécurité pour les opérations de chargement/déchargement",
+          "Organiser une inspection commune avant le début des travaux",
+          "Désigner un coordonnateur ou responsable de la coactivité",
+          "Communiquer les consignes de sécurité du site aux entreprises extérieures",
+          "Vérifier les qualifications et assurances des prestataires",
+          "Organiser des réunions de coordination régulières",
+          "Contrôler le respect des consignes pendant l'intervention",
+          "Analyser les incidents et accidents en coactivité"
+        ],
+        "individuelle": [
+          "Respecter les consignes de sécurité du site d'accueil",
+          "Porter les EPI requis et son badge visiteur visible",
+          "Signaler sa présence et ses activités",
+          "Ne pas pénétrer dans les zones interdites",
+          "Communiquer avec le personnel permanent en cas de doute",
+          "Maintenir son poste de travail propre et dégagé",
+          "Signaler immédiatement tout incident ou situation dangereuse"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4511-1 à R4515-11 du Code du travail (plan de prévention)",
+        "Articles R4515-1 à R4515-11 (protocole de sécurité chargement/déchargement)",
+        "Décret n°92-158 du 20 février 1992"
+      ],
+      "ressources_inrs": [
+        "ED 941 - Plan de prévention",
+        "ED 6148 - Protocole de sécurité chargement et déchargement"
+      ]
+    },
+    {
+      "id": "GEN014",
+      "intitule": "Charge de travail et cadences",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Intensité du travail, organisation",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Périodes de surcroît d'activité ou pics saisonniers",
+        "Cadences de travail imposées",
+        "Objectifs irréalistes ou délais trop courts",
+        "Polyvalence excessive sans formation adaptée",
+        "Interruptions fréquentes du travail",
+        "Gestion simultanée de multiples tâches (multitâche)",
+        "Manque de moyens ou de ressources pour accomplir le travail"
+      ],
+      "dangers": [
+        "Charge de travail excessive par rapport aux capacités",
+        "Pression temporelle constante",
+        "Objectifs contradictoires ou trop nombreux",
+        "Absence de marges de manœuvre et d'autonomie",
+        "Manque de soutien de la hiérarchie ou des collègues",
+        "Déséquilibre vie professionnelle / vie personnelle",
+        "Travail morcelé avec interruptions permanentes",
+        "Manque de reconnaissance du travail accompli"
+      ],
+      "dommages_potentiels": [
+        "Fatigue chronique et épuisement professionnel (burn-out)",
+        "Stress aigu et chronique",
+        "Troubles du sommeil",
+        "Anxiété et dépression",
+        "Troubles musculosquelettiques liés à la tension",
+        "Maladies cardiovasculaires",
+        "Erreurs et accidents du travail",
+        "Absentéisme et turnover",
+        "Démotivation et perte d'engagement"
+      ],
+      "prevention": {
+        "collective": [
+          "Concevoir des postes de travail avec une charge adaptée",
+          "Prévoir des effectifs suffisants pour absorber l'activité",
+          "Installer des outils et équipements facilitant le travail",
+          "Aménager des espaces de pause confortables",
+          "Créer des conditions favorables à l'entraide entre collègues"
+        ],
+        "organisationnelle": [
+          "Fixer des objectifs réalistes et atteignables",
+          "Clarifier les priorités et éviter les objectifs contradictoires",
+          "Donner des marges de manœuvre et d'autonomie aux salariés",
+          "Organiser le travail pour limiter les interruptions",
+          "Prévoir des périodes de récupération après les pics d'activité",
+          "Former les managers à la détection des signes de surcharge",
+          "Mettre en place des entretiens réguliers sur la charge de travail",
+          "Reconnaître et valoriser le travail accompli",
+          "Faciliter l'articulation vie professionnelle / vie personnelle",
+          "Analyser collectivement les causes de surcharge et y remédier"
+        ],
+        "individuelle": [
+          "Communiquer sur les difficultés rencontrées",
+          "Solliciter de l'aide en cas de surcharge",
+          "Respecter ses temps de pause",
+          "Organiser ses priorités et savoir dire non si nécessaire",
+          "Déconnecter en dehors des heures de travail",
+          "Pratiquer des activités de détente et de récupération",
+          "Alerter la hiérarchie ou les représentants du personnel en cas de difficultés persistantes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 à L4121-5 du Code du travail (obligation de sécurité)",
+        "Accord national interprofessionnel sur le stress au travail (2 juillet 2008)",
+        "Loi n°2016-1088 du 8 août 2016 (droit à la déconnexion)"
+      ],
+      "ressources_inrs": [
+        "ED 6140 - Dépister les risques psychosociaux",
+        "ED 6251 - Prévention du stress au travail",
+        "Outil RPS-DU pour évaluer les RPS"
+      ]
+    },
+    {
+      "id": "GEN015",
+      "intitule": "Risques psychosociaux (violences, harcèlement)",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Relations de travail, climat social",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Relations avec le public (clients, usagers, patients)",
+        "Relations avec la hiérarchie et les collègues",
+        "Travail isolé sans soutien social",
+        "Changements organisationnels mal accompagnés",
+        "Manque de reconnaissance ou dévalorisation",
+        "Conflits interpersonnels non résolus",
+        "Situations de violence externe (agressions, incivilités)"
+      ],
+      "dangers": [
+        "Violences physiques ou verbales (internes ou externes)",
+        "Harcèlement moral (agissements répétés dégradant les conditions de travail)",
+        "Harcèlement sexuel (propos ou comportements à connotation sexuelle)",
+        "Discrimination (origine, sexe, âge, handicap, etc.)",
+        "Conflits interpersonnels destructeurs",
+        "Climat social dégradé",
+        "Absence de soutien hiérarchique",
+        "Manque d'équité dans le traitement des salariés",
+        "Isolement professionnel"
+      ],
+      "dommages_potentiels": [
+        "Stress post-traumatique suite à agression",
+        "Anxiété, dépression",
+        "Perte d'estime de soi",
+        "Troubles du sommeil et de la concentration",
+        "Syndrome d'épuisement professionnel",
+        "Addictions (alcool, médicaments)",
+        "Idées suicidaires dans les cas graves",
+        "Arrêts maladie prolongés",
+        "Inaptitude au travail"
+      ],
+      "prevention": {
+        "collective": [
+          "Aménager des espaces limitant l'isolement professionnel",
+          "Installer des systèmes d'alerte en cas d'agression (boutons d'alarme)",
+          "Concevoir des accueils sécurisés pour limiter les agressions externes",
+          "Créer des lieux de convivialité favorisant les échanges"
+        ],
+        "organisationnelle": [
+          "Élaborer une politique de prévention des RPS formalisée",
+          "Former les managers à la détection et la prévention des RPS",
+          "Mettre en place des procédures de traitement des situations de violence, harcèlement et discrimination",
+          "Désigner des référents (harcèlement sexuel obligatoire dans les entreprises de >250 salariés)",
+          "Organiser des espaces d'échange sur le travail (groupes de parole, débriefings)",
+          "Assurer un soutien psychologique (numéro d'écoute, psychologue du travail)",
+          "Traiter rapidement les signalements de situations problématiques",
+          "Sanctionner les comportements inappropriés",
+          "Favoriser un management bienveillant et équitable",
+          "Valoriser le travail et les compétences des salariés"
+        ],
+        "individuelle": [
+          "Signaler les situations de violence, harcèlement ou discrimination",
+          "Solliciter l'aide des représentants du personnel ou de la médecine du travail",
+          "Tenir un journal des faits en cas de harcèlement",
+          "Ne pas rester isolé face à une situation difficile",
+          "Utiliser les dispositifs d'alerte mis à disposition",
+          "Participer aux temps d'échange collectifs",
+          "Maintenir un lien avec les collègues"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L1152-1 à L1152-6 du Code du travail (harcèlement moral)",
+        "Articles L1153-1 à L1153-6 (harcèlement sexuel)",
+        "Loi n°2012-954 du 6 août 2012",
+        "Accord national interprofessionnel sur le harcèlement et la violence au travail (26 mars 2010)"
+      ],
+      "ressources_inrs": [
+        "ED 6250 - Violences et incivilités au travail",
+        "ED 6140 - Dépister les RPS",
+        "ED 6251 - Stress au travail"
+      ]
+    },
+    {
+      "id": "GEN016",
+      "intitule": "Formation et information SST",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Organisation de la sécurité",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Permanente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Embauche de nouveaux salariés",
+        "Changement de poste ou de fonction",
+        "Introduction de nouveaux équipements ou procédés",
+        "Évolution de l'organisation du travail",
+        "Suite à un accident ou incident",
+        "Recyclage périodique des formations"
+      ],
+      "dangers": [
+        "Absence de formation à la sécurité lors de l'embauche",
+        "Méconnaissance des risques du poste de travail",
+        "Formation inadaptée ou insuffisante",
+        "Absence de recyclage des connaissances",
+        "Information non accessible ou non comprise",
+        "Absence de sauveteurs secouristes du travail (SST)",
+        "Procédures d'urgence non connues du personnel",
+        "Consignes de sécurité non affichées ou non mises à jour"
+      ],
+      "dommages_potentiels": [
+        "Accidents du travail par méconnaissance des risques",
+        "Aggravation des conséquences d'un accident par défaut de secours",
+        "Mauvaises réactions en situation d'urgence",
+        "Développement de maladies professionnelles par exposition non maîtrisée",
+        "Non-respect des procédures de sécurité",
+        "Culture sécurité insuffisante"
+      ],
+      "prevention": {
+        "collective": [
+          "Afficher les consignes de sécurité dans les zones concernées",
+          "Mettre à disposition les fiches de sécurité et modes opératoires",
+          "Installer une signalisation de sécurité claire et visible",
+          "Équiper d'une trousse de premiers secours accessible"
+        ],
+        "organisationnelle": [
+          "Dispenser une formation à la sécurité à l'embauche (article L4141-2)",
+          "Former spécifiquement aux risques du poste de travail",
+          "Organiser des recyclages périodiques des formations",
+          "Former des Sauveteurs Secouristes du Travail (1 SST pour 10-15 personnes)",
+          "Réaliser des exercices d'évacuation et de gestion de crise",
+          "Tenir un registre des formations dispensées",
+          "Évaluer l'efficacité des formations",
+          "Informer sur les risques spécifiques et les mesures de prévention",
+          "Mettre en place des entretiens de sécurité réguliers",
+          "Impliquer les salariés dans l'amélioration continue de la sécurité"
+        ],
+        "individuelle": [
+          "Participer activement aux formations proposées",
+          "Poser des questions en cas de doute ou incompréhension",
+          "Lire et respecter les consignes de sécurité",
+          "Se tenir informé des évolutions (nouvelles procédures, nouveaux risques)",
+          "Solliciter une formation complémentaire si nécessaire",
+          "Appliquer les gestes de premiers secours appris",
+          "Participer aux exercices d'évacuation"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4141-1 à L4141-4 du Code du travail (formation à la sécurité)",
+        "Articles R4141-1 à R4141-20 (modalités de la formation)",
+        "Article R4224-15 (SST et secours)",
+        "Recommandation R443 (SST)"
+      ],
+      "ressources_inrs": [
+        "ED 6186 - Formation à la sécurité",
+        "Dispositif SST (Sauveteur Secouriste du Travail)",
+        "ED 4085 - Guide des formations INRS"
+      ]
+    },
+    {
+      "id": "GEN017",
+      "intitule": "Addictions (alcool, drogues, médicaments)",
+      "categorie_principale": "Risques psychosociaux",
+      "sous_categorie": "Conduites addictives",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Consommation d'alcool lors de pots d'entreprise ou repas professionnels",
+        "Utilisation de médicaments psychotropes",
+        "Consommation de substances illicites",
+        "Situations de stress ou mal-être favorisant les conduites addictives",
+        "Postes de sécurité ou conduite de véhicules/engins",
+        "Travail isolé ou posté favorisant les consommations"
+      ],
+      "dangers": [
+        "Altération des capacités (vigilance, réflexes, jugement)",
+        "Prise de risque accrue et non-respect des consignes",
+        "Conduites addictives liées au stress professionnel",
+        "Banalisation de la consommation d'alcool en entreprise",
+        "Absence de politique de prévention des addictions",
+        "Méconnaissance des effets de certains médicaments sur la vigilance",
+        "Impossibilité d'identifier et d'accompagner les salariés en difficulté"
+      ],
+      "dommages_potentiels": [
+        "Accidents du travail graves (risques démultipliés)",
+        "Accidents de trajet",
+        "Mise en danger d'autrui",
+        "Dégradation de la santé (maladies chroniques)",
+        "Absentéisme",
+        "Conflits et tensions dans l'équipe",
+        "Altération de la performance",
+        "Évolution vers la dépendance"
+      ],
+      "prevention": {
+        "collective": [
+          "Limiter la disponibilité d'alcool en entreprise",
+          "Proposer des boissons alternatives lors des événements (eaux, jus, softs)",
+          "Installer des éthylotests à disposition volontaire",
+          "Créer un environnement de travail favorable au bien-être"
+        ],
+        "organisationnelle": [
+          "Élaborer un règlement intérieur précisant les règles concernant l'alcool",
+          "Interdire formellement l'alcool pour les postes de sécurité et de conduite",
+          "Mettre en place une politique de prévention des addictions",
+          "Former les managers à la détection et à l'accompagnement",
+          "Sensibiliser l'ensemble du personnel aux risques des addictions",
+          "Établir un protocole d'action en cas de suspicion d'état alcoolisé ou sous influence",
+          "Proposer un dispositif d'aide et d'accompagnement (médecine du travail, psychologue)",
+          "Agir sur les facteurs de risque professionnels (stress, charge de travail)",
+          "Éviter les pots systématiques avec alcool",
+          "Respecter la confidentialité des salariés accompagnés"
+        ],
+        "individuelle": [
+          "Être conscient des effets de l'alcool, des drogues et médicaments sur les capacités",
+          "Respecter les interdictions et recommandations de l'entreprise",
+          "Ne jamais travailler ou conduire sous influence",
+          "Lire les notices des médicaments (pictogrammes de vigilance)",
+          "Solliciter de l'aide en cas de difficulté (médecine du travail, associations spécialisées)",
+          "Intervenir avec bienveillance auprès d'un collègue en difficulté",
+          "Signaler à la hiérarchie une situation dangereuse"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121-1 du Code du travail (obligation de sécurité)",
+        "Article R4228-20 (boissons alcoolisées)",
+        "Circulaire DRT n°2006-07 du 9 février 2006",
+        "Loi n°91-32 du 10 janvier 1991 (Loi Evin)"
+      ],
+      "ressources_inrs": [
+        "ED 6153 - Addictions",
+        "DW 78 - Alcool et travail",
+        "TJ 22 - Cannabis et travail"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "Variable selon les secteurs d'application",
+    "accidents_graves": "Risques transversaux présents dans tous les secteurs",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) - transversal à tous secteurs",
+      "Lombalgies (tableau 98)",
+      "Affections liées aux gestes répétitifs",
+      "Troubles psychosociaux"
+    ]
+  },
+  "sources": [
+    "Code du travail français",
+    "INRS - Institut National de Recherche et de Sécurité",
+    "CNAMTS - Statistiques AT/MP",
+    "Recommandations CNAMTS",
+    "Directives européennes en santé et sécurité au travail",
+    "Brochures INRS série ED",
+    "Référentiels méthodologiques de prévention des risques professionnels"
+  ],
+  "notes_utilisation": {
+    "application": "Ce référentiel constitue une base minimale d'évaluation des risques applicable à toute entreprise, quel que soit son secteur d'activité. Il doit être complété par les risques spécifiques liés aux activités particulières de chaque secteur.",
+    "adaptation": "Les situations de travail, dangers et mesures de prévention doivent être adaptés au contexte spécifique de chaque entreprise.",
+    "integration_duerpilot": "Ces risques génériques peuvent servir de socle pour pré-remplir le Document Unique, à personnaliser ensuite selon les particularités de l'établissement."
+  }
+}

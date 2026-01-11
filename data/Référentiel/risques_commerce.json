@@ -1,0 +1,594 @@
+{
+  "secteur": {
+    "nom": "Commerces alimentaires de proximité (supérettes, primeurs, fromageries, poissonneries, boucheries-charcuteries)",
+    "code_naf": "4711D, 4721Z, 4722Z, 4723Z, 4724Z (commerce de détail alimentaire)",
+    "description": "Le secteur comprend les supérettes, épiceries, primeurs (fruits & légumes), fromageries/crémeries, poissonneries et boucheries-charcuteries. Ces commerces de proximité assurent la vente au détail de produits alimentaires et impliquent des activités de réception, stockage, préparation, vente et nettoyage."
+  },
+  "risques": [
+    {
+      "id": "R1",
+      "intitule": "Manutention manuelle et postures contraignantes",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Port de charges, gestes répétitifs et postures prolongées",
+      "famille_inrs": "3 (manutentions manuelles) / 9 (activité physique)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Réception et déchargement des marchandises (palette de caisses, sacs de légumes, carcasses de viande)",
+        "Mise en rayon et réassortiment (soulever et porter des cartons, bacs en hauteur)",
+        "Préparation et découpe d'aliments (positions penchées, bras en l'air)",
+        "Nettoyage et maintenance des locaux (postures accroupies ou agenouillées)"
+      ],
+      "dangers": [
+        "Efforts physiques excessifs lors du levage et port de charges",
+        "Utilisation répétée de gestes contraignants et postures penchées ou torsions du dos",
+        "Espaces restreints obligeant les travailleurs à adopter des positions inconfortables"
+      ],
+      "dommages_potentiels": [
+        "Troubles musculosquelettiques (TMS)",
+        "Lombalgies et hernies discales",
+        "Tendinites et affections péri‑articulaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Aménager les zones de réception et de stockage pour réduire les distances de portage",
+          "Installer des dispositifs d'aide à la manutention (transpalettes, chariots, rolls, lève‑charges)",
+          "Adapter la hauteur des étagères et plans de travail pour limiter les efforts",
+          "Automatiser la livraison (monte‑charge, rails à rouleaux) lorsque possible"
+        ],
+        "organisationnelle": [
+          "Planifier les livraisons pour éviter les pics d'activité",
+          "Définir des charges limites et répartir les charges entre plusieurs travailleurs",
+          "Former le personnel aux techniques de manutention et de gestes et postures",
+          "Mettre en place une rotation des postes pour limiter la répétitivité"
+        ],
+        "individuelle": [
+          "Utiliser des équipements individuels de portage (ceintures lombaires en soutien complémentaire)",
+          "Porter des chaussures antidérapantes pour assurer la stabilité",
+          "Réaliser des exercices d'échauffement et de récupération"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541‑1 à R4541‑9 du Code du travail relatif aux manutentions manuelles【280011043232545†L69-L75】",
+        "Article R4541‑2 : définition de la manutention manuelle【914669199093363†L385-L387】"
+      ],
+      "ressources_inrs": [
+        "ED 6401 – Commerces alimentaires de proximité. Santé au travail : passez à l'action !",
+        "OIRA – Outil d’évaluation des risques pour les commerces alimentaires",
+        "TMS‑PROS Diagnostic et Action (Assurance maladie)"
+      ]
+    },
+    {
+      "id": "R2",
+      "intitule": "Chutes de plain‑pied et glissades",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements, faux‑pas",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Grave",
+        "score": 9,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Déplacements dans des zones humides ou encombrées (sols de poissonnerie ou chambres froides)",
+        "Accès aux chambres froides, marches et escaliers",
+        "Travail en arrière‑boutique et réserve encombrée de cartons ou de bacs",
+        "Réceptions de marchandises avec circulation autour des véhicules"
+      ],
+      "dangers": [
+        "Sols glissants à cause de liquides renversés, de graisse ou d'embruns",
+        "Obstacles et encombrements (câbles, cartons, bacs)",
+        "Revêtements inadaptés ou dénivelés",
+        "Éclairage insuffisant et visibilité réduite"
+      ],
+      "dommages_potentiels": [
+        "Entorses, contusions et fractures des membres",
+        "Traumatismes crâniens",
+        "Lésions cutanées et hémorragies suite à la chute【849541392731892†L310-L323】"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place des sols antidérapants et assurer une bonne évacuation des eaux",
+          "Veiller à la propreté et à l’ordre dans les zones de circulation; retirer rapidement les salissures",
+          "Installer des dispositifs de protection collective (rampes, rambardes, bandes de marquage au sol)",
+          "Fournir un éclairage adapté et homogène dans les magasins et réserves"
+        ],
+        "organisationnelle": [
+          "Définir et signaliser les zones de circulation et les voies piétonnes",
+          "Limiter le stockage au sol et prévoir des espaces de rangement accessibles",
+          "Planifier l’entretien des sols en dehors des heures d’affluence",
+          "Former le personnel à la détection et au signalement rapide des risques"
+        ],
+        "individuelle": [
+          "Porter des chaussures de sécurité antidérapantes",
+          "Utiliser des tapis absorbants dans les zones de découpe et d’égouttage",
+          "Adopter une vigilance accrue lors des déplacements"
+        ]
+      },
+      "references_reglementaires": [
+        "Article R4214‑3 du Code du travail : planchers stables et non glissants【848700114962623†L20-L27】",
+        "Article R4224‑3 : aménagement des lieux de travail pour que la circulation des piétons et des véhicules se fasse de manière sûre【848700114962623†L20-L31】"
+      ],
+      "ressources_inrs": [
+        "Fiche Carsat – Réduire les risques de chutes de plain‑pied【848700114962623†L20-L33】",
+        "Recommandation INRS R478 sur les sols antidérapants",
+        "ED 6401 – Commerces alimentaires de proximité"
+      ]
+    },
+    {
+      "id": "R3",
+      "intitule": "Coupures et blessures par outils ou machines",
+      "categorie_principale": "Risques mécaniques / équipements de travail",
+      "sous_categorie": "Outils tranchants, machines de découpe",
+      "famille_inrs": "1 (risques mécaniques) / 10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Découpe de viande et de charcuterie avec couteaux, hachoirs et scies",
+        "Filetage et préparation de poissons avec couteaux, écailleurs et cisailles",
+        "Découpe de fromages ou de fruits et légumes avec trancheuses, mandolines",
+        "Ouverture de caisses au cutter, couteau à désosser ou ciseaux"
+      ],
+      "dangers": [
+        "Contact direct avec les lames ou parties en mouvement",
+        "Utilisation d’outils tranchants mal entretenus ou inadaptés",
+        "Absence de protections ou dispositifs de sécurité sur les machines"
+      ],
+      "dommages_potentiels": [
+        "Coupures superficielles ou profondes",
+        "Plaies hémorragiques et amputations",
+        "Infections ou septicémie en cas de contact avec des denrées contaminées"
+      ],
+      "prevention": {
+        "collective": [
+          "Choisir des machines équipées de dispositifs de sécurité (protège‑lame, arrêt d’urgence)",
+          "Assurer la maintenance régulière et le bon affûtage des lames pour réduire l’effort",
+          "Mettre en place des protections fixes ou mobiles empêchant l’accès à la zone de coupe"
+        ],
+        "organisationnelle": [
+          "Former les salariés aux bonnes pratiques d’utilisation des outils et machines",
+          "Interdire les interventions sur des machines en fonctionnement",
+          "Organiser un système de consignation pour la maintenance et le nettoyage"
+        ],
+        "individuelle": [
+          "Porter des gants anticoupure et des tabliers de protection",
+          "Utiliser des protections pour les avant‑bras et des chaussures de sécurité",
+          "Ne jamais utiliser les mains pour approcher la lame; utiliser des poussoirs ou guides"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4312‑1 et suivants du Code du travail (mise en conformité des équipements de travail)",
+        "Directive Machines 2006/42/CE transposée en droit français"
+      ],
+      "ressources_inrs": [
+        "ED 6382 – Boucherie‑charcuterie. Santé au travail : passez à l’action !",
+        "ED 6380 – Poissonnerie. Santé au travail : passez à l’action !"
+      ]
+    },
+    {
+      "id": "R4",
+      "intitule": "Troubles musculo‑squelettiques liés aux gestes répétitifs et postures statiques",
+      "categorie_principale": "Risques liés à l'activité physique",
+      "sous_categorie": "TMS liés à la répétition de gestes et postures statiques prolongées",
+      "famille_inrs": "9 (activité physique)",
+      "criticite": {
+        "frequence": "Permanente",
+        "gravite": "Moyenne",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Travail en caisse nécessitant des mouvements répétitifs des poignets et des épaules",
+        "Utilisation prolongée d’outils tranchants (poignet sollicité pour découper)",
+        "Préparation de commandes et emballage répétitif des produits",
+        "Travail debout statique sur des périodes prolongées"
+      ],
+      "dangers": [
+        "Répétition de mouvements identiques sans temps de récupération",
+        "Postures contraignantes (bras en l’air, torsion du tronc)",
+        "Travail statique engendrant une fatigue musculaire"
+      ],
+      "dommages_potentiels": [
+        "Tendinites (épaule, coude, poignet)",
+        "Syndrome du canal carpien",
+        "Lombalgies chroniques et affections péri‑articulaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Adapter la hauteur des postes de travail et des plans de découpe",
+          "Installer des sièges ou appuis‑debout pour alterner les positions",
+          "Automatiser certaines tâches répétitives (balances avec étiquettes automatiques)"
+        ],
+        "organisationnelle": [
+          "Réorganiser les tâches pour diversifier les gestes et limiter la durée d’exposition",
+          "Programmer des micro‑pauses et des exercices de détente musculaire",
+          "Former au respect des gestes et postures adaptés"
+        ],
+        "individuelle": [
+          "Utiliser des outils ergonomiques (poignées adaptées, poids réduit)",
+          "Porter des chaussures avec amorti pour réduire la fatigue",
+          "Adopter des postures correctes et signaler toute douleur"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121‑1 et L4121‑2 du Code du travail concernant l'obligation générale de prévention",
+        "Articles R4541‑8 et R4541‑9 (formation à la manutention)"
+      ],
+      "ressources_inrs": [
+        "INRS – TMS : Ce qu'il faut retenir",
+        "Programme TMS Pros (Assurance Maladie)"
+      ]
+    },
+    {
+      "id": "R5",
+      "intitule": "Risques psychosociaux (stress, agressions, incivilités)",
+      "categorie_principale": "Risques psychosociaux (RPS)",
+      "sous_categorie": "Violences externes, charge de travail, horaires atypiques",
+      "famille_inrs": "7 (risques psychosociaux)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Relation avec la clientèle pouvant provoquer des agressions verbales ou physiques",
+        "Travail isolé en fin de journée ou lors des fermetures",
+        "Horaires décalés (tôt le matin pour poissonnerie/boucherie, tard le soir pour supérette)",
+        "Pression commerciale et forte charge de travail lors des périodes de fêtes"
+      ],
+      "dangers": [
+        "Conflits avec des clients (vols, incivilités)",
+        "Stress lié à la gestion multitâches et au manque de personnel",
+        "Absence de soutien social et reconnaissance"
+      ],
+      "dommages_potentiels": [
+        "Anxiété, épuisement professionnel et troubles du sommeil",
+        "Troubles cardio‑vasculaires liés au stress",
+        "Dépression ou état de stress post‑traumatique suite à une agression"
+      ],
+      "prevention": {
+        "collective": [
+          "Aménager l'espace de vente pour réduire les tentations de vol et assurer une bonne visibilité",
+          "Installer des alarmes, télésurveillance et systèmes d’appel d’urgence",
+          "Limiter les montants de fonds en caisse et effectuer des dépôts réguliers"
+        ],
+        "organisationnelle": [
+          "Mettre en place une politique de zéro tolérance vis‑à‑vis des incivilités",
+          "Former le personnel à la gestion des conflits et à l’accueil client",
+          "Organiser des rotations pour éviter l’isolement et permettre la récupération"
+        ],
+        "individuelle": [
+          "Encourager les salariés à signaler les situations de stress et d’agression",
+          "Proposer un soutien psychologique et un accompagnement en cas d’événement grave",
+          "Mettre en place des pauses régulières et un temps de repos suffisant"
+        ]
+      },
+      "references_reglementaires": [
+        "Article L4121‑1 du Code du travail (obligation d’assurer la sécurité et de protéger la santé physique et mentale)",
+        "Recommandations INRS sur les risques psychosociaux"
+      ],
+      "ressources_inrs": [
+        "INRS – Fiche RPS et incivilités dans le commerce",
+        "Brochure ED 6140 – Violences externes, mieux prévenir et agir"
+      ]
+    },
+    {
+      "id": "R6",
+      "intitule": "Expositions à des agents chimiques (produits de nettoyage, ammoniac, pesticides)",
+      "categorie_principale": "Risques chimiques",
+      "sous_categorie": "Contact et inhalation de produits de nettoyage/désinfection et réfrigérants",
+      "famille_inrs": "4 (risques chimiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Nettoyage et désinfection des sols, plans de travail, vitrines et chambres froides",
+        "Manipulation de produits détartrants, dégraissants et désinfectants (eau de Javel, acides, bases)",
+        "Entretien des groupes frigorifiques contenant de l’ammoniac",
+        "Traitement ou manipulation de fruits et légumes avec des résidus de pesticides"
+      ],
+      "dangers": [
+        "Agents détergents et désinfectants irritants (tensio‑actifs, agents chlorés, ammonium quaternaire)",
+        "Produits détartrants acides ou alcalins causant des brûlures cutanées ou oculaires【849541392731892†L333-L356】",
+        "Gaz toxiques libérés lors de fuites d’ammoniac des groupes frigorifiques【849541392731892†L358-L360】",
+        "Résidus de pesticides ou fongicides sur les fruits et légumes"
+      ],
+      "dommages_potentiels": [
+        "Dermites irritatives et allergiques, eczéma et brûlures chimiques【849541392731892†L333-L347】",
+        "Irritation des voies respiratoires, asthme professionnel et sensibilisation allergique【849541392731892†L343-L347】",
+        "Intoxication aiguë en cas d’inhalation d’ammoniac ou de mélange de produits",
+        "Potentiels effets à long terme (cancers) en cas d’exposition répétée à certains produits"
+      ],
+      "prevention": {
+        "collective": [
+          "Substituer les produits dangereux par des alternatives moins nocives lorsque c’est possible",
+          "Assurer une ventilation efficace des locaux de préparation et de stockage",
+          "Installer des détecteurs de fuites d’ammoniac et maintenir les systèmes frigorifiques"
+        ],
+        "organisationnelle": [
+          "Mettre à disposition les fiches de données de sécurité (FDS) et assurer leur compréhension【849541392731892†L439-L441】",
+          "Former les salariés aux procédures d’utilisation et de dilution des produits",
+          "Interdire le mélange de produits incompatibles et maintenir un stockage sécurisé des produits chimiques"
+        ],
+        "individuelle": [
+          "Porter des gants étanches, lunettes de protection et vêtements adaptés lors de l’utilisation des produits",
+          "Utiliser des masques respiratoires adaptés en cas de risque d’aérosolisation",
+          "Se laver les mains et changer de vêtements en cas de contamination"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4412‑1 à R4412‑160 du Code du travail (prévention des risques chimiques)",
+        "Article L4121‑2 : obligation de prévention",
+        "Règlement CLP et FDS pour l’étiquetage des substances"
+      ],
+      "ressources_inrs": [
+        "ED 6143 – Risque chimique : les obligations de l’employeur",
+        "Fiches toxicologiques INRS"
+      ]
+    },
+    {
+      "id": "R7",
+      "intitule": "Exposition à des agents biologiques et contamination alimentaire",
+      "categorie_principale": "Risques biologiques",
+      "sous_categorie": "Exposition à des bactéries, virus, moisissures et allergènes",
+      "famille_inrs": "5 (risques biologiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manipulation et découpe de viandes crues, abats et poissons (contact avec sang et viscères)",
+        "Affinage et nettoyage de fromages avec développement de moisissures (Penicillium casei, roqueforti)【849541392731892†L368-L375】",
+        "Conditionnement de fruits et légumes susceptibles d’être contaminés par des agents pathogènes",
+        "Gestion des déchets alimentaires et nettoyage des équipements"
+      ],
+      "dangers": [
+        "Micro‑organismes pathogènes (salmonelles, staphylocoques, campylobacter, listeria, etc.)【849541392731892†L395-L403】",
+        "Moisissures et acariens entraînant des pneumopathies d’hypersensibilité (maladie des poumons des fromagers)【849541392731892†L370-L377】",
+        "Parasites et virus transmis par les denrées (hépatite A, norovirus)",
+        "Contact avec des eaux usées ou effluents contaminés"
+      ],
+      "dommages_potentiels": [
+        "Intoxications alimentaires et infections gastro‑intestinales",
+        "Dermites allergiques et eczéma",
+        "Pneumopathies d’hypersensibilité (syndrome respiratoire avec dyspnée, toux, fièvre)【849541392731892†L370-L377】",
+        "Maladies professionnelles listées au tableau n°66 du régime général (poumons des fromagers)【849541392731892†L380-L381】"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre en place une démarche HACCP et un plan de maîtrise sanitaire (PMS) pour contrôler les points critiques【849541392731892†L443-L471】",
+          "Séparer les zones de préparation des aliments crus et cuits pour éviter les contaminations croisées",
+          "Assurer une ventilation et un nettoyage réguliers des locaux et équipements"
+        ],
+        "organisationnelle": [
+          "Former le personnel aux bonnes pratiques d’hygiène (lavage des mains, nettoyage des surfaces)",
+          "Mettre à disposition des désinfectants et du matériel jetable",
+          "Surveiller la chaîne du froid et respecter les températures de conservation"
+        ],
+        "individuelle": [
+          "Porter des gants à usage unique et des tenues adaptées",
+          "Se laver les mains après chaque manipulation de denrées crues",
+          "Consulter un médecin du travail en cas de symptômes respiratoires ou allergiques"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4421‑1 à R4427‑5 du Code du travail sur la prévention des risques biologiques",
+        "Paquet Hygiène (règlements CE 852/2004 et 853/2004) pour la sécurité sanitaire des aliments【849541392731892†L450-L465】"
+      ],
+      "ressources_inrs": [
+        "ED 6380 – Poissonnerie",
+        "Guide HACCP pour les commerces alimentaires",
+        "Brochures INRS sur les risques biologiques"
+      ]
+    },
+    {
+      "id": "R8",
+      "intitule": "Exposition au froid, au chaud et au bruit",
+      "categorie_principale": "Risques physiques (bruit, températures extrêmes)",
+      "sous_categorie": "Froid en chambre froide, chaleur des chaudières et bruit des machines",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Moyenne",
+        "score": 4,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Séjour prolongé en chambre froide ou zone de stockage réfrigérée",
+        "Travail à proximité de groupes frigorifiques et de compresseurs bruyants",
+        "Manipulation d’aliments chauds ou utilisation ponctuelle de fours/pasteurisateurs (fromagerie)",
+        "Utilisation d’équipements motorisés et de machines de découpe générant du bruit"
+      ],
+      "dangers": [
+        "Températures négatives provoquant hypothermie ou engelures",
+        "Variation thermique entre zone froide et espace ambiant",
+        "Chaleur produite par les chaudières de pasteurisation et stérilisation【849541392731892†L387-L391】",
+        "Niveaux sonores élevés émis par les machines frigorifiques ou hachoirs"
+      ],
+      "dommages_potentiels": [
+        "Engelures, hypothermie, troubles circulatoires",
+        "Malaises et accidents liés à la fatigue thermique",
+        "Perte auditive ou acouphènes en cas d’exposition au bruit sans protection",
+        "Stress thermique et baisse de vigilance"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des sas thermiques et rideaux d’air pour limiter les échanges de température",
+          "Isoler acoustiquement les zones bruyantes et entretenir les machines pour réduire le bruit",
+          "Programmer les interventions en chambre froide pour une durée limitée",
+          "Mettre en place une ventilation adaptée dans les zones chaudes"
+        ],
+        "organisationnelle": [
+          "Planifier des pauses de réchauffement ou de refroidissement en fonction des conditions",
+          "Former le personnel sur les risques liés aux températures extrêmes et au bruit",
+          "Mettre en place une surveillance médicale renforcée pour les travailleurs exposés au bruit"
+        ],
+        "individuelle": [
+          "Porter des vêtements thermiques adaptés (manteaux, gants, bonnets) et des protections contre le froid",
+          "Utiliser des bouchons d’oreilles ou casques antibruit lorsqu’on travaille près des machines bruyantes",
+          "S’hydrater régulièrement et signaler tout symptôme de malaise"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4434‑1 à R4434‑5 du Code du travail (prévention des risques liés au bruit)",
+        "Article R4222‑1 relatif aux ambiances thermiques",
+        "Recommandations INRS pour le travail en ambiance froide"
+      ],
+      "ressources_inrs": [
+        "INRS – Travail en chambres froides (Dossier d’information)",
+        "Brochure 'Bruit au travail : obligations de l’employeur'",
+        "ED 6401 – Commerces alimentaires de proximité"
+      ]
+    },
+    {
+      "id": "R9",
+      "intitule": "Risques routiers et déplacements professionnels",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Accidents de la route lors des livraisons et déplacements",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Livraison de marchandises aux clients ou tournées chez les fournisseurs",
+        "Trajets pour aller sur les marchés ou entre différents points de vente",
+        "Déplacement des salariés avec des véhicules utilitaires ou personnels",
+        "Chargement et déchargement des véhicules en bordure de route"
+      ],
+      "dangers": [
+        "Accidents de la circulation (collisions, renversement) liés au non‑respect du Code de la route ou à la fatigue",
+        "Conduite sous pression de temps ou dans de mauvaises conditions météorologiques",
+        "Chutes lors du chargement/déchargement de véhicules",
+        "Stationnement en zone dangereuse"
+      ],
+      "dommages_potentiels": [
+        "Traumatismes multiples (fractures, traumatismes crâniens)",
+        "Accidents mortels",
+        "Stress post‑accident et invalidité permanente"
+      ],
+      "prevention": {
+        "collective": [
+          "Mettre à disposition des véhicules adaptés et régulièrement entretenus",
+          "Équiper les véhicules de dispositifs d’aide à la conduite (ABS, ESP) et d’arrimage des charges",
+          "Aménager des aires de chargement sécurisées"
+        ],
+        "organisationnelle": [
+          "Planifier les tournées et éviter les horaires avec un trafic dense",
+          "Former les salariés à la conduite préventive et au chargement sécurisé",
+          "Mettre en œuvre une politique de prévention du risque routier (chartes, sensibilisation)"
+        ],
+        "individuelle": [
+          "Respecter les règles de circulation et les limitations de vitesse",
+          "Porter la ceinture de sécurité et vérifier l’état du véhicule avant le départ",
+          "Faire des pauses régulières pour lutter contre la fatigue"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles L4121‑1 et L4121‑2 du Code du travail (obligation générale de sécurité)",
+        "Code de la route – obligations du conducteur professionnel"
+      ],
+      "ressources_inrs": [
+        "INRS – Guide de prévention du risque routier professionnel",
+        "Fiche 'Risque routier' – Assurance Maladie"
+      ]
+    },
+    {
+      "id": "R10",
+      "intitule": "Incendie, explosion et électricité",
+      "categorie_principale": "Risques physiques et risques liés aux équipements de travail",
+      "sous_categorie": "Incendie, explosion, électrisation/électrocution",
+      "famille_inrs": "2 (physiques) / 10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 4,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Utilisation d'appareils de cuisson (chaufferie pour pasteurisation, chauffage de préparation de plats préparés)",
+        "Stockage de produits inflammables (cartons, huiles, solvants)",
+        "Réseaux électriques et prises multiples dans les vitrines et réfrigérateurs",
+        "Nettoyage de machines électriques en milieu humide"
+      ],
+      "dangers": [
+        "Surcharges électriques ou courts‑circuits provoquant un départ de feu",
+        "Présence d’étincelles et de vapeurs inflammables près d’oxygène et de gaz combustible",
+        "Fuites de réfrigérant inflammable (propane) ou d’ammoniac",
+        "Contact accidentel avec des conducteurs sous tension en milieu humide (électrisation)【849541392731892†L361-L366】"
+      ],
+      "dommages_potentiels": [
+        "Brûlures et inhalation de fumées toxiques",
+        "Electrocution pouvant entraîner le décès",
+        "Destruction de l’outil de travail et pertes économiques considérables"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des dispositifs de détection et d’extinction automatique (détecteurs de fumée, sprinklers)",
+          "Veiller à la conformité des installations électriques et gaz (contrôles périodiques)",
+          "Prévoir des voies d’évacuation dégagées et signalées",
+          "Stocker les produits inflammables dans des armoires adaptées et éloignées des sources de chaleur"
+        ],
+        "organisationnelle": [
+          "Réaliser un plan de prévention et organiser des exercices d’évacuation réguliers",
+          "Former le personnel à l’utilisation des extincteurs et à la conduite à tenir en cas d’incendie",
+          "Limiter les fonds en caisse et disposer d’un plan de sécurité incendie"
+        ],
+        "individuelle": [
+          "Ne pas surcharger les prises et vérifier l’état des câbles et rallonges",
+          "Porter des gants isolants lors de l’entretien de circuits électriques",
+          "Signaler immédiatement tout dysfonctionnement ou odeur suspecte"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227‑28 à R4227‑41 du Code du travail (prévention des incendies)",
+        "Articles R4227‑1 à R4227‑3 (éclairage de sécurité et sorties)",
+        "Articles R4323‑95 à R4323‑103 concernant les équipements de travail et dispositifs de sécurité",
+        "Article R4544‑9 relatif aux opérations d’ordre électrique en milieu humide"
+      ],
+      "ressources_inrs": [
+        "INRS – Dossier incendie et explosion",
+        "Brochure ED 5995 : Prévention des risques électriques dans les commerces"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "Dans les commerces alimentaires de proximité, 51 % des accidents du travail sont liés à des manutentions manuelles et entraînent environ 285 000 journées de travail perdues chaque année【635048745296842†L54-L64】.",
+    "accidents_graves": "Les maladies professionnelles reconnues dans ce secteur concernent à 90 % des troubles musculosquelettiques et à 8 % des lombalgies【635048745296842†L54-L64】. En moyenne, un accident du travail entraîne 87 jours d’arrêt tandis qu’une maladie professionnelle en entraîne 269【635048745296842†L54-L65】.",
+    "maladies_professionnelles_courantes": [
+      "Troubles musculosquelettiques (épaules, poignets, dos)",
+      "Lombalgies",
+      "Coupures et amputations des mains",
+      "Affections respiratoires allergiques (maladie des poumons des fromagers)",
+      "Dermites et allergies aux produits chimiques"
+    ]
+  },
+  "sources": [
+    "Ameli – Commerces alimentaires de proximité : article du 25 novembre 2025 détaillant les risques de manutention, chutes, coupures et agressions【842982087418442†L139-L153】",
+    "Ameli – Poissonnerie : article présentant les principaux risques et actions de prévention (heures atypiques, charges lourdes, chutes, coupures)【413078417180852†L118-L176】",
+    "Ameli – Boucherie‑charcuterie : article identifiant les risques spécifiques (horaires, outils tranchants, manutention lourde) et mesures【355411972007022†L122-L190】",
+    "Officiel Prévention – Laiteries et fromageries : article détaillant les risques de chute, TMS, risques chimiques, biologiques, thermiques et électriques【849541392731892†L310-L327】【849541392731892†L333-L356】",
+    "Officiel Prévention – Laiteries et fromageries : détail des risques biologiques (maladie des poumons des fromagers) et thermiques【849541392731892†L368-L391】",
+    "Carsat Bretagne – Fiche prévention des chutes : citations des articles R4214‑3 et R4224‑3 du Code du travail concernant l’aménagement des lieux pour éviter les chutes【848700114962623†L20-L31】",
+    "Code du travail numérique – article R4541‑1 (champ d’application des manutentions manuelles)【280011043232545†L69-L75】",
+    "Légifrance – article R4541‑2 (définition de la manutention manuelle)【914669199093363†L385-L387】",
+    "Infographie Ameli – risques professionnels des commerces alimentaires de proximité (statistiques sur les accidents et maladies professionnelles)【635048745296842†L54-L65】"
+  ]
+}

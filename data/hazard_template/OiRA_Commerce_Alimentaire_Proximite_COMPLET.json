@@ -1,0 +1,78 @@
+{
+  "referentiel": "OiRA - Commerce alimentaire de proximité",
+  "source": "OiRA INRS",
+  "date_revision": "2025-10-28",
+  "structure": {
+    "niveau_0": "Activite",
+    "niveau_1": "Domaine de risque",
+    "niveau_2": "Question d'evaluation",
+    "niveau_3": "Mesures de prevention de reference"
+  },
+  "activite": {
+    "code": "COMMERCE_ALIMENTAIRE",
+    "libelle": "Commerce alimentaire de proximité",
+    "domaines": [
+      {
+        "code": "D1",
+        "libelle": "Locaux de travail",
+        "questions": [
+          {
+            "code": "D1.1",
+            "question": "Les sols et les escaliers sont-ils maintenus propres, secs et dégagés ?",
+            "mesures": [
+              "Installer un revêtement de sol facilement nettoyable et antidérapant",
+              "Privilégier des caniveaux et siphons avec plaques antidérapantes",
+              "Nettoyer et évacuer régulièrement les souillures",
+              "Réparer régulièrement les zones dégradées",
+              "Mettre à niveau ou signaler les différences de niveaux",
+              "Sécuriser et éclairer les escaliers",
+              "Faire porter des chaussures à semelles antidérapantes"
+            ]
+          },
+          {
+            "code": "D1.2",
+            "question": "Des mesures sont-elles prises pour éviter le travail dans les courants d'air ou ambiances extrêmes ?",
+            "mesures": [
+              "Installer des portes à fermeture automatique",
+              "Privilégier l'installation d'un sas",
+              "Mettre en place un système de chauffage et rafraîchissement adapté",
+              "Entretenir régulièrement le système de ventilation",
+              "Fournir des tenues adaptées aux saisons",
+              "Limiter l'ouverture inutile des portes"
+            ]
+          },
+          {
+            "code": "D1.3",
+            "question": "Des mesures sont-elles prises pour maîtriser le niveau sonore ?",
+            "mesures": [
+              "Limiter le bruit d'ambiance",
+              "Recueillir l'avis des salariés sur l'ambiance sonore",
+              "Permettre l'ajustement de l'ambiance sonore",
+              "Choisir des équipements moins bruyants"
+            ]
+          },
+          {
+            "code": "D1.4",
+            "question": "Un éclairage adapté est-il assuré dans tous les locaux ?",
+            "mesures": [
+              "Assurer un éclairage suffisant dans tous les locaux",
+              "Entretenir régulièrement les dispositifs d'éclairage",
+              "Privilégier l'apport de lumière naturelle"
+            ]
+          },
+          {
+            "code": "D1.5",
+            "question": "La dangerosité des produits de nettoyage est-elle évaluée ?",
+            "mesures": [
+              "Respecter le plan de nettoyage et de désinfection",
+              "Organiser le stockage et l'étiquetage des produits chimiques",
+              "Former les salariés au risque chimique",
+              "Mettre à disposition des EPI adaptés",
+              "Installer des moyens de premiers soins"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "secteur": {
+    "nom": "Transport et logistique",
+    "code": "LOGISTIQUE",
+    "code_naf": "H (49-53)",
+    "description": "Le secteur du transport et de la logistique comprend le transport routier de marchandises et de voyageurs, l'entreposage, la manutention, la préparation de commandes et les activités de messagerie. Les activités incluent la conduite, le chargement/déchargement, le stockage et la gestion des flux."
+  },
+  "risques": [
+    {
+      "id": "LOG001",
+      "intitule": "Accidents de la route et risque routier",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Déplacements routiers professionnels",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Très grave",
+        "score": 12,
+        "niveau": "Critique"
+      },
+      "situations_travail": [
+        "Conduite de poids lourds, véhicules utilitaires, bus",
+        "Livraisons urbaines avec arrêts fréquents",
+        "Déplacements longue distance et trajets de nuit",
+        "Conduite en conditions météorologiques difficiles"
+      ],
+      "dangers": [
+        "Fatigue et somnolence au volant",
+        "Inattention, distraction (téléphone, GPS)",
+        "Pression pour respecter les délais",
+        "Défaut d'entretien des véhicules",
+        "Charges mal arrimées"
+      ],
+      "dommages_potentiels": [
+        "Accidents de la circulation graves ou mortels",
+        "Polytraumatismes",
+        "Invalidité permanente",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Équiper les véhicules d'aides à la conduite (ABS, ESP, caméra)",
+          "Installer des limiteurs et régulateurs de vitesse",
+          "Fournir des véhicules récents et entretenus",
+          "Mettre en place un système de géolocalisation"
+        ],
+        "organisationnelle": [
+          "Respecter les temps de conduite réglementaires (CE 561/2006)",
+          "Planifier des horaires réalistes",
+          "Former à la conduite préventive",
+          "Interdire le téléphone en conduisant",
+          "Effectuer des contrôles techniques réguliers"
+        ],
+        "individuelle": [
+          "Porter la ceinture de sécurité",
+          "Adapter la vitesse aux conditions",
+          "Faire des pauses toutes les 2 heures",
+          "Éviter la conduite en état de fatigue"
+        ]
+      },
+      "references_reglementaires": [
+        "Règlement CE n°561/2006 (temps de conduite)",
+        "Code de la route",
+        "Articles R4543-1 à R4543-13 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6054 - Risque routier",
+        "ED 6119 - Véhicules utilitaires"
+      ]
+    },
+    {
+      "id": "LOG002",
+      "intitule": "Troubles musculosquelettiques (TMS)",
+      "categorie_principale": "Risques liés aux manutentions manuelles",
+      "sous_categorie": "Manutentions, port de charges",
+      "famille_inrs": "3 (manutentions manuelles)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Chargement/déchargement de marchandises",
+        "Préparation de commandes en entrepôt",
+        "Manutention de charges lourdes",
+        "Position assise prolongée en conduite",
+        "Gestes répétitifs en préparation logistique"
+      ],
+      "dangers": [
+        "Port répété de charges lourdes",
+        "Mouvements de torsion du tronc",
+        "Position assise statique avec vibrations",
+        "Gestes répétitifs à cadence élevée",
+        "Absence de pauses"
+      ],
+      "dommages_potentiels": [
+        "Lombalgies et hernies discales",
+        "Tendinites des membres supérieurs",
+        "Syndrome du canal carpien",
+        "Troubles circulatoires"
+      ],
+      "prevention": {
+        "collective": [
+          "Mécaniser les manutentions (transpalettes électriques, gerbeurs)",
+          "Installer des tables élévatrices et hayons",
+          "Adapter les sièges de conduite ergonomiques",
+          "Réduire les poids unitaires"
+        ],
+        "organisationnelle": [
+          "Former aux gestes et postures",
+          "Limiter les charges portées (max 25 kg)",
+          "Alterner les tâches",
+          "Prévoir des pauses régulières"
+        ],
+        "individuelle": [
+          "Porter des chaussures adaptées",
+          "Utiliser des gants pour la préhension",
+          "Pratiquer des étirements",
+          "Adopter les bonnes postures"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4541-1 à R4541-9 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6015 - Manutentions manuelles",
+        "ED 6177 - TMS en entrepôt"
+      ]
+    },
+    {
+      "id": "LOG003",
+      "intitule": "Chutes de plain-pied et glissades",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Glissades, trébuchements",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Circulation dans les entrepôts",
+        "Montée/descente des camions",
+        "Déplacements sur quais de chargement",
+        "Sols glissants (huile, eau, glace)",
+        "Circulation entre véhicules et engins"
+      ],
+      "dangers": [
+        "Sols glissants ou inégaux",
+        "Obstacles et encombrements",
+        "Différences de niveau non signalées",
+        "Éclairage insuffisant",
+        "Précipitation"
+      ],
+      "dommages_potentiels": [
+        "Entorses",
+        "Fractures",
+        "Contusions",
+        "Traumatismes"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des revêtements antidérapants",
+          "Assurer un éclairage suffisant (≥100 lux)",
+          "Matérialiser les voies de circulation",
+          "Installer des garde-corps et rampes",
+          "Déneiger en hiver"
+        ],
+        "organisationnelle": [
+          "Établir un plan de circulation",
+          "Nettoyer les liquides renversés",
+          "Ranger les obstacles",
+          "Sensibiliser aux risques"
+        ],
+        "individuelle": [
+          "Porter des chaussures antidérapantes",
+          "Porter un gilet haute visibilité",
+          "Adapter sa vitesse",
+          "Utiliser les mains courantes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4224-1 à R4224-20 du Code du travail",
+        "Recommandation R447 (CNAMTS)"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Chutes de plain-pied"
+      ]
+    },
+    {
+      "id": "LOG004",
+      "intitule": "Chutes de hauteur",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Travail en hauteur",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Bâchage sur toit de camion",
+        "Travail sur quais en hauteur",
+        "Utilisation de gerbeurs et nacelles",
+        "Accès aux soutes",
+        "Maintenance en hauteur"
+      ],
+      "dangers": [
+        "Absence de protections collectives",
+        "Accès au toit des camions",
+        "Dénivelé quai/véhicule",
+        "Surfaces instables",
+        "Manœuvres sur rayonnages hauts"
+      ],
+      "dommages_potentiels": [
+        "Chutes de plusieurs mètres",
+        "Fractures graves",
+        "Traumatismes crâniens",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des garde-corps sur les quais",
+          "Utiliser des bâches coulissantes au sol",
+          "Équiper de niveleurs et cales",
+          "Prévoir des plateformes sécurisées",
+          "Installer des lignes de vie"
+        ],
+        "organisationnelle": [
+          "Privilégier les solutions sans hauteur",
+          "Former au travail en hauteur",
+          "Établir des modes opératoires",
+          "Contrôler les équipements"
+        ],
+        "individuelle": [
+          "Porter un harnais antichute",
+          "Utiliser un casque",
+          "Porter des chaussures antidérapantes"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-58 à R4323-90 du Code du travail",
+        "Recommandation R430 (CNAMTS)"
+      ],
+      "ressources_inrs": [
+        "ED 6110 - Travail en hauteur"
+      ]
+    },
+    {
+      "id": "LOG005",
+      "intitule": "Collision avec engins de manutention",
+      "categorie_principale": "Risques liés aux circulations et déplacements",
+      "sous_categorie": "Coactivité engins/piétons",
+      "famille_inrs": "8 (circulations et déplacements)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Circulation engins/piétons en entrepôt",
+        "Manœuvres de chariots élévateurs",
+        "Recul de camions",
+        "Croisements dans allées étroites",
+        "Interventions avec engins actifs"
+      ],
+      "dangers": [
+        "Angles morts des engins",
+        "Vitesse excessive",
+        "Absence de signalisation",
+        "Zones non délimitées",
+        "Inattention",
+        "Coactivité non organisée"
+      ],
+      "dommages_potentiels": [
+        "Écrasement",
+        "Polytraumatismes",
+        "Fractures multiples",
+        "Décès"
+      ],
+      "prevention": {
+        "collective": [
+          "Séparer circulations piétons/engins",
+          "Équiper les engins de gyrophares et avertisseurs",
+          "Installer caméras et détecteurs",
+          "Matérialiser les voies",
+          "Limiter la vitesse (10 km/h max)",
+          "Installer des miroirs"
+        ],
+        "organisationnelle": [
+          "Établir un plan de circulation",
+          "Former et habiliter les conducteurs (CACES R489)",
+          "Organiser les flux",
+          "Interdire écouteurs et téléphones",
+          "Vérifier les dispositifs de sécurité"
+        ],
+        "individuelle": [
+          "Porter un gilet haute visibilité",
+          "Respecter les voies piétonnes",
+          "Contact visuel avec conducteurs",
+          "Rester vigilant"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-1 à R4323-57 du Code du travail",
+        "Recommandation R489 (CNAMTS)",
+        "CACES"
+      ],
+      "ressources_inrs": [
+        "ED 6104 - Chariots automoteurs",
+        "R489"
+      ]
+    },
+    {
+      "id": "LOG006",
+      "intitule": "Écrasement et coincement",
+      "categorie_principale": "Risques mécaniques",
+      "sous_categorie": "Écrasement lors des manutentions",
+      "famille_inrs": "1 (risques mécaniques)",
+      "criticite": {
+        "frequence": "Occasionnelle",
+        "gravite": "Grave",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Manipulation de portes et hayons",
+        "Calage de roues",
+        "Manipulation de palettes",
+        "Arrimage de charges",
+        "Fermeture de bennes"
+      ],
+      "dangers": [
+        "Chute de charges",
+        "Coincement dans portes/hayons",
+        "Écrasement véhicule/quai",
+        "Chute de palettes",
+        "Fermeture intempestive"
+      ],
+      "dommages_potentiels": [
+        "Écrasement de membres",
+        "Fractures",
+        "Amputation"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer des dispositifs de retenue",
+          "Équiper de détecteurs de présence",
+          "Utiliser des cales automatiques",
+          "Installer des butoirs de quai"
+        ],
+        "organisationnelle": [
+          "Former aux risques d'écrasement",
+          "Établir des procédures sécurisées",
+          "Vérifier l'arrimage",
+          "Interdire les mains dans zones dangereuses"
+        ],
+        "individuelle": [
+          "Porter des gants de protection",
+          "Porter des chaussures à coque",
+          "Rester vigilant"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4323-1 à R4323-28 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6178 - Sécurité en entrepôt"
+      ]
+    },
+    {
+      "id": "LOG007",
+      "intitule": "Exposition au froid (chambres froides, hiver)",
+      "categorie_principale": "Risques physiques",
+      "sous_categorie": "Températures extrêmes",
+      "famille_inrs": "2 (risques physiques)",
+      "criticite": {
+        "frequence": "Fréquente",
+        "gravite": "Moyenne",
+        "score": 6,
+        "niveau": "Moyen"
+      },
+      "situations_travail": [
+        "Travail en chambres froides et congélateurs",
+        "Livraisons hivernales extérieures",
+        "Chargement/déchargement par temps froid",
+        "Conduite avec chauffage insuffisant"
+      ],
+      "dangers": [
+        "Exposition prolongée au froid (< 5°C)",
+        "Alternance chaud/froid répétée",
+        "Vent et humidité",
+        "Vêtements inadaptés",
+        "Absence d'échauffement"
+      ],
+      "dommages_potentiels": [
+        "Hypothermie",
+        "Gelures",
+        "Troubles circulatoires",
+        "Pathologies ORL",
+        "Aggravation pathologies cardiovasculaires"
+      ],
+      "prevention": {
+        "collective": [
+          "Climatiser/chauffer les cabines",
+          "Aménager des sas thermiques",
+          "Limiter les temps d'exposition au froid",
+          "Prévoir des zones de réchauffement"
+        ],
+        "organisationnelle": [
+          "Adapter les horaires en cas de grand froid",
+          "Prévoir des pauses en zone chauffée",
+          "Limiter le temps en chambre froide",
+          "Fournir des boissons chaudes"
+        ],
+        "individuelle": [
+          "Porter des vêtements thermiques adaptés",
+          "Protéger les extrémités (gants, bonnets)",
+          "S'échauffer avant exposition",
+          "Signaler les signes d'hypothermie"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4223-13 à R4223-15 du Code du travail"
+      ],
+      "ressources_inrs": [
+        "ED 6031 - Travail au froid"
+      ]
+    },
+    {
+      "id": "LOG008",
+      "intitule": "Incendie et explosion",
+      "categorie_principale": "Risques liés aux équipements de travail",
+      "sous_categorie": "Incendie en entrepôt",
+      "famille_inrs": "10 (équipements de travail)",
+      "criticite": {
+        "frequence": "Rare",
+        "gravite": "Très grave",
+        "score": 8,
+        "niveau": "Élevé"
+      },
+      "situations_travail": [
+        "Stockage de matières inflammables",
+        "Présence de chariots à gaz ou électriques",
+        "Stockage de batteries lithium",
+        "Travaux par points chauds",
+        "Accumulation de poussières"
+      ],
+      "dangers": [
+        "Stockage de produits inflammables",
+        "Court-circuit électrique",
+        "Fuite de gaz (chariots GPL)",
+        "Batteries en charge",
+        "Défaut d'installations",
+        "Absence de compartimentage"
+      ],
+      "dommages_potentiels": [
+        "Incendie généralisé",
+        "Explosion",
+        "Intoxication par fumées",
+        "Décès",
+        "Destruction totale"
+      ],
+      "prevention": {
+        "collective": [
+          "Installer détecteurs et alarmes",
+          "Équiper de RIA et extincteurs",
+          "Compartimenter les zones",
+          "Installer sprinklers",
+          "Ventiler les locaux de charge",
+          "Stocker produits dangereux séparément"
+        ],
+        "organisationnelle": [
+          "Établir un plan d'évacuation",
+          "Former les ESI",
+          "Réaliser des exercices",
+          "Vérifier les installations",
+          "Interdire de fumer",
+          "Permis feu pour travaux"
+        ],
+        "individuelle": [
+          "Connaître les issues de secours",
+          "Signaler les anomalies",
+          "Ne pas fumer",
+          "Éteindre les engins en fin de poste"
+        ]
+      },
+      "references_reglementaires": [
+        "Articles R4227-1 à R4227-57 du Code du travail",
+        "Arrêté du 5 août 2002 (entrepôts)"
+      ],
+      "ressources_inrs": [
+        "ED 6030 - Incendie",
+        "ED 6184 - Entrepôts"
+      ]
+    }
+  ],
+  "statistiques_secteur": {
+    "taux_frequence": "42 pour 1000 salariés (transport), 38 pour 1000 (entreposage)",
+    "accidents_graves": "Risque routier (55%), manutentions (30%), engins (15%)",
+    "maladies_professionnelles_courantes": [
+      "TMS (tableau 57) : 80% des MP",
+      "Lombalgies (tableau 98)",
+      "Surdité (tableau 42) - conducteurs PL"
+    ]
+  },
+  "sources": [
+    "INRS - Transport et logistique",
+    "CNAMTS - Statistiques AT/MP",
+    "Code du travail",
+    "Recommandations CNAMTS R489, R447, R430"
+  ]
+}
