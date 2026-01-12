@@ -10,31 +10,55 @@
 
 ## Déploiement sur Coolify
 
-### Étape 1 : Créer le service
+### Étape 1 : Créer l'application
 
 1. Connectez-vous à Coolify
-2. **Services** → **+ New Service**
-3. Type : **Static Site**
-4. Nom : `duerpilot-landing`
+2. **New Resource** → **Application**
+3. **Configuration initiale :**
+   - Repository URL : `https://github.com/neliville/DUERPilot`
+   - Branch : `main`
+   - **Build Pack** : `Static` ⚠️ **IMPORTANT**
+   - **Base Directory** : `/landing` ⚠️ **IMPORTANT**
 
-### Étape 2 : Configuration Git
+### Étape 2 : Configuration générale
 
-**Option A : Repository Git**
-- Repository URL : URL de votre repo (ex: `https://github.com/user/duerpilot`)
-- Branch : `main` ou `master`
-- Build Command : (laisser vide pour HTML statique)
-- Publish Directory : `/landing`
-
-**Option B : Upload Direct**
-- Upload le dossier `landing/` via l'interface Coolify
-- Publish Directory : `/`
+- **Build Pack** : `Static` (déjà sélectionné)
+- **Base Directory** : `/landing` ✅
+- **Static Image** : `nginx:alpine` (par défaut, laisser tel quel)
+- **Custom Nginx Configuration** : Laisser vide (configuration par défaut)
 
 ### Étape 3 : Configuration Domaine
 
-1. **Domains** → **+ Add Domain**
-2. Domaine : `duerpilot.fr`
-3. SSL : Activer Let's Encrypt (automatique)
-4. Vérifier que le certificat SSL est actif
+1. **Remplacez le domaine temporaire sslip.io** par :
+   - Domain : `duerpilot.fr`
+   - Domain (www) : `www.duerpilot.fr` (optionnel)
+2. **Direction** : `Allow www & non-www.`
+3. **SSL/TLS** :
+   - ✅ Cochez "Generate SSL Certificate"
+   - ✅ Activez "Redirect HTTP to HTTPS"
+
+### Étape 4 : Configuration Health Check
+
+⚠️ **IMPORTANT : Activez le health check**
+
+- ✅ Enable Health Check : Cocher
+- Path : `/` ou `/index.html`
+- Port : `80`
+- Interval : `30` secondes
+- Timeout : `5` secondes
+- Retries : `3`
+
+### Étape 5 : Configuration Network
+
+- **Ports Exposes** : `80` ✅
+- **Ports Mappings** : Laisser vide (supprimer `3000:3000` si présent)
+
+### Étape 6 : Pre/Post Deployment
+
+⚠️ **IMPORTANT : Vider ces champs**
+
+- **Pre-deployment** : Laisser vide
+- **Post-deployment** : Laisser vide
 
 ### Étape 4 : Configuration Nginx (si nécessaire)
 
@@ -64,15 +88,16 @@ server {
 }
 ```
 
-### Étape 5 : Variables d'environnement (si utilisées)
+### Étape 7 : Variables d'environnement
 
-Si vous utilisez des variables d'environnement (via un build process), ajoutez-les dans Coolify :
-- `BREVO_API_KEY`
-- `BREVO_LIST_ID`
-- `GA4_MEASUREMENT_ID`
-- `CLARITY_ID`
+⚠️ **IMPORTANT : Pas de variables d'environnement nécessaires**
 
-**Note :** Pour une landing statique pure, ces valeurs sont directement dans les fichiers JS.
+Pour une landing page statique avec formulaire Brevo intégré :
+- ✅ **Aucune variable d'environnement requise**
+- Le formulaire Brevo fonctionne directement avec le script intégré dans le HTML
+- Les valeurs sont hardcodées dans les fichiers JS ou via le script Brevo
+
+**Note :** Si vous avez un build process (non recommandé pour une landing statique), vous pourriez ajouter `SITE_URL=https://duerpilot.fr`, mais ce n'est **pas nécessaire**.
 
 ## Déploiement sur Cloudflare Pages
 

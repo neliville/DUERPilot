@@ -6,7 +6,7 @@
   
   <!-- SEO -->
   <title>DUERPilot : DUERP en 30 min avec IA | Lancement Mars 2026</title>
-  <meta name="description" content="Créez votre DUERP conforme avec 3 méthodes + import existant. Inscription liste d'attente : -30% early adopters.">
+  <meta name="description" content="Fini les 12 heures de rédaction manuelle. Importez votre DUERP existant ou créez-en un nouveau en 30 minutes. Inscription liste d'attente : -30% early adopters.">
   <meta name="keywords" content="duerp, logiciel duerp, évaluation risques professionnels, prévention risques">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://duerpilot.fr/">
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="DUERPilot : DUERP IA | Lancement 2026">
-  <meta property="og:description" content="Lancement de la première solution DUERP qui importe votre existant et vous guide avec 3 méthodes d'évaluation">
+  <meta property="og:description" content="Fini les 12 heures de rédaction manuelle. Importez votre DUERP existant ou créez-en un nouveau en 30 minutes.">
   <meta property="og:image" content="https://duerpilot.fr/assets/images/og-image.jpg">
   <meta property="og:url" content="https://duerpilot.fr/">
   
@@ -217,6 +217,26 @@
       color: #c0ccda;
     }
 
+    /* Responsive pour formulaire Brevo */
+    @media (min-width: 640px) {
+      #sib-container {
+        max-width: 540px !important;
+      }
+    }
+    
+    /* Responsive général */
+    @media (max-width: 640px) {
+      #sib-container {
+        padding: 12px !important;
+      }
+      
+      #sib-container input,
+      #sib-container select,
+      #sib-container textarea {
+        font-size: 16px !important; /* Évite le zoom automatique sur iOS */
+      }
+    }
+
     #sib-container a {
       text-decoration: none;
       color: #2563eb;
@@ -238,10 +258,10 @@
   
   <!-- Header Sticky -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-all duration-300" style="background-color: rgba(245, 247, 250, 0.95); border-color: #E5E7EB;">
-    <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-4">
-        <img src="/assets/images/logo.svg" alt="DUERPilot" class="h-8 w-auto">
-        <span class="px-3 py-1 text-white text-xs font-bold rounded-full animate-pulse" style="background-color: #F59E0B;">
+    <nav class="container mx-auto px-2 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <img src="/assets/images/logo.svg" alt="DUERPilot" class="h-6 sm:h-8 w-auto">
+        <span class="px-2 sm:px-3 py-1 text-white text-xs font-bold rounded-full animate-pulse hidden sm:inline-block" style="background-color: #F59E0B;">
           Lancement : Mai 2025
         </span>
       </div>
@@ -274,18 +294,27 @@
           <a href="#features" class="nav-link" style="color: #6B7280; text-decoration: none;">Fonctionnalités</a>
           <a href="#pricing" class="nav-link" style="color: #6B7280; text-decoration: none;">Tarifs</a>
           <a href="#blog" class="nav-link" style="color: #6B7280; text-decoration: none;">Blog</a>
+          <div class="flex flex-col space-y-2 pt-2 border-t">
+            <a href="https://app.duerpilot.fr/register" class="text-white px-4 py-2 rounded-lg font-semibold text-sm text-center transition no-underline" style="background-color: #2563EB; text-decoration: none;">
+              Essayer gratuitement
+            </a>
+            <a href="#waitlist" class="text-white px-4 py-2 rounded-lg font-semibold text-sm text-center transition no-underline" style="background-color: #F59E0B; text-decoration: none;">
+              Rejoindre liste d'attente
+            </a>
+          </div>
         </nav>
       </div>
       
-      <div class="flex items-center space-x-4">
+      <!-- CTA Desktop -->
+      <div class="hidden md:flex items-center space-x-4">
         <span class="text-sm hidden lg:block" style="color: #6B7280;">
           Déjà <span id="counter" class="font-bold" style="color: #2563EB;">347</span> inscrits
         </span>
-        <a href="https://app.duerpilot.fr/register" class="text-white px-6 py-2 rounded-lg font-semibold transition no-underline" style="background-color: #2563EB; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+        <a href="https://app.duerpilot.fr/register" class="text-white px-4 lg:px-6 py-2 rounded-lg font-semibold text-sm lg:text-base transition no-underline whitespace-nowrap" style="background-color: #2563EB; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
           Essayer gratuitement
         </a>
-        <a href="#waitlist" class="text-white px-6 py-2 rounded-lg font-semibold transition ml-2 no-underline" style="background-color: #F59E0B; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-          Rejoindre liste d'attente
+        <a href="#waitlist" class="text-white px-4 lg:px-6 py-2 rounded-lg font-semibold text-sm lg:text-base transition no-underline whitespace-nowrap" style="background-color: #F59E0B; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+          Liste d'attente
         </a>
       </div>
     </nav>
@@ -293,21 +322,21 @@
 
   <!-- Hero Section -->
   <main id="main-content">
-  <section id="hero" class="pt-32 pb-20" style="background: linear-gradient(to bottom, #93C5FD20, #F5F7FA);">
+  <section id="hero" class="pt-24 md:pt-32 pb-12 md:pb-20" style="background: linear-gradient(to bottom, #93C5FD20, #F5F7FA);">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: #1F2933;">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-2" style="color: #1F2933;">
           Créez votre DUERP conforme en 30 minutes avec l'IA
         </h1>
-        <p class="text-xl md:text-2xl mb-4" style="color: #6B7280;">
-          La première solution DUERP qui importe votre existant et vous guide avec 3 méthodes d'évaluation
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 px-2" style="color: #6B7280;">
+          Fini les 12 heures de rédaction manuelle. Importez votre DUERP existant ou créez-en un nouveau en 30 minutes.
         </p>
-        <p class="text-sm mb-12" style="color: #6B7280;">
+        <p class="text-xs sm:text-sm mb-8 md:mb-12" style="color: #6B7280;">
           Lancement <span class="font-semibold" style="color: #2563EB;">Mai 2025</span>
         </p>
         
         <!-- Formulaire Liste d'Attente Brevo -->
-        <div id="waitlist" class="rounded-2xl shadow-xl p-8 mb-8" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="200">
+        <div id="waitlist" class="rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mb-8" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="200">
           <!-- Message de confirmation (caché par défaut) -->
           <div id="waitlist-success-message" class="text-center" style="display: none;">
             <div class="mb-4">
@@ -327,7 +356,7 @@
               </p>
               <p class="flex items-center gap-2" style="color: #6B7280;">
                 <span class="text-green-500">✓</span>
-                -30% pendant 3 mois (économie 83€)
+                -30% pendant 1 an (économie 332€)
               </p>
               <p class="flex items-center gap-2" style="color: #6B7280;">
                 <span class="text-green-500">✓</span>
@@ -363,7 +392,7 @@
                   </span>
                 </div>
               </div>
-              <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; margin:0 auto; border-radius:3px; border-width:1px; border-color:#2563eb; border-style:solid; direction:ltr">
+              <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:100%; width:100%; margin:0 auto; border-radius:3px; border-width:1px; border-color:#2563eb; border-style:solid; direction:ltr">
                 <form id="sib-form" method="POST" action="https://3f52143d.sibforms.com/serve/MUIFAHuBZ1XGIR_yeKO1CiKendPo-3V-mL24MOcL9yheEaj-uwOi7wJS8k8UTLRohmpxKVwhrSvhXjg9tE4endABu7odgIKcFTHCEkPrtotEM4kyc-hnZwHX-Oj7-32tOZOKab-rALPVCaFrkJkKQPgn3QizWXQgtDM5hrXHwEYFmYN5Ifz-oogrRqbNh5C3XO1TIjsA3k4VbP8hXA==" data-type="subscription">
                   <div style="padding: 16px 0;">
                     <div class="sib-form-block" style="font-size:32px; text-align:center; font-weight:700; font-family:'Trebuchet MS', sans-serif; color:#3C4858; background-color:transparent; text-align:center">
@@ -534,9 +563,9 @@
         </div>
         
         <!-- Badge Early Adopters -->
-        <div class="bg-gradient-to-r from-accent to-orange-400 text-white rounded-lg p-6 mb-8 inline-block" data-aos="zoom-in">
-          <p class="font-bold text-lg mb-2">🎁 EARLY ADOPTERS : -30% pendant 3 mois + Onboarding offert (200€)</p>
-          <p class="text-sm">Offre valable jusqu'au lancement</p>
+        <div class="bg-gradient-to-r from-accent to-orange-400 text-white rounded-lg p-4 sm:p-6 mb-6 md:mb-8 inline-block w-full sm:w-auto" data-aos="zoom-in">
+          <p class="font-bold text-sm sm:text-base md:text-lg mb-2 text-center sm:text-left">🎁 EARLY ADOPTERS : -30% pendant 1 an + Onboarding offert (200€)</p>
+          <p class="text-xs sm:text-sm text-center sm:text-left">Offre valable jusqu'au lancement • Prix garantis à vie</p>
         </div>
         
         <!-- Visuel Produit - Mockup Dashboard -->
@@ -554,9 +583,9 @@
             </div>
             
             <!-- Contenu du mockup -->
-            <div class="mockup-dashboard-content" style="display: flex; min-height: 500px; width: 100%;">
+            <div class="mockup-dashboard-content flex flex-col md:flex-row" style="min-height: 500px; width: 100%;">
               <!-- Sidebar gauche -->
-              <div class="mockup-dashboard-sidebar" style="width: 240px; background-color: #FFFFFF; border-right: 1px solid #E5E7EB; padding: 20px 0; flex-shrink: 0;">
+              <div class="mockup-dashboard-sidebar hidden md:block" style="width: 240px; background-color: #FFFFFF; border-right: 1px solid #E5E7EB; padding: 20px 0; flex-shrink: 0;">
                 <div style="padding: 0 20px 20px; border-bottom: 1px solid #E5E7EB; margin-bottom: 20px;">
                   <div style="font-size: 20px; font-weight: 700; color: #1F2933; margin-bottom: 8px;">DUERPilot</div>
                   <div style="font-size: 11px; color: #6B7280; background-color: #FEF3C7; color: #92400E; padding: 4px 8px; border-radius: 4px; display: inline-block;">BETA</div>
@@ -658,30 +687,30 @@
   </section>
 
   <!-- Section Problème -->
-  <section id="problem" class="py-20" style="background-color: #FFFFFF;">
+  <section id="problem" class="py-12 md:py-20" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 px-2" data-aos="fade-up">
         Aujourd'hui, créer un DUERP c'est...
       </h2>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-6xl mb-4">⏱️</div>
-          <h3 class="text-2xl font-bold mb-4">Chronophage</h3>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">⏱️</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-4">Chronophage</h3>
           <p class="mb-2" style="color: #6B7280;">8-12 heures de rédaction manuelle</p>
           <p class="text-sm" style="color: #6B7280;">Saisie répétitive, copier-coller, formatage</p>
         </div>
         
-        <div class="text-center p-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-6xl mb-4">💰</div>
-          <h3 class="text-2xl font-bold mb-4">Coûteux</h3>
+        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">💰</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-4">Coûteux</h3>
           <p class="mb-2" style="color: #6B7280;">800-1 500€ consultant externe</p>
           <p class="text-sm" style="color: #6B7280;">Budget inaccessible pour les TPE</p>
         </div>
         
-        <div class="text-center p-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-6xl mb-4">😓</div>
-          <h3 class="text-2xl font-bold mb-4">Complexe</h3>
+        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">😓</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-4">Complexe</h3>
           <p class="mb-2" style="color: #6B7280;">Réglementation Code du Travail et référentiels reconnus</p>
           <p class="text-sm" style="color: #6B7280;">Sans expertise = erreurs et non-conformité</p>
         </div>
@@ -691,44 +720,53 @@
         <p class="text-lg font-semibold mb-2" style="color: #991B1B;">
           68% des TPE n'ont pas de DUERP conforme
         </p>
-        <p style="color: #B91C1C;">
-          Sources réglementaires • Amende jusqu'à 1 500€ en cas d'absence • 95% du temps passé = travail répétitif automatisable
+        <p class="mb-2" style="color: #B91C1C;">
+          = 1 500€ d'amende + risque pénal en cas d'accident du travail
+        </p>
+        <p class="text-base font-semibold" style="color: #991B1B;">
+          Pire : 40% des TPE ne savent même pas qu'elles doivent en avoir un.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Section Solution -->
-  <section id="solution" class="py-20" style="background: linear-gradient(to bottom, #FFFFFF, #93C5FD20);">
+  <section id="solution" class="py-12 md:py-20" style="background: linear-gradient(to bottom, #FFFFFF, #93C5FD20);">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 px-2" data-aos="fade-up">
         DUERPilot change la donne
       </h2>
-      <p class="text-xl text-center mb-12" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-base sm:text-lg md:text-xl text-center mb-8 md:mb-12 px-2" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
         La première suite QSE pensée pour les TPE/PME
       </p>
       
-      <div class="grid md:grid-cols-3 gap-8 mb-12">
-        <div class="rounded-lg p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-5xl mb-4">⚡</div>
-          <h3 class="text-2xl font-bold mb-2">Rapidité</h3>
-          <p class="text-3xl font-bold mb-2" style="color: #2563EB;">30 minutes chrono</p>
-          <p class="mb-2" style="color: #6B7280;">IA + Méthode guidée structurée</p>
-          <p class="text-sm font-semibold" style="color: #6B7280;">Économie 96% du temps</p>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl sm:text-5xl mb-4">⚡</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">Rapidité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">30 minutes chrono</p>
+          <ul class="mb-3 space-y-1" style="color: #6B7280;">
+            <li class="text-sm">✓ Import PDF/Excel en 2 clics</li>
+            <li class="text-sm">✓ IA suggère les cotations (vous validez)</li>
+            <li class="text-sm">✓ Export DUERP conforme immédiat</li>
+          </ul>
+          <p class="text-sm font-semibold" style="color: #6B7280;">
+            De 12h à 30 min = Économie de 92€/h si vous valorisez votre temps 8€/h
+          </p>
         </div>
         
-        <div class="rounded-lg p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-5xl mb-4">💰</div>
-          <h3 class="text-2xl font-bold mb-2">Accessibilité</h3>
-          <p class="text-3xl font-bold mb-2" style="color: #2563EB;">À partir de 69€/mois</p>
+        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl sm:text-5xl mb-4">💰</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">Accessibilité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">À partir de 69€/mois</p>
           <p class="mb-2" style="color: #6B7280;">vs 300-500€ concurrence</p>
           <p class="text-sm font-semibold" style="color: #6B7280;">Essai gratuit inclus</p>
         </div>
         
-        <div class="rounded-lg p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-5xl mb-4">✅</div>
-          <h3 class="text-2xl font-bold mb-2">Conformité</h3>
-          <p class="text-3xl font-bold mb-2" style="color: #2563EB;">100% conforme légal</p>
+        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl sm:text-5xl mb-4">✅</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">Conformité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">100% conforme légal</p>
           <p class="mb-2" style="color: #6B7280;">Inspiré des bonnes pratiques issues de référentiels publics reconnus</p>
           <p class="text-sm font-semibold" style="color: #6B7280;">Validé par experts QSE</p>
         </div>
@@ -747,9 +785,9 @@
   </section>
 
   <!-- Section Fonctionnalités -->
-  <section id="features" class="py-20" style="background-color: #FFFFFF;">
+  <section id="features" class="py-12 md:py-20" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 px-2" data-aos="fade-up">
         Ce qui vous attend
       </h2>
       <p class="text-xl text-center mb-12" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
@@ -872,33 +910,38 @@
   </section>
 
   <!-- Section Pricing -->
-  <section id="pricing" class="py-20" style="background-color: #FFFFFF;">
+  <section id="pricing" class="py-12 md:py-20" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 px-2" data-aos="fade-up">
         Tarifs transparents
       </h2>
-      <p class="text-xl text-center mb-12" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-base sm:text-lg md:text-xl text-center mb-8 md:mb-12 px-2" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
         Prix de lancement dévoilés
       </p>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <!-- Plan FREE -->
-        <div class="border rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-2xl font-bold mb-2">FREE</h3>
-          <p class="text-3xl font-bold mb-4">0€<span class="text-lg text-gray-500">/mois</span></p>
-          <ul class="space-y-2 mb-6">
+        <div class="border rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">FREE</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-4">0€<span class="text-base sm:text-lg text-gray-500">/mois</span></p>
+          <ul class="space-y-2 mb-4">
             <li class="text-sm">• Méthode Générique</li>
             <li class="text-sm">• 5 évaluations/mois</li>
             <li class="text-sm">• 1 DUERP/an</li>
           </ul>
+          <p class="text-xs mb-3" style="color: #6B7280;">
+            → Idéal pour tester ou micro-structures (1-5 salariés)<br>
+            → Limité mais 100% gratuit à vie<br>
+            → Upgrade quand vous voulez
+          </p>
           <span class="text-xs px-2 py-1 rounded block text-center" style="background-color: #E5E7EB; color: #1F2933;">Toujours gratuit</span>
         </div>
         
         <!-- Plan STARTER -->
-        <div class="border-2 border-primary rounded-lg p-6 relative" data-aos="fade-up" data-aos-delay="200">
-          <span class="absolute top-0 right-0 text-white px-3 py-1 rounded-bl-lg text-xs font-bold" style="background-color: #F59E0B;">⭐</span>
-          <h3 class="text-2xl font-bold mb-2">STARTER</h3>
-          <p class="text-3xl font-bold mb-2">69€<span class="text-lg text-gray-500">/mois</span></p>
+        <div class="border-2 border-primary rounded-lg p-4 sm:p-6 relative" data-aos="fade-up" data-aos-delay="200">
+          <span class="absolute top-0 right-0 text-white px-2 sm:px-3 py-1 rounded-bl-lg text-xs font-bold" style="background-color: #F59E0B;">⭐</span>
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">STARTER</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2">69€<span class="text-base sm:text-lg text-gray-500">/mois</span></p>
           <p class="text-sm text-accent font-semibold mb-4">49€ lancement (-30%)</p>
           <ul class="space-y-2 mb-6">
             <li class="text-sm">• 3 méthodes incluses</li>
@@ -915,9 +958,9 @@
         </div>
         
         <!-- Plan PRO -->
-        <div class="border rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="text-2xl font-bold mb-2">PRO</h3>
-          <p class="text-3xl font-bold mb-2">249€<span class="text-lg text-gray-500">/mois</span></p>
+        <div class="border rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">PRO</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2">249€<span class="text-base sm:text-lg text-gray-500">/mois</span></p>
           <p class="text-sm text-accent font-semibold mb-4">174€ lancement (-30%)</p>
           <ul class="space-y-2 mb-6">
             <li class="text-sm">• Tous secteurs OiRA</li>
@@ -934,9 +977,9 @@
         </div>
         
         <!-- Plan EXPERT -->
-        <div class="border rounded-lg p-6" data-aos="fade-up" data-aos-delay="400">
-          <h3 class="text-2xl font-bold mb-2">EXPERT</h3>
-          <p class="text-3xl font-bold mb-2">599€<span class="text-lg text-gray-500">/mois</span></p>
+        <div class="border rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2">EXPERT</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-2">599€<span class="text-base sm:text-lg text-gray-500">/mois</span></p>
           <p class="text-sm text-accent font-semibold mb-4">419€ lancement (-30%)</p>
           <ul class="space-y-2 mb-6">
             <li class="text-sm">• Illimité</li>
@@ -1333,7 +1376,7 @@
         <div>
           <h3 class="font-bold text-lg mb-4">DUERPilot</h3>
           <p class="text-sm text-gray-400 mb-4">
-            La première solution DUERP qui importe votre existant et vous guide avec l'IA.
+            Fini les 12 heures de rédaction manuelle. Créez votre DUERP en 30 minutes.
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white">LinkedIn</a>
@@ -1537,20 +1580,23 @@
           
           if (brevoSuccessMsg && window.getComputedStyle(brevoSuccessMsg).display !== 'none') {
             console.log('✅ Message Brevo de succès visible');
-            showCustomSuccessMessage();
+            // Rediriger vers la page de confirmation après 1.5 secondes
+            setTimeout(function() {
+              window.location.href = '/confirmation.html';
+            }, 1500);
           } else if (brevoErrorMsg && window.getComputedStyle(brevoErrorMsg).display !== 'none') {
             console.log('❌ Erreur Brevo détectée');
-            // Ne pas afficher le message de succès en cas d'erreur
+            // Ne pas rediriger en cas d'erreur
           } else {
             // Fallback : vérifier si le formulaire est caché par Brevo
             console.log('⚠️ Vérification fallback...');
             setTimeout(function() {
               const formStyle = window.getComputedStyle(sibForm);
               if (formStyle.display === 'none' || formStyle.visibility === 'hidden') {
-                console.log('✅ Formulaire caché par Brevo, affichage message personnalisé');
-                showCustomSuccessMessage();
+                console.log('✅ Formulaire caché par Brevo, redirection vers confirmation');
+                window.location.href = '/confirmation.html';
               }
-            }, 1000);
+            }, 2000);
           }
         }, { once: true });
         

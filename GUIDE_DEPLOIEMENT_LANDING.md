@@ -139,46 +139,85 @@ netstat -tuln | grep :443
 
 ### Étape 1 : Accéder à Coolify
 
-1. Ouvrez votre navigateur : `http://VOTRE_IP_HETZNER:8000`
+1. Ouvrez votre navigateur : `http://VOTRE_IP_HETZNER:8000` ou votre domaine Coolify
 2. Connectez-vous à Coolify
 3. Accédez au dashboard
+4. Sélectionnez votre projet (ou créez-en un nouveau)
 
 ### Étape 2 : Créer une nouvelle application
 
-1. **Cliquez sur "New Resource"** (ou "Nouvelle ressource")
-2. **Sélectionnez "Static Site"** (Site statique)
-3. **Remplissez les informations :**
-   - **Name**: `duerpilot-landing`
-   - **Repository**: URL de votre dépôt Git (ex: `https://github.com/votre-org/DUERPAI.git`)
-   - **Branch**: `main` (ou `master`)
-   - **Build Pack**: `Static Site` ou `Custom`
+1. **Cliquez sur "New Resource"** → **"Application"**
+2. **Remplissez les informations initiales :**
+   - **Repository URL**: `https://github.com/neliville/DUERPilot`
+   - **Branch**: `main`
+   - **Build Pack**: `Static` ⚠️ **IMPORTANT : Sélectionnez "Static"**
+   - **Base Directory**: `/landing` ⚠️ **IMPORTANT : Doit pointer vers le dossier landing**
 
-### Étape 3 : Configuration du build (Option 1 - Site statique simple)
+3. **Cliquez sur "Continue"**
 
-Si vous servez directement les fichiers statiques :
+### Étape 3 : Configuration générale
 
-**Build Command** (laisser vide ou) :
-```bash
-# Pas de build nécessaire, fichiers statiques uniquement
-echo "No build needed"
-```
+Dans l'onglet **"General"** :
 
-**Start Command** (laisser vide) :
-```bash
-# Coolify gérera le serveur statique automatiquement
-```
+- **Name**: `duerpilot-landing` (généré automatiquement, peut être modifié)
+- **Build Pack**: `Static` (déjà sélectionné)
+- **Base Directory**: `/landing` ✅
+- **Static Image**: `nginx:alpine` (par défaut, laisser tel quel)
+- **Custom Nginx Configuration**: Laisser vide (configuration par défaut utilisée)
 
-**Publish Directory** :
-```
-landing
-```
+### Étape 4 : Configuration du domaine
 
-**Port** :
-```
-80
-```
+Dans la section **"Domains"** :
 
-### Étape 4 : Configuration du build (Option 2 - Nginx avec fichiers statiques)
+1. **Remplacez le domaine temporaire sslip.io** par :
+   - **Domain**: `duerpilot.fr`
+   - **Domain (www)**: `www.duerpilot.fr` (optionnel)
+
+2. **Direction**: `Allow www & non-www.` (recommandé)
+
+3. **SSL/TLS** :
+   - ✅ Cochez "Generate SSL Certificate"
+   - Coolify générera automatiquement un certificat Let's Encrypt
+   - ✅ Activez "Redirect HTTP to HTTPS"
+
+### Étape 5 : Configuration réseau (Network)
+
+Dans l'onglet **"Network"** :
+
+- **Ports Exposes**: `80` ✅ (port HTTP standard pour nginx)
+- **Ports Mappings**: Laisser vide ou supprimer `3000:3000` si présent
+- **Network Aliases**: Laisser vide
+
+### Étape 6 : Configuration Health Check
+
+Dans l'onglet **"Health Check"** :
+
+⚠️ **IMPORTANT : Activez le health check** (recommandé par Coolify)
+
+- ✅ **Enable Health Check**: Cocher
+- **Path**: `/` ou `/index.html`
+- **Port**: `80`
+- **Interval**: `30` (secondes)
+- **Timeout**: `5` (secondes)
+- **Retries**: `3`
+
+**Pourquoi activer le health check ?**
+- Coolify détecte si le conteneur nginx ne répond plus
+- Traefik ne route pas le trafic vers un conteneur down (évite erreurs 404)
+- Monitoring automatique de la santé du service
+
+### Étape 7 : Configuration Pre/Post Deployment
+
+Dans l'onglet **"Pre/Post Deployment Commands"** :
+
+⚠️ **IMPORTANT : Vider ces champs pour une landing statique**
+
+- **Pre-deployment**: Laisser vide (pas de `php artisan migrate` ou autres commandes)
+- **Post-deployment**: Laisser vide
+
+**Pourquoi ?** Une landing page statique n'a pas besoin de commandes de déploiement.
+
+### Étape 8 : Configuration avancée (Optionnel - Nginx personnalisé)
 
 Si vous préférez utiliser Nginx :
 
@@ -240,59 +279,106 @@ server {
 }
 ```
 
-Dans Coolify :
-- **Dockerfile Path**: `Dockerfile.landing`
-- **Port**: `80`
+Si vous souhaitez une configuration Nginx personnalisée, ajoutez-la dans **"Custom Nginx Configuration"** :
 
-### Étape 5 : Configuration du domaine
+```nginx
+server {
+    listen 80;
+    server_name duerpilot.fr www.duerpilot.fr;
+    root /usr/share/nginx/html;
+    index index.html;
 
-1. **Dans Coolify, allez dans les settings de l'application**
-2. **Ajoutez le domaine :**
-   - **Domain**: `duerpilot.fr`
-   - **Domain (www)**: `www.duerpilot.fr` (optionnel)
-3. **Activez SSL/TLS** :
-   - Cochez "Generate SSL Certificate"
-   - Coolify générera automatiquement un certificat Let's Encrypt
-4. **Redirect HTTP to HTTPS** : ✅ Activé
+    # Compression Gzip
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml+rss application/json application/javascript;
 
-### Étape 6 : Variables d'environnement
+    # Cache pour les assets statiques
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
 
-Pour la landing page statique, généralement pas de variables d'environnement nécessaires.
+    # Page principale
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
 
-Si vous avez besoin de variables (par exemple pour les analytics) :
+    # Pages légales
+    location /legal/ {
+        try_files $uri $uri/ =404;
+    }
 
+    # Assets
+    location /assets/ {
+        try_files $uri =404;
+    }
+}
 ```
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_SITE_URL=https://duerpilot.fr
+
+**Note** : La configuration par défaut de Coolify est généralement suffisante pour une landing statique.
+
+### Étape 9 : Variables d'environnement
+
+⚠️ **IMPORTANT : Pas de variables d'environnement nécessaires**
+
+Pour une landing page statique avec formulaire Brevo intégré :
+- ✅ **Aucune variable d'environnement requise**
+- Le formulaire Brevo fonctionne directement avec le script intégré dans le HTML
+- Les valeurs sont hardcodées dans les fichiers JS (ou via le script Brevo)
+
+**Si vous avez un build process** (non recommandé pour une landing statique simple), vous pourriez ajouter :
+```
+SITE_URL=https://duerpilot.fr
 ```
 
-### Étape 7 : Configuration du port
-
-- **Port interne** : `80`
-- **Port externe** : Laisser vide (Coolify gère automatiquement)
+Mais ce n'est **pas nécessaire** pour une landing statique standard.
 
 ---
 
 ## 🚀 Déploiement
 
-### Étape 1 : Déclencher le déploiement
+### Étape 1 : Vérification avant déploiement
 
-1. **Dans Coolify, cliquez sur "Deploy"**
-2. **Coolify va :**
-   - Cloner le dépôt Git
-   - Construire l'image Docker (si Dockerfile)
-   - Démarrer le conteneur
-   - Configurer le reverse proxy
-   - Configurer SSL
+Avant de cliquer sur "Deploy", vérifiez :
 
-### Étape 2 : Surveiller le déploiement
+- [ ] Repository URL : `https://github.com/neliville/DUERPilot`
+- [ ] Branch : `main`
+- [ ] Build Pack : `Static` ✅
+- [ ] Base Directory : `/landing` ✅
+- [ ] Domaine : `duerpilot.fr` (pas le domaine sslip.io temporaire)
+- [ ] SSL/TLS : Activé avec Let's Encrypt
+- [ ] Health Check : Activé (Path: `/`, Port: `80`)
+- [ ] Pre/Post Deployment : Vides ✅
+- [ ] Ports Exposes : `80` ✅
 
-Dans l'interface Coolify :
+### Étape 2 : Déclencher le déploiement
+
+1. **Dans Coolify, cliquez sur "Deploy"** (ou "Save & Deploy")
+2. **Coolify va automatiquement :**
+   - Cloner le dépôt Git depuis GitHub
+   - Copier le contenu du dossier `landing/` dans le conteneur nginx
+   - Démarrer le conteneur nginx:alpine
+   - Configurer Traefik/Caddy comme reverse proxy
+   - Générer le certificat SSL Let's Encrypt
+   - Configurer le health check
+   - Router le trafic vers le conteneur
+
+### Étape 3 : Surveiller le déploiement
+
+Dans l'interface Coolify, surveillez :
+
 - **Logs** : Consultez les logs en temps réel
-- **Status** : Vérifiez que le statut passe à "Running"
-- **URLs** : Vérifiez les URLs générées
+  - Vérifiez qu'il n'y a pas d'erreurs
+  - Le conteneur nginx devrait démarrer rapidement
+- **Status** : Vérifiez que le statut passe à **"Running"** ✅
+- **Health Check** : Vérifiez que le health check passe au vert (Healthy)
+- **URLs** : Vérifiez que `https://duerpilot.fr` est accessible
 
-### Étape 3 : Vérifier les logs
+**Temps de déploiement estimé** : 1-3 minutes pour une landing statique
+
+### Étape 4 : Vérifier les logs
 
 ```bash
 # Sur le serveur Hetzner
@@ -508,7 +594,38 @@ En cas de problème :
 
 ---
 
-**Date de création** : 2025-01-XX
-**Version** : 1.0
+---
+
+## 📋 Résumé de la Configuration Coolify
+
+### Configuration minimale requise
+
+```
+Repository URL: https://github.com/neliville/DUERPilot
+Branch: main
+Build Pack: Static
+Base Directory: /landing
+Static Image: nginx:alpine (par défaut)
+Domain: duerpilot.fr
+SSL/TLS: Activé (Let's Encrypt)
+Health Check: Activé (Path: /, Port: 80)
+Ports Exposes: 80
+Pre/Post Deployment: Vides
+Variables d'environnement: Aucune
+```
+
+### Points critiques à vérifier
+
+1. ✅ **Build Pack = "Static"** (pas "Dockerfile" ou autre)
+2. ✅ **Base Directory = "/landing"** (pas "/" ou autre)
+3. ✅ **Domaine = "duerpilot.fr"** (pas le domaine sslip.io temporaire)
+4. ✅ **Health Check activé** (recommandé par Coolify)
+5. ✅ **Pre/Post Deployment vides** (pas de commandes PHP/Laravel)
+
+---
+
+**Date de création** : 2026-01-11
+**Dernière mise à jour** : 2026-01-11
+**Version** : 2.0 (Conforme documentation Coolify)
 **Auteur** : Équipe DUERPilot
 
