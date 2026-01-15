@@ -4,7 +4,7 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'DUERPilot : DUERP en 30 min avec IA | Lancement Mai 2025',
   description: 'Créez votre DUERP conforme avec 3 méthodes + import existant. Inscription liste d\'attente : -30% early adopters.',
-  keywords: 'duerp, logiciel duerp, oira, inrs, évaluation risques',
+  keywords: 'duerp, logiciel duerp, inrs, évaluation risques',
   openGraph: {
     type: 'website',
     title: 'DUERPilot : DUERP IA | Lancement 2025',

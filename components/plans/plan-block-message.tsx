@@ -40,7 +40,7 @@ const MESSAGES: Record<
         'La méthode guidée vous permet d\'être accompagné à partir de votre secteur d\'activité. Elle est disponible à partir du plan Starter, conçu pour les TPE souhaitant gagner du temps sans expertise QSE.',
       benefits: [
         'Questions guidées par secteur d\'activité',
-        'Référentiels OiRA complets',
+        'Référentiels sectoriels complets',
         'Assistance IA pour suggestions',
       ],
       icon: Lock,
