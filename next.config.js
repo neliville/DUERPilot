@@ -18,8 +18,10 @@ const nextConfig = {
     };
     return config;
   },
-  // Headers de sécurité
+  // Headers de sécurité et CORS
   async headers() {
+    const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://duerpilot.fr';
+    
     return [
       {
         source: '/:path*',
@@ -43,6 +45,27 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
+          }
+        ],
+      },
+      {
+        source: '/api/landing/waitlist',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: allowedOrigin
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'POST, OPTIONS'
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type'
+          },
+          {
+            key: 'Access-Control-Max-Age',
+            value: '86400'
           }
         ],
       },

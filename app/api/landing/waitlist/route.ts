@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     if (!email || !companySize || !sector || !roleContact || !consent) {
       return NextResponse.json(
         { error: 'Tous les champs obligatoires doivent être remplis' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
