@@ -4,6 +4,20 @@ import { NextRequest, NextResponse } from 'next/server';
  * API Route pour gérer les inscriptions à la liste d'attente Brevo
  * Sécurise la clé API côté serveur
  */
+
+// Configuration CORS
+const corsHeaders = {
+  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || 'https://duerpilot.fr',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Max-Age': '86400',
+};
+
+// Gestion de la requête OPTIONS (preflight)
+export async function OPTIONS(request: NextRequest) {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -20,10 +34,10 @@ export async function POST(request: NextRequest) {
     // Validation email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Adresse email invalide' },
-        { status: 400 }
-      );
+    return NextResponse.json(
+      { error: 'Adresse email invalide' },
+      { status: 400, headers: corsHeaders }
+    );
     }
 
     const BREVO_API_KEY = process.env.BREVO_API_KEY;
@@ -31,10 +45,10 @@ export async function POST(request: NextRequest) {
 
     if (!BREVO_API_KEY || !BREVO_LIST_ID) {
       console.error('BREVO_API_KEY ou BREVO_LIST_ID non configuré');
-      return NextResponse.json(
-        { error: 'Configuration Brevo manquante' },
-        { status: 500 }
-      );
+    return NextResponse.json(
+      { error: 'Configuration Brevo manquante' },
+      { status: 500, headers: corsHeaders }
+    );
     }
 
     // Mapping des tailles de structure
@@ -98,22 +112,25 @@ export async function POST(request: NextRequest) {
       if (response.status === 400 && errorData.code === 'duplicate_parameter') {
         return NextResponse.json(
           { error: 'Cette adresse email est déjà inscrite.' },
-          { status: 400 }
+          { status: 400, headers: corsHeaders }
         );
       }
       
       return NextResponse.json(
         { error: errorData.message || `Erreur ${response.status}` },
-        { status: response.status }
+        { status: response.status, headers: corsHeaders }
       );
     }
 
-    return NextResponse.json({ success: true, message: 'Inscription réussie' });
+    return NextResponse.json(
+      { success: true, message: 'Inscription réussie' },
+      { headers: corsHeaders }
+    );
   } catch (error) {
     console.error('Erreur inscription waitlist:', error);
     return NextResponse.json(
       { error: 'Erreur lors de l\'inscription' },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
 }
