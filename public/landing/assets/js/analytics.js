@@ -1,14 +1,30 @@
-// Google Analytics 4 and Microsoft Clarity Integration
+// Google Tag Manager, Google Analytics 4 and Microsoft Clarity Integration
+
+// Google Tag Manager
+(function() {
+  const GTM_ID = 'GTM-TCV5W27G';
+  
+  // Check cookie consent before loading GTM
+  const cookiesAccepted = localStorage.getItem('cookies_accepted');
+  
+  if (cookiesAccepted === 'true' || cookiesAccepted === null) {
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
+  }
+})();
 
 // Google Analytics 4
 (function() {
-  // Replace with your GA4 Measurement ID
+  // Replace with your GA4 Measurement ID (if needed)
   const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
   
   // Check cookie consent before loading GA4
   const cookiesAccepted = localStorage.getItem('cookies_accepted');
   
-  if (cookiesAccepted === 'true' || cookiesAccepted === null) {
+  if ((cookiesAccepted === 'true' || cookiesAccepted === null) && GA4_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
     // Load GA4 script
     const script = document.createElement('script');
     script.async = true;
@@ -39,15 +55,7 @@
 
 // Microsoft Clarity
 (function() {
-  // Configuration via window object ou variable globale
-  // Pour Next.js, peut être configuré via NEXT_PUBLIC_CLARITY_ID dans .env.local
-  const CLARITY_ID = window.CLARITY_ID || process?.env?.NEXT_PUBLIC_CLARITY_ID || 'YOUR_CLARITY_ID';
-  
-  // Si pas configuré, ne pas charger Clarity
-  if (!CLARITY_ID || CLARITY_ID === 'YOUR_CLARITY_ID') {
-    console.log('Microsoft Clarity non configuré - saut de l\'initialisation');
-    return;
-  }
+  const CLARITY_ID = 'v4j1mj6aw0';
   
   // Check cookie consent
   const cookiesAccepted = localStorage.getItem('cookies_accepted');
@@ -56,7 +64,7 @@
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      y=l.getElementsByTagName(r)[0].parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", CLARITY_ID);
   }
 })();
@@ -109,4 +117,3 @@ document.querySelectorAll('#pricing .border').forEach(card => {
     }
   });
 });
-
