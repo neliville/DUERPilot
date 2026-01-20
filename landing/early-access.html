@@ -430,12 +430,28 @@
         e.preventDefault();
         hideAlert();
         
+        // Récupérer les valeurs du formulaire
         const email = document.getElementById('email').value.trim();
-        const companySize = document.querySelector('input[name="companySize"]:checked')?.value;
-        const sector = document.querySelector('input[name="sector"]:checked')?.value;
-        const role = document.querySelector('input[name="role"]:checked')?.value;
+        const companySizeInput = document.querySelector('input[name="companySize"]:checked');
+        const sectorInput = document.querySelector('input[name="sector"]:checked');
+        const roleInput = document.querySelector('input[name="role"]:checked');
+        const consentInput = document.getElementById('consent');
+        
+        const companySize = companySizeInput ? companySizeInput.value : null;
+        const sector = sectorInput ? sectorInput.value : null;
+        const role = roleInput ? roleInput.value : null;
         const jobTitle = document.getElementById('jobTitle').value.trim();
-        const consent = document.getElementById('consent').checked;
+        const consent = consentInput ? consentInput.checked : false;
+        
+        // Debug: afficher les valeurs dans la console
+        console.log('Form values:', {
+          email,
+          companySize,
+          sector,
+          role,
+          jobTitle,
+          consent
+        });
         
         // Validation côté client avec messages précis
         const missingFields = [];
@@ -449,6 +465,7 @@
           const message = missingFields.length === 1 
             ? `Le champ "${missingFields[0]}" est obligatoire.`
             : `Les champs suivants sont obligatoires : ${missingFields.join(', ')}.`;
+          console.error('Missing fields:', missingFields);
           showAlert(message, 'error');
           return;
         }

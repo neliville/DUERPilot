@@ -26,10 +26,35 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, companySize, sector, roleContact, jobTitle, consent } = body;
 
-    // Validation
-    if (!email || !companySize || !sector || !roleContact || !consent) {
+    // Debug: logger les valeurs reçues
+    console.log('API received:', {
+      email,
+      companySize,
+      sector,
+      roleContact,
+      jobTitle,
+      consent,
+      hasEmail: !!email,
+      hasCompanySize: !!companySize,
+      hasSector: !!sector,
+      hasRole: !!roleContact,
+      hasConsent: !!consent
+    });
+
+    // Validation avec messages précis
+    const missingFields = [];
+    if (!email) missingFields.push('Email');
+    if (!companySize) missingFields.push('Taille de structure');
+    if (!sector) missingFields.push('Secteur d\'activité');
+    if (!roleContact) missingFields.push('Rôle dans l\'entreprise');
+    if (!consent) missingFields.push('Consentement RGPD');
+    
+    if (missingFields.length > 0) {
+      const message = missingFields.length === 1 
+        ? `Le champ "${missingFields[0]}" est obligatoire.`
+        : `Les champs suivants sont obligatoires : ${missingFields.join(', ')}.`;
       return NextResponse.json(
-        { error: 'Tous les champs obligatoires doivent être remplis' },
+        { error: message },
         { status: 400, headers: corsHeaders }
       );
     }
