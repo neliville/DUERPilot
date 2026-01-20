@@ -437,9 +437,19 @@
         const jobTitle = document.getElementById('jobTitle').value.trim();
         const consent = document.getElementById('consent').checked;
         
-        // Validation côté client
-        if (!email || !companySize || !sector || !role || !consent) {
-          showAlert('Veuillez remplir tous les champs obligatoires.', 'error');
+        // Validation côté client avec messages précis
+        const missingFields = [];
+        if (!email) missingFields.push('Email');
+        if (!companySize) missingFields.push('Taille de structure');
+        if (!sector) missingFields.push('Secteur d\'activité');
+        if (!role) missingFields.push('Rôle dans l\'entreprise');
+        if (!consent) missingFields.push('Consentement RGPD');
+        
+        if (missingFields.length > 0) {
+          const message = missingFields.length === 1 
+            ? `Le champ "${missingFields[0]}" est obligatoire.`
+            : `Les champs suivants sont obligatoires : ${missingFields.join(', ')}.`;
+          showAlert(message, 'error');
           return;
         }
         
