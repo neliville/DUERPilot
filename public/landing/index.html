@@ -258,21 +258,20 @@
   </a>
   
   <!-- Header Sticky -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-all duration-300" style="background-color: rgba(245, 247, 250, 0.95); border-color: #E5E7EB;">
-    <nav class="container mx-auto px-2 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-2 sm:space-x-4">
-        <img src="/assets/images/logo_duerpilot.png" alt="DUERPilot" class="h-6 sm:h-8 w-auto">
-        <span class="text-xl sm:text-2xl font-bold" style="color: #1F2933; letter-spacing: -0.5px;">DUERPilot</span>
-        <span class="px-2 sm:px-3 py-1 text-white text-xs font-bold rounded-full animate-pulse hidden sm:inline-block" style="background-color: #F59E0B;">
-          Lancement : Mars 2026
-        </span>
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.95); border-color: #E5E7EB;">
+    <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img src="/assets/images/logo_duerpilot.png" alt="DUERPilot" class="h-7 md:h-8 w-auto">
+        <span class="text-lg md:text-xl font-semibold hidden sm:inline" style="color: #1F2933; letter-spacing: -0.02em;">DUERPilot</span>
       </div>
       
       <!-- Menu Desktop -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a href="#about" class="nav-link transition no-underline" style="color: #6B7280; text-decoration: none;">À propos</a>
-        <a href="#features" class="nav-link transition no-underline" style="color: #6B7280; text-decoration: none;">Fonctionnalités</a>
-        <a href="#faq" class="nav-link transition no-underline" style="color: #6B7280; text-decoration: none;">FAQ</a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#features" class="text-sm font-medium no-underline transition" style="color: #6B7280; text-decoration: none;" onmouseover="this.style.color='#1F2933'" onmouseout="this.style.color='#6B7280'">Fonctionnalités</a>
+        <a href="#faq" class="text-sm font-medium no-underline transition" style="color: #6B7280; text-decoration: none;" onmouseover="this.style.color='#1F2933'" onmouseout="this.style.color='#6B7280'">FAQ</a>
+        <a href="/landing/early-access" class="text-sm font-medium px-4 py-2 rounded-lg no-underline text-white whitespace-nowrap transition" style="background-color: #2563EB; text-decoration: none;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563EB'">
+          Accès anticipé
+        </a>
       </div>
       
       <!-- Menu Mobile Toggle -->
@@ -289,52 +288,73 @@
       </button>
       
       <!-- Menu Mobile -->
-      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg" style="background-color: rgba(245, 247, 250, 0.98);">
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 border-b shadow-lg" style="background-color: rgba(255, 255, 255, 0.98); border-color: #E5E7EB;">
         <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          <a href="#about" class="nav-link" style="color: #6B7280; text-decoration: none;">À propos</a>
-          <a href="#features" class="nav-link" style="color: #6B7280; text-decoration: none;">Fonctionnalités</a>
-          <a href="#faq" class="nav-link" style="color: #6B7280; text-decoration: none;">FAQ</a>
-          <div class="flex flex-col space-y-2 pt-2 border-t">
-            <a href="/landing/early-access" class="text-white px-4 py-2 rounded-lg font-semibold text-sm text-center transition no-underline" style="background-color: #2563EB; text-decoration: none;">
-              S'inscrire à l'accès anticipé
-            </a>
-            <a href="#features" class="text-white px-4 py-2 rounded-lg font-semibold text-sm text-center transition no-underline" style="background-color: #F59E0B; text-decoration: none;">
-              Découvrir les fonctionnalités
+          <a href="#features" class="text-sm font-medium" style="color: #6B7280; text-decoration: none;">Fonctionnalités</a>
+          <a href="#faq" class="text-sm font-medium" style="color: #6B7280; text-decoration: none;">FAQ</a>
+          <div class="flex flex-col space-y-2 pt-2 border-t" style="border-color: #E5E7EB;">
+            <a href="/landing/early-access" class="text-sm font-medium px-4 py-2 rounded-lg text-center text-white no-underline" style="background-color: #2563EB; text-decoration: none;">
+              Accès anticipé
             </a>
           </div>
         </nav>
-      </div>
-      
-      <!-- CTA Desktop -->
-      <div class="hidden md:flex items-center space-x-4">
-        <a href="/landing/early-access" class="text-white px-4 lg:px-6 py-2 rounded-lg font-semibold text-sm lg:text-base transition no-underline whitespace-nowrap" style="background-color: #2563EB; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-          S'inscrire à l'accès anticipé
-        </a>
-        <a href="#features" class="text-white px-4 lg:px-6 py-2 rounded-lg font-semibold text-sm lg:text-base transition no-underline whitespace-nowrap" style="background-color: #F59E0B; text-decoration: none;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-          Découvrir les fonctionnalités
-        </a>
       </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <main id="main-content">
-  <section id="hero" class="pt-24 md:pt-32 pb-12 md:pb-20" style="background: linear-gradient(to bottom, #93C5FD20, #F5F7FA);">
+  <section id="hero" class="pt-24 md:pt-32 pb-16 md:pb-24" style="background: linear-gradient(to bottom, #93C5FD20, #F5F7FA);">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-2" style="color: #1F2933;">
+        <!-- Badge discret -->
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" style="background-color: #F0F9FF; color: #2563EB; border: 1px solid #DBEAFE;">
+            Lancement : Mars 2026
+          </span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 px-2" style="color: #1F2933; letter-spacing: -0.02em; line-height: 1.1;">
           DUERP conforme pour TPE et PME — sans cabinet externe
         </h1>
-        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 px-2" style="color: #6B7280;">
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 px-2 max-w-3xl mx-auto" style="color: #6B7280; line-height: 1.6;">
           Outil réglementaire simple et conforme, basé sur les référentiels INRS, avec IA assistive non décisionnaire
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 md:mb-12 px-2">
-          <a href="/landing/early-access" class="text-white px-6 py-3 rounded-lg font-semibold text-base transition no-underline text-center" style="background-color: #2563EB; text-decoration: none;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563EB'">
+        
+        <!-- CTA Principal -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4 px-2">
+          <a href="/landing/early-access" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-base transition-all no-underline text-white shadow-sm" style="background-color: #2563EB; text-decoration: none; min-width: 220px;" onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(37,99,235,0.3)'" onmouseout="this.style.backgroundColor='#2563EB'; this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
             S'inscrire à l'accès anticipé
           </a>
-          <a href="#features" class="text-white px-6 py-3 rounded-lg font-semibold text-base transition no-underline text-center" style="background-color: #F59E0B; text-decoration: none;" onmouseover="this.style.backgroundColor='#d97706'" onmouseout="this.style.backgroundColor='#F59E0B'">
+          <a href="#features" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-base transition-all no-underline" style="background-color: #FFFFFF; color: #2563EB; text-decoration: none; min-width: 220px; border: 1px solid #E5E7EB;" onmouseover="this.style.backgroundColor='#F5F7FA'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='#FFFFFF'; this.style.transform='translateY(0)'">
             Découvrir les fonctionnalités
           </a>
+        </div>
+        
+        <!-- Micro-textes rassurants -->
+        <div class="mt-4 mb-12 px-2">
+          <p class="text-sm" style="color: #6B7280;">
+            <span class="inline-flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Sans engagement
+            </span>
+            <span class="mx-2">•</span>
+            <span class="inline-flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Accès prioritaire
+            </span>
+            <span class="mx-2">•</span>
+            <span class="inline-flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              RGPD conforme
+            </span>
+          </p>
         </div>
         
         <!-- Formulaire Liste d'Attente Brevo -->
@@ -544,11 +564,11 @@
                   </div>
                   <div style="padding: 16px 0;">
                     <div class="sib-form-block" style="text-align: center">
-                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:20px; text-align:center; font-weight:700; font-family:'Trebuchet MS', sans-serif; color:#FFFFFF; background-color:#f59e0b; border-radius:3px; border-width:0px; padding:12px 32px; cursor:pointer; width:100%;" form="sib-form" type="submit">
+                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:18px; text-align:center; font-weight:600; font-family:'Trebuchet MS', sans-serif; color:#FFFFFF; background-color:#2563EB; border-radius:8px; border-width:0px; padding:14px 32px; cursor:pointer; width:100%; transition:all 0.2s;" form="sib-form" type="submit" onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='#2563EB'; this.style.transform='translateY(0)'">
                         <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="display:none;">
                           <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                         </svg>
-                        Être informé du lancement
+                        S'inscrire à l'accès anticipé
                       </button>
                     </div>
                   </div>
@@ -559,15 +579,35 @@
             </div>
           </div>
           
-          <div class="mt-6 text-center text-sm" style="color: #6B7280;">
-            <p>✅ Sans engagement • ✅ Désabonnement 1 clic • ✅ RGPD conforme</p>
+          <div class="mt-8 text-center text-sm" style="color: #6B7280; line-height: 1.8;">
+            <p class="mb-2">✅ Sans engagement • ✅ Désabonnement 1 clic • ✅ RGPD conforme</p>
+            <p class="text-xs" style="color: #9CA3AF;">Vos données sont protégées et ne seront jamais partagées avec des tiers</p>
           </div>
         </div>
         
-        <!-- Badge Early Adopters -->
-        <div class="bg-gradient-to-r from-accent to-orange-400 text-white rounded-lg p-4 sm:p-6 mb-6 md:mb-8 inline-block w-full sm:w-auto" data-aos="zoom-in">
-          <p class="font-bold text-sm sm:text-base md:text-lg mb-2 text-center sm:text-left">🎁 Early Adopters : Avantages réservés aux premiers utilisateurs</p>
-          <p class="text-xs sm:text-sm text-center sm:text-left">Inscription avant le lancement • Conditions avantageuses garanties</p>
+        <!-- Badge Early Adopters amélioré -->
+        <div class="max-w-2xl mx-auto mt-12 mb-16 p-6 md:p-8 rounded-2xl text-left" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="zoom-in">
+          <h3 class="text-lg md:text-xl font-semibold mb-5" style="color: #1F2933;">Avantages Early Adopters</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: #2563EB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="font-medium text-base" style="color: #1F2933;">Accès prioritaire au lancement</p>
+                <p class="text-sm mt-1" style="color: #6B7280; line-height: 1.6;">Vous serez informés en premier du lancement</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: #2563EB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="font-medium text-base" style="color: #1F2933;">Conditions réservées</p>
+                <p class="text-sm mt-1" style="color: #6B7280; line-height: 1.6;">Avantages exclusifs pour les premiers inscrits</p>
+              </div>
+            </div>
+          </div>
         </div>
         
         <!-- Visuel Produit - Mockup Dashboard -->
@@ -688,33 +728,39 @@
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- Section Problème -->
-  <section id="problem" class="py-12 md:py-20" style="background-color: #FFFFFF;">
+  <section id="problem" class="py-16 md:py-24" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 px-2" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6 px-2" style="color: #1F2933; letter-spacing: -0.02em;" data-aos="fade-up">
         Aujourd'hui, créer un DUERP c'est...
       </h2>
+      <p class="text-lg text-center mb-12 md:mb-16 px-2 max-w-2xl mx-auto" style="color: #6B7280; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
+        Les défis auxquels font face les TPE et PME dans la gestion de leur DUERP
+      </p>
       
       <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">⏱️</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-4">Chronophage</h3>
-          <p class="mb-2" style="color: #6B7280;">8-12 heures de rédaction manuelle</p>
-          <p class="text-sm" style="color: #6B7280;">Saisie répétitive, copier-coller, formatage</p>
+        <div class="text-center p-6 sm:p-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl sm:text-6xl mb-5">⏱️</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Chronophage</h3>
+          <p class="mb-2 text-base" style="color: #6B7280; line-height: 1.6;">8-12 heures de rédaction manuelle</p>
+          <p class="text-sm" style="color: #6B7280; line-height: 1.5;">Saisie répétitive, copier-coller, formatage</p>
         </div>
         
-        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">💰</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-4">Coûteux</h3>
-          <p class="mb-2" style="color: #6B7280;">800-1 500€ consultant externe</p>
-          <p class="text-sm" style="color: #6B7280;">Budget inaccessible pour les TPE</p>
+        <div class="text-center p-6 sm:p-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl sm:text-6xl mb-5">💰</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Coûteux</h3>
+          <p class="mb-2 text-base" style="color: #6B7280; line-height: 1.6;">800-1 500€ consultant externe</p>
+          <p class="text-sm" style="color: #6B7280; line-height: 1.5;">Budget inaccessible pour les TPE</p>
         </div>
         
-        <div class="text-center p-4 sm:p-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-4xl sm:text-5xl md:text-6xl mb-4">😓</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-4">Complexe</h3>
-          <p class="mb-2" style="color: #6B7280;">Réglementation Code du Travail et référentiels reconnus</p>
-          <p class="text-sm" style="color: #6B7280;">Sans expertise = erreurs et non-conformité</p>
+        <div class="text-center p-6 sm:p-8" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-5xl sm:text-6xl mb-5">😓</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Complexe</h3>
+          <p class="mb-2 text-base" style="color: #6B7280; line-height: 1.6;">Réglementation Code du Travail et référentiels reconnus</p>
+          <p class="text-sm" style="color: #6B7280; line-height: 1.5;">Sans expertise = erreurs et non-conformité</p>
         </div>
       </div>
       
@@ -732,139 +778,166 @@
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- Section Solution -->
-  <section id="solution" class="py-12 md:py-20" style="background: linear-gradient(to bottom, #FFFFFF, #93C5FD20);">
+  <section id="solution" class="py-16 md:py-24" style="background: linear-gradient(to bottom, #FFFFFF, #93C5FD20);">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 px-2" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6 px-2" style="color: #1F2933; letter-spacing: -0.02em;" data-aos="fade-up">
         DUERPilot change la donne
       </h2>
-      <p class="text-base sm:text-lg md:text-xl text-center mb-8 md:mb-12 px-2" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg md:text-xl text-center mb-12 md:mb-16 px-2 max-w-2xl mx-auto" style="color: #6B7280; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
         Solution QSE réglementaire pensée pour les TPE et PME
       </p>
       
       <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-4xl sm:text-5xl mb-4">⚡</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-2">Rapidité</h3>
-          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">30 minutes chrono</p>
-          <ul class="mb-3 space-y-1" style="color: #6B7280;">
-            <li class="text-sm">✓ Import PDF/Excel en 2 clics</li>
-            <li class="text-sm">✓ IA suggère les cotations (vous validez)</li>
-            <li class="text-sm">✓ Export DUERP conforme immédiat</li>
+        <div class="rounded-xl p-6 sm:p-8 shadow-md" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl sm:text-6xl mb-5">⚡</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Rapidité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-4" style="color: #2563EB;">30 minutes chrono</p>
+          <ul class="mb-4 space-y-2" style="color: #6B7280;">
+            <li class="text-sm flex items-start gap-2" style="line-height: 1.6;">
+              <span style="color: #16A34A;">✓</span>
+              <span>Import PDF/Excel en 2 clics</span>
+            </li>
+            <li class="text-sm flex items-start gap-2" style="line-height: 1.6;">
+              <span style="color: #16A34A;">✓</span>
+              <span>IA suggère les cotations (vous validez)</span>
+            </li>
+            <li class="text-sm flex items-start gap-2" style="line-height: 1.6;">
+              <span style="color: #16A34A;">✓</span>
+              <span>Export DUERP conforme immédiat</span>
+            </li>
           </ul>
-          <p class="text-sm font-semibold" style="color: #6B7280;">
+          <p class="text-sm font-medium" style="color: #6B7280; line-height: 1.6;">
             Réduction significative du temps de rédaction
           </p>
         </div>
         
-        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-4xl sm:text-5xl mb-4">💰</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-2">Accessibilité</h3>
-          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">Prix accessible</p>
-          <p class="mb-2" style="color: #6B7280;">Solution pensée pour les TPE et PME</p>
-          <p class="text-sm font-semibold" style="color: #6B7280;">Période d'essai incluse</p>
+        <div class="rounded-xl p-6 sm:p-8 shadow-md" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl sm:text-6xl mb-5">💰</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Accessibilité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-4" style="color: #2563EB;">Prix accessible</p>
+          <p class="mb-3 text-base" style="color: #6B7280; line-height: 1.6;">Solution pensée pour les TPE et PME</p>
+          <p class="text-sm font-medium" style="color: #6B7280; line-height: 1.6;">Période d'essai incluse</p>
         </div>
         
-        <div class="rounded-lg p-4 sm:p-6 shadow-lg" style="background-color: #FFFFFF;" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-4xl sm:text-5xl mb-4">✅</div>
-          <h3 class="text-xl sm:text-2xl font-bold mb-2">Conformité</h3>
-          <p class="text-2xl sm:text-3xl font-bold mb-2" style="color: #2563EB;">100% conforme légal</p>
-          <p class="mb-2" style="color: #6B7280;">Inspiré des bonnes pratiques issues de référentiels publics reconnus</p>
-          <p class="text-sm font-semibold" style="color: #6B7280;">Validé par experts QSE</p>
+        <div class="rounded-xl p-6 sm:p-8 shadow-md" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-5xl sm:text-6xl mb-5">✅</div>
+          <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: #1F2933;">Conformité</h3>
+          <p class="text-2xl sm:text-3xl font-bold mb-4" style="color: #2563EB;">100% conforme légal</p>
+          <p class="mb-3 text-base" style="color: #6B7280; line-height: 1.6;">Inspiré des bonnes pratiques issues de référentiels publics reconnus</p>
+          <p class="text-sm font-medium" style="color: #6B7280; line-height: 1.6;">Validé par experts QSE</p>
         </div>
       </div>
       
-      <div class="text-white rounded-lg p-6" style="background-color: #2563EB;" data-aos="fade-up">
-        <p class="font-bold text-lg mb-4">🆕 EXCLUSIF</p>
-        <ul class="grid md:grid-cols-2 gap-2">
-          <li>✓ Import DUERP existant (PDF/Excel)</li>
-          <li>✓ 3 méthodes d'évaluation</li>
-          <li>✓ Plus de 47 secteurs d'activité couverts</li>
-          <li>✓ IA assistive (non décisionnaire)</li>
+      <div class="text-white rounded-xl p-6 md:p-8" style="background-color: #2563EB; border: 1px solid #1d4ed8;" data-aos="fade-up">
+        <p class="font-bold text-lg mb-5 opacity-90">🆕 Fonctionnalités exclusives</p>
+        <ul class="grid md:grid-cols-2 gap-3 text-base" style="line-height: 1.8;">
+          <li class="flex items-start gap-2">
+            <span>✓</span>
+            <span>Import DUERP existant (PDF/Excel)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✓</span>
+            <span>3 méthodes d'évaluation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✓</span>
+            <span>Plus de 47 secteurs d'activité couverts</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✓</span>
+            <span>IA assistive (non décisionnaire)</span>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- Section Fonctionnalités -->
-  <section id="features" class="py-12 md:py-20" style="background-color: #FFFFFF;">
+  <section id="features" class="py-16 md:py-24" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 px-2" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6 px-2" style="color: #1F2933; letter-spacing: -0.02em;" data-aos="fade-up">
         Ce qui vous attend
       </h2>
-      <p class="text-xl text-center mb-12" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg md:text-xl text-center mb-12 md:mb-16 px-2 max-w-2xl mx-auto" style="color: #6B7280; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
         Aperçu des fonctionnalités au lancement
       </p>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="100">
           <div class="text-4xl mb-4">🤖</div>
-          <h3 class="font-bold mb-2">3 Méthodes d'Évaluation</h3>
-          <p class="text-sm mb-2" style="color: #6B7280;">Méthode générique • Méthode structurée INRS • Méthode sectorielle</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">3 Méthodes d'Évaluation</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Méthode générique • Méthode structurée INRS • Méthode sectorielle</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="200">
           <div class="text-4xl mb-4">📥</div>
-          <h3 class="font-bold mb-2">Import Existant</h3>
-          <p class="text-sm mb-2" style="color: #6B7280;">PDF, Excel, CSV, Word</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Import Existant</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">PDF, Excel, CSV, Word</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="300">
           <div class="text-4xl mb-4">🎯</div>
-          <h3 class="font-bold mb-2">Référentiels Sectoriels</h3>
-          <p class="text-sm mb-2" style="color: #6B7280;">Questionnaires adaptés par secteur d'activité</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Référentiels Sectoriels</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Questionnaires adaptés par secteur d'activité</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="400">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="400">
           <div class="text-4xl mb-4">📄</div>
-          <h3 class="font-bold mb-2">Export Personnalisé</h3>
-          <p class="text-sm text-gray-600 mb-2">PDF avec logo, Word, Excel</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Export Personnalisé</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">PDF avec logo, Word, Excel</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="500">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="500">
           <div class="text-4xl mb-4">🔔</div>
-          <h3 class="font-bold mb-2">Rappels Automatiques</h3>
-          <p class="text-sm text-gray-600 mb-2">Mise à jour annuelle obligatoire</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Rappels Automatiques</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Mise à jour annuelle obligatoire</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="600">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="600">
           <div class="text-4xl mb-4">📱</div>
-          <h3 class="font-bold mb-2">Mobile-First</h3>
-          <p class="text-sm text-gray-600 mb-2">Accessible terrain, photos</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Mobile-First</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Accessible terrain, photos</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="700">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="700">
           <div class="text-4xl mb-4">🔒</div>
-          <h3 class="font-bold mb-2">RGPD & Sécurité</h3>
-          <p class="text-sm text-gray-600 mb-2">Hébergement UE, Encryption</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">RGPD & Sécurité</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Hébergement UE, Encryption</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
         
-        <div class="border rounded-lg p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="800">
+        <div class="rounded-xl p-6 hover:shadow-md transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="800">
           <div class="text-4xl mb-4">🇫🇷</div>
-          <h3 class="font-bold mb-2">Support Français</h3>
-          <p class="text-sm text-gray-600 mb-2">Email, chat, téléphone</p>
-          <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">✅ Disponible lancement</span>
+          <h3 class="font-semibold mb-3 text-lg" style="color: #1F2933;">Support Français</h3>
+          <p class="text-sm mb-3" style="color: #6B7280; line-height: 1.6;">Email, chat, téléphone</p>
+          <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color: #D1FAE5; color: #065F46;">✅ Disponible lancement</span>
         </div>
       </div>
       
       <!-- Clarification IA et Validation -->
-      <div class="mt-12 max-w-4xl mx-auto" data-aos="fade-up">
-        <div class="border-l-4 p-6 rounded" style="background-color: #EBF4FF; border-color: #2563EB;">
-          <h3 class="text-xl font-bold mb-3" style="color: #1F2933;">IA assistive, validation humaine obligatoire</h3>
-          <p class="mb-3" style="color: #6B7280;">
-            <strong>L'IA assiste, elle ne décide pas.</strong> DUERPilot utilise l'intelligence artificielle pour suggérer des risques, reformuler des textes et aider à la cotation, mais l'analyse finale reste sous votre responsabilité.
+      <div class="mt-16 max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="rounded-xl p-6 md:p-8" style="background-color: #EBF4FF; border: 1px solid #DBEAFE;">
+          <h3 class="text-xl font-bold mb-4" style="color: #1F2933;">IA assistive, validation humaine obligatoire</h3>
+          <p class="mb-4 text-base" style="color: #6B7280; line-height: 1.7;">
+            <strong style="color: #1F2933;">L'IA assiste, elle ne décide pas.</strong> DUERPilot utilise l'intelligence artificielle pour suggérer des risques, reformuler des textes et aider à la cotation, mais l'analyse finale reste sous votre responsabilité.
           </p>
-          <p class="mb-2" style="color: #6B7280;">
-            <strong>Validation humaine obligatoire :</strong> Toutes les suggestions de l'IA doivent être validées par l'employeur ou son représentant. DUERPilot est un outil d'aide à la décision, pas un substitut à l'expertise humaine.
+          <p class="mb-3 text-base" style="color: #6B7280; line-height: 1.7;">
+            <strong style="color: #1F2933;">Validation humaine obligatoire :</strong> Toutes les suggestions de l'IA doivent être validées par l'employeur ou son représentant. DUERPilot est un outil d'aide à la décision, pas un substitut à l'expertise humaine.
           </p>
-          <p class="text-sm" style="color: #6B7280;">
+          <p class="text-sm font-medium" style="color: #6B7280; line-height: 1.6;">
             Conforme au Code du travail – responsabilité employeur
           </p>
         </div>
@@ -872,216 +945,248 @@
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- Section Social Proof -->
-  <section id="social-proof" class="py-20" style="background-color: #F5F7FA;">
+  <section id="social-proof" class="py-16 md:py-24" style="background-color: #F5F7FA;">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Basé sur les référentiels officiels</h2>
-        <div class="flex justify-center items-center space-x-8 mb-8">
-          <div class="text-gray-400 text-2xl">INRS</div>
-          <div class="text-gray-400 text-2xl">RGPD</div>
+      <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1F2933; letter-spacing: -0.02em;">Basé sur les référentiels officiels</h2>
+        <div class="flex justify-center items-center gap-8 mb-8">
+          <div class="text-base md:text-lg font-medium" style="color: #6B7280;">INRS</div>
+          <div class="w-1 h-1 rounded-full" style="background-color: #D1D5DB;"></div>
+          <div class="text-base md:text-lg font-medium" style="color: #6B7280;">RGPD</div>
         </div>
-        <p class="text-sm text-gray-600 max-w-2xl mx-auto">
-          DUERPilot s'appuie sur les référentiels publics INRS comme sources.
+        <p class="text-sm md:text-base max-w-2xl mx-auto" style="color: #6B7280; line-height: 1.7;">
+          DUERPilot s'appuie sur les référentiels publics INRS comme sources.<br>
           Outil indépendant, non affilié à l'INRS.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- Section FAQ -->
-  <section id="faq" class="py-20" style="background-color: #FFFFFF;">
+  <section id="faq" class="py-16 md:py-24" style="background-color: #FFFFFF;">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6 px-2" style="color: #1F2933; letter-spacing: -0.02em;" data-aos="fade-up">
         Questions fréquentes
       </h2>
-      <p class="text-xl text-center mb-12" style="color: #6B7280;" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg md:text-xl text-center mb-12 md:mb-16 px-2 max-w-2xl mx-auto" style="color: #6B7280; line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
         Tout savoir avant le lancement
       </p>
       
       <div class="max-w-3xl mx-auto space-y-4">
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="100">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="100">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-1"
             id="faq-btn-1"
+            style="color: #1F2933;"
           >
             <span>Quand DUERPilot sera-t-il disponible ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-1" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-1">
-            Lancement prévu <strong>Mars 2026</strong>. Les early adopters seront prévenus en priorité.
+          <div id="faq-1" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-1">
+            Lancement prévu <strong style="color: #1F2933;">Mars 2026</strong>. Les early adopters seront prévenus en priorité.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="200">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="200">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-2"
             id="faq-btn-2"
+            style="color: #1F2933;"
           >
             <span>Puis-je tester avant le lancement ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-2" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-2">
+          <div id="faq-2" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-2">
             Beta privée en mars 2025 (places limitées, priorité liste d'attente).
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="300">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="300">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-3"
             id="faq-btn-3"
+            style="color: #1F2933;"
           >
             <span>Quels sont les avantages pour les early adopters ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-3" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-3">
+          <div id="faq-3" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-3">
             Les avantages early adopters sont valables pour les inscriptions avant le lancement. Les conditions spécifiques seront communiquées lors de l'ouverture de l'accès.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="400">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="400">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-4"
             id="faq-btn-4"
+            style="color: #1F2933;"
           >
             <span>Mon secteur est-il couvert ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-4" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-4">
+          <div id="faq-4" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-4">
             Oui, plus de 47 secteurs d'activité couverts grâce à des questionnaires structurés à partir de référentiels sectoriels reconnus (Restauration, BTP, Commerce, Industrie, Services, etc.).
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="500">
-          <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="toggleFaq(this)">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="500">
+          <button 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
+            onclick="toggleFaq(this)"
+            style="color: #1F2933;"
+          >
             <span>Le DUERP sera-t-il vraiment conforme ?</span>
-            <span class="text-xl">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform">+</span>
           </button>
-          <div class="hidden p-4 pt-0 text-gray-600">
+          <div class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;">
             Oui, basé sur les référentiels officiels INRS. Validé par des experts QSE.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="600">
-          <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="toggleFaq(this)">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="600">
+          <button 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
+            onclick="toggleFaq(this)"
+            style="color: #1F2933;"
+          >
             <span>Comment fonctionne l'import de DUERP existant ?</span>
-            <span class="text-xl">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform">+</span>
           </button>
-          <div class="hidden p-4 pt-0 text-gray-600">
+          <div class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;">
             Upload PDF/Excel → IA extrait automatiquement → Validation manuelle → Création entités.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="700">
-          <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="toggleFaq(this)">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="700">
+          <button 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
+            onclick="toggleFaq(this)"
+            style="color: #1F2933;"
+          >
             <span>Mes données seront-elles sécurisées ?</span>
-            <span class="text-xl">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform">+</span>
           </button>
-          <div class="hidden p-4 pt-0 text-gray-600">
+          <div class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;">
             Oui, hébergement UE (Allemagne), RGPD conforme, encryption AES-256.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="800">
-          <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="toggleFaq(this)">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="800">
+          <button 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
+            onclick="toggleFaq(this)"
+            style="color: #1F2933;"
+          >
             <span>Puis-je créer mon DUERP gratuitement ?</span>
-            <span class="text-xl">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform">+</span>
           </button>
-          <div class="hidden p-4 pt-0 text-gray-600">
+          <div class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;">
             Oui, une version gratuite sera disponible dès le lancement avec des fonctionnalités de base pour découvrir l'outil.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="900">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="900">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-methodes"
             id="faq-btn-methodes"
+            style="color: #1F2933;"
           >
             <span>Différence entre les 3 méthodes d'évaluation ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-methodes" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-methodes">
-            <strong>Méthode générique :</strong> Approche simple et universelle, adaptée à tous les secteurs.<br><br>
-            <strong>Méthode structurée INRS :</strong> Basée sur la structure recommandée par l'INRS, avec guide pas à pas.<br><br>
-            <strong>Méthode sectorielle :</strong> Questionnaires spécialisés par secteur d'activité, basés sur les référentiels publics reconnus.
+          <div id="faq-methodes" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-methodes">
+            <strong style="color: #1F2933;">Méthode générique :</strong> Approche simple et universelle, adaptée à tous les secteurs.<br><br>
+            <strong style="color: #1F2933;">Méthode structurée INRS :</strong> Basée sur la structure recommandée par l'INRS, avec guide pas à pas.<br><br>
+            <strong style="color: #1F2933;">Méthode sectorielle :</strong> Questionnaires spécialisés par secteur d'activité, basés sur les référentiels publics reconnus.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="1000">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="1000">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-ia-consultant"
             id="faq-btn-ia-consultant"
+            style="color: #1F2933;"
           >
             <span>L'IA remplace-t-elle un consultant ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-ia-consultant" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-ia-consultant">
+          <div id="faq-ia-consultant" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-ia-consultant">
             Non. DUERPilot est un outil. L'analyse finale reste sous la responsabilité de l'employeur. L'IA assiste en suggérant des risques, en reformulant des textes et en aidant à la cotation, mais toutes les suggestions doivent être validées manuellement. La responsabilité légale du DUERP incombe toujours à l'employeur.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="1100">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="1100">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-consultant"
             id="faq-btn-consultant"
+            style="color: #1F2933;"
           >
             <span>Puis-je utiliser DUERPilot en tant que consultant ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-consultant" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-consultant">
+          <div id="faq-consultant" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-consultant">
             Oui. DUERPilot dispose de fonctionnalités adaptées aux consultants et structures multi-clients, incluant l'accès aux référentiels sectoriels complets, l'IA assistive avancée, et la gestion multi-entreprises pour accompagner plusieurs clients.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="1200">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="1200">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-referentiels"
             id="faq-btn-referentiels"
+            style="color: #1F2933;"
           >
             <span>Les référentiels sont-ils officiels ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-referentiels" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-referentiels">
+          <div id="faq-referentiels" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-referentiels">
             DUERPilot s'appuie sur les référentiels publics INRS, sans affiliation institutionnelle. Outil indépendant, non affilié à l'INRS. Les référentiels utilisés sont publics et reconnus, mais DUERPilot n'est pas un outil officiel de cette institution.
           </div>
         </div>
         
-        <div class="border rounded-lg" data-aos="fade-up" data-aos-delay="1300">
+        <div class="rounded-xl p-4 hover:shadow-sm transition-all" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;" data-aos="fade-up" data-aos-delay="1300">
           <button 
-            class="w-full text-left p-4 font-semibold flex justify-between items-center" 
+            class="w-full text-left font-semibold flex justify-between items-center gap-4 py-2" 
             onclick="toggleFaq(this)"
             aria-expanded="false"
             aria-controls="faq-5"
             id="faq-btn-5"
+            style="color: #1F2933;"
           >
             <span>Puis-je me désinscrire de la liste d'attente ?</span>
-            <span class="text-xl" aria-hidden="true">+</span>
+            <span class="text-xl flex-shrink-0 transition-transform" aria-hidden="true">+</span>
           </button>
-          <div id="faq-5" class="hidden p-4 pt-0 text-gray-600" role="region" aria-labelledby="faq-btn-5">
+          <div id="faq-5" class="hidden mt-3 text-sm" style="color: #6B7280; line-height: 1.7;" role="region" aria-labelledby="faq-btn-5">
             Oui, 1 clic désabonnement dans chaque email ou via le lien en bas de page.
           </div>
         </div>
@@ -1089,15 +1194,24 @@
     </div>
   </section>
 
+  <!-- Séparateur visuel léger -->
+  <div class="w-full" style="height: 1px; background: linear-gradient(to right, transparent, #E5E7EB, transparent);"></div>
+  
   <!-- CTA Final -->
-  <section id="cta-final" class="py-20 text-white" style="background: linear-gradient(to right, #2563EB, #2563EB);">
+  <section id="cta-final" class="py-16 md:py-24 text-white" style="background: linear-gradient(to right, #2563EB, #2563EB);">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 px-2 max-w-3xl mx-auto" style="letter-spacing: -0.02em; line-height: 1.2;" data-aos="fade-up">
         Soyez parmi les premiers à simplifier votre DUERP
       </h2>
+      <p class="text-lg md:text-xl mb-10 md:mb-12 px-2 max-w-2xl mx-auto opacity-90" style="line-height: 1.6;" data-aos="fade-up" data-aos-delay="100">
+        Inscrivez-vous pour un accès prioritaire et des conditions réservées
+      </p>
       
-      <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <div class="bg-white rounded-lg p-4 md:p-6 shadow-xl">
+          <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-base mb-6 px-2 opacity-90" style="line-height: 1.6;">
+              Inscription rapide et sécurisée. Nous vous informerons uniquement du lancement.
+            </p>
+            <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg" style="border: 1px solid rgba(255,255,255,0.1);">
           <div class="sib-form" style="text-align: center; background-color: transparent;">
             <div id="sib-form-container-final" class="sib-form-container">
               <div id="error-message-final" class="sib-form-message-panel" style="font-size:17px; text-align:center; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px; margin:0 auto; display:none;">
@@ -1270,11 +1384,11 @@
                   </div>
                   <div style="padding: 16px 0;">
                     <div class="sib-form-block" style="text-align: center">
-                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:20px; text-align:center; font-weight:700; font-family:'Trebuchet MS', sans-serif; color:#FFFFFF; background-color:#f59e0b; border-radius:3px; border-width:0px; padding:12px 32px; cursor:pointer; width:100%;" form="sib-form-final" type="submit">
+                      <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:18px; text-align:center; font-weight:600; font-family:'Trebuchet MS', sans-serif; color:#FFFFFF; background-color:#FFFFFF; color:#2563EB; border-radius:8px; border-width:0px; padding:14px 32px; cursor:pointer; width:100%; transition:all 0.2s;" form="sib-form-final" type="submit" onmouseover="this.style.backgroundColor='#F5F7FA'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='#FFFFFF'; this.style.transform='translateY(0)'">
                         <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="display:none;">
                           <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                         </svg>
-                        Être informé du lancement
+                        S'inscrire à l'accès anticipé
                       </button>
                     </div>
                   </div>
@@ -1556,6 +1670,63 @@
         const isHidden = menu.classList.contains('hidden');
         menu.classList.toggle('hidden');
         button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      }
+    }
+    
+    // Fonction pour FAQ avec accessibilité
+    function toggleFaq(button) {
+      const contentId = button.getAttribute('aria-controls');
+      const content = contentId ? document.getElementById(contentId) : button.nextElementSibling;
+      const icon = button.querySelector('span[aria-hidden="true"]');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      if (!content) {
+        // Fallback si pas de aria-controls
+        const nextSibling = button.nextElementSibling;
+        if (nextSibling && nextSibling.classList) {
+          nextSibling.classList.toggle('hidden');
+          if (icon) {
+            icon.textContent = nextSibling.classList.contains('hidden') ? '+' : '−';
+            icon.style.transform = nextSibling.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
+          }
+          button.setAttribute('aria-expanded', nextSibling.classList.contains('hidden') ? 'false' : 'true');
+          return;
+        }
+        return;
+      }
+      
+      // Toggle current FAQ
+      if (isExpanded) {
+        content.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        if (icon) {
+          icon.textContent = '+';
+          icon.style.transform = 'rotate(0deg)';
+        }
+      } else {
+        // Close all other FAQs
+        document.querySelectorAll('[aria-controls^="faq-"]').forEach(btn => {
+          if (btn !== button) {
+            const otherContentId = btn.getAttribute('aria-controls');
+            const otherContent = otherContentId ? document.getElementById(otherContentId) : btn.nextElementSibling;
+            const otherIcon = btn.querySelector('span[aria-hidden="true"]');
+            if (otherContent && otherContent.classList) {
+              otherContent.classList.add('hidden');
+            }
+            btn.setAttribute('aria-expanded', 'false');
+            if (otherIcon) {
+              otherIcon.textContent = '+';
+              otherIcon.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+        
+        content.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+        if (icon) {
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(45deg)';
+        }
       }
     }
   </script>
