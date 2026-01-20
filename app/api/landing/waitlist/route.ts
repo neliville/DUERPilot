@@ -27,32 +27,41 @@ export async function POST(request: NextRequest) {
     const { email, companySize, sector, roleContact, jobTitle, consent } = body;
 
     // Debug: logger les valeurs reçues
-    console.log('API received:', {
+    console.log('API received body:', body);
+    console.log('API parsed values:', {
       email,
       companySize,
       sector,
       roleContact,
       jobTitle,
       consent,
-      hasEmail: !!email,
-      hasCompanySize: !!companySize,
-      hasSector: !!sector,
-      hasRole: !!roleContact,
-      hasConsent: !!consent
+      emailType: typeof email,
+      companySizeType: typeof companySize,
+      sectorType: typeof sector,
+      roleContactType: typeof roleContact,
+      consentType: typeof consent,
+      emailEmpty: !email || email.trim() === '',
+      companySizeEmpty: !companySize || companySize === '',
+      sectorEmpty: !sector || sector === '',
+      roleContactEmpty: !roleContact || roleContact === '',
+      consentFalse: consent !== true && consent !== 'true' && consent !== 1
     });
 
-    // Validation avec messages précis
+    // Validation avec messages précis (accepter différentes représentations de consent)
     const missingFields = [];
-    if (!email) missingFields.push('Email');
-    if (!companySize) missingFields.push('Taille de structure');
-    if (!sector) missingFields.push('Secteur d\'activité');
-    if (!roleContact) missingFields.push('Rôle dans l\'entreprise');
-    if (!consent) missingFields.push('Consentement RGPD');
+    const normalizedConsent = consent === true || consent === 'true' || consent === 1 || consent === '1';
+    
+    if (!email || email.trim() === '') missingFields.push('Email');
+    if (!companySize || companySize === '') missingFields.push('Taille de structure');
+    if (!sector || sector === '') missingFields.push('Secteur d\'activité');
+    if (!roleContact || roleContact === '') missingFields.push('Rôle dans l\'entreprise');
+    if (!normalizedConsent) missingFields.push('Consentement RGPD');
     
     if (missingFields.length > 0) {
       const message = missingFields.length === 1 
         ? `Le champ "${missingFields[0]}" est obligatoire.`
         : `Les champs suivants sont obligatoires : ${missingFields.join(', ')}.`;
+      console.error('Validation failed. Missing fields:', missingFields);
       return NextResponse.json(
         { error: message },
         { status: 400, headers: corsHeaders }
