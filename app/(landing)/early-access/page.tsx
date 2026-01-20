@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function LandingPage() {
+export default function EarlyAccessPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const loadedRef = useRef(false);
 
@@ -11,7 +11,7 @@ export default function LandingPage() {
     loadedRef.current = true;
 
     // Charger le HTML via fetch pour éviter les problèmes de SSR
-    fetch('/landing/index.html')
+    fetch('/landing/early-access.html')
       .then(response => response.text())
       .then(htmlContent => {
         if (!containerRef.current) return;
@@ -36,10 +36,10 @@ export default function LandingPage() {
         // Injecter les styles inline dans le head
         const styles = doc.querySelectorAll('style');
         styles.forEach(style => {
-          const existingStyle = document.head.querySelector('style[data-landing-style]');
+          const existingStyle = document.head.querySelector('style[data-early-access-style]');
           if (!existingStyle) {
             const newStyle = document.createElement('style');
-            newStyle.setAttribute('data-landing-style', 'true');
+            newStyle.setAttribute('data-early-access-style', 'true');
             newStyle.textContent = style.textContent || '';
             document.head.appendChild(newStyle);
           }
@@ -73,13 +73,13 @@ export default function LandingPage() {
         }
       })
       .catch(error => {
-        console.error('Erreur lors du chargement de la landing page:', error);
+        console.error('Erreur lors du chargement de la page early-access:', error);
         if (containerRef.current) {
           containerRef.current.innerHTML = `
-            <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div style="min-height: 100vh; display: flex; items-center; justify-content: center;">
               <div style="text-align: center;">
                 <h1 style="font-size: 2rem; font-weight: bold; color: #dc2626; margin-bottom: 1rem;">Erreur de chargement</h1>
-                <p style="color: #6b7280;">Impossible de charger la landing page</p>
+                <p style="color: #6b7280;">Impossible de charger la page d'accès anticipé</p>
               </div>
             </div>
           `;

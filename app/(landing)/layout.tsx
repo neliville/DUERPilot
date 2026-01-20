@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'DUERPilot : DUERP en 30 min avec IA | Lancement Mai 2025',
-  description: 'Créez votre DUERP conforme avec 3 méthodes + import existant. Inscription liste d\'attente : -30% early adopters.',
-  keywords: 'duerp, logiciel duerp, inrs, évaluation risques',
+  title: 'DUERPilot : DUERP en 30 min avec IA | Lancement Mars 2026',
+  description: 'Fini les 12 heures de rédaction manuelle. Importez votre DUERP existant ou créez-en un nouveau en 30 minutes. Inscription liste d\'attente : -30% early adopters.',
+  keywords: 'duerp, logiciel duerp, évaluation risques professionnels, prévention risques',
   openGraph: {
     type: 'website',
-    title: 'DUERPilot : DUERP IA | Lancement 2025',
-    description: 'Liste d\'attente ouverte',
+    title: 'DUERPilot : DUERP IA | Lancement 2026',
+    description: 'Fini les 12 heures de rédaction manuelle. Importez votre DUERP existant ou créez-en un nouveau en 30 minutes.',
     url: 'https://duerpilot.fr',
     images: [
       {
-        url: 'https://duerpilot.fr/landing-assets/images/og-image.jpg',
+        url: 'https://duerpilot.fr/assets/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'DUERPilot - DUERP en 30 min avec IA',
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DUERPilot | Lancement Mai 2025',
-    images: ['https://duerpilot.fr/landing-assets/images/twitter-card.jpg'],
+    title: 'DUERPilot | Lancement Mars 2026',
+    images: ['https://duerpilot.fr/assets/images/twitter-card.jpg'],
   },
 };
 
@@ -33,9 +32,27 @@ export default function LandingLayout({
 }) {
   return (
     <>
-      {/* Charger les scripts nécessaires */}
-      <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" strategy="lazyOnload" />
-      {children}
+      <style jsx global>{`
+        /* Réinitialiser les styles du layout root pour la landing */
+        body {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        /* Cacher les toasters pour la landing */
+        [data-sonner-toaster],
+        [data-radix-toast-viewport] {
+          display: none !important;
+        }
+      `}</style>
+      <div style={{ 
+        margin: 0, 
+        padding: 0, 
+        width: '100%', 
+        minHeight: '100vh',
+        overflow: 'auto'
+      }}>
+        {children}
+      </div>
     </>
   );
 }

@@ -219,10 +219,10 @@
   <!-- Header Simple -->
   <header class="bg-white border-b border-neutral-200">
     <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/landing/index.html">
+      <a href="/landing">
         <img src="/landing-assets/images/logo.svg" alt="DUERPilot" class="h-8 w-auto">
       </a>
-      <a href="/landing/index.html" class="text-neutral-600 hover:text-neutral-900 font-medium text-sm">
+      <a href="/landing" class="text-neutral-600 hover:text-neutral-900 font-medium text-sm">
         ← Retour à l'accueil
       </a>
     </nav>
@@ -234,10 +234,10 @@
       <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
         <div class="text-center mb-8">
           <h1 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Rejoignez l'accès anticipé
+            Accédez en avant-première à DUERPilot
           </h1>
           <p class="text-lg text-neutral-600">
-            Soyez parmi les premiers à découvrir DUERPilot et bénéficiez d'un accès prioritaire au lancement.
+            La solution simple pour gérer votre DUERP et vos obligations QSE, sans Excel ni stress réglementaire.
           </p>
         </div>
         
@@ -249,7 +249,7 @@
           <!-- Email -->
           <div>
             <label for="email" class="form-label">
-              Adresse email <span class="text-red-600">*</span>
+              Email <span class="text-red-600">*</span>
             </label>
             <input
               type="email"
@@ -261,35 +261,115 @@
               autocomplete="email"
             />
             <p class="text-xs text-neutral-500 mt-1">
-              Veuillez renseigner votre adresse email pour vous inscrire. Ex. : abc@xyz.com
+              Nous vous informerons uniquement du lancement et de l'accès anticipé.
             </p>
+          </div>
+          
+          <!-- Taille de structure -->
+          <div>
+            <label class="form-label">
+              Taille de votre structure <span class="text-red-600">*</span>
+            </label>
+            <div class="space-y-2">
+              <label class="form-radio">
+                <input type="radio" name="companySize" value="1" required />
+                <span>TPE (1–10 salariés)</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="companySize" value="2" />
+                <span>PME (11–250 salariés)</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="companySize" value="3" />
+                <span>Consultant / Indépendant</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="companySize" value="4" />
+                <span>Autre</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Secteur d'activité -->
+          <div>
+            <label class="form-label">
+              Secteur d'activité principal <span class="text-red-600">*</span>
+            </label>
+            <div class="space-y-2">
+              <label class="form-radio">
+                <input type="radio" name="sector" value="1" required />
+                <span>BTP</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="sector" value="2" />
+                <span>Industrie</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="sector" value="3" />
+                <span>Logistique / Transport</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="sector" value="4" />
+                <span>Services</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="sector" value="5" />
+                <span>Commerce</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="sector" value="6" />
+                <span>Autre</span>
+              </label>
+            </div>
           </div>
           
           <!-- Rôle -->
           <div>
             <label class="form-label">
-              Votre rôle <span class="text-red-600">*</span>
+              Votre rôle dans l'entreprise <span class="text-red-600">*</span>
             </label>
             <div class="space-y-2">
               <label class="form-radio">
                 <input type="radio" name="role" value="1" required />
-                <span>Dirigeant</span>
+                <span>Dirigeant / Responsable légal</span>
               </label>
               <label class="form-radio">
                 <input type="radio" name="role" value="2" />
-                <span>Responsable QSE</span>
+                <span>Responsable QSE / HSE / Prévention</span>
               </label>
               <label class="form-radio">
                 <input type="radio" name="role" value="3" />
-                <span>Ressource Humaine</span>
+                <span>Manager / Chef d'équipe</span>
               </label>
               <label class="form-radio">
                 <input type="radio" name="role" value="4" />
+                <span>RH / Support</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="5" />
+                <span>Consultant / Cabinet</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="6" />
                 <span>Autre</span>
               </label>
             </div>
+          </div>
+          
+          <!-- Job Title (facultatif) -->
+          <div>
+            <label for="jobTitle" class="form-label">
+              Intitulé de poste (facultatif)
+            </label>
+            <input
+              type="text"
+              id="jobTitle"
+              name="jobTitle"
+              class="form-input"
+              placeholder="Ex. : Directeur QSE"
+            />
             <p class="text-xs text-neutral-500 mt-1">
-              Veuillez cocher votre rôle.
+              Cette information nous aide à adapter nos communications.
             </p>
           </div>
           
@@ -298,20 +378,16 @@
             <label class="form-checkbox">
               <input type="checkbox" id="consent" name="consent" required />
               <span class="text-sm">
-                <strong>J'accepte de recevoir des emails concernant le lancement de DUERPilot</strong> et confirme avoir pris connaissance de la 
-                <a href="/landing/legal/politique-confidentialite.html" target="_blank" class="text-primary hover:underline">politique de confidentialité</a> 
-                et des 
-                <a href="/landing/legal/mentions-legales.html" target="_blank" class="text-primary hover:underline">mentions légales</a>.
+                J'accepte de recevoir des emails concernant le lancement de DUERPilot. 
+                <a href="/landing/legal/politique-confidentialite.html" target="_blank" class="text-primary hover:underline">Politique de confidentialité</a> – 
+                <a href="/landing/legal/mentions-legales.html" target="_blank" class="text-primary hover:underline">Mentions légales</a>
               </span>
             </label>
-            <p class="text-xs text-neutral-500 mt-1">
-              Vous pouvez vous désinscrire à tout moment en cliquant sur le lien présent dans nos emails.
-            </p>
           </div>
           
           <!-- Bouton Submit -->
           <button type="submit" id="submit-btn" class="btn-primary">
-            Rejoindre l'accès anticipé
+            Recevoir mon accès anticipé
           </button>
         </form>
         
@@ -355,11 +431,14 @@
         hideAlert();
         
         const email = document.getElementById('email').value.trim();
+        const companySize = document.querySelector('input[name="companySize"]:checked')?.value;
+        const sector = document.querySelector('input[name="sector"]:checked')?.value;
         const role = document.querySelector('input[name="role"]:checked')?.value;
+        const jobTitle = document.getElementById('jobTitle').value.trim();
         const consent = document.getElementById('consent').checked;
         
         // Validation côté client
-        if (!email || !role || !consent) {
+        if (!email || !companySize || !sector || !role || !consent) {
           showAlert('Veuillez remplir tous les champs obligatoires.', 'error');
           return;
         }
@@ -393,7 +472,7 @@
           
           // Redirection après 3 secondes
           setTimeout(() => {
-            window.location.href = '/landing/index.html';
+            window.location.href = '/landing';
           }, 3000);
           
         } catch (error) {
@@ -402,7 +481,7 @@
           
           // Réactiver le bouton
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Rejoindre l\'accès anticipé';
+          submitBtn.innerHTML = 'Recevoir mon accès anticipé';
         }
       });
     });

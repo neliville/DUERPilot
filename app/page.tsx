@@ -16,7 +16,7 @@ export default async function HomePage() {
     if (!session?.user) {
       console.log('➡️  [HomePage] Redirection vers landing (non authentifié)');
       console.log('➡️  [HomePage] Raison: session =', session, ', session.user =', session?.user);
-      redirect('/landing/index.html');
+      redirect('/landing');
     }
 
     // Vérifier si l'utilisateur est un super admin
@@ -86,6 +86,6 @@ export default async function HomePage() {
     // En cas d'erreur d'authentification, rediriger vers la landing page
     console.error('❌ [HomePage] Erreur d\'authentification:', error);
     console.log('➡️  [HomePage] Redirection vers landing (erreur auth)');
-    redirect('/landing/index.html');
+    redirect('/landing');
   }
 }

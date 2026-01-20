@@ -7,12 +7,12 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, prenom, entreprise, secteur, roleContact, consent } = body;
+    const { email, companySize, sector, roleContact, jobTitle, consent } = body;
 
     // Validation
-    if (!email || !consent) {
+    if (!email || !companySize || !sector || !roleContact || !consent) {
       return NextResponse.json(
-        { error: 'Email et consentement sont requis' },
+        { error: 'Tous les champs obligatoires doivent être remplis' },
         { status: 400 }
       );
     }
@@ -37,14 +37,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Mapping des rôles
-    const roleMapping: Record<string, string> = {
-      '1': 'Dirigeant',
-      '2': 'Responsable QSE',
-      '3': 'Ressource Humaine',
+    // Mapping des tailles de structure
+    const companySizeMapping: Record<string, string> = {
+      '1': 'TPE (1–10 salariés)',
+      '2': 'PME (11–250 salariés)',
+      '3': 'Consultant / Indépendant',
       '4': 'Autre',
     };
-    const roleLabel = roleContact ? roleMapping[roleContact] || 'Non renseigné' : 'Non renseigné';
+    const companySizeLabel = companySizeMapping[companySize] || 'Non renseigné';
+
+    // Mapping des secteurs
+    const sectorMapping: Record<string, string> = {
+      '1': 'BTP',
+      '2': 'Industrie',
+      '3': 'Logistique / Transport',
+      '4': 'Services',
+      '5': 'Commerce',
+      '6': 'Autre',
+    };
+    const sectorLabel = sectorMapping[sector] || 'Non renseigné';
+
+    // Mapping des rôles
+    const roleMapping: Record<string, string> = {
+      '1': 'Dirigeant / Responsable légal',
+      '2': 'Responsable QSE / HSE / Prévention',
+      '3': 'Manager / Chef d\'équipe',
+      '4': 'RH / Support',
+      '5': 'Consultant / Cabinet',
+      '6': 'Autre',
+    };
+    const roleLabel = roleMapping[roleContact] || 'Non renseigné';
 
     // Appel API Brevo
     const response = await fetch('https://api.brevo.com/v3/contacts', {
@@ -56,10 +78,10 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         email,
         attributes: {
-          PRENOM: prenom || '',
-          ENTREPRISE: entreprise || '',
-          SECTEUR: secteur || '',
+          TAILLE_STRUCTURE: companySizeLabel,
+          SECTEUR: sectorLabel,
           ROLE_CONTACT: roleLabel,
+          POSTE: jobTitle || '',
         },
         listIds: [parseInt(BREVO_LIST_ID, 10)],
         updateEnabled: false,
