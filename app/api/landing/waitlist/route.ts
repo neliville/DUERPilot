@@ -15,7 +15,10 @@ const corsHeaders = {
 
 // Gestion de la requête OPTIONS (preflight)
 export async function OPTIONS(request: NextRequest) {
-  return NextResponse.json({}, { headers: corsHeaders });
+  return new NextResponse(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
 }
 
 export async function POST(request: NextRequest) {
