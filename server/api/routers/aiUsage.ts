@@ -96,7 +96,7 @@ export const aiUsageRouter = createTRPCRouter({
           const upgradePlan = getUpgradePlan(userPlan);
           throw new TRPCError({
             code: 'FORBIDDEN',
-            message: PLAN_ERROR_MESSAGES.feature_not_available('reformulation', userPlan, upgradePlan || 'pro'),
+            message: PLAN_ERROR_MESSAGES.feature_not_available('reformulation', userPlan, upgradePlan || 'business'),
           });
         }
 
@@ -130,7 +130,7 @@ export const aiUsageRouter = createTRPCRouter({
           const upgradePlan = getUpgradePlan(userPlan);
           throw new TRPCError({
             code: 'FORBIDDEN',
-            message: PLAN_ERROR_MESSAGES.feature_not_available('ia', userPlan, upgradePlan || 'pro'),
+            message: PLAN_ERROR_MESSAGES.feature_not_available('ia', userPlan, upgradePlan || 'business'),
           });
         }
 
@@ -176,7 +176,7 @@ export const aiUsageRouter = createTRPCRouter({
           const upgradePlan = getUpgradePlan(userPlan);
           throw new TRPCError({
             code: 'FORBIDDEN',
-            message: PLAN_ERROR_MESSAGES.feature_not_available('suggestions_actions', userPlan, upgradePlan || 'expert'),
+            message: PLAN_ERROR_MESSAGES.feature_not_available('suggestions_actions', userPlan, upgradePlan || 'premium'),
           });
         }
 

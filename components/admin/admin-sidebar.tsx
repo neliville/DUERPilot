@@ -107,6 +107,12 @@ const adminNavigation: AdminNavigationItem[] = [
     description: 'Gestion des référentiels risques',
   },
   {
+    name: 'Documents Légaux',
+    href: '/admin/legal-documents',
+    icon: FileText,
+    description: 'CGU, Mentions légales, Politique de confidentialité',
+  },
+  {
     name: 'Prisma Studio',
     href: 'http://localhost:5555',
     icon: Database,

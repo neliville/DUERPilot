@@ -39,7 +39,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 export default function AdminUsersPage() {
   const { toast } = useToast();
   const [filters, setFilters] = useState({
-    plan: undefined as 'free' | 'starter' | 'pro' | 'expert' | undefined,
+    plan: undefined as 'free' | 'starter' | 'business' | 'premium' | 'entreprise' | undefined,
     role: '',
     search: '',
   });
@@ -97,9 +97,9 @@ export default function AdminUsersPage() {
 
   const getPlanBadgeVariant = (plan: string) => {
     switch (plan) {
-      case 'expert':
+      case 'premium':
         return 'default';
-      case 'pro':
+      case 'business':
         return 'secondary';
       case 'starter':
         return 'outline';

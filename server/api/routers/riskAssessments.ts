@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createTRPCRouter, authenticatedProcedure } from '../trpc';
 import { TRPCError } from '@trpc/server';
 import { calculateRiskScore, getPriorityLevel } from '@/lib/utils';
-import { hasMethodAccess, PLAN_FEATURES, type Plan } from '@/lib/plans';
+import { hasMethodAccess, PLAN_FEATURES, PLAN_ERROR_MESSAGES, getUpgradePlan, type Plan } from '@/lib/plans';
+import { suggestHazardsForWorkUnit, generateActionsForRisk } from '@/server/services/ai/openai-service';
 
 const createRiskAssessmentSchema = z.object({
   workUnitId: z.string().cuid(),
@@ -15,6 +16,7 @@ const createRiskAssessmentSchema = z.object({
   control: z.number().int().min(1).max(4),
   existingMeasures: z.string().optional(),
   source: z.enum(['manual', 'ai_assisted', 'imported']).default('manual'),
+  evaluationMethod: z.enum(['duerp_generique', 'inrs']).optional().default('inrs'),
 });
 
 const updateRiskAssessmentSchema = createRiskAssessmentSchema.partial().extend({
@@ -37,6 +39,14 @@ export const riskAssessmentsRouter = createTRPCRouter({
         .optional()
     )
     .query(async ({ ctx, input }) => {
+      const user = ctx.userProfile;
+      const userRoles = user.roles || [];
+      const isOwner = user.isOwner || false;
+      
+      // Filtrage par scope si nécessaire (site_manager, observer)
+      const scopeSites = user.scopeSites || [];
+      const hasScope = ['site_manager', 'observer'].some((r) => userRoles.includes(r));
+      
       const where: any = {
         workUnit: {
           site: {
@@ -46,6 +56,14 @@ export const riskAssessmentsRouter = createTRPCRouter({
           },
         },
       };
+
+      // Filtrage par scope pour site_manager et observer
+      if (hasScope && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        where.workUnit = {
+          ...where.workUnit,
+          siteId: scopeSites.length > 0 ? { in: scopeSites } : undefined,
+        };
+      }
 
       if (input?.workUnitId) {
         where.workUnitId = input.workUnitId;
@@ -178,14 +196,29 @@ export const riskAssessmentsRouter = createTRPCRouter({
   create: authenticatedProcedure
     .input(createRiskAssessmentSchema)
     .mutation(async ({ ctx, input }) => {
-      // Vérifier que le plan permet la méthode classique
-      // Note: Méthode classique disponible dès Starter dans v2
-      const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
-      if (!hasMethodAccess(userPlan, 'classic')) {
-        const { PLAN_ERROR_MESSAGES } = await import('@/lib/plans');
+      // Vérifier les permissions : seuls owner, admin, qse, site_manager peuvent créer
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
+
+      // representative, observer, auditor ne peuvent pas créer
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('site_manager')) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: PLAN_ERROR_MESSAGES.method_not_available('classic', userPlan, 'starter'),
+          message: 'Vous n\'êtes pas autorisé à créer des évaluations de risque',
+        });
+      }
+
+      const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
+      const requestedMethod = input.evaluationMethod || 'inrs';
+      
+      // Vérifier que le plan permet la méthode demandée
+      if (!hasMethodAccess(userPlan, requestedMethod)) {
+        const { PLAN_ERROR_MESSAGES, getRequiredPlan } = await import('@/lib/plans');
+        const requiredPlan = getRequiredPlan(requestedMethod);
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: PLAN_ERROR_MESSAGES.method_not_available(requestedMethod, userPlan, requiredPlan),
         });
       }
 
@@ -265,6 +298,26 @@ export const riskAssessmentsRouter = createTRPCRouter({
           code: 'NOT_FOUND',
           message: 'Unité de travail non trouvée',
         });
+      }
+
+      // Vérifier le scope pour site_manager : ne peut créer que dans son périmètre
+      if (userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        // Récupérer le site de l'unité de travail
+        const workUnitWithSite = await ctx.prisma.workUnit.findUnique({
+          where: { id: input.workUnitId },
+          include: {
+            site: {
+              select: { id: true },
+            },
+          },
+        });
+
+        if (workUnitWithSite && !scopeSites.includes(workUnitWithSite.site.id)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez créer des évaluations de risque que dans votre périmètre',
+          });
+        }
       }
 
       // Vérifier que la situation dangereuse existe
@@ -363,6 +416,39 @@ export const riskAssessmentsRouter = createTRPCRouter({
         });
       }
 
+      // Vérifier les permissions
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
+
+      // representative, observer, auditor ne peuvent pas modifier
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('site_manager')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Vous n\'êtes pas autorisé à modifier des évaluations de risque',
+        });
+      }
+
+      // site_manager peut modifier seulement dans son périmètre
+      if (userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        // Récupérer le site de l'unité de travail
+        const workUnit = await ctx.prisma.workUnit.findUnique({
+          where: { id: existing.workUnitId },
+          include: {
+            site: {
+              select: { id: true },
+            },
+          },
+        });
+
+        if (workUnit && !scopeSites.includes(workUnit.site.id)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez modifier que les évaluations de risque de votre périmètre',
+          });
+        }
+      }
+
       // Recalculer le score si les cotations changent
       let riskScore = existing.riskScore;
       let priorityLevel = existing.priorityLevel;
@@ -442,6 +528,17 @@ export const riskAssessmentsRouter = createTRPCRouter({
         throw new TRPCError({
           code: 'NOT_FOUND',
           message: 'Évaluation de risque non trouvée',
+        });
+      }
+
+      // Vérifier les permissions : seuls owner, admin, qse peuvent supprimer
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire, les administrateurs et les responsables QSE peuvent supprimer des évaluations de risque',
         });
       }
 
@@ -559,6 +656,321 @@ export const riskAssessmentsRouter = createTRPCRouter({
           reasoning: string;
         } | null,
         message: 'Suggestions IA non implémentées - À venir',
+      };
+    }),
+
+  /**
+   * Suggère des dangers pour une unité de travail (Assistant DUERP)
+   * Utilise un cache pour éviter de reconsommer l'API IA inutilement
+   */
+  suggestHazards: authenticatedProcedure
+    .input(
+      z.object({
+        workUnitId: z.string().cuid(),
+        forceRefresh: z.boolean().optional().default(false), // Forcer un nouveau calcul
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      // Vérification de sécurité : s'assurer que prisma est disponible
+      if (!ctx.prisma) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Erreur de configuration : prisma non disponible',
+        });
+      }
+
+      // Vérifier que l'unité de travail appartient au tenant
+      const workUnit = await ctx.prisma.workUnit.findFirst({
+        where: {
+          id: input.workUnitId,
+          site: {
+            company: {
+              tenantId: ctx.tenantId,
+            },
+          },
+        },
+      });
+
+      if (!workUnit) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Unité de travail non trouvée',
+        });
+      }
+
+      // Vérifier si on a un cache valide (non expiré) - PRIORITAIRE
+      // Le cache ne consomme pas de quota, donc on peut le retourner même si quota dépassé
+      if (!input.forceRefresh) {
+        try {
+          // Vérifier si le modèle existe dans le client Prisma
+          if (ctx.prisma && 'hazardSuggestionCache' in ctx.prisma) {
+            const cache = await (ctx.prisma as any).hazardSuggestionCache.findUnique({
+              where: { workUnitId: input.workUnitId },
+            });
+
+            if (cache && cache.expiresAt > new Date()) {
+              // Cache valide, retourner les suggestions en cache (sans vérifier le quota)
+              return {
+                suggestions: cache.suggestions as any[],
+                fromCache: true,
+                expiresAt: cache.expiresAt,
+              };
+            }
+          } else {
+            console.warn('hazardSuggestionCache non disponible dans le client Prisma - le client doit être régénéré');
+          }
+        } catch (cacheError) {
+          // Si le cache n'est pas disponible, continuer sans cache
+          console.warn('Erreur lors de l\'accès au cache:', cacheError);
+        }
+      }
+
+      // Pas de cache valide : vérifier l'accès IA selon le plan AVANT d'appeler l'IA
+      const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
+      const planFeatures = PLAN_FEATURES[userPlan];
+      
+      if (planFeatures.maxAISuggestionsRisks === 0) {
+        const upgradePlan = getUpgradePlan(userPlan);
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: PLAN_ERROR_MESSAGES.feature_not_available('ia', userPlan, upgradePlan || 'business'),
+        });
+      }
+
+      // Vérifier le quota mensuel (sauf si illimité)
+      if (planFeatures.maxAISuggestionsRisks !== Infinity) {
+        const now = new Date();
+        const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+        
+        const suggestionsRisksCount = await ctx.prisma.aIUsageLog.count({
+          where: {
+            tenantId: ctx.tenantId,
+            createdAt: { gte: monthStart },
+            function: {
+              in: ['suggestions_risques', 'risk_suggestions', 'suggest_risks'],
+            },
+          },
+        });
+
+        if (suggestionsRisksCount >= planFeatures.maxAISuggestionsRisks) {
+          const upgradePlan = getUpgradePlan(userPlan);
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: PLAN_ERROR_MESSAGES.quota_exceeded(
+              suggestionsRisksCount,
+              planFeatures.maxAISuggestionsRisks,
+              userPlan,
+              upgradePlan,
+              'risks'
+            ),
+          });
+        }
+      }
+
+      // Pas de cache ou cache expiré ou forceRefresh : générer de nouvelles suggestions
+      const dangerousSituations = await ctx.prisma.dangerousSituation.findMany({
+        where: {
+          OR: [
+            { tenantId: null }, // Référentiels globaux
+            { tenantId: ctx.tenantId }, // Référentiels personnalisés du tenant
+          ],
+        },
+        select: {
+          id: true,
+          label: true,
+          description: true,
+          keywords: true,
+        },
+      });
+
+      // Appeler l'IA pour générer des suggestions
+      const result = await suggestHazardsForWorkUnit({
+        workUnitName: workUnit.name,
+        workUnitDescription: workUnit.description || undefined,
+        dangerousSituations,
+        loggingContext: {
+          tenantId: ctx.tenantId || '',
+          userId: ctx.userProfile.userId,
+          companyId: workUnit.siteId,
+        },
+      });
+
+      // Sauvegarder en cache (expiration : 24h)
+      const expiresAt = new Date();
+      expiresAt.setHours(expiresAt.getHours() + 24);
+
+      try {
+        // Vérifier si le modèle existe dans le client Prisma
+        if (ctx.prisma && 'hazardSuggestionCache' in ctx.prisma) {
+          await (ctx.prisma as any).hazardSuggestionCache.upsert({
+            where: { workUnitId: input.workUnitId },
+            create: {
+              workUnitId: input.workUnitId,
+              suggestions: result.suggestions,
+              expiresAt,
+            },
+            update: {
+              suggestions: result.suggestions,
+              expiresAt,
+              updatedAt: new Date(),
+            },
+          });
+        } else {
+          console.warn('hazardSuggestionCache non disponible - impossible de sauvegarder le cache');
+        }
+      } catch (cacheError) {
+        // Si le cache n'est pas disponible, continuer sans sauvegarder
+        console.warn('Erreur lors de la sauvegarde du cache:', cacheError);
+      }
+
+      return {
+        ...result,
+        fromCache: false,
+        expiresAt,
+      };
+    }),
+
+  /**
+   * Génère des actions de prévention pour un risque évalué
+   */
+  generateActions: authenticatedProcedure
+    .input(z.object({ riskAssessmentId: z.string().cuid() }))
+    .mutation(async ({ ctx, input }) => {
+      // Vérifier que l'évaluation de risque appartient au tenant
+      const riskAssessment = await ctx.prisma.riskAssessment.findFirst({
+        where: {
+          id: input.riskAssessmentId,
+          workUnit: {
+            site: {
+              company: {
+                tenantId: ctx.tenantId,
+              },
+            },
+          },
+        },
+        include: {
+          dangerousSituation: {
+            include: {
+              category: true,
+            },
+          },
+          workUnit: {
+            include: {
+              site: {
+                include: {
+                  company: {
+                    select: {
+                      id: true,
+                      legalName: true,
+                      activity: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (!riskAssessment) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Évaluation de risque non trouvée',
+        });
+      }
+
+      // Vérifier l'accès IA selon le plan
+      const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
+      const planFeatures = PLAN_FEATURES[userPlan];
+
+      if (planFeatures.maxAISuggestionsActions === 0) {
+        const upgradePlan = getUpgradePlan(userPlan);
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: PLAN_ERROR_MESSAGES.feature_not_available('suggestions_actions', userPlan, upgradePlan || 'premium'),
+        });
+      }
+
+      // Vérifier le quota mensuel (sauf si illimité)
+      if (planFeatures.maxAISuggestionsActions !== Infinity) {
+        const now = new Date();
+        const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+
+        const suggestionsActionsCount = await ctx.prisma.aIUsageLog.count({
+          where: {
+            tenantId: ctx.tenantId,
+            createdAt: { gte: monthStart },
+            function: {
+              in: ['suggestions_actions', 'action_suggestions'],
+            },
+          },
+        });
+
+        if (suggestionsActionsCount >= planFeatures.maxAISuggestionsActions) {
+          const upgradePlan = getUpgradePlan(userPlan);
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: PLAN_ERROR_MESSAGES.quota_exceeded(
+              suggestionsActionsCount,
+              planFeatures.maxAISuggestionsActions,
+              userPlan,
+              upgradePlan,
+              'actions'
+            ),
+          });
+        }
+      }
+
+      // Générer les actions avec l'IA
+      const result = await generateActionsForRisk({
+        riskAssessment: {
+          id: riskAssessment.id,
+          dangerousSituation: {
+            label: riskAssessment.dangerousSituation?.label,
+          },
+          contextDescription: riskAssessment.contextDescription,
+          riskScore: riskAssessment.riskScore,
+          priorityLevel: riskAssessment.priorityLevel,
+          existingMeasures: riskAssessment.existingMeasures || undefined,
+          frequency: riskAssessment.frequency,
+          probability: riskAssessment.probability,
+          severity: riskAssessment.severity,
+          control: riskAssessment.control,
+        },
+        company: riskAssessment.workUnit.site.company,
+        loggingContext: {
+          tenantId: ctx.tenantId,
+          userId: ctx.userProfile.id,
+          companyId: riskAssessment.workUnit.site.company.id,
+        },
+      });
+
+      // Créer les actions dans la base de données
+      const createdActions = [];
+      for (const action of result.actions) {
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + (action.weeks || 4) * 7);
+
+        const createdAction = await ctx.prisma.actionPlan.create({
+          data: {
+            riskAssessmentId: riskAssessment.id,
+            workUnitId: riskAssessment.workUnitId,
+            type: action.action_type,
+            description: action.action_label,
+            priority: action.priority,
+            status: 'à_faire',
+            dueDate,
+            notes: `Indicateur de suivi: ${action.indicator}`,
+          },
+        });
+
+        createdActions.push(createdAction);
+      }
+
+      return {
+        success: true,
+        actions: createdActions,
+        count: createdActions.length,
       };
     }),
 });

@@ -34,11 +34,24 @@ export const dangerousSituationsRouter = createTRPCRouter({
         .optional()
     )
     .query(async ({ ctx, input }) => {
+      // Construire la condition pour les situations globales et du tenant
+      // Note: tenantId peut venir de ctx.tenantId (via enforceTenant) ou ctx.userProfile?.tenantId
+      const tenantId = ctx.tenantId || ctx.userProfile?.tenantId;
+      
+      // Construire la condition OR pour les situations globales et du tenant
+      // Utiliser une syntaxe Prisma compatible avec null
+      const tenantCondition: any = tenantId
+        ? {
+            OR: [
+              { tenantId: null }, // Situations globales (communes à tous)
+              { tenantId }, // Situations du tenant
+            ],
+          }
+        : { tenantId: null }; // Si pas de tenantId, seulement les situations globales
+      
+      // Construire le where de base avec le filtre tenant
       const where: any = {
-        OR: [
-          { tenantId: null }, // Situations globales
-          { tenantId: ctx.tenantId }, // Situations du tenant
-        ],
+        ...tenantCondition,
       };
 
       if (input?.categoryId) {
@@ -56,16 +69,28 @@ export const dangerousSituationsRouter = createTRPCRouter({
       }
 
       if (input?.sectorCode) {
-        where.OR = [
-          { suggestedSector: input.sectorCode },
-          { suggestedSector: null }, // Situations communes
-        ];
-        // Conserver aussi le filtre tenant
-        where.AND = [
-          { OR: [{ tenantId: null }, { tenantId: ctx.tenantId }] },
-          where.OR,
-        ];
-        delete where.OR;
+        // Filtrer par secteur suggéré
+        const sectorCondition = {
+          OR: [
+            { suggestedSector: input.sectorCode },
+            { suggestedSector: null }, // Situations communes
+          ],
+        };
+        
+        // Combiner avec le filtre tenant
+        if (where.OR) {
+          // Si on a déjà un OR pour tenantId, créer un AND
+          where.AND = [
+            tenantCondition,
+            sectorCondition,
+          ];
+          delete where.OR;
+        } else {
+          where.AND = [
+            tenantCondition,
+            sectorCondition,
+          ];
+        }
       }
 
       if (input?.mandatory !== undefined) {
@@ -90,6 +115,14 @@ export const dangerousSituationsRouter = createTRPCRouter({
         }
       }
 
+      // Debug: logger pour comprendre le problème
+      console.log('[dangerousSituations.getAll] Debug:', {
+        tenantId,
+        hasUserProfile: !!ctx.userProfile,
+        userProfileTenantId: ctx.userProfile?.tenantId,
+        whereCondition: JSON.stringify(where, null, 2),
+      });
+
       const situations = await ctx.prisma.dangerousSituation.findMany({
         where,
         include: {
@@ -100,6 +133,11 @@ export const dangerousSituationsRouter = createTRPCRouter({
           { category: { order: 'asc' } },
           { label: 'asc' },
         ],
+      });
+
+      console.log('[dangerousSituations.getAll] Résultat:', {
+        count: situations.length,
+        firstSituation: situations[0] ? { id: situations[0].id, label: situations[0].label, tenantId: situations[0].tenantId } : null,
       });
 
       return situations;

@@ -38,19 +38,19 @@ export const authRouter = createTRPCRouter({
           });
         }
 
-        // Créer ou récupérer un tenant par défaut
-        let tenant = await prisma.tenant.findFirst({
-          where: { slug: 'default' },
+        // Créer un nouveau tenant unique pour chaque nouvel utilisateur
+        // Chaque utilisateur doit avoir son propre espace isolé
+        const tenantSlug = `user-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+        const tenantName = input.firstName && input.lastName
+          ? `${input.firstName} ${input.lastName}`
+          : input.email.split('@')[0]; // Utiliser la partie avant @ de l'email
+        
+        const tenant = await prisma.tenant.create({
+          data: {
+            name: tenantName,
+            slug: tenantSlug,
+          },
         });
-
-        if (!tenant) {
-          tenant = await prisma.tenant.create({
-            data: {
-              name: 'Default Tenant',
-              slug: 'default',
-            },
-          });
-        }
 
         // Hasher le mot de passe
         const hashedPassword = await bcrypt.hash(input.password, 10);
@@ -60,18 +60,26 @@ export const authRouter = createTRPCRouter({
         const verificationExpiry = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
 
         // Créer l'utilisateur UserProfile (email non vérifié par défaut)
+        // Le premier utilisateur est automatiquement le propriétaire (owner)
         const userProfile = await prisma.userProfile.create({
           data: {
             email: input.email,
             firstName: input.firstName || '',
             lastName: input.lastName || '',
             password: hashedPassword, // Stocker le hash du mot de passe
-            roles: ['user' as UserRole],
+            roles: ['owner', 'admin'], // Premier utilisateur = propriétaire + admin
+            isOwner: true, // Premier utilisateur = propriétaire
             tenantId: tenant.id,
             emailVerified: false, // Email non vérifié par défaut
             emailVerificationToken: verificationCode,
             emailVerificationExpiry: verificationExpiry,
           },
+        });
+
+        // Lier le propriétaire au tenant
+        await prisma.tenant.update({
+          where: { id: tenant.id },
+          data: { ownerId: userProfile.id },
         });
 
         // Créer aussi l'utilisateur NextAuth (email non vérifié)

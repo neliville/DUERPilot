@@ -51,6 +51,34 @@ export const EMAIL_TEMPLATES: Record<string, EmailTemplateConfig> = {
     useN8n: false,
     variables: ['quotaType', 'currentPlan', 'upgradeLink'],
   },
+  plan_limit_warning: {
+    brevoTemplateId: 8, // Warning 80% ou 90%
+    category: 'system',
+    alwaysSend: false,
+    useN8n: false,
+    variables: [
+      'userName',
+      'featureName',
+      'feature',
+      'limit',
+      'current',
+      'percentage',
+      'threshold',
+    ],
+  },
+  plan_limit_exceeded: {
+    brevoTemplateId: 9, // Dépassement 100%
+    category: 'transactional',
+    alwaysSend: true,
+    useN8n: false,
+    variables: [
+      'userName',
+      'featureName',
+      'feature',
+      'limit',
+      'current',
+    ],
+  },
   
   // P1 - BUSINESS (Brevo direct)
   duerp_annual_reminder: {
@@ -125,7 +153,7 @@ export const EMAIL_TEMPLATES: Record<string, EmailTemplateConfig> = {
     useN8n: true,
     n8nWebhookUrl: process.env.N8N_WEBHOOK_MONTHLY_DIGEST,
     variables: ['month', 'risksCreated', 'actionsCompleted', 'reportLink'],
-    planRequired: ['starter', 'pro', 'expert'],
+    planRequired: ['essentiel', 'pro', 'expert'],
   },
   inactivity_nudge: {
     brevoTemplateId: 14,

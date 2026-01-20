@@ -14,7 +14,7 @@ export const supportRouter = createTRPCRouter({
   getTickets: adminProcedure
     .input(
       z.object({
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
         status: z.string().optional(),
       })
     )

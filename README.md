@@ -1,136 +1,203 @@
-# DUERPilot - Solution DUERP conforme au Code du travail
+# DUERPilot - Solution DUERP Conforme avec IA
 
-Application SaaS moderne pour la création, la gestion et la mise à jour du Document Unique d'Évaluation des Risques Professionnels (DUERP) conforme au Code du travail français, avec intégration d'intelligence artificielle.
+Application SaaS moderne pour la création, la gestion et la mise à jour du Document Unique d'Évaluation des Risques Professionnels (DUERP) conforme au Code du travail français.
 
-**Référentiel propriétaire** : Basé sur le Code du travail (Articles R4121-1 à R4121-4) et la circulaire DRT n°6 du 18 avril 2002. Indépendant d'OiRA. Contenu propriétaire.
+**Stack :** Next.js 14 + tRPC + Prisma + PostgreSQL + IA  
+**Hébergement :** Hetzner (Allemagne) - Conforme RGPD  
+**Statut :** ✅ Production
 
-## 🚀 Stack Technologique
+## 🆕 Nouveauté : Assistant DUERP (IA)
 
-- **Frontend** : Next.js 14+ (App Router), React 18+, TypeScript
-- **Styling** : Tailwind CSS, shadcn/ui
-- **Backend** : Next.js API Routes + tRPC
-- **Base de données** : PostgreSQL + Prisma ORM
-- **Authentification** : NextAuth.js v5
-- **IA** : OpenAI API / Anthropic Claude
-- **PWA** : next-pwa
-- **PDF** : Puppeteer
+Parcours guidé en 4 étapes avec assistance IA pour créer votre DUERP complet :
+- ✅ **Étape 1** : Gestion des unités de travail
+- ✅ **Étape 2** : Évaluation avec suggestions IA de dangers
+- ✅ **Étape 3** : Génération automatique du plan d'actions
+- ✅ **Étape 4** : Export PDF et CSV
 
-Voir [STACK_PROPOSAL.md](./STACK_PROPOSAL.md) pour plus de détails.
+👉 [Documentation complète](./docs/ASSISTANT_DUERP_IA.md)
 
-## 📋 Prérequis
+---
 
-- Node.js 18+ 
-- pnpm 8+
-- PostgreSQL 15+
-- (Optionnel) Redis pour le cache
+## 🚀 Démarrage Rapide
 
-## 🛠️ Installation
-
-1. **Cloner le projet**
 ```bash
-git clone <repository-url>
-cd duerpilot
-```
-
-2. **Installer les dépendances**
-```bash
+# Installation
 pnpm install
-```
 
-3. **Configurer les variables d'environnement**
-```bash
+# Configuration environnement
 cp .env.example .env
-# Éditer .env avec vos configurations
-```
+# Éditer .env avec vos valeurs
 
-4. **Configurer la base de données**
-```bash
-# Générer le client Prisma
-pnpm db:generate
+# Configuration DB
+pnpm prisma migrate dev
+pnpm prisma generate
 
-# Créer la base de données et appliquer les migrations
-pnpm db:migrate
-
-# Peupler le référentiel avec les données initiales (catégories, secteurs, situations)
-pnpm db:seed
-```
-
-5. **Lancer le serveur de développement**
-```bash
+# Démarrage
 pnpm dev
 ```
 
-L'application sera accessible sur [http://localhost:3000](http://localhost:3000)
+Le serveur démarre sur **http://localhost:3000**
 
-## 📁 Structure du projet
+➡️ **Guide complet :** [docs/guides/quick-start.md](docs/guides/quick-start.md)
+
+---
+
+## 📚 Documentation
+
+### Points d'Entrée
+- 📖 **[Documentation Complète](docs/README.md)** - Index principal
+- 🚀 **[Guide de Démarrage](docs/guides/quick-start.md)** - Installation et configuration
+
+### Documentation Technique
+- 🎯 **[Plans et Tarifs](docs/plans-tarifs/README.md)** - FREE, STARTER, BUSINESS, PREMIUM, ENTREPRISE
+- 🏗️ **[Architecture](docs/architecture/README.md)** - Stack technique et structure
+- ⚙️ **[Configuration](docs/configuration/)** - Guides de configuration (Brevo, etc.)
+
+---
+
+## 🎯 Plans Tarifaires
+
+| Plan | Prix/mois | Cible | Différenciateur |
+|------|-----------|-------|-----------------|
+| **FREE** | 0€ | Découverte (1-5 salariés) | Méthode générique |
+| **STARTER** | 59€ | TPE (1-10 salariés) | Méthode INRS + conformité |
+| **BUSINESS** | 149€ | PME (11-50 salariés) | IA + Import + API |
+| **PREMIUM** | 349€ | PME structurées (51-250) | IA avancée + PAPRIPACT + Multi-sites |
+| **ENTREPRISE** | Sur devis | Groupes (250+) | Solution sur mesure |
+
+➡️ **Détails complets :** [docs/plans-tarifs/README.md](docs/plans-tarifs/README.md)
+
+---
+
+## 🏗️ Stack Technique
+
+### Frontend
+- **Framework :** Next.js 14 (App Router)
+- **UI :** React 18 + Tailwind CSS + shadcn/ui
+- **Formulaires :** React Hook Form + Zod
+
+### Backend
+- **API :** tRPC (type-safe end-to-end)
+- **ORM :** Prisma
+- **Base de données :** PostgreSQL
+- **Auth :** NextAuth.js (JWT)
+
+### Services
+- **Email :** Brevo (transactional)
+- **Hébergement :** Hetzner (Allemagne)
+- **IA :** OpenAI / Anthropic (prévu)
+
+---
+
+## 📁 Structure du Projet
 
 ```
-duerpilot/
-├── app/                    # Next.js App Router
-│   ├── (auth)/            # Routes d'authentification
-│   ├── (dashboard)/       # Routes du dashboard
-│   ├── api/               # API Routes
-│   └── layout.tsx         # Layout principal
-├── components/            # Composants React réutilisables
-│   ├── ui/               # Composants UI (shadcn/ui)
-│   └── ...
-├── lib/                   # Utilitaires et helpers
-│   ├── db/               # Client Prisma
-│   ├── auth/             # Configuration NextAuth
-│   └── ...
-├── server/                # Code serveur (tRPC, API)
-│   ├── api/              # Routers tRPC
-│   └── ...
-├── types/                 # Types TypeScript
-├── prisma/                # Schéma Prisma et migrations
-│   └── schema.prisma
-├── public/                # Fichiers statiques
-└── data/                  # Designs et ressources
+DUERPilot/
+├── app/                      # Next.js App Router
+│   ├── (auth)/              # Pages authentification
+│   ├── (dashboard)/         # Pages dashboard
+│   ├── (landing)/           # Landing page
+│   └── (onboarding)/        # Onboarding
+├── components/              # Composants React
+├── server/                  # Code serveur (tRPC)
+├── lib/                     # Utilitaires
+├── prisma/                  # Schéma et migrations
+├── docs/                    # 📚 Documentation
+│   ├── plans-tarifs/        # Plans et tarifs
+│   ├── architecture/        # Architecture technique
+│   ├── configuration/       # Guides configuration
+│   ├── guides/              # Guides pratiques
+│   └── archive/             # Fichiers obsolètes
+└── types/                   # Types TypeScript
 ```
 
-## 🧪 Tests
+---
 
+## 🔧 Commandes Utiles
+
+### Développement
 ```bash
-# Tests unitaires (85+ tests)
-pnpm test
-
-# Tests E2E
-pnpm test:e2e
+pnpm dev              # Démarrer le serveur (port 3000)
+pnpm db:studio        # Ouvrir Prisma Studio (port 5555)
+pnpm type-check       # Vérifier les types
+pnpm lint             # Linter le code
 ```
 
-**Couverture des tests** :
-- ✅ Logique métier PAPRIPACT (éligibilité, seuils)
-- ✅ Validation des schémas Zod (CRUD complet)
-- ✅ Participation des travailleurs (types, validation)
-- ✅ Messages légaux (structure, références réglementaires)
-- ✅ Mapping NAF → Secteur
+### Base de Données
+```bash
+pnpm prisma migrate dev         # Créer une migration
+pnpm prisma migrate deploy      # Appliquer les migrations
+pnpm prisma generate            # Générer le client
+pnpm prisma db seed             # Seed des données
+```
 
-## 📦 Scripts disponibles
+### Production
+```bash
+pnpm build            # Build production
+pnpm start            # Démarrer en production
+```
 
-- `pnpm dev` - Lancer le serveur de développement
-- `pnpm build` - Construire pour la production
-- `pnpm start` - Lancer le serveur de production
-- `pnpm lint` - Linter le code
-- `pnpm type-check` - Vérifier les types TypeScript
-- `pnpm db:generate` - Générer le client Prisma
-- `pnpm db:push` - Synchroniser le schéma (développement)
-- `pnpm db:migrate` - Créer/appliquer les migrations
-- `pnpm db:seed` - Peupler la base avec les données initiales
-- `pnpm db:studio` - Ouvrir Prisma Studio
+---
 
-## 🔐 Sécurité
+## 🔐 Multi-Tenancy
 
-- Authentification sécurisée avec NextAuth.js
-- RBAC (Role-Based Access Control)
-- Validation des données avec Zod
-- Protection CSRF intégrée
-- Headers de sécurité configurés
+- Chaque utilisateur appartient à un **Tenant** unique
+- Isolation des données par `tenantId`
+- Row-Level Security au niveau Prisma
+- Super Admin peut accéder à tous les tenants
+
+---
+
+## 🎨 Conformité Réglementaire
+
+DUERPilot est conforme au Code du travail français :
+- Articles R4121-1 à R4121-4
+- Circulaire DRT n°6 du 18 avril 2002
+- Référentiel INRS
+- Hébergement RGPD (Allemagne)
+
+---
+
+## 🤝 Contribution
+
+### Workflow
+1. Créer une branche depuis `main`
+2. Faire vos modifications
+3. Tester localement
+4. Créer une Pull Request
+
+### Standards
+- **Code :** TypeScript strict
+- **Style :** Prettier + ESLint
+- **Commits :** Conventional Commits
+
+---
+
+## 📝 Changelog
+
+### Janvier 2026
+- ✅ Restructuration documentation
+- ✅ Plans tarifaires consolidés (ESSENTIEL)
+- ✅ Multi-tenancy implémenté
+- ✅ Configuration Brevo
+- ✅ Onboarding utilisateur
+
+---
+
+## 📞 Support
+
+- **Documentation :** [docs/](docs/)
+- **Email :** support@duerpilot.fr
+- **Issues :** GitHub Issues
+
+---
 
 ## 📄 Licence
 
-[À définir]
+Propriétaire - © 2026 DUERPilot
 
-## 👥 Équipe
+---
 
-[À compléter]
-
+**Dernière mise à jour :** Janvier 2026  
+**Version :** 1.0  
+**Maintenu par :** Équipe DUERPilot

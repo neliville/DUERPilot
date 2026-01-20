@@ -15,7 +15,7 @@ export const analyticsRouter = createTRPCRouter({
     // Pour simplifier, on regarde les RiskAssessment avec oiraQuestionId (méthode guidée)
     // et ceux sans (méthode classique ou générique)
 
-    const plans: Array<'free' | 'starter' | 'pro' | 'expert'> = ['free', 'starter', 'pro', 'expert'];
+    const plans: Array<'free' | 'starter' | 'business' | 'premium' | 'entreprise'> = ['free', 'starter', 'business', 'premium', 'entreprise'];
     const results: Record<string, { generic: number; guided: number; classic: number }> = {};
 
     for (const plan of plans) {

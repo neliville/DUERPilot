@@ -25,13 +25,13 @@ export function MethodSelector({
   showKeyMessage = true,
 }: MethodSelectorProps) {
   const router = useRouter();
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery(undefined, {
+  const { data: planInfo } = api.plans.getCurrent.useQuery(undefined, {
     enabled: !currentPlan,
   });
 
   const plan = currentPlan || planInfo?.plan || 'free';
 
-  const methods: EvaluationMethod[] = ['duerp_generique', 'inrs'];
+  const methods: EvaluationMethod[] = ['duerp_generique', 'inrs', 'assistance_ia'];
 
   const getMethodIcon = (method: EvaluationMethod) => {
     switch (method) {
@@ -39,6 +39,8 @@ export function MethodSelector({
         return <ClipboardCheck className="h-6 w-6" />;
       case 'inrs':
         return <AlertCircle className="h-6 w-6" />;
+      case 'assistance_ia':
+        return <Sparkles className="h-6 w-6" />;
     }
   };
 
@@ -48,6 +50,8 @@ export function MethodSelector({
         return 'text-blue-600 bg-blue-50 border-blue-200';
       case 'inrs':
         return 'text-green-600 bg-green-50 border-green-200';
+      case 'assistance_ia':
+        return 'text-purple-600 bg-purple-50 border-purple-200';
     }
   };
 

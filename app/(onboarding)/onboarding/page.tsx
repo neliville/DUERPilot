@@ -146,8 +146,8 @@ export default function OnboardingPage() {
               <Building2 className="h-8 w-8 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">DUERP AI</h1>
-          <p className="text-blue-200">Évaluation des risques</p>
+          <h1 className="text-3xl font-bold text-white mb-2">DUERPilot</h1>
+          <p className="text-blue-200">Évaluation des risques professionnels</p>
           <p className="text-white text-lg mt-2">Configuration de votre espace</p>
         </div>
 
@@ -420,7 +420,7 @@ export default function OnboardingPage() {
                 </div>
 
                 <p className="text-sm text-gray-600 text-center">
-                  En validant, vous créez votre espace DUERP AI et acceptez les conditions d'utilisation.
+                  En validant, vous créez votre espace DUERPilot et acceptez les conditions d'utilisation.
                 </p>
 
                 <div className="flex justify-between">

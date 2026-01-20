@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createTRPCRouter, authenticatedProcedure } from '../trpc';
 import { TRPCError } from '@trpc/server';
 import { PLAN_FEATURES, getUpgradePlan, type Plan } from '@/lib/plans';
+import { syncScopeSitesForObserver } from '@/lib/user-scope';
 
 const createWorkUnitSchema = z.object({
   siteId: z.string().cuid(),
@@ -133,6 +134,19 @@ export const workUnitsRouter = createTRPCRouter({
   create: authenticatedProcedure
     .input(createWorkUnitSchema)
     .mutation(async ({ ctx, input }) => {
+      // Vérifier les permissions : seuls owner, admin, qse, site_manager peuvent créer
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
+
+      // representative, observer, auditor ne peuvent pas créer
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('site_manager')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Vous n\'êtes pas autorisé à créer des unités de travail',
+        });
+      }
+
       // Vérifier la limite d'unités de travail
       const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
       const planFeatures = PLAN_FEATURES[userPlan];
@@ -181,6 +195,16 @@ export const workUnitsRouter = createTRPCRouter({
         });
       }
 
+      // Vérifier le scope pour site_manager : ne peut créer que dans son périmètre
+      if (userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        if (!scopeSites.includes(input.siteId)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez créer des unités de travail que dans votre périmètre',
+          });
+        }
+      }
+
       const workUnit = await ctx.prisma.workUnit.create({
         data: {
           ...input,
@@ -224,6 +248,31 @@ export const workUnitsRouter = createTRPCRouter({
           code: 'NOT_FOUND',
           message: 'Unité de travail non trouvée',
         });
+      }
+
+      // Vérifier les permissions
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
+
+      // representative, observer, auditor ne peuvent pas modifier
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('site_manager')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Vous n\'êtes pas autorisé à modifier des unités de travail',
+        });
+      }
+
+      // site_manager peut modifier seulement dans son périmètre
+      if (userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        // Vérifier le scope pour le site actuel et le nouveau site si modifié
+        const siteIdToCheck = data.siteId || existing.siteId;
+        if (!scopeSites.includes(siteIdToCheck)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez modifier que les unités de travail de votre périmètre',
+          });
+        }
       }
 
       // Si le site est modifié, vérifier qu'il appartient au tenant
@@ -294,6 +343,17 @@ export const workUnitsRouter = createTRPCRouter({
         throw new TRPCError({
           code: 'NOT_FOUND',
           message: 'Unité de travail non trouvée',
+        });
+      }
+
+      // Vérifier les permissions : seuls owner, admin, qse peuvent supprimer
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire, les administrateurs et les responsables QSE peuvent supprimer des unités de travail',
         });
       }
 
@@ -370,6 +430,23 @@ export const workUnitsRouter = createTRPCRouter({
           },
         },
       });
+
+      // Synchroniser automatiquement scopeSites pour les observers
+      // Quand on assigne des unités à un observer, mettre à jour scopeSites automatiquement
+      for (const userId of input.userIds) {
+        const user = await ctx.prisma.userProfile.findUnique({
+          where: { id: userId },
+          select: { roles: true },
+        });
+
+        if (user?.roles?.includes('observer')) {
+          // Synchroniser scopeSites depuis assignedWorkUnits pour cet observer
+          await syncScopeSitesForObserver(userId).catch((error) => {
+            // Logger l'erreur mais ne pas bloquer la transaction
+            console.error(`Erreur lors de la synchronisation scopeSites pour observer ${userId}:`, error);
+          });
+        }
+      }
 
       return { success: true };
     }),

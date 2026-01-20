@@ -14,10 +14,10 @@ export interface MethodDescription {
   purpose: string;
   howItWorks: string[];
   targetUsers: string[];
-  aiUsage: 'none' | 'assisted' | 'optional';
+  aiUsage: 'none' | 'assisted' | 'optional' | 'full';
   advantages: string[];
   limitations: string[];
-  complexity: 'Très faible' | 'Faible' | 'Élevée';
+  complexity: 'Très faible' | 'Faible' | 'Moyenne' | 'Élevée';
 }
 
 export const EVALUATION_METHODS: Record<EvaluationMethod, MethodDescription> = {
@@ -86,6 +86,38 @@ export const EVALUATION_METHODS: Record<EvaluationMethod, MethodDescription> = {
     ],
     complexity: 'Moyenne',
   },
+  assistance_ia: {
+    id: 'assistance_ia',
+    name: 'Assistant DUERP (IA)',
+    subtitle: 'Parcours guidé avec assistance IA complète',
+    purpose: 'Créer votre DUERP complet en 4 étapes guidées avec l\'aide de l\'IA. L\'IA vous suggère des dangers pertinents, propose des cotations et génère automatiquement des actions de prévention. Idéal pour gagner du temps tout en gardant le contrôle.',
+    howItWorks: [
+      'Étape 1 : Gérer vos unités de travail',
+      'Étape 2 : Évaluer les risques avec suggestions IA',
+      'Étape 3 : Générer automatiquement le plan d\'actions',
+      'Étape 4 : Générer et exporter votre DUERP',
+    ],
+    targetUsers: [
+      'PME avec ressources limitées',
+      'Entreprises recherchant l\'efficacité',
+      'Utilisateurs souhaitant une assistance complète',
+      'Plans PRO, EXPERT et ENTREPRISE',
+    ],
+    aiUsage: 'full',
+    advantages: [
+      'Gain de temps considérable',
+      'Suggestions de dangers pertinents',
+      'Cotation assistée par IA',
+      'Génération automatique des actions',
+      'Parcours guidé étape par étape',
+    ],
+    limitations: [
+      'Nécessite un plan PRO ou supérieur',
+      'Consomme des crédits IA',
+      'Moins de contrôle manuel',
+    ],
+    complexity: 'Très faible',
+  },
 };
 
 /**
@@ -108,6 +140,7 @@ export function getAISymbol(method: EvaluationMethod): string {
   const symbols: Record<EvaluationMethod, string> = {
     duerp_generique: '❌',
     inrs: '⚠️',
+    assistance_ia: '✨',
   };
   return symbols[method];
 }
@@ -119,6 +152,7 @@ export function getAIDescription(method: EvaluationMethod): string {
   const descriptions: Record<EvaluationMethod, string> = {
     duerp_generique: 'Aucune',
     inrs: 'Optionnelle et assistive (plan PRO/EXPERT). Aide à la reformulation ou à la suggestion. Jamais décisionnaire.',
+    assistance_ia: 'Assistance IA complète à chaque étape. Suggestions de dangers, cotations et actions générées automatiquement.',
   };
   return descriptions[method];
 }

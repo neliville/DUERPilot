@@ -56,6 +56,7 @@ export default function SignInPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('🔥 handleSubmit called', { isSignUp, email, password });
 
     if (isSignUp) {
       // Vérifier que les mots de passe correspondent
@@ -106,6 +107,7 @@ export default function SignInPage() {
     }
     
     // Connexion
+    console.log('🔐 Tentative de connexion pour:', email);
     setIsLoading(true);
     try {
       const result = await signIn('credentials', {
@@ -113,6 +115,7 @@ export default function SignInPage() {
         password,
         redirect: false,
       });
+      console.log('📊 Résultat signIn:', result);
 
       if (result?.error) {
         // Vérifier si l'email n'est pas vérifié
@@ -166,9 +169,10 @@ export default function SignInPage() {
           description: 'Redirection en cours...',
         });
         // Utiliser window.location pour forcer un rechargement complet et éviter les problèmes de session
+        // Augmenter le délai pour s'assurer que la session JWT est établie côté serveur
         setTimeout(() => {
           window.location.href = '/';
-        }, 200);
+        }, 1000);
         return;
       }
       
@@ -192,13 +196,18 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
+      <Card className="w-full max-w-md shadow-xl border-0">
+        <CardHeader className="space-y-3 pb-6">
+          <div className="flex justify-center mb-2">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-2xl font-bold text-white">DU</span>
+            </div>
+          </div>
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
             DUERP AI
           </CardTitle>
-          <CardDescription className="text-center">
+          <CardDescription className="text-center text-base">
             {isSignUp ? 'Créez votre compte' : 'Connectez-vous à votre compte'}
           </CardDescription>
         </CardHeader>
@@ -277,7 +286,7 @@ export default function SignInPage() {
             )}
             <Button 
               type="submit" 
-              className="w-full" 
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-md transition-all duration-200" 
               disabled={isLoading || registerMutation.isPending}
             >
               {isLoading || registerMutation.isPending
@@ -288,30 +297,38 @@ export default function SignInPage() {
             </Button>
           </form>
 
-          <div className="mt-4 text-center text-sm">
-            {isSignUp ? (
-              <span>
-                Vous avez déjà un compte ?{' '}
-                <button
-                  type="button"
-                  onClick={() => setIsSignUp(false)}
-                  className="text-blue-600 hover:underline"
-                >
-                  Se connecter
-                </button>
-              </span>
-            ) : (
-              <span>
-                Pas encore de compte ?{' '}
-                <button
-                  type="button"
-                  onClick={() => setIsSignUp(true)}
-                  className="text-blue-600 hover:underline"
-                >
-                  S'inscrire
-                </button>
-              </span>
-            )}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="text-center text-sm text-gray-600">
+              {isSignUp ? (
+                <span>
+                  Vous avez déjà un compte ?{' '}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsSignUp(false);
+                    }}
+                    className="text-blue-600 hover:text-blue-700 font-semibold transition-colors cursor-pointer underline bg-transparent border-none p-0 m-0"
+                  >
+                    Se connecter
+                  </button>
+                </span>
+              ) : (
+                <span>
+                  Pas encore de compte ?{' '}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsSignUp(true);
+                    }}
+                    className="text-blue-600 hover:text-blue-700 font-semibold transition-colors cursor-pointer underline relative z-10 bg-transparent border-none p-0 m-0"
+                  >
+                    S'inscrire
+                  </button>
+                </span>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>

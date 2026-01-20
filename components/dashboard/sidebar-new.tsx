@@ -10,19 +10,25 @@ import {
   FileText,
   AlertTriangle,
   ClipboardList,
-  History,
   Settings,
   LogOut,
   ChevronRight,
   ChevronDown,
   Sparkles,
   Eye,
-  Clock,
   Upload,
+  MapPin,
+  Users,
+  CheckCircle,
+  Crown,
+  ShieldCheck,
+  Clock,
 } from 'lucide-react';
-import { PlanQuotaIndicator } from '@/components/plans';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { useState } from 'react';
+import { api } from '@/lib/trpc/client';
+import { Badge } from '@/components/ui/badge';
+import { hasPermission } from '@/lib/permissions';
 
 interface SidebarProps {
   user: {
@@ -56,39 +62,60 @@ interface NavigationItem {
 
 export function Sidebar({ user }: SidebarProps) {
   const pathname = usePathname();
+  const { data: userProfile } = api.auth.getCurrentUser.useQuery();
   const [organizationOpen, setOrganizationOpen] = useState(
-    pathname?.startsWith('/dashboard/entreprises') || pathname?.startsWith('/dashboard/sites') || pathname?.startsWith('/dashboard/work-units') || pathname?.startsWith('/dashboard/utilisateurs')
-  );
-  const [referentielsOpen, setReferentielsOpen] = useState(
-    pathname?.startsWith('/dashboard/referentiel') || pathname?.startsWith('/dashboard/referentiels')
-  );
-  const [evaluationsOpen, setEvaluationsOpen] = useState(
-    pathname?.startsWith('/dashboard/evaluations') || pathname?.startsWith('/dashboard/import')
-  );
-  const [actionsOpen, setActionsOpen] = useState(
-    pathname?.startsWith('/dashboard/assistance') || pathname?.startsWith('/dashboard/actions') || pathname?.startsWith('/dashboard/observations')
-  );
-  const [historiqueOpen, setHistoriqueOpen] = useState(
-    pathname?.startsWith('/dashboard/historique')
+    pathname?.startsWith('/dashboard/entreprises') || 
+    pathname?.startsWith('/dashboard/sites') || 
+    pathname?.startsWith('/dashboard/work-units') || 
+    pathname?.startsWith('/dashboard/utilisateurs')
   );
   const [settingsOpen, setSettingsOpen] = useState(
     pathname?.startsWith('/dashboard/settings')
   );
 
-  // Sections regroupées de manière logique
+  // Fonction pour vérifier si un item doit être affiché selon les permissions
+  const canAccessItem = (item: NavigationItem | NavigationChild): boolean => {
+    if (!userProfile) return true; // Afficher par défaut pendant le chargement
+
+    const userRoles = userProfile.roles || [];
+    const isOwner = userProfile.isOwner || false;
+
+    // Mapping des routes vers les permissions
+    const permissionsMap: Record<string, { resource: string; action: string }> = {
+      '/dashboard/entreprises': { resource: 'organization', action: 'view' },
+      '/dashboard/sites': { resource: 'organization', action: 'view' },
+      '/dashboard/work-units': { resource: 'organization', action: 'view' },
+      '/dashboard/utilisateurs': { resource: 'users', action: 'view_all' },
+      '/dashboard/referentiels': { resource: 'referentiels', action: 'view' },
+      '/dashboard/evaluations': { resource: 'evaluations', action: 'view_all' },
+      '/dashboard/import': { resource: 'imports', action: 'duerp' },
+      '/dashboard/assistance': { resource: 'ai', action: 'suggest_risks' },
+      '/dashboard/actions': { resource: 'actions', action: 'view_all' },
+      '/dashboard/observations': { resource: 'observations', action: 'view_all' },
+      '/dashboard/historique': { resource: 'conformite', action: 'view_all' },
+      '/dashboard/settings/billing': { resource: 'facturation', action: 'view' },
+    };
+
+    const permission = permissionsMap[item.href];
+    if (!permission) return true; // Si pas de permission définie, afficher par défaut
+
+    return hasPermission(userRoles, isOwner, permission.resource, permission.action);
+  };
+
+  // Structure simplifiée selon les spécifications
   const navigationSections: NavigationSection[] = [
     {
-      title: 'Accueil & Pilotage',
+      title: 'ACCUEIL & PILOTAGE',
       items: [
         {
-          name: 'Tableau de bord',
+          name: 'Dashboard',
           href: '/dashboard',
           icon: LayoutDashboard,
         },
       ],
     },
     {
-      title: 'Organisation',
+      title: 'ORGANISATION',
       items: [
         {
           name: 'Organisation',
@@ -104,101 +131,65 @@ export function Sidebar({ user }: SidebarProps) {
       ],
     },
     {
-      title: 'Référentiels',
+      title: 'RÉFÉRENTIELS',
       items: [
         {
           name: 'Référentiels',
           href: '/dashboard/referentiels',
           icon: FileText,
-          children: [
-            { name: 'Dangers & risques', href: '/dashboard/referentiel' },
-            { name: 'Activités & métiers', href: '/dashboard/referentiels/activites' },
-            { name: 'Mesures de prévention', href: '/dashboard/referentiels/mesures' },
-            { name: 'Grilles de cotation', href: '/dashboard/referentiels/cotation' },
-          ],
+          description: 'Page avec 4 onglets/sections',
         },
       ],
     },
     {
-      title: 'Évaluations des Risques',
+      title: 'DUERP',
       items: [
         {
           name: 'Évaluations',
           href: '/dashboard/evaluations',
           icon: AlertTriangle,
-          children: [
-            {
-              name: 'Évaluation avancée',
-              href: '/dashboard/evaluations',
-              description: 'Analyse détaillée par unité de travail',
-            },
-            {
-              name: 'Synthèse DUERP',
-              href: '/dashboard/evaluations/synthese',
-            },
-          ],
         },
         {
           name: 'Importer DUERP',
           href: '/dashboard/import',
           icon: Upload,
-          plan: 'starter',
+          plan: 'pro',
         },
       ],
     },
     {
-      title: 'Actions & Prévention',
+      title: 'ACTIONS & PRÉVENTION',
       items: [
         {
           name: 'Assistance',
           href: '/dashboard/assistance',
           icon: Sparkles,
-          children: [
-            { name: 'Suggestions d\'actions', href: '/dashboard/assistance/suggestions' },
-            { name: 'Aide à la cotation', href: '/dashboard/assistance/cotation' },
-            { name: 'Reformulations', href: '/dashboard/assistance/reformulations' },
-            { name: 'Historique des aides', href: '/dashboard/assistance/historique' },
-          ],
+          description: 'AI',
         },
         {
           name: 'Plan d\'actions',
           href: '/dashboard/actions',
           icon: ClipboardList,
-          children: [
-            { name: 'Actions de prévention', href: '/dashboard/actions?type=prevention' },
-            { name: 'Actions correctives', href: '/dashboard/actions?type=corrective' },
-            { name: 'Suivi & priorités', href: '/dashboard/actions?view=suivi' },
-          ],
         },
         {
           name: 'Observations',
           href: '/dashboard/observations',
           icon: Eye,
-          children: [
-            { name: 'Situations dangereuses', href: '/dashboard/observations?type=dangereuse' },
-            { name: 'Presqu\'accidents', href: '/dashboard/observations?type=presqu-accident' },
-            { name: 'Remontées terrain', href: '/dashboard/observations?type=terrain' },
-          ],
         },
       ],
     },
     {
-      title: 'Conformité & Historique',
+      title: 'CONFORMITÉ',
       items: [
         {
           name: 'Conformité & historique',
           href: '/dashboard/historique',
-          icon: Clock,
-          children: [
-            { name: 'Historique DUERP', href: '/dashboard/historique' },
-            { name: 'Versions & mises à jour', href: '/dashboard/historique/versions' },
-            { name: 'Journal de traçabilité', href: '/dashboard/historique/journal' },
-          ],
+          icon: CheckCircle,
         },
       ],
     },
     {
-      title: 'Administration',
+      title: 'ADMINISTRATION',
       items: [
         {
           name: 'Paramètres',
@@ -224,16 +215,6 @@ export function Sidebar({ user }: SidebarProps) {
     switch (itemName) {
       case 'Organisation':
         return organizationOpen;
-      case 'Référentiels':
-        return referentielsOpen;
-      case 'Évaluations':
-        return evaluationsOpen;
-      case 'Assistance':
-      case 'Plan d\'actions':
-      case 'Observations':
-        return actionsOpen;
-      case 'Conformité & historique':
-        return historiqueOpen;
       case 'Paramètres':
         return settingsOpen;
       default:
@@ -245,20 +226,6 @@ export function Sidebar({ user }: SidebarProps) {
     switch (itemName) {
       case 'Organisation':
         setOrganizationOpen(open);
-        break;
-      case 'Référentiels':
-        setReferentielsOpen(open);
-        break;
-      case 'Évaluations':
-        setEvaluationsOpen(open);
-        break;
-      case 'Assistance':
-      case 'Plan d\'actions':
-      case 'Observations':
-        setActionsOpen(open);
-        break;
-      case 'Conformité & historique':
-        setHistoriqueOpen(open);
         break;
       case 'Paramètres':
         setSettingsOpen(open);
@@ -283,10 +250,28 @@ export function Sidebar({ user }: SidebarProps) {
             </div>
 
             {/* Items de la section */}
-            {section.items.map((item) => {
-              const hasChildren = item.children && item.children.length > 0;
-              const itemIsActive = isActive(item.href) || (hasChildren && item.children?.some(child => isActive(child.href)));
-              const isOpen = getOpenState(item.name);
+            {section.items
+              .filter((item) => {
+                // Filtrer selon les permissions
+                if (!canAccessItem(item)) return false;
+                
+                // Si l'item a des enfants, vérifier qu'au moins un enfant est accessible
+                if (item.children && item.children.length > 0) {
+                  const hasAccessibleChild = item.children.some((child) => canAccessItem(child));
+                  return hasAccessibleChild;
+                }
+                
+                return true;
+              })
+              .map((item) => {
+                const hasChildren = item.children && item.children.length > 0;
+                // Filtrer les enfants selon les permissions
+                const filteredChildren = hasChildren 
+                  ? item.children?.filter((child) => canAccessItem(child))
+                  : undefined;
+
+                const itemIsActive = isActive(item.href) || (hasChildren && filteredChildren?.some(child => isActive(child.href)));
+                const isOpen = getOpenState(item.name);
 
               return (
                 <div key={item.name}>
@@ -325,7 +310,7 @@ export function Sidebar({ user }: SidebarProps) {
                         id={`submenu-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                         className="space-y-1 mt-1"
                       >
-                        {item.children?.map((child) => {
+                        {filteredChildren?.map((child) => {
                           const childIsActive = isActive(child.href);
                           return (
                             <Link
@@ -379,9 +364,6 @@ export function Sidebar({ user }: SidebarProps) {
       </nav>
 
       <div className="border-t border-gray-200 p-4 space-y-4 bg-gray-50">
-        {/* Indicateur de quota IA */}
-        <PlanQuotaIndicator />
-
         {/* Profil utilisateur */}
         <div className="flex items-center px-3 py-2">
           <div className="flex-shrink-0">
@@ -392,9 +374,36 @@ export function Sidebar({ user }: SidebarProps) {
             </div>
           </div>
           <div className="ml-3 flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">
-              {user.name || 'Utilisateur'}
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-sm font-medium text-gray-900 truncate">
+                {user.name || 'Utilisateur'}
+              </p>
+              {/* Badge Propriétaire */}
+              {userProfile?.isOwner && (
+                <Badge variant="default" className="bg-amber-100 text-amber-800 hover:bg-amber-100 text-xs flex items-center gap-1">
+                  <Crown className="h-3 w-3" />
+                  PROPRIÉTAIRE
+                </Badge>
+              )}
+              {/* Badge Auditeur avec date d'expiration */}
+              {userProfile?.roles?.includes('auditor') && userProfile.accessExpiry && (
+                <Badge variant="outline" className="text-xs flex items-center gap-1">
+                  <ShieldCheck className="h-3 w-3" />
+                  Auditeur
+                  <Clock className="h-3 w-3" />
+                  {new Date(userProfile.accessExpiry) > new Date() ? (
+                    <span className="text-xs">
+                      {new Date(userProfile.accessExpiry).toLocaleDateString('fr-FR', {
+                        day: 'numeric',
+                        month: 'short',
+                      })}
+                    </span>
+                  ) : (
+                    <span className="text-xs text-red-600">Expiré</span>
+                  )}
+                </Badge>
+              )}
+            </div>
             <p className="text-xs text-gray-500 truncate">{user.email || 'Non défini'}</p>
           </div>
         </div>

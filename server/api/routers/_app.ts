@@ -6,6 +6,7 @@ import { actionPlansRouter } from './actionPlans';
 import { observationsRouter } from './observations';
 import { duerpVersionsRouter } from './duerpVersions';
 import { authRouter } from './auth';
+import { usersRouter } from './users';
 import { sitesRouter } from './sites';
 import { plansRouter } from './plans';
 import { importsRouter } from './imports';
@@ -38,6 +39,7 @@ export const appRouter = createTRPCRouter({
   observations: observationsRouter,
   duerpVersions: duerpVersionsRouter,
   auth: authRouter,
+  users: usersRouter,
   plans: plansRouter,
   imports: importsRouter,
   uploads: uploadsRouter,

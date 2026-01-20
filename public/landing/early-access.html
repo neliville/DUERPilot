@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>Accès anticipé DUERPilot | Rejoignez la liste d'attente</title>
+  <meta name="description" content="Rejoignez l'accès anticipé à DUERPilot et soyez parmi les premiers à découvrir la solution simple pour gérer votre DUERP.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://duerpilot.fr/landing/early-access.html">
+  
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            neutral: {
+              50: '#F9FAFB',
+              100: '#F3F4F6',
+              200: '#E5E7EB',
+              300: '#D1D5DB',
+              400: '#9CA3AF',
+              500: '#6B7280',
+              600: '#4B5563',
+              700: '#374151',
+              800: '#1F2937',
+              900: '#111827',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #1F2933;
+      line-height: 1.6;
+      background-color: #F5F7FA;
+    }
+    
+    a {
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Form Styles */
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      color: #1F2933;
+      background-color: white;
+      transition: all 0.2s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    
+    .form-input::placeholder {
+      color: #9CA3AF;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #1F2933;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-radio {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-radio:hover {
+      border-color: #2563EB;
+      background-color: #F9FAFB;
+    }
+    
+    .form-radio input[type="radio"] {
+      margin-right: 0.75rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+    }
+    
+    .form-radio input[type="radio"]:checked {
+      accent-color: #2563EB;
+    }
+    
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.75rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .form-checkbox:hover {
+      border-color: #2563EB;
+      background-color: #F9FAFB;
+    }
+    
+    .form-checkbox input[type="checkbox"] {
+      margin-right: 0.75rem;
+      margin-top: 0.125rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    
+    .form-checkbox input[type="checkbox"]:checked {
+      accent-color: #2563EB;
+    }
+    
+    .btn-primary {
+      background-color: #2563EB;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    
+    .btn-primary:hover {
+      background-color: #1D4ED8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .alert {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+    }
+    
+    .alert-success {
+      background-color: #D1FAE5;
+      color: #065F46;
+      border: 1px solid #16A34A;
+    }
+    
+    .alert-error {
+      background-color: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #DC2626;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.6s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-neutral-50">
+  
+  <!-- Header Simple -->
+  <header class="bg-white border-b border-neutral-200">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/landing/index.html">
+        <img src="/landing-assets/images/logo.svg" alt="DUERPilot" class="h-8 w-auto">
+      </a>
+      <a href="/landing/index.html" class="text-neutral-600 hover:text-neutral-900 font-medium text-sm">
+        ← Retour à l'accueil
+      </a>
+    </nav>
+  </header>
+
+  <!-- Formulaire Section -->
+  <section class="min-h-screen flex items-center justify-center py-20 px-4">
+    <div class="max-w-2xl w-full">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            Rejoignez l'accès anticipé
+          </h1>
+          <p class="text-lg text-neutral-600">
+            Soyez parmi les premiers à découvrir DUERPilot et bénéficiez d'un accès prioritaire au lancement.
+          </p>
+        </div>
+        
+        <!-- Messages d'alerte -->
+        <div id="alert-container"></div>
+        
+        <!-- Formulaire Custom -->
+        <form id="early-access-form" class="space-y-6">
+          <!-- Email -->
+          <div>
+            <label for="email" class="form-label">
+              Adresse email <span class="text-red-600">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="votre@email.com"
+              required
+              autocomplete="email"
+            />
+            <p class="text-xs text-neutral-500 mt-1">
+              Veuillez renseigner votre adresse email pour vous inscrire. Ex. : abc@xyz.com
+            </p>
+          </div>
+          
+          <!-- Rôle -->
+          <div>
+            <label class="form-label">
+              Votre rôle <span class="text-red-600">*</span>
+            </label>
+            <div class="space-y-2">
+              <label class="form-radio">
+                <input type="radio" name="role" value="1" required />
+                <span>Dirigeant</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="2" />
+                <span>Responsable QSE</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="3" />
+                <span>Ressource Humaine</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="4" />
+                <span>Autre</span>
+              </label>
+            </div>
+            <p class="text-xs text-neutral-500 mt-1">
+              Veuillez cocher votre rôle.
+            </p>
+          </div>
+          
+          <!-- Consentement -->
+          <div>
+            <label class="form-checkbox">
+              <input type="checkbox" id="consent" name="consent" required />
+              <span class="text-sm">
+                <strong>J'accepte de recevoir des emails concernant le lancement de DUERPilot</strong> et confirme avoir pris connaissance de la 
+                <a href="/landing/legal/politique-confidentialite.html" target="_blank" class="text-primary hover:underline">politique de confidentialité</a> 
+                et des 
+                <a href="/landing/legal/mentions-legales.html" target="_blank" class="text-primary hover:underline">mentions légales</a>.
+              </span>
+            </label>
+            <p class="text-xs text-neutral-500 mt-1">
+              Vous pouvez vous désinscrire à tout moment en cliquant sur le lien présent dans nos emails.
+            </p>
+          </div>
+          
+          <!-- Bouton Submit -->
+          <button type="submit" id="submit-btn" class="btn-primary">
+            Rejoindre l'accès anticipé
+          </button>
+        </form>
+        
+        <div class="mt-6 text-center text-sm text-neutral-500">
+          <p>✅ Sans engagement • ✅ Désabonnement 1 clic • ✅ RGPD conforme</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Simple -->
+  <footer class="bg-white border-t border-neutral-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-neutral-500">
+      <p>&copy; 2025 DUERPilot. Tous droits réservés.</p>
+      <p class="mt-2">Outil indépendant, non affilié à l'INRS ou à l'EU-OSHA</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('early-access-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const alertContainer = document.getElementById('alert-container');
+      
+      function showAlert(message, type = 'error') {
+        alertContainer.innerHTML = `
+          <div class="alert alert-${type}">
+            ${message}
+          </div>
+        `;
+        alertContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      
+      function hideAlert() {
+        alertContainer.innerHTML = '';
+      }
+      
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        hideAlert();
+        
+        const email = document.getElementById('email').value.trim();
+        const role = document.querySelector('input[name="role"]:checked')?.value;
+        const consent = document.getElementById('consent').checked;
+        
+        // Validation côté client
+        if (!email || !role || !consent) {
+          showAlert('Veuillez remplir tous les champs obligatoires.', 'error');
+          return;
+        }
+        
+        // Désactiver le bouton pendant la soumission
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner"></span> Inscription en cours...';
+        
+        try {
+          const response = await fetch('/api/landing/waitlist', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              roleContact: role,
+              consent,
+            }),
+          });
+          
+          const data = await response.json();
+          
+          if (!response.ok) {
+            throw new Error(data.error || 'Erreur lors de l\'inscription');
+          }
+          
+          // Succès
+          showAlert('✅ Votre inscription est confirmée. Merci !', 'success');
+          form.reset();
+          
+          // Redirection après 3 secondes
+          setTimeout(() => {
+            window.location.href = '/landing/index.html';
+          }, 3000);
+          
+        } catch (error) {
+          console.error('Erreur inscription:', error);
+          showAlert(`❌ ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`, 'error');
+          
+          // Réactiver le bouton
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Rejoindre l\'accès anticipé';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

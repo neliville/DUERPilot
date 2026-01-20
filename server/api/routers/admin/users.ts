@@ -14,7 +14,7 @@ export const usersRouter = createTRPCRouter({
   getAll: adminProcedure
     .input(
       z.object({
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
         role: z.string().optional(),
         limit: z.number().min(1).max(100).default(50),
         offset: z.number().min(0).default(0),

@@ -30,6 +30,14 @@ export const observationsRouter = createTRPCRouter({
         .optional()
     )
     .query(async ({ ctx, input }) => {
+      const user = ctx.userProfile;
+      const userRoles = user.roles || [];
+      const isOwner = user.isOwner || false;
+      
+      // Filtrage par scope si nécessaire (site_manager, observer)
+      const scopeSites = user.scopeSites || [];
+      const hasScope = ['site_manager', 'observer'].some((r) => userRoles.includes(r));
+      
       const where: any = {
         workUnit: {
           site: {
@@ -39,6 +47,20 @@ export const observationsRouter = createTRPCRouter({
           },
         },
       };
+
+      // Filtrage par scope pour site_manager et observer
+      // Representative voit TOUTES les observations du tenant (view_all: 'full')
+      if (hasScope && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('representative')) {
+        where.workUnit = {
+          ...where.workUnit,
+          siteId: scopeSites.length > 0 ? { in: scopeSites } : undefined,
+        };
+      }
+
+      // Observer ne voit que ses propres observations (view_own: 'limited')
+      if (userRoles.includes('observer') && !userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        where.submittedById = ctx.userProfile.id;
+      }
 
       if (input?.workUnitId) {
         where.workUnitId = input.workUnitId;
@@ -120,6 +142,15 @@ export const observationsRouter = createTRPCRouter({
   create: authenticatedProcedure
     .input(createObservationSchema)
     .mutation(async ({ ctx, input }) => {
+      // Vérifier les permissions : auditor ne peut pas créer d'observations
+      const userRoles = ctx.userProfile.roles || [];
+      if (userRoles.includes('auditor')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Les auditeurs externes ne peuvent pas créer d\'observations',
+        });
+      }
+
       // Vérifier le quota mensuel d'observations
       const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
       const planFeatures = PLAN_FEATURES[userPlan];
@@ -184,6 +215,7 @@ export const observationsRouter = createTRPCRouter({
           location: input.location,
           status: input.status,
           submittedByEmail: ctx.userProfile?.email || ctx.user?.email || '',
+          submittedById: ctx.userProfile?.id || undefined,
           integratedRiskAssessmentId: input.riskAssessmentId || undefined,
         },
         include: {
@@ -209,6 +241,9 @@ export const observationsRouter = createTRPCRouter({
     .input(updateObservationSchema)
     .mutation(async ({ ctx, input }) => {
       const { id, ...data } = input;
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
 
       // Vérifier que l'observation appartient au tenant
       const existing = await ctx.prisma.observation.findFirst({
@@ -222,6 +257,11 @@ export const observationsRouter = createTRPCRouter({
             },
           },
         },
+        include: {
+          workUnit: {
+            select: { siteId: true },
+          },
+        },
       });
 
       if (!existing) {
@@ -229,6 +269,35 @@ export const observationsRouter = createTRPCRouter({
           code: 'NOT_FOUND',
           message: 'Observation non trouvée',
         });
+      }
+
+      // Vérifier les permissions
+      // auditor ne peut pas modifier
+      if (userRoles.includes('auditor')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Les auditeurs externes ne peuvent pas modifier d\'observations',
+        });
+      }
+
+      // Observer ne peut modifier que ses propres observations
+      if (userRoles.includes('observer') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse') && !userRoles.includes('site_manager')) {
+        if (existing.submittedById !== ctx.userProfile.id) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez modifier que vos propres observations',
+          });
+        }
+      }
+
+      // site_manager peut modifier celles de son périmètre
+      if (userRoles.includes('site_manager') && !isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        if (!scopeSites.includes(existing.workUnit.siteId)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Vous ne pouvez modifier que les observations de votre périmètre',
+          });
+        }
       }
 
       const observation = await ctx.prisma.observation.update({
@@ -262,6 +331,9 @@ export const observationsRouter = createTRPCRouter({
   delete: authenticatedProcedure
     .input(z.object({ id: z.string().cuid() }))
     .mutation(async ({ ctx, input }) => {
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
       // Vérifier que l'observation appartient au tenant
       const existing = await ctx.prisma.observation.findFirst({
         where: {
@@ -274,12 +346,27 @@ export const observationsRouter = createTRPCRouter({
             },
           },
         },
+        include: {
+          workUnit: {
+            select: { siteId: true },
+          },
+        },
       });
 
       if (!existing) {
         throw new TRPCError({
           code: 'NOT_FOUND',
           message: 'Observation non trouvée',
+        });
+      }
+
+      // Vérifier les permissions
+      // Seuls owner, admin, qse peuvent supprimer
+      // Les autres rôles ne peuvent pas supprimer (clôturer seulement)
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Vous n\'êtes pas autorisé à supprimer des observations',
         });
       }
 
@@ -302,6 +389,10 @@ export const observationsRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+      const scopeSites = ctx.userProfile.scopeSites || [];
+
       // Vérifier que l'observation appartient au tenant
       const existing = await ctx.prisma.observation.findFirst({
         where: {
@@ -314,12 +405,47 @@ export const observationsRouter = createTRPCRouter({
             },
           },
         },
+        include: {
+          workUnit: {
+            select: { siteId: true },
+          },
+        },
       });
 
       if (!existing) {
         throw new TRPCError({
           code: 'NOT_FOUND',
           message: 'Observation non trouvée',
+        });
+      }
+
+      // Vérifier les permissions
+      // auditor ne peut pas modifier le statut
+      if (userRoles.includes('auditor')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Les auditeurs externes ne peuvent pas modifier le statut des observations',
+        });
+      }
+
+      // Observer et representative peuvent clôturer leurs propres observations
+      const canCloseOwn = (userRoles.includes('observer') || userRoles.includes('representative')) &&
+                          existing.submittedById === ctx.userProfile.id;
+
+      // site_manager peut clôturer les observations de son périmètre
+      const canCloseScope = userRoles.includes('site_manager') &&
+                            !isOwner &&
+                            !userRoles.includes('admin') &&
+                            !userRoles.includes('qse') &&
+                            scopeSites.includes(existing.workUnit.siteId);
+
+      // owner, admin, qse peuvent modifier toutes les observations
+      const canModifyAll = isOwner || userRoles.includes('admin') || userRoles.includes('qse');
+
+      if (!canModifyAll && !canCloseOwn && !canCloseScope) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Vous n\'êtes pas autorisé à modifier le statut de cette observation',
         });
       }
 

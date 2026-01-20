@@ -28,6 +28,11 @@ export const companiesRouter = createTRPCRouter({
    * Récupère toutes les entreprises du tenant
    */
   getAll: authenticatedProcedure.query(async ({ ctx }) => {
+    // Si le tenantId est null (super admin sans tenant), retourner un tableau vide
+    if (!ctx.tenantId) {
+      return [];
+    }
+
     const companies = await ctx.prisma.company.findMany({
       where: {
         tenantId: ctx.tenantId,
@@ -63,6 +68,14 @@ export const companiesRouter = createTRPCRouter({
   getById: authenticatedProcedure
     .input(z.object({ id: z.string().cuid() }))
     .query(async ({ ctx, input }) => {
+      // Si le tenantId est null (super admin sans tenant), ne pas chercher
+      if (!ctx.tenantId) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Entreprise introuvable',
+        });
+      }
+
       const company = await ctx.prisma.company.findFirst({
         where: {
           id: input.id,
@@ -113,6 +126,17 @@ export const companiesRouter = createTRPCRouter({
   create: authenticatedProcedure
     .input(createCompanySchema)
     .mutation(async ({ ctx, input }) => {
+      // Vérifier les permissions : seuls owner, admin peuvent créer des entreprises
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire et les administrateurs peuvent créer des entreprises',
+        });
+      }
+
       // Vérifier la limite d'entreprises
       const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
       const planFeatures = PLAN_FEATURES[userPlan];
@@ -191,6 +215,17 @@ export const companiesRouter = createTRPCRouter({
         });
       }
 
+      // Vérifier les permissions : seuls owner, admin peuvent modifier des entreprises
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire et les administrateurs peuvent modifier des entreprises',
+        });
+      }
+
       // Vérifier l'unicité du SIRET si modifié
       if (data.siret && data.siret !== existing.siret) {
         const duplicate = await ctx.prisma.company.findFirst({
@@ -249,6 +284,17 @@ export const companiesRouter = createTRPCRouter({
         });
       }
 
+      // Vérifier les permissions : seuls owner, admin peuvent supprimer des entreprises
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire et les administrateurs peuvent supprimer des entreprises',
+        });
+      }
+
       // Vérifier qu'il n'y a pas de sites associés
       if (existing._count.sites > 0) {
         throw new TRPCError({
@@ -279,6 +325,17 @@ export const companiesRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       const { siteName, siteAddress, siteCity, sitePostalCode, siteEmployeeCount, ...companyData } = input;
+
+      // Vérifier les permissions : seuls owner, admin peuvent créer des entreprises
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire et les administrateurs peuvent créer des entreprises',
+        });
+      }
 
       // Vérifier l'unicité du SIRET si fourni
       if (companyData.siret) {

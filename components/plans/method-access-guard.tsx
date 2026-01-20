@@ -1,9 +1,10 @@
 'use client';
 
 import { api } from '@/lib/trpc/client';
-import { PlanUpgradeDialog } from './plan-upgrade-dialog';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
 import { AlertTriangle } from 'lucide-react';
+import Link from 'next/link';
 import type { EvaluationMethod } from '@/lib/plans';
 import { PLAN_NAMES, getRequiredPlan, hasMethodAccess } from '@/lib/plans';
 
@@ -18,7 +19,7 @@ export function MethodAccessGuard({
   children,
   fallback,
 }: MethodAccessGuardProps) {
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery();
+  const { data: planInfo } = api.plans.getCurrent.useQuery();
 
   if (!planInfo) {
     return <div>Chargement...</div>;
@@ -49,15 +50,11 @@ export function MethodAccessGuard({
       <AlertTitle>Fonctionnalité non disponible</AlertTitle>
       <AlertDescription>
         <p className="mb-4">{reason}</p>
-        <PlanUpgradeDialog
-          currentPlan={currentPlan}
-          requiredPlan={requiredPlan}
-          reason={reason}
-        >
-          <button className="text-sm font-medium text-primary hover:underline">
+        <Button asChild variant="link" className="p-0 h-auto">
+          <Link href="/dashboard/settings/billing">
             Passer au plan {PLAN_NAMES[requiredPlan]} pour y accéder
-          </button>
-        </PlanUpgradeDialog>
+          </Link>
+        </Button>
       </AlertDescription>
     </Alert>
   );

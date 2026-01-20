@@ -10,9 +10,10 @@ import { PLAN_FEATURES, type Plan } from '@/lib/plans';
 
 const PLAN_PRICES: Record<Plan, { monthly: number; annual: number }> = {
   free: { monthly: 0, annual: 0 },
-  starter: { monthly: 69, annual: 55 },
-  pro: { monthly: 249, annual: 199 },
-  expert: { monthly: 599, annual: 479 },
+  starter: { monthly: 59, annual: 590 },
+  business: { monthly: 149, annual: 1490 },
+  premium: { monthly: 349, annual: 3490 },
+  entreprise: { monthly: 0, annual: 0 },
 };
 
 export const dashboardRouter = createTRPCRouter({
@@ -134,8 +135,9 @@ export const dashboardRouter = createTRPCRouter({
         active: activeClients,
         free: freeUsers,
         starter: await prisma.userProfile.count({ where: { plan: 'starter' } }),
-        pro: await prisma.userProfile.count({ where: { plan: 'pro' } }),
-        expert: await prisma.userProfile.count({ where: { plan: 'expert' } }),
+        business: await prisma.userProfile.count({ where: { plan: 'business' } }),
+        premium: await prisma.userProfile.count({ where: { plan: 'premium' } }),
+        entreprise: await prisma.userProfile.count({ where: { plan: 'entreprise' } }),
       },
       revenue: {
         mrr: Math.round(totalMRR * 100) / 100,

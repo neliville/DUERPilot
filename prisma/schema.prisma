@@ -11,6 +11,7 @@ model Tenant {
   id                        String                      @id @default(cuid())
   name                      String
   slug                      String                      @unique
+  ownerId                   String?                     @unique // Nouveau : ID du propriétaire (unique pour relation one-to-one)
   createdAt                 DateTime                    @default(now())
   updatedAt                 DateTime                    @updatedAt
   auditLogs                 AuditLog[]
@@ -18,7 +19,7 @@ model Tenant {
   duerpVersions             DuerpVersion[]
   hazardRefs                HazardRef[]
   observations              Observation[]
-  users                     UserProfile[]
+  users                     UserProfile[]               @relation("TenantUsers")
   imports                   DuerpImport[]
   aiUsageLogs               AIUsageLog[]
   subscription              Subscription?
@@ -28,8 +29,12 @@ model Tenant {
   duerpilotReferences       DuerpilotReference[]
   papripact                 PAPRIPACT[]
   participationTravailleurs ParticipationTravailleurs[]
+  planUsage                 PlanUsage[]
+  owner                     UserProfile?                @relation("TenantOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  ownershipTransferRequests OwnershipTransferRequest[]
 
   @@index([slug])
+  @@index([ownerId])
   @@map("tenants")
 }
 
@@ -109,16 +114,34 @@ model WorkUnit {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  site            Site             @relation(fields: [siteId], references: [id], onDelete: Cascade)
-  suggestedSector ActivitySector?  @relation("SectorSuggestions", fields: [suggestedSectorId], references: [id])
-  actionPlans     ActionPlan[]
-  observations    Observation[]
-  riskAssessments RiskAssessment[]
-  assignedUsers   UserProfile[]    @relation("WorkUnitAssignments")
+  site              Site                    @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  suggestedSector   ActivitySector?         @relation("SectorSuggestions", fields: [suggestedSectorId], references: [id])
+  actionPlans       ActionPlan[]
+  observations      Observation[]
+  riskAssessments   RiskAssessment[]
+  assignedUsers     UserProfile[]           @relation("WorkUnitAssignments")
+  hazardSuggestions HazardSuggestionCache[] @relation("WorkUnitHazardSuggestions")
 
   @@index([siteId])
   @@index([suggestedSectorId])
   @@map("work_units")
+}
+
+// Cache des suggestions IA pour éviter de reconsommer l'API à chaque navigation
+model HazardSuggestionCache {
+  id          String   @id @default(cuid())
+  workUnitId  String
+  suggestions Json // Array des suggestions IA
+  expiresAt   DateTime // Invalider après 24h ou si l'unité de travail change
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workUnit WorkUnit @relation("WorkUnitHazardSuggestions", fields: [workUnitId], references: [id], onDelete: Cascade)
+
+  @@unique([workUnitId]) // Une seule cache par unité de travail
+  @@index([workUnitId])
+  @@index([expiresAt])
+  @@map("hazard_suggestion_cache")
 }
 
 model HazardRef {
@@ -603,42 +626,57 @@ model VerificationToken {
 }
 
 model UserProfile {
-  id                      String                      @id @default(cuid())
-  tenantId                String
-  email                   String                      @unique
-  firstName               String?
-  lastName                String?
-  phone                   String?
-  function                String?
-  roles                   String[]
-  plan                    String                      @default("free") // free, essentiel, pro, expert
+  id                                String                      @id @default(cuid())
+  tenantId                          String? // Optionnel : null pour les super admins
+  email                             String                      @unique
+  firstName                         String?
+  lastName                          String?
+  phone                             String?
+  function                          String?
+  roles                             String[] // Valeurs : owner, admin, qse, site_manager, representative, observer, consultant
+  plan                              String                      @default("free") // free, starter, business, premium, entreprise
   // Champs admin
-  lastLoginAt             DateTime?
-  isSuperAdmin            Boolean                     @default(false)
-  createdAt               DateTime                    @default(now())
-  updatedAt               DateTime                    @updatedAt
-  password                String?
-  emailVerified           Boolean                     @default(false)
-  emailVerificationToken  String?
-  emailVerificationExpiry DateTime?
-  auditLogs               AuditLog[]                  @relation("AuditLogActor")
-  observations            Observation[]
-  tenant                  Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  assignedWorkUnits       WorkUnit[]                  @relation("WorkUnitAssignments")
-  iaaUsage                IAAUsage[]
-  imports                 DuerpImport[]
-  aiUsageLogs             AIUsageLog[]
-  emailLogs               EmailLog[]
-  emailPreferences        EmailPreferences?
-  avatarUrl               String? // URL publique avatar (bucket duerpilot-avatars)
-  duerpVersionsGenerated  DuerpVersion[]              @relation("DuerpVersionAuthor")
-  participationOrganized  ParticipationTravailleurs[] @relation("ParticipationOrganizer")
+  lastLoginAt                       DateTime?
+  isSuperAdmin                      Boolean                     @default(false)
+  // Nouveaux champs pour gestion des rôles et permissions
+  isOwner                           Boolean                     @default(false) // Nouveau : Indique le propriétaire de l'organisation
+  scopeSites                        String[]                    @default([]) // Nouveau : IDs des sites accessibles (pour site_manager et observer)
+  accessExpiry                      DateTime? // Nouveau : Date d'expiration (pour consultant)
+  invitedBy                         String? // Nouveau : ID de l'utilisateur invitant
+  createdAt                         DateTime                    @default(now())
+  updatedAt                         DateTime                    @updatedAt
+  password                          String?
+  emailVerified                     Boolean                     @default(false)
+  emailVerificationToken            String?
+  emailVerificationExpiry           DateTime?
+  auditLogs                         AuditLog[]                  @relation("AuditLogActor")
+  observations                      Observation[]
+  tenant                            Tenant?                     @relation("TenantUsers", fields: [tenantId], references: [id], onDelete: Cascade)
+  ownedTenant                       Tenant?                     @relation("TenantOwner")
+  assignedWorkUnits                 WorkUnit[]                  @relation("WorkUnitAssignments")
+  iaaUsage                          IAAUsage[]
+  imports                           DuerpImport[]
+  aiUsageLogs                       AIUsageLog[]
+  emailLogs                         EmailLog[]
+  emailPreferences                  EmailPreferences?
+  avatarUrl                         String? // URL publique avatar (bucket duerpilot-avatars)
+  duerpVersionsGenerated            DuerpVersion[]              @relation("DuerpVersionAuthor")
+  participationOrganized            ParticipationTravailleurs[] @relation("ParticipationOrganizer")
+  legalDocumentsUpdated             LegalDocument[]             @relation("LegalDocumentUpdater")
+  legalDocumentVersionsUpdated      LegalDocumentVersion[]      @relation("LegalDocumentVersionUpdater")
+  inviter                           UserProfile?                @relation("UserInvitations", fields: [invitedBy], references: [id], onDelete: SetNull)
+  invitedUsers                      UserProfile[]               @relation("UserInvitations")
+  ownershipTransferRequestsSent     OwnershipTransferRequest[]  @relation("OwnershipTransferCurrentOwner")
+  ownershipTransferRequestsReceived OwnershipTransferRequest[]  @relation("OwnershipTransferNewOwner")
 
   @@index([tenantId])
   @@index([email])
   @@index([emailVerificationToken])
   @@index([plan])
   @@index([isSuperAdmin])
+  @@index([isOwner])
+  @@index([accessExpiry])
+  @@index([invitedBy])
   @@map("user_profiles")
 }
 
@@ -754,7 +792,7 @@ model AIUsageLog {
 model Subscription {
   id                   String    @id @default(cuid())
   tenantId             String    @unique
-  plan                 String // free, starter, pro, expert
+  plan                 String // free, starter, business, premium, entreprise
   billingMode          String // monthly, annual
   status               String // active, trial, suspended, cancelled
   startDate            DateTime
@@ -984,4 +1022,118 @@ model ParticipationTravailleurs {
   @@index([organizerId])
   @@index([isRealized])
   @@map("participation_travailleurs")
+}
+
+// ============================================
+// DOCUMENTS LÉGAUX (CGU, Mentions légales, Politique de confidentialité)
+// ============================================
+
+model LegalDocument {
+  id             String   @id @default(cuid())
+  type           String   @unique // 'cgu', 'mentions-legales', 'politique-confidentialite'
+  title          String // Titre du document
+  content        String   @db.Text // Contenu en markdown (version actuelle)
+  htmlContent    String?  @db.Text // Contenu HTML généré depuis markdown (cache)
+  currentVersion Int      @default(1) // Numéro de version actuelle
+  updatedBy      String? // ID de l'utilisateur qui a fait la dernière modification
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  updatedByUser UserProfile?           @relation("LegalDocumentUpdater", fields: [updatedBy], references: [id], onDelete: SetNull)
+  versions      LegalDocumentVersion[] // Historique des versions
+
+  @@index([type])
+  @@map("legal_documents")
+}
+
+model LegalDocumentVersion {
+  id          String   @id @default(cuid())
+  documentId  String // Référence au document
+  version     Int // Numéro de version (1, 2, 3, ...)
+  title       String // Titre du document à cette version
+  content     String   @db.Text // Contenu en markdown
+  htmlContent String?  @db.Text // Contenu HTML généré depuis markdown
+  updatedBy   String? // ID de l'utilisateur qui a créé cette version
+  createdAt   DateTime @default(now()) // Date de création de cette version
+  changeNote  String? // Note de changement (optionnelle)
+
+  document      LegalDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  updatedByUser UserProfile?  @relation("LegalDocumentVersionUpdater", fields: [updatedBy], references: [id], onDelete: SetNull)
+
+  @@unique([documentId, version]) // Une seule version X par document
+  @@index([documentId])
+  @@index([version])
+  @@index([createdAt])
+  @@map("legal_document_versions")
+}
+
+// ============================================================================
+// PLAN USAGE - Tracking de l'utilisation des quotas par plan
+// ============================================================================
+
+model PlanUsage {
+  id       String @id @default(cuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  // Période de tracking
+  month Int // 1-12
+  year  Int // 2026, 2027, etc.
+
+  // Compteurs - Structure organisationnelle
+  workUnitsCreated Int @default(0) // Unités de travail créées ce mois
+  sitesCreated     Int @default(0) // Sites créés ce mois
+  companiesCreated Int @default(0) // Entreprises créées ce mois
+  usersCreated     Int @default(0) // Utilisateurs créés ce mois
+
+  // Compteurs - Évaluations et risques
+  risksCreated Int @default(0) // Évaluations de risques créées ce mois
+
+  // Compteurs - Actions et observations
+  actionsCreated      Int @default(0) // Plans d'action créés ce mois
+  observationsCreated Int @default(0) // Observations terrain créées ce mois
+
+  // Compteurs - Exports et imports
+  exportsGenerated Int @default(0) // Exports DUERP générés ce mois
+  importsProcessed Int @default(0) // Imports DUERP traités ce mois
+
+  // Compteurs - IA
+  aiSuggestionsRisks   Int @default(0) // Suggestions de risques IA ce mois
+  aiSuggestionsActions Int @default(0) // Suggestions d'actions IA ce mois
+  aiReformulations     Int @default(0) // Reformulations IA ce mois
+
+  // Métadonnées
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, month, year]) // Un seul enregistrement par tenant/mois/année
+  @@index([tenantId])
+  @@index([year, month])
+  @@map("plan_usage")
+}
+
+// ============================================================================
+// OWNERSHIP TRANSFER - Demandes de transfert de propriété
+// ============================================================================
+
+model OwnershipTransferRequest {
+  id             String    @id @default(cuid())
+  tenantId       String
+  tenant         Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  currentOwnerId String // ID du propriétaire actuel
+  newOwnerId     String // ID du nouveau propriétaire
+  token          String    @unique // Token de validation pour le nouveau propriétaire
+  status         String    @default("pending") // pending, accepted, rejected, expired
+  expiresAt      DateTime // Expire après 7 jours
+  createdAt      DateTime  @default(now())
+  acceptedAt     DateTime?
+
+  currentOwner UserProfile @relation("OwnershipTransferCurrentOwner", fields: [currentOwnerId], references: [id], onDelete: Cascade)
+  newOwner     UserProfile @relation("OwnershipTransferNewOwner", fields: [newOwnerId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([token])
+  @@index([status])
+  @@index([expiresAt])
+  @@map("ownership_transfer_requests")
 }

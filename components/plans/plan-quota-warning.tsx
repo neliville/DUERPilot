@@ -10,14 +10,17 @@ import { PlanBlockMessage } from './plan-block-message';
 import { PLAN_NAMES, getUpgradePlan, type Plan } from '@/lib/plans';
 
 export function PlanQuotaWarning() {
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery();
+  const { data: planInfo } = api.plans.getCurrent.useQuery();
 
-  if (!planInfo || planInfo.usage.iaa.limit === 0) {
+  const suggestionsRisques = planInfo?.usage?.ai?.suggestions_risques;
+  
+  if (!planInfo || !suggestionsRisques || suggestionsRisques.limit === null || suggestionsRisques.limit === 0) {
     return null;
   }
 
   const { plan, usage, upgradePlan } = planInfo;
-  const { current, limit, percentage, warning } = usage.iaa;
+  const { current, limit, warning } = suggestionsRisques;
+  const percentage = limit !== null && limit > 0 ? Math.round((current / limit) * 100) : 0;
 
   // Afficher uniquement si on approche ou dépasse la limite
   if (!warning && percentage < 100) {
@@ -30,7 +33,7 @@ export function PlanQuotaWarning() {
     return (
       <PlanBlockMessage
         currentPlan={plan}
-        requiredPlan={upgradePlan || 'expert'}
+        requiredPlan={upgradePlan || 'premium'}
         type="quota"
         className="mb-4"
         onContinue={() => {

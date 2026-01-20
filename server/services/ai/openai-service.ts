@@ -482,3 +482,246 @@ RÈGLES STRICTES :
   }
 }
 
+/**
+ * Suggère des dangers pour une unité de travail spécifique (Assistant DUERP)
+ * Retourne les suggestions avec les labels exacts du référentiel
+ */
+export async function suggestHazardsForWorkUnit(params: {
+  workUnitName: string;
+  workUnitDescription?: string;
+  dangerousSituations: Array<{ id: string; label: string; description?: string; keywords?: string[] }>;
+  loggingContext?: {
+    tenantId: string;
+    userId: string;
+    companyId?: string;
+  };
+}): Promise<{
+  suggestions: Array<{
+    hazard_id: string;
+    hazard_label: string;
+    justification: string;
+    confidence: number;
+  }>;
+}> {
+  const client = getOpenAIClient();
+
+  const { workUnitName, workUnitDescription, dangerousSituations, loggingContext } = params;
+
+  // Créer une liste simplifiée des dangers disponibles
+  const dangersContext = dangerousSituations
+    .map((d) => `- ${d.label} (ID: ${d.id})`)
+    .join('\n');
+
+  const prompt = `Tu es un expert en sécurité au travail. 
+
+UNITÉ DE TRAVAIL:
+Nom: ${workUnitName}
+Description: ${workUnitDescription || 'Non fournie'}
+
+DANGERS DISPONIBLES DANS LE RÉFÉRENTIEL:
+${dangersContext}
+
+TÂCHE:
+Identifie 3 à 5 dangers pertinents parmi ceux listés ci-dessus pour cette unité de travail.
+Pour chaque danger, explique pourquoi il est pertinent dans ce contexte spécifique.
+
+RÈGLES STRICTES:
+- Utilise UNIQUEMENT les labels exacts des dangers listés ci-dessus
+- Ne propose PAS de nouveaux dangers non listés
+- Formule tes justifications comme des propositions ("pourrait", "peut")
+- Assigne un niveau de confiance (0-100) basé sur la pertinence
+
+FORMAT DE RÉPONSE (JSON uniquement):
+{
+  "suggestions": [
+    {
+      "hazard_id": "ID du danger depuis la liste ci-dessus",
+      "hazard_label": "Label EXACT du danger depuis la liste",
+      "justification": "Explication de la pertinence (2-3 phrases)",
+      "confidence": 85
+    }
+  ]
+}`;
+
+  try {
+    const response = await client.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: 'Tu es un assistant strictement assistif pour l\'évaluation des risques professionnels. Tu ne décides jamais, tu suggères uniquement en utilisant les dangers du référentiel fourni.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 1500,
+      response_format: { type: 'json_object' },
+    });
+
+    const content = response.choices[0]?.message?.content;
+    if (!content) {
+      return { suggestions: [] };
+    }
+
+    const result = JSON.parse(content);
+
+    // Logger l'utilisation
+    if (loggingContext) {
+      await logAIUsageWithCost({
+        tenantId: loggingContext.tenantId,
+        userId: loggingContext.userId,
+        companyId: loggingContext.companyId,
+        function: 'suggestions_risques',
+        provider: 'openai',
+        model: 'gpt-4o-mini',
+        inputTokens: response.usage?.prompt_tokens || 0,
+        outputTokens: response.usage?.completion_tokens || 0,
+      }).catch((err) => {
+        console.error('Erreur lors du logging IA:', err);
+      });
+    }
+
+    return {
+      suggestions: result.suggestions || [],
+    };
+  } catch (error) {
+    console.error('Error suggesting hazards for work unit:', error);
+    return {
+      suggestions: [],
+    };
+  }
+}
+
+/**
+ * Génère des actions de prévention pour un risque évalué
+ * Basé sur le fichier DuerpWizard.jsx
+ */
+export async function generateActionsForRisk(params: {
+  riskAssessment: {
+    id: string;
+    dangerousSituation?: { label?: string };
+    contextDescription?: string;
+    riskScore?: number;
+    priorityLevel?: string;
+    existingMeasures?: string;
+    frequency?: number;
+    probability?: number;
+    severity?: number;
+    control?: number;
+  };
+  company?: {
+    legalName?: string;
+    activity?: string;
+  };
+  loggingContext?: {
+    tenantId: string;
+    userId: string;
+    companyId?: string;
+  };
+}): Promise<{
+  actions: Array<{
+    action_type: 'technique' | 'organisationnelle' | 'humaine';
+    action_label: string;
+    indicator: string;
+    weeks: number;
+    priority: 'basse' | 'moyenne' | 'haute' | 'critique';
+  }>;
+}> {
+  const client = getOpenAIClient();
+
+  const { riskAssessment, company, loggingContext } = params;
+
+  const hazardLabel = riskAssessment.dangerousSituation?.label || 'Risque non identifié';
+  const situation = riskAssessment.contextDescription || 'Non spécifiée';
+  const riskScore = riskAssessment.riskScore || 0;
+  const priorityLevel = riskAssessment.priorityLevel || 'faible';
+  const existingMeasures = riskAssessment.existingMeasures || 'Aucune';
+  const companyInfo = company?.legalName ? `Entreprise: ${company.legalName}\nActivité: ${company.activity || 'Non précisée'}\n` : '';
+
+  const prompt = `Tu es un assistant spécialisé en évaluation des risques professionnels (DUERP) conforme au cadre français.
+
+${companyInfo}Danger: ${hazardLabel}
+Situation: ${situation}
+Score de risque: ${riskScore} (${priorityLevel})
+Mesures existantes: ${existingMeasures}
+
+Génère 3 actions de prévention réalistes pour une PME française:
+1. Une action TECHNIQUE (équipement, aménagement)
+2. Une action ORGANISATIONNELLE (procédure, formation)
+3. Une action HUMAINE (sensibilisation, EPI)
+
+Pour chaque action, propose:
+- Un libellé clair et actionnable
+- Un indicateur de suivi
+- Une échéance recommandée (en semaines)
+- Une priorité (basse, moyenne, haute, critique)
+
+Tu n'émets jamais d'avis juridique définitif.
+
+FORMAT DE RÉPONSE (JSON uniquement):
+{
+  "actions": [
+    {
+      "action_type": "technique|organisationnelle|humaine",
+      "action_label": "Libellé clair et actionnable de l'action",
+      "indicator": "Indicateur de suivi pour mesurer l'efficacité",
+      "weeks": 4,
+      "priority": "basse|moyenne|haute|critique"
+    }
+  ]
+}`;
+
+  try {
+    const response = await client.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: 'Tu es un assistant strictement assistif pour la génération de plans d\'actions de prévention. Tu ne décides jamais, tu suggères uniquement. Toutes tes suggestions doivent être validées par l\'utilisateur.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 2000,
+      response_format: { type: 'json_object' },
+    });
+
+    const content = response.choices[0]?.message?.content;
+    if (!content) {
+      return { actions: [] };
+    }
+
+    const result = JSON.parse(content);
+
+    // Logger l'utilisation
+    if (loggingContext) {
+      await logAIUsageWithCost({
+        tenantId: loggingContext.tenantId,
+        userId: loggingContext.userId,
+        companyId: loggingContext.companyId,
+        function: 'suggestions_actions',
+        provider: 'openai',
+        model: 'gpt-4o-mini',
+        inputTokens: response.usage?.prompt_tokens || 0,
+        outputTokens: response.usage?.completion_tokens || 0,
+      }).catch((err) => {
+        console.error('Erreur lors du logging IA:', err);
+      });
+    }
+
+    return {
+      actions: result.actions || [],
+    };
+  } catch (error) {
+    console.error('Error generating actions for risk:', error);
+    return {
+      actions: [],
+    };
+  }
+}

@@ -12,13 +12,20 @@ import { TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function PlanUsageSummary() {
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery();
+  const { data: planInfo } = api.plans.getCurrent.useQuery();
 
-  if (!planInfo) {
+  if (!planInfo || !planInfo.usage) {
     return null;
   }
 
-  const { plan, name, description, price, usage, upgradePlan } = planInfo;
+  const { plan, name, prices, usage, upgradePlan } = planInfo;
+  const planName = name || PLAN_NAMES[plan] || plan.toUpperCase();
+  
+  // Vérifier que prices est un objet valide
+  if (!prices || typeof prices !== 'object') {
+    console.error('[PlanUsageSummary] prices is not a valid object:', prices);
+    return null;
+  }
 
   const usageItems = [
     {
@@ -57,13 +64,15 @@ export function PlanUsageSummary() {
       unit: '',
     },
     {
-      label: 'Appels IA',
+      label: 'Suggestions IA risques',
       icon: Sparkles,
-      current: usage.iaa.current,
-      limit: usage.iaa.limit,
+      current: usage.ai?.suggestions_risques?.current || 0,
+      limit: usage.ai?.suggestions_risques?.limit || null,
       unit: '',
-      percentage: usage.iaa.percentage,
-      warning: usage.iaa.warning,
+      percentage: usage.ai?.suggestions_risques?.limit 
+        ? Math.round(((usage.ai.suggestions_risques.current || 0) / usage.ai.suggestions_risques.limit) * 100)
+        : undefined,
+      warning: usage.ai?.suggestions_risques?.warning || false,
     },
   ];
 
@@ -74,17 +83,19 @@ export function PlanUsageSummary() {
           <div>
             <CardTitle className="flex items-center gap-2">
               Plan actuel
-              <Badge variant="outline">{name}</Badge>
+              <Badge variant="outline">{planName}</Badge>
             </CardTitle>
-            <CardDescription className="mt-1">{description}</CardDescription>
+            <CardDescription className="mt-1">
+              Votre utilisation actuelle des ressources
+            </CardDescription>
           </div>
           <div className="text-right">
             <div className="text-2xl font-bold">
-              {price.monthly}€<span className="text-sm font-normal text-muted-foreground">/mois</span>
+              {prices.monthly ?? 0}€<span className="text-sm font-normal text-muted-foreground">/mois</span>
             </div>
-            {price.annual !== price.monthly && (
+            {prices.annual && prices.annual !== (prices.monthly ?? 0) * 12 && (
               <div className="text-xs text-muted-foreground">
-                ou {price.annual}€/mois en annuel
+                ou {Math.round((prices.annual ?? 0) / 12)}€/mois en annuel
               </div>
             )}
           </div>
@@ -143,12 +154,12 @@ export function PlanUsageSummary() {
           })}
         </div>
 
-        {upgradePlan && (
+        {upgradePlan?.plan && (
           <div className="pt-4 border-t">
             <Button asChild variant="outline" className="w-full">
               <Link href="/dashboard/settings/billing">
                 <TrendingUp className="mr-2 h-4 w-4" />
-                Passer au plan {PLAN_NAMES[upgradePlan]}
+                Passer au plan {PLAN_NAMES[upgradePlan.plan] || upgradePlan.name}
               </Link>
             </Button>
           </div>

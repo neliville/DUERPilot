@@ -15,6 +15,7 @@ import { referentialsRouter } from './referentials';
 import { supportRouter } from './support';
 import { dashboardRouter } from './dashboard';
 import { invitationsRouter } from './invitations';
+import { legalDocumentsRouter } from './legal-documents';
 
 export const adminRouter = createTRPCRouter({
   companies: companiesRouter,
@@ -28,5 +29,6 @@ export const adminRouter = createTRPCRouter({
   support: supportRouter,
   dashboard: dashboardRouter,
   invitations: invitationsRouter,
+  legalDocuments: legalDocumentsRouter,
 });
 

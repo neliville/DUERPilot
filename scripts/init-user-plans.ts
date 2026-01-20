@@ -16,7 +16,7 @@ async function main() {
     where: {
       OR: [
         { plan: null as any },
-        { plan: { notIn: ['free', 'starter', 'pro', 'expert'] } },
+        { plan: { notIn: ['free', 'starter', 'business', 'premium', 'entreprise'] } },
       ],
     },
   });

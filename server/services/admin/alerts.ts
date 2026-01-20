@@ -23,10 +23,10 @@ export async function checkAIQuotaAlerts(): Promise<Alert[]> {
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
 
-  // Récupérer les utilisateurs Pro et Expert
-  const proExpertUsers = await prisma.userProfile.findMany({
+  // Récupérer les utilisateurs Business et Premium
+  const businessPremiumUsers = await prisma.userProfile.findMany({
     where: {
-      plan: { in: ['pro', 'expert'] },
+      plan: { in: ['business', 'premium'] },
     },
     select: {
       id: true,
@@ -36,8 +36,8 @@ export async function checkAIQuotaAlerts(): Promise<Alert[]> {
     },
   });
 
-  for (const user of proExpertUsers) {
-    const quotaLimit = user.plan === 'pro' ? 100 : 300; // Approximatif selon PLAN_FEATURES
+  for (const user of businessPremiumUsers) {
+    const quotaLimit = user.plan === 'business' ? 100 : 300; // Approximatif selon PLAN_FEATURES
 
     // Calculer la consommation IA du mois
     const monthLogs = await prisma.aIUsageLog.findMany({

@@ -3,7 +3,7 @@
  */
 
 // Plans tarifaires
-export type Plan = 'free' | 'essentiel' | 'pro' | 'expert';
+export type Plan = 'free' | 'starter' | 'business' | 'premium' | 'entreprise';
 
 // Méthodes d'évaluation
 export type EvaluationMethod = 'duerp_generique' | 'inrs';
@@ -13,12 +13,14 @@ export type AIUsageType = 'suggestions_risques' | 'suggestions_actions' | 'refor
 
 // Rôles utilisateur
 export type UserRole =
-  | 'super_admin'
-  | 'admin_tenant'
-  | 'qse'
-  | 'manager'
-  | 'operator'
-  | 'auditor';
+  | 'super_admin'      // ÉDITEUR (DDWIN Solutions)
+  | 'owner'            // PROPRIÉTAIRE (souscripteur)
+  | 'admin'            // ADMINISTRATEUR
+  | 'qse'              // RESPONSABLE QSE
+  | 'site_manager'     // RESPONSABLE DE SITE
+  | 'representative'   // REPRÉSENTANT (CSE/CSSCT)
+  | 'observer'         // OBSERVATEUR
+  | 'auditor';         // AUDITEUR (externe temporaire : inspecteur, expert, CARSAT)
 
 // Niveaux de priorité pour les risques
 export type RiskPriorityLevel = 'faible' | 'à_améliorer' | 'prioritaire';

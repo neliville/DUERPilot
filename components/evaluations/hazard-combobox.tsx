@@ -6,10 +6,8 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem,
   CommandList,
 } from '@/components/ui/command';
 import {
@@ -73,16 +71,42 @@ export function HazardCombobox({
 
   const selectedSituation = situations.find((s) => s.id === value);
 
+  // Debug: vérifier que les situations sont bien reçues
+  React.useEffect(() => {
+    if (situations.length === 0) {
+      console.warn('HazardCombobox: Aucune situation dangereuse disponible', {
+        situationsCount: situations.length,
+        situations: situations,
+      });
+    } else {
+      console.log(`HazardCombobox: ${situations.length} situations dangereuses chargées`);
+    }
+  }, [situations]);
+
   // Grouper les situations par catégorie
   const groupedSituations = React.useMemo(() => {
     const groups: Record<string, DangerousSituation[]> = {};
     situations.forEach((situation) => {
+      // Utiliser le code de catégorie ou 'AUTRE' si pas de catégorie
       const categoryKey = situation.category?.code || 'AUTRE';
       if (!groups[categoryKey]) {
         groups[categoryKey] = [];
       }
       groups[categoryKey].push(situation);
     });
+    
+    // Debug: vérifier le groupement
+    if (situations.length > 0 && Object.keys(groups).length === 0) {
+      console.error('[HazardCombobox] Erreur de groupement:', {
+        situationsCount: situations.length,
+        situations: situations.slice(0, 3).map(s => ({
+          id: s.id,
+          label: s.label,
+          category: s.category,
+        })),
+      });
+    }
+    
     return groups;
   }, [situations]);
 
@@ -118,8 +142,21 @@ export function HazardCombobox({
     return filtered;
   }, [groupedSituations, search]);
 
+  // Debug: vérifier filteredGroups quand le popover s'ouvre
+  React.useEffect(() => {
+    if (open) {
+      const totalSituations = Object.values(filteredGroups).flat().length;
+      console.log('[HazardCombobox] Popover ouvert:', {
+        totalSituations,
+        categories: Object.keys(filteredGroups),
+        groupedSituationsCount: Object.keys(groupedSituations).length,
+        situationsCount: situations.length,
+      });
+    }
+  }, [open, filteredGroups, groupedSituations, situations]);
+
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} modal={true}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -150,7 +187,12 @@ export function HazardCombobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] max-w-[500px] p-0" align="start">
+      <PopoverContent
+        className="w-[var(--radix-popover-trigger-width)] max-w-[500px] p-0 z-[9999]"
+        align="start"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <Command shouldFilter={false}>
           <CommandInput
             placeholder="Rechercher une situation dangereuse..."
@@ -158,57 +200,78 @@ export function HazardCombobox({
             onValueChange={setSearch}
           />
           <CommandList className="max-h-[300px] overflow-y-auto">
-            <CommandEmpty>Aucune situation dangereuse trouvée.</CommandEmpty>
-            {Object.entries(filteredGroups).map(([categoryKey, categorySituations]) => {
-              const categoryLabel = getCategoryLabel(categorySituations[0]?.category || null);
-              return (
-                <CommandGroup key={categoryKey} heading={categoryLabel}>
-                  {categorySituations.map((situation) => (
-                    <CommandItem
-                      key={situation.id}
-                      value={situation.id}
-                      onSelect={(currentValue) => {
-                        // Vérifier que la valeur correspond bien
-                        if (currentValue === situation.id) {
+            {Object.keys(filteredGroups).length === 0 && (
+              <div className="py-6 text-center text-sm text-muted-foreground">
+                Aucune situation dangereuse trouvée.
+              </div>
+            )}
+            {Object.keys(filteredGroups).length > 0 && (
+              <>
+                {Object.entries(filteredGroups).map(([categoryKey, categorySituations]) => {
+                  const categoryLabel = getCategoryLabel(categorySituations[0]?.category || null);
+                  return (
+                    <CommandGroup key={categoryKey} heading={categoryLabel}>
+                      {categorySituations.map((situation) => {
+                        const handleSelect = () => {
+                          console.log('[HazardCombobox] Sélection:', {
+                            situationId: situation.id,
+                            situationLabel: situation.label,
+                          });
                           onValueChange(situation.id);
                           setOpen(false);
                           setSearch('');
-                        }
-                      }}
-                      onMouseDown={(e) => {
-                        // Empêcher le blur du champ de recherche
-                        e.preventDefault();
-                        onValueChange(situation.id);
-                        setOpen(false);
-                        setSearch('');
-                      }}
-                      className="cursor-pointer"
-                    >
-                      <Check
-                        className={cn(
-                          'mr-2 h-4 w-4',
-                          value === situation.id ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-                      <div className="flex items-center gap-2 flex-1">
-                        {situation.category && (
-                          <Badge
-                            variant="outline"
+                        };
+
+                        return (
+                          <div
+                            key={situation.id}
+                            role="option"
+                            aria-selected={value === situation.id}
+                            onPointerDown={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                            }}
+                            onPointerUp={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              handleSelect();
+                            }}
                             className={cn(
-                              'text-xs border',
-                              getCategoryColor(situation.category.code)
+                              "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none",
+                              "hover:bg-accent hover:text-accent-foreground",
+                              "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+                              value === situation.id && "bg-accent text-accent-foreground"
                             )}
+                            style={{ pointerEvents: 'auto' }}
                           >
-                            {getCategoryLabel(situation.category)}
-                          </Badge>
-                        )}
-                        <span>{situation.label}</span>
-                      </div>
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              );
-            })}
+                            <Check
+                              className={cn(
+                                'mr-2 h-4 w-4',
+                                value === situation.id ? 'opacity-100' : 'opacity-0'
+                              )}
+                            />
+                            <div className="flex items-center gap-2 flex-1">
+                              {situation.category && (
+                                <Badge
+                                  variant="outline"
+                                  className={cn(
+                                    'text-xs border pointer-events-none',
+                                    getCategoryColor(situation.category.code)
+                                  )}
+                                >
+                                  {getCategoryLabel(situation.category)}
+                                </Badge>
+                              )}
+                              <span className="pointer-events-none">{situation.label}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </CommandGroup>
+                  );
+                })}
+              </>
+            )}
           </CommandList>
         </Command>
       </PopoverContent>

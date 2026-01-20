@@ -15,7 +15,7 @@ export const companiesRouter = createTRPCRouter({
   getAll: adminProcedure
     .input(
       z.object({
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
         status: z.enum(['active', 'trial', 'suspended', 'cancelled']).optional(),
         sector: z.string().optional(),
         limit: z.number().min(1).max(100).default(50),
@@ -216,8 +216,9 @@ export const companiesRouter = createTRPCRouter({
         const planCounts: Record<string, number> = {
           free: 0,
           starter: 0,
-          pro: 0,
-          expert: 0,
+          business: 0,
+          premium: 0,
+          entreprise: 0,
         };
 
         for (const group of groups) {
@@ -288,7 +289,7 @@ export const companiesRouter = createTRPCRouter({
     .input(
       z.object({
         tenantId: z.string().cuid(),
-        plan: z.enum(['free', 'starter', 'pro', 'expert']),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']),
       })
     )
     .mutation(async ({ input }) => {
@@ -320,7 +321,7 @@ export const companiesRouter = createTRPCRouter({
     .input(
       z.object({
         tenantId: z.string().cuid(),
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
         billingMode: z.enum(['monthly', 'annual']).optional(),
         renewalDate: z.date().optional(),
       })

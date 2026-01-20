@@ -59,6 +59,17 @@ export const sitesRouter = createTRPCRouter({
   create: authenticatedProcedure
     .input(createSiteSchema)
     .mutation(async ({ ctx, input }) => {
+      // Vérifier les permissions : seuls owner, admin peuvent créer des sites
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire, les administrateurs et les responsables QSE peuvent créer des sites',
+        });
+      }
+
       // Vérifier la limite de sites
       const userPlan = (ctx.userProfile?.plan || 'free') as Plan;
       const planFeatures = PLAN_FEATURES[userPlan];
@@ -151,6 +162,17 @@ export const sitesRouter = createTRPCRouter({
         });
       }
 
+      // Vérifier les permissions : seuls owner, admin peuvent modifier des sites
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin') && !userRoles.includes('qse')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire, les administrateurs et les responsables QSE peuvent modifier des sites',
+        });
+      }
+
       // Si on définit ce site comme principal, retirer le statut des autres
       if (data.isMainSite) {
         await ctx.prisma.site.updateMany({
@@ -189,6 +211,17 @@ export const sitesRouter = createTRPCRouter({
         throw new TRPCError({
           code: 'NOT_FOUND',
           message: 'Site non trouvé',
+        });
+      }
+
+      // Vérifier les permissions : seuls owner, admin peuvent supprimer des sites
+      const userRoles = ctx.userProfile.roles || [];
+      const isOwner = ctx.userProfile.isOwner || false;
+
+      if (!isOwner && !userRoles.includes('admin')) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Seuls le propriétaire et les administrateurs peuvent supprimer des sites',
         });
       }
 

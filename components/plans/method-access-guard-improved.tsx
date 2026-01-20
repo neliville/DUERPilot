@@ -30,7 +30,7 @@ export function MethodAccessGuardImproved({
   showMessage = true,
   onContinue,
 }: MethodAccessGuardImprovedProps) {
-  const { data: planInfo, isLoading } = api.plans.getCurrentPlan.useQuery();
+  const { data: planInfo, isLoading } = api.plans.getCurrent.useQuery();
 
   if (isLoading) {
     return (

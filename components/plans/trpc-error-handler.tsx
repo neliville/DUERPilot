@@ -14,7 +14,7 @@ interface TRPCErrorHandlerProps {
 }
 
 export function TRPCErrorHandler({ error, currentPlan, onDismiss }: TRPCErrorHandlerProps) {
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery(undefined, {
+  const { data: planInfo } = api.plans.getCurrent.useQuery(undefined, {
     enabled: !currentPlan,
   });
 
@@ -37,7 +37,7 @@ export function TRPCErrorHandler({ error, currentPlan, onDismiss }: TRPCErrorHan
         return (
           <PlanBlockMessage
             currentPlan={plan}
-            requiredPlan={upgradePlan || 'essentiel'}
+            requiredPlan={upgradePlan || 'starter'}
             type="limit"
             featureName="Entreprises"
             onContinue={onDismiss}
@@ -48,7 +48,7 @@ export function TRPCErrorHandler({ error, currentPlan, onDismiss }: TRPCErrorHan
         return (
           <PlanBlockMessage
             currentPlan={plan}
-            requiredPlan="pro"
+            requiredPlan="business"
             type="feature"
             featureName="Unités de travail"
             onContinue={onDismiss}
@@ -84,7 +84,7 @@ export function TRPCErrorHandler({ error, currentPlan, onDismiss }: TRPCErrorHan
       return (
         <PlanBlockMessage
           currentPlan={plan}
-          requiredPlan="essentiel"
+          requiredPlan="starter"
           type="method"
           featureName="Méthode structurée (inspirée INRS)"
           onContinue={onDismiss}

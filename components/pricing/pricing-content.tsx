@@ -20,7 +20,7 @@ export function PricingContent() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
   const annualDiscount = 20; // -20% sur annuel
 
-  const plans: Plan[] = ['free', 'essentiel', 'pro', 'expert'];
+  const plans: Plan[] = ['free', 'starter', 'business', 'premium'];
 
   const formatPrice = (price: number) => {
     if (price === 0) return 'Gratuit';
@@ -109,7 +109,7 @@ export function PricingContent() {
     ];
   };
 
-  const popularPlan: Plan = 'essentiel';
+  const popularPlan: Plan = 'starter';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -499,7 +499,7 @@ export function PricingContent() {
                     {plans.map((plan) => (
                       <td key={plan} className="px-6 py-4 text-center">
                         <span className="text-sm font-medium text-gray-900">
-                          {plan === 'free' ? 'Générique' : plan === 'essentiel' ? 'Générique' : plan === 'pro' ? 'Avancées' : 'Complètes'}
+                          {plan === 'free' ? 'Générique' : plan === 'starter' ? 'Générique' : plan === 'business' ? 'Avancées' : 'Complètes'}
                         </span>
                       </td>
                     ))}
@@ -1022,7 +1022,7 @@ export function PricingContent() {
                     </td>
                     {plans.map((plan) => (
                       <td key={plan} className="px-6 py-4 text-center">
-                        {plan === 'expert' ? (
+                        {plan === 'premium' ? (
                           <Check className="h-5 w-5 text-green-600 mx-auto" />
                         ) : (
                           <X className="h-5 w-5 text-gray-300 mx-auto" />
@@ -1039,7 +1039,7 @@ export function PricingContent() {
                     </td>
                     {plans.map((plan) => (
                       <td key={plan} className="px-6 py-4 text-center">
-                        {plan === 'expert' ? (
+                        {plan === 'premium' ? (
                           <Check className="h-5 w-5 text-green-600 mx-auto" />
                         ) : (
                           <X className="h-5 w-5 text-gray-300 mx-auto" />
@@ -1056,7 +1056,7 @@ export function PricingContent() {
                     </td>
                     {plans.map((plan) => (
                       <td key={plan} className="px-6 py-4 text-center">
-                        {plan === 'expert' ? (
+                        {plan === 'premium' ? (
                           <Check className="h-5 w-5 text-green-600 mx-auto" />
                         ) : (
                           <X className="h-5 w-5 text-gray-300 mx-auto" />

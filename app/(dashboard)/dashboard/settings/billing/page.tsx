@@ -11,7 +11,7 @@ import { PlanQuotaWarning } from '@/components/plans';
 import { cn } from '@/lib/utils';
 
 export default function BillingPage() {
-  const { data: planInfo } = api.plans.getCurrentPlan.useQuery();
+  const { data: planInfo } = api.plans.getCurrent.useQuery();
   const { data: allPlans } = api.plans.getAllPlans.useQuery();
 
   if (!planInfo || !allPlans) {

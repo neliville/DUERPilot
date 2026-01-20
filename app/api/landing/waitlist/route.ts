@@ -7,12 +7,21 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, prenom, entreprise, secteur, consent } = body;
+    const { email, prenom, entreprise, secteur, roleContact, consent } = body;
 
     // Validation
     if (!email || !consent) {
       return NextResponse.json(
         { error: 'Email et consentement sont requis' },
+        { status: 400 }
+      );
+    }
+
+    // Validation email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Adresse email invalide' },
         { status: 400 }
       );
     }
@@ -28,6 +37,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Mapping des rôles
+    const roleMapping: Record<string, string> = {
+      '1': 'Dirigeant',
+      '2': 'Responsable QSE',
+      '3': 'Ressource Humaine',
+      '4': 'Autre',
+    };
+    const roleLabel = roleContact ? roleMapping[roleContact] || 'Non renseigné' : 'Non renseigné';
+
     // Appel API Brevo
     const response = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
@@ -41,6 +59,7 @@ export async function POST(request: NextRequest) {
           PRENOM: prenom || '',
           ENTREPRISE: entreprise || '',
           SECTEUR: secteur || '',
+          ROLE_CONTACT: roleLabel,
         },
         listIds: [parseInt(BREVO_LIST_ID, 10)],
         updateEnabled: false,
@@ -52,6 +71,15 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.error('Erreur Brevo API:', errorData);
+      
+      // Gestion des erreurs spécifiques
+      if (response.status === 400 && errorData.code === 'duplicate_parameter') {
+        return NextResponse.json(
+          { error: 'Cette adresse email est déjà inscrite.' },
+          { status: 400 }
+        );
+      }
+      
       return NextResponse.json(
         { error: errorData.message || `Erreur ${response.status}` },
         { status: response.status }

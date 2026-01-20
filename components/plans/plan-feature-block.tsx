@@ -1,76 +1,90 @@
 'use client';
 
-import { api } from '@/lib/trpc/client';
-import { PlanBlockMessage } from './plan-block-message';
-import { hasFeatureAccess, getRequiredPlan, PLAN_FEATURES, type Plan } from '@/lib/plans';
-import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { Lock, TrendingUp } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { PlanUpgradeDialog } from './plan-upgrade-dialog';
 
 interface PlanFeatureBlockProps {
-  feature: keyof typeof PLAN_FEATURES[Plan];
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
-  showMessage?: boolean;
-  onContinue?: () => void;
-  featureName?: string;
+  feature: string;
+  featureName: string;
+  requiredPlan: string;
+  currentPlan: string;
+  description?: string;
+  children?: React.ReactNode;
 }
 
-const FEATURE_NAMES: Record<string, string> = {
-  workUnits: 'Unités de travail',
-  multiple_companies: 'Multi-entreprises',
-  history: 'Historique long terme',
-  api: 'API REST',
-  multi_tenant: 'Multi-tenant',
-  advanced_exports: 'Exports avancés',
+const PLAN_NAMES: Record<string, string> = {
+  free: 'FREE',
+  starter: 'STARTER',
+  business: 'BUSINESS',
+  premium: 'PREMIUM',
+  entreprise: 'ENTREPRISE',
 };
 
 export function PlanFeatureBlock({
   feature,
-  children,
-  fallback,
-  showMessage = true,
-  onContinue,
   featureName,
+  requiredPlan,
+  currentPlan,
+  description,
+  children,
 }: PlanFeatureBlockProps) {
-  const { data: planInfo, isLoading } = api.plans.getCurrentPlan.useQuery();
+  const [showUpgradeDialog, setShowUpgradeDialog] = useState(false);
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center p-8">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-      </div>
-    );
-  }
-
-  if (!planInfo) {
-    return <div>Erreur de chargement du plan</div>;
-  }
-
-  const currentPlan = planInfo.plan;
-  const hasAccess = hasFeatureAccess(currentPlan, feature);
-
-  if (hasAccess) {
-    return <>{children}</>;
-  }
-
-  const requiredPlan = getRequiredPlan(feature);
-  const displayName = featureName || FEATURE_NAMES[feature] || feature;
-
-  if (fallback) {
-    return <>{fallback}</>;
-  }
-
-  if (!showMessage) {
-    return null;
-  }
+  const requiredPlanName = requiredPlan 
+    ? (PLAN_NAMES[requiredPlan] || requiredPlan.toUpperCase())
+    : 'PREMIUM';
 
   return (
-    <PlanBlockMessage
-      currentPlan={currentPlan}
-      requiredPlan={requiredPlan}
-      type="feature"
-      featureName={displayName}
-      onContinue={onContinue}
-    />
+    <>
+      <Card className="border-2 border-dashed border-muted-foreground/20 bg-muted/30">
+        <CardHeader className="text-center">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+            <Lock className="h-6 w-6 text-muted-foreground" />
+          </div>
+          <CardTitle className="text-xl">{featureName}</CardTitle>
+          <CardDescription>
+            {description || `Cette fonctionnalité nécessite le plan ${requiredPlanName}`}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {children && (
+            <div className="rounded-lg bg-background/50 p-4 opacity-50 pointer-events-none">
+              {children}
+            </div>
+          )}
+
+          <div className="flex flex-col gap-2 text-center">
+            <p className="text-sm text-muted-foreground">
+              Vous êtes actuellement sur le plan <strong>{PLAN_NAMES[currentPlan]}</strong>
+            </p>
+            <Button
+              onClick={() => setShowUpgradeDialog(true)}
+              className="w-full"
+              size="lg"
+            >
+              <TrendingUp className="mr-2 h-4 w-4" />
+              Passer au plan {requiredPlanName}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      <PlanUpgradeDialog
+        open={showUpgradeDialog}
+        onOpenChange={setShowUpgradeDialog}
+        currentPlan={currentPlan}
+        feature={feature}
+        reason={`Accès à la fonctionnalité : ${featureName}`}
+      />
+    </>
   );
 }
-

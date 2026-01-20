@@ -35,8 +35,9 @@ import {
 } from '@/components/ui/tooltip';
 import { HazardCombobox } from './hazard-combobox';
 import { TRPCErrorHandler } from '@/components/plans';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TRPCClientErrorLike } from '@trpc/client';
+import * as React from 'react';
 
 const riskAssessmentFormSchema = z.object({
   workUnitId: z.string().cuid('L\'unité de travail est requise'),
@@ -57,6 +58,7 @@ interface RiskAssessmentFormProps {
   assessment?: any;
   onSuccess: () => void;
   workUnitId?: string;
+  evaluationMethod?: 'duerp_generique' | 'inrs';
 }
 
 const cotationLabels = {
@@ -97,6 +99,7 @@ export function RiskAssessmentForm({
   assessment,
   onSuccess,
   workUnitId,
+  evaluationMethod = 'inrs',
 }: RiskAssessmentFormProps) {
   const { toast } = useToast();
   const utils = api.useUtils();
@@ -140,10 +143,27 @@ export function RiskAssessmentForm({
   const sectorCode = selectedWorkUnit?.suggestedSector?.code || null;
   
   // Charger les situations dangereuses, éventuellement filtrées par secteur
-  const { data: dangerousSituations } = api.dangerousSituations.getAll.useQuery({
+  const { data: dangerousSituations, isLoading: isLoadingSituations } = api.dangerousSituations.getAll.useQuery({
     sectorCode: sectorCode || undefined,
     search: undefined,
   });
+
+  // Debug: vérifier les données reçues
+  React.useEffect(() => {
+    if (dangerousSituations) {
+      console.log('[RiskAssessmentForm] Situations dangereuses reçues:', {
+        count: dangerousSituations.length,
+        withCategory: dangerousSituations.filter(ds => ds.category).length,
+        withoutCategory: dangerousSituations.filter(ds => !ds.category).length,
+        firstFew: dangerousSituations.slice(0, 3).map(ds => ({
+          id: ds.id,
+          label: ds.label,
+          hasCategory: !!ds.category,
+          categoryCode: ds.category?.code,
+        })),
+      });
+    }
+  }, [dangerousSituations]);
 
   // Calculer le score en temps réel
   const frequency = form.watch('frequency');
@@ -195,7 +215,7 @@ export function RiskAssessmentForm({
     if (assessment) {
       updateMutation.mutate({ id: assessment.id, ...values });
     } else {
-      createMutation.mutate(values);
+      createMutation.mutate({ ...values, evaluationMethod });
     }
   };
 
@@ -263,12 +283,26 @@ export function RiskAssessmentForm({
               </FormLabel>
               <FormControl>
                 <HazardCombobox
-                  situations={(dangerousSituations || []).map((ds: any) => ({
-                    id: ds.id,
-                    label: ds.label,
-                    description: ds.description,
-                    category: ds.category,
-                  }))}
+                  situations={(dangerousSituations || []).map((ds: any) => {
+                    // Debug: vérifier la structure des données
+                    if (!ds.category) {
+                      console.warn('[RiskAssessmentForm] Situation sans catégorie:', {
+                        id: ds.id,
+                        label: ds.label,
+                        category: ds.category,
+                      });
+                    }
+                    return {
+                      id: ds.id,
+                      label: ds.label,
+                      description: ds.description,
+                      category: ds.category ? {
+                        id: ds.category.id,
+                        label: ds.category.label,
+                        code: ds.category.code,
+                      } : null,
+                    };
+                  })}
                   value={field.value}
                   onValueChange={field.onChange}
                   placeholder="Sélectionner une situation dangereuse"

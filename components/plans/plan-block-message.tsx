@@ -50,7 +50,7 @@ const MESSAGES: Record<
     feature: {
       title: 'Structuration avancée requise',
       description:
-        'Les unités de travail permettent une évaluation plus fine et mieux défendable en cas de contrôle ou d\'audit. Cette fonctionnalité est disponible dans le plan Pro, pensé pour les PME souhaitant structurer leur démarche QSE.',
+        'Les unités de travail permettent une évaluation plus fine et mieux défendable en cas de contrôle ou d\'audit. Cette fonctionnalité est disponible dans le plan Business, pensé pour les PME souhaitant structurer leur démarche QSE.',
       benefits: [
         'Évaluation par unité de travail',
         'Cotation F×P×G×M complète',
@@ -70,11 +70,11 @@ const MESSAGES: Record<
       icon: AlertTriangle,
     },
   },
-  pro: {
+  business: {
     quota: {
       title: 'Capacité d\'assistance atteinte',
       description:
-        'Votre plan Pro inclut une assistance avancée, mais limitée afin de garantir des performances optimales.',
+        'Votre plan Business inclut une assistance avancée, mais limitée afin de garantir des performances optimales.',
       benefits: [
         'Utilisation libre des deux méthodes d\'évaluation',
         'Analyses transverses approfondies',
@@ -83,7 +83,7 @@ const MESSAGES: Record<
       icon: AlertTriangle,
     },
     feature: {
-      title: 'Fonctionnalité Expert',
+      title: 'Fonctionnalité Premium',
       description:
         'La gestion multi-sites et l\'historique long terme sont conçus pour les organisations matures avec des exigences d\'audit élevées.',
       benefits: [
@@ -94,7 +94,7 @@ const MESSAGES: Record<
       icon: Lock,
     },
   },
-  expert: {
+  premium: {
     usage: {
       title: 'Usage intensif détecté',
       description:
@@ -119,23 +119,23 @@ const LIMIT_MESSAGES: Record<string, Record<Plan, { title: string; description: 
     },
     starter: {
       title: 'Limite d\'entreprise atteinte',
-      description: 'Votre plan Starter inclut une entreprise. Pour gérer plusieurs entreprises, passez au plan Pro.',
+      description: 'Votre plan Starter inclut une entreprise. Pour gérer plusieurs entreprises, passez au plan Business.',
       benefits: [
         'Gérer plusieurs entreprises',
         'Structuration avancée par entreprise',
         'Historique et versioning complet',
       ],
     },
-    pro: {
+    business: {
       title: 'Limite d\'entreprise atteinte',
-      description: 'Votre plan Pro inclut une entreprise. Pour gérer plusieurs entreprises, passez au plan Expert.',
+      description: 'Votre plan Business inclut 3 entreprises. Pour gérer plus d\'entreprises, passez au plan Premium.',
       benefits: [
-        'Gérer un nombre illimité d\'entreprises',
+        'Gérer jusqu\'à 10 entreprises',
         'Multi-sites et multi-établissements',
         'Accompagnement prioritaire',
       ],
     },
-    expert: {
+    premium: {
       title: 'Limite d\'entreprise atteinte',
       description: 'Contactez le support pour discuter d\'une extension personnalisée.',
       benefits: [],
@@ -153,23 +153,23 @@ const LIMIT_MESSAGES: Record<string, Record<Plan, { title: string; description: 
     },
     starter: {
       title: 'Gestion multi-sites disponible',
-      description: 'La gestion de plusieurs sites est disponible à partir du plan Expert, conçue pour les organisations matures.',
+      description: 'La gestion de plusieurs sites est disponible à partir du plan Premium, conçue pour les organisations matures.',
       benefits: [
         'Gérer plusieurs sites et établissements',
         'Structurer votre DUERP par site',
         'Accéder à un accompagnement prioritaire',
       ],
     },
-    pro: {
+    business: {
       title: 'Gestion multi-sites disponible',
-      description: 'La gestion de plusieurs sites est disponible à partir du plan Expert, conçue pour les organisations matures.',
+      description: 'Votre plan Business inclut 5 sites. Pour gérer plus de sites, passez au plan Premium.',
       benefits: [
-        'Gérer un nombre illimité de sites',
+        'Gérer jusqu\'à 20 sites',
         'Multi-établissements et multi-sites',
         'Accompagnement prioritaire',
       ],
     },
-    expert: {
+    premium: {
       title: 'Limite de sites atteinte',
       description: 'Contactez le support pour discuter d\'une extension personnalisée.',
       benefits: [],
@@ -273,20 +273,14 @@ export function PlanBlockMessage({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2 pt-2">
-            <PlanUpgradeDialog
-              currentPlan={currentPlan}
-              requiredPlan={requiredPlan}
-              reason={customMessage.description}
+            <Button 
+              className="flex-1" 
+              size="lg"
+              onClick={() => router.push('/dashboard/settings/billing')}
             >
-              <Button 
-                className="flex-1" 
-                size="lg"
-                onClick={() => router.push('/dashboard/settings/billing')}
-              >
-                <Sparkles className="mr-2 h-4 w-4" />
-                Découvrir le plan {PLAN_NAMES[requiredPlan]}
-              </Button>
-            </PlanUpgradeDialog>
+              <Sparkles className="mr-2 h-4 w-4" />
+              Découvrir le plan {PLAN_NAMES[requiredPlan]}
+            </Button>
             {onContinue && !isWarning && (
               <Button
                 variant="outline"

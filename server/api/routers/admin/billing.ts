@@ -18,9 +18,10 @@ import { PLAN_FEATURES, type Plan } from '@/lib/plans';
 
 const PLAN_PRICES: Record<Plan, { monthly: number; annual: number }> = {
   free: { monthly: 0, annual: 0 },
-  starter: { monthly: 69, annual: 55 },
-  pro: { monthly: 249, annual: 199 },
-  expert: { monthly: 599, annual: 479 },
+  starter: { monthly: 59, annual: 590 },
+  business: { monthly: 149, annual: 1490 },
+  premium: { monthly: 349, annual: 3490 },
+  entreprise: { monthly: 0, annual: 0 },
 };
 
 export const billingRouter = createTRPCRouter({
@@ -50,8 +51,9 @@ export const billingRouter = createTRPCRouter({
     const mrrByPlan: Record<Plan, number> = {
       free: 0,
       starter: 0,
-      pro: 0,
-      expert: 0,
+      business: 0,
+      premium: 0,
+      entreprise: 0,
     };
 
     for (const sub of subscriptions) {
@@ -205,8 +207,9 @@ export const billingRouter = createTRPCRouter({
       const churnByPlan: Record<Plan, { cancellations: number; churnRate: number }> = {
         free: { cancellations: 0, churnRate: 0 },
         starter: { cancellations: 0, churnRate: 0 },
-        pro: { cancellations: 0, churnRate: 0 },
-        expert: { cancellations: 0, churnRate: 0 },
+        business: { cancellations: 0, churnRate: 0 },
+        premium: { cancellations: 0, churnRate: 0 },
+        entreprise: { cancellations: 0, churnRate: 0 },
       };
 
       for (const cancel of cancellations) {
@@ -216,7 +219,7 @@ export const billingRouter = createTRPCRouter({
 
       // Calculer le taux de churn par plan
       const planCounts = await Promise.all(
-        (['free', 'starter', 'pro', 'expert'] as Plan[]).map(async (plan) => {
+        (['free', 'starter', 'business', 'premium', 'entreprise'] as Plan[]).map(async (plan) => {
           const count = await prisma.subscription.count({
             where: {
               status: 'active',
@@ -279,7 +282,7 @@ export const billingRouter = createTRPCRouter({
       for (const change of planChanges) {
         const details = change.details as any;
         if (details?.fromPlan && details?.toPlan) {
-          const planOrder: Plan[] = ['free', 'starter', 'pro', 'expert'];
+          const planOrder: Plan[] = ['free', 'starter', 'business', 'premium', 'entreprise'];
           const fromIndex = planOrder.indexOf(details.fromPlan);
           const toIndex = planOrder.indexOf(details.toPlan);
 
@@ -304,7 +307,7 @@ export const billingRouter = createTRPCRouter({
   getMargins: adminProcedure
     .input(
       z.object({
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
       })
     )
     .query(async ({ input }) => {
@@ -319,12 +322,13 @@ export const billingRouter = createTRPCRouter({
       }
 
       // Marges pour tous les plans
-      const plans: Plan[] = ['free', 'starter', 'pro', 'expert'];
+      const plans: Plan[] = ['free', 'starter', 'business', 'premium', 'entreprise'];
       const margins: Record<Plan, Awaited<ReturnType<typeof calculateAverageMarginByPlan>>> = {
         free: await calculateAverageMarginByPlan('free'),
         starter: await calculateAverageMarginByPlan('starter'),
-        pro: await calculateAverageMarginByPlan('pro'),
-        expert: await calculateAverageMarginByPlan('expert'),
+        business: await calculateAverageMarginByPlan('business'),
+        premium: await calculateAverageMarginByPlan('premium'),
+        entreprise: await calculateAverageMarginByPlan('entreprise'),
       };
 
       return {
@@ -390,8 +394,9 @@ export const billingRouter = createTRPCRouter({
       byPlan: {
         free: await calculateAverageMarginByPlan('free'),
         starter: await calculateAverageMarginByPlan('starter'),
-        pro: await calculateAverageMarginByPlan('pro'),
-        expert: await calculateAverageMarginByPlan('expert'),
+        business: await calculateAverageMarginByPlan('business'),
+        premium: await calculateAverageMarginByPlan('premium'),
+        entreprise: await calculateAverageMarginByPlan('entreprise'),
       },
     };
 
@@ -399,8 +404,9 @@ export const billingRouter = createTRPCRouter({
     const aiCostPerClient: Record<Plan, number> = {
       free: 0,
       starter: await calculateAverageAICostPerClient('starter'),
-      pro: await calculateAverageAICostPerClient('pro'),
-      expert: await calculateAverageAICostPerClient('expert'),
+      business: await calculateAverageAICostPerClient('business'),
+      premium: await calculateAverageAICostPerClient('premium'),
+      entreprise: await calculateAverageAICostPerClient('entreprise'),
     };
 
     // Taux Free → Starter

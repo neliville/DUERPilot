@@ -25,7 +25,6 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { TRPCErrorHandler } from '@/components/plans';
-import { PlanFeatureBlock } from '@/components/plans';
 import { useState, useEffect } from 'react';
 import { TRPCClientErrorLike } from '@trpc/client';
 
@@ -149,18 +148,10 @@ export function WorkUnitForm({ workUnit, onSuccess }: WorkUnitFormProps) {
   ) || [];
 
   return (
-    <PlanFeatureBlock
-      feature="maxWorkUnits"
-      featureName="Unités de travail"
-      onContinue={() => {
-        // L'utilisateur peut continuer sans créer d'unité
-        onSuccess();
-      }}
-    >
-      <div className="space-y-4">
-        <TRPCErrorHandler error={error} onDismiss={() => setError(null)} />
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+    <div className="space-y-4">
+      <TRPCErrorHandler error={error} onDismiss={() => setError(null)} />
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="siteId"
@@ -323,8 +314,7 @@ export function WorkUnitForm({ workUnit, onSuccess }: WorkUnitFormProps) {
         </div>
       </form>
     </Form>
-      </div>
-    </PlanFeatureBlock>
+    </div>
   );
 }
 

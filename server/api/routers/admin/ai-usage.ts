@@ -73,7 +73,7 @@ export const aiUsageRouter = createTRPCRouter({
   getByPlan: adminProcedure
     .input(
       z.object({
-        plan: z.enum(['free', 'starter', 'pro', 'expert']).optional(),
+        plan: z.enum(['free', 'starter', 'business', 'premium', 'entreprise']).optional(),
         startDate: z.date().optional(),
         endDate: z.date().optional(),
       })
@@ -310,7 +310,7 @@ export const aiUsageRouter = createTRPCRouter({
       estimatedCost: number;
     }> = [];
 
-    for (const user of proExpertUsers) {
+    for (const user of businessPremiumUsers) {
       // Calculer la consommation IA du mois en cours
       const monthLogs = await prisma.aIUsageLog.findMany({
         where: {
@@ -323,8 +323,8 @@ export const aiUsageRouter = createTRPCRouter({
       const totalCalls = monthLogs.length;
 
       // Récupérer le quota selon le plan (approximation basée sur les quotas IA)
-      // Pour Pro: 100 suggestions/mois, Expert: 300 suggestions/mois
-      const quotaLimit = user.plan === 'pro' ? 100 : 300;
+      // Pour Business: 100 suggestions/mois, Premium: 300 suggestions/mois
+      const quotaLimit = user.plan === 'business' ? 100 : 300;
       const percentage = (totalCalls / quotaLimit) * 100;
 
       // Alerte si > 80%
