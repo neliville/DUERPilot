@@ -20,6 +20,35 @@ export default function LandingPage() {
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlContent, 'text/html');
 
+        // Injecter les scripts du head (GTM, Clarity, etc.) AVANT tout le reste
+        const headScripts = doc.querySelectorAll('head script');
+        headScripts.forEach(script => {
+          const src = script.getAttribute('src');
+          const scriptContent = script.textContent;
+          
+          // Vérifier si le script existe déjà
+          const existingScript = src 
+            ? document.head.querySelector(`script[src="${src}"]`)
+            : document.head.querySelector(`script:not([src])`);
+          
+          if (!existingScript) {
+            const newScript = document.createElement('script');
+            if (src) {
+              newScript.src = src;
+              if (script.hasAttribute('async')) newScript.async = true;
+              if (script.hasAttribute('defer')) newScript.defer = true;
+            } else {
+              newScript.textContent = scriptContent || '';
+            }
+            // Insérer GTM en premier dans le head
+            if (src && src.includes('googletagmanager.com')) {
+              document.head.insertBefore(newScript, document.head.firstChild);
+            } else {
+              document.head.appendChild(newScript);
+            }
+          }
+        });
+
         // Injecter les liens CSS dans le head
         const links = doc.querySelectorAll('link[rel="stylesheet"], link[rel="icon"], link[rel="preconnect"]');
         links.forEach(link => {
@@ -45,10 +74,25 @@ export default function LandingPage() {
           }
         });
 
+        // Injecter le noscript GTM dans le body si présent
+        const noscriptGTM = doc.querySelector('body noscript');
+        if (noscriptGTM && !document.body.querySelector('noscript[data-gtm]')) {
+          const newNoscript = document.createElement('noscript');
+          newNoscript.setAttribute('data-gtm', 'true');
+          newNoscript.innerHTML = noscriptGTM.innerHTML;
+          document.body.insertBefore(newNoscript, document.body.firstChild);
+        }
+
         // Injecter le contenu du body
         const body = doc.querySelector('body');
         if (body && containerRef.current) {
-          containerRef.current.innerHTML = body.innerHTML;
+          // Exclure le noscript GTM du contenu car déjà injecté
+          const bodyClone = body.cloneNode(true) as HTMLElement;
+          const noscriptToRemove = bodyClone.querySelector('noscript');
+          if (noscriptToRemove) {
+            noscriptToRemove.remove();
+          }
+          containerRef.current.innerHTML = bodyClone.innerHTML;
 
           // Exécuter les scripts inline après injection
           const scripts = doc.querySelectorAll('script:not([src])');
