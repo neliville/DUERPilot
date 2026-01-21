@@ -5,76 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Liens sans soulignement */
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-  opacity: 0.8;
-}
-
-/* Navigation links */
-.nav-link {
-  color: #6B7280;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #2563EB;
-  opacity: 1;
-}
-
-/* Couleurs de la palette */
-:root {
-  --bg-main: #F5F7FA;      /* Fond principal : Gris très clair */
-  --bg-secondary: #E5E7EB; /* Fond secondaire : Gris clair */
-  --text-main: #1F2933;    /* Texte principal : Gris foncé */
-  --text-secondary: #6B7280; /* Texte secondaire : Gris moyen */
-  --primary: #2563EB;      /* Primaire : Bleu QSE */
-  --accent: #93C5FD;       /* Accent discret : Bleu clair */
-  --success: #16A34A;      /* Succès : Vert doux */
-  --alert: #F59E0B;        /* Alerte : Orange */
-  --error: #DC2626;        /* Erreur : Rouge */
-}
-
-/* Brevo Form Styles */
-.sib-form {
-  width: 100%;
-}
-
-#sib-container,
-#sib-container-final {
-  margin: 0 auto;
-  max-width: 540px;
-}
-
-/* Responsive adjustments for Brevo forms */
-@media (max-width: 768px) {
-  #sib-container,
-  #sib-container-final {
-    max-width: 100%;
-  }
-  
-  .sib-form-container {
-    padding: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #sib-container,
-  #sib-container-final {
-    max-width: 100%;
-    border-radius: 0.5rem;
-  }
-  
-  .sib-form-block {
-    padding: 12px 8px !important;
-  }
-}
-
 /* Header scroll effect */
 header.scrolled {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -113,11 +43,11 @@ header.scrolled {
 
 /* Form validation */
 input:invalid:not(:placeholder-shown) {
-  border-color: var(--error);
+  border-color: #ef4444;
 }
 
 input:valid:not(:placeholder-shown) {
-  border-color: var(--success);
+  border-color: #10b981;
 }
 
 /* Loading state */
@@ -150,7 +80,7 @@ button.loading::after {
 
 /* Success message */
 .success-message {
-  background-color: var(--success);
+  background-color: #10b981;
   color: white;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -171,7 +101,7 @@ button.loading::after {
 
 /* Error message */
 .error-message {
-  background-color: var(--error);
+  background-color: #ef4444;
   color: white;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -211,46 +141,6 @@ button.loading::after {
   #cookie-banner,
   footer {
     display: none;
-  }
-}
-
-/* Mockup Dashboard styles */
-.mockup-dashboard-content {
-  display: flex !important;
-  min-height: 500px !important;
-  width: 100% !important;
-}
-
-.mockup-dashboard-sidebar {
-  width: 240px !important;
-  background-color: #FFFFFF !important;
-  border-right: 1px solid #E5E7EB !important;
-  padding: 20px 0 !important;
-  flex-shrink: 0 !important;
-}
-
-.mockup-dashboard-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 16px !important;
-  margin-bottom: 16px !important;
-  width: 100% !important;
-}
-
-/* Mockup Dashboard responsive */
-@media (max-width: 768px) {
-  .mockup-dashboard-grid {
-    grid-template-columns: 1fr !important;
-  }
-  
-  .mockup-dashboard-sidebar {
-    width: 100% !important;
-    border-right: none !important;
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  
-  .mockup-dashboard-content {
-    flex-direction: column !important;
   }
 }
 

@@ -1,8 +1,8 @@
 // Main JavaScript for DUERPilot Landing Page
 
-// Configuration Brevo (à remplacer par votre clé API publique)
-const BREVO_API_KEY = 'YOUR_BREVO_API_KEY_PUBLIC';
-const BREVO_LIST_ID = 123; // À remplacer par l'ID de votre liste Brevo
+// Configuration Brevo - Utilise maintenant l'API route Next.js pour la sécurité
+// La clé API ne doit JAMAIS être dans le code client
+const BREVO_API_ENDPOINT = '/api/landing/waitlist';
 
 // Header scroll effect
 let lastScroll = 0;
@@ -20,32 +20,26 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 
-// FAQ Accordion avec accessibilité
+// FAQ Accordion
 function toggleFaq(button) {
   const content = button.nextElementSibling;
-  const icon = button.querySelector('span[aria-hidden="true"]');
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  const isOpen = content.classList.contains('open');
+  
+  // Close all other FAQs
+  document.querySelectorAll('.faq-content').forEach(item => {
+    if (item !== content) {
+      item.classList.remove('open');
+      item.previousElementSibling.classList.remove('active');
+    }
+  });
   
   // Toggle current FAQ
-  if (isExpanded) {
-    content.classList.add('hidden');
-    button.setAttribute('aria-expanded', 'false');
-    if (icon) icon.textContent = '+';
+  if (isOpen) {
+    content.classList.remove('open');
+    button.classList.remove('active');
   } else {
-    // Close all other FAQs
-    document.querySelectorAll('[aria-controls^="faq-"]').forEach(btn => {
-      if (btn !== button) {
-        const otherContent = document.getElementById(btn.getAttribute('aria-controls'));
-        const otherIcon = btn.querySelector('span[aria-hidden="true"]');
-        if (otherContent) otherContent.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-        if (otherIcon) otherIcon.textContent = '+';
-      }
-    });
-    
-    content.classList.remove('hidden');
-    button.setAttribute('aria-expanded', 'true');
-    if (icon) icon.textContent = '−';
+    content.classList.add('open');
+    button.classList.add('active');
   }
 }
 
@@ -60,33 +54,27 @@ async function handleWaitlistSubmit(form, formData) {
   submitButton.textContent = 'Inscription en cours...';
   
   try {
-    // Prepare data for Brevo
-    const brevoData = {
+    // Prepare data for Next.js API route (qui appelle Brevo côté serveur)
+    const formDataObj = {
       email: formData.get('email'),
-      attributes: {
-        PRENOM: formData.get('prenom') || '',
-        ENTREPRISE: formData.get('entreprise') || '',
-        SECTEUR: formData.get('secteur') || '',
-      },
-      listIds: [BREVO_LIST_ID],
-      updateEnabled: false,
-      emailBlacklisted: false,
-      smsBlacklisted: false,
+      prenom: formData.get('prenom') || '',
+      entreprise: formData.get('entreprise') || '',
+      secteur: formData.get('secteur') || '',
+      consent: formData.get('consent') === 'on' || formData.get('consent') === 'true',
     };
     
-    // Call Brevo API
-    const response = await fetch('https://api.brevo.com/v3/contacts', {
+    // Call Next.js API route (qui appelle Brevo côté serveur)
+    const response = await fetch(BREVO_API_ENDPOINT, {
       method: 'POST',
       headers: {
-        'api-key': BREVO_API_KEY,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(brevoData),
+      body: JSON.stringify(formDataObj),
     });
     
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || `Erreur ${response.status}`);
+      throw new Error(errorData.error || `Erreur ${response.status}`);
     }
     
     // Success - Track event
@@ -102,7 +90,7 @@ async function handleWaitlistSubmit(form, formData) {
     
     // Redirect to confirmation page after 2 seconds
     setTimeout(() => {
-      window.location.href = '/confirmation.html';
+      window.location.href = '/landing/confirmation.html';
     }, 2000);
     
   } catch (error) {
@@ -200,12 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // Update counter from Brevo API (or use static value)
 async function updateCounter() {
   try {
-    // Option 1: Fetch from Brevo API (requires API key)
-    // const response = await fetch(`https://api.brevo.com/v3/contacts/lists/${BREVO_LIST_ID}`, {
-    //   headers: { 'api-key': BREVO_API_KEY }
-    // });
+    // Option 1: Créer une API route Next.js pour récupérer le compteur (recommandé pour la sécurité)
+    // Exemple : const response = await fetch('/api/landing/counter');
     // const data = await response.json();
-    // const count = data.totalSubscribers || 347;
+    // const count = data.count || 347;
     
     // Option 2: Static value (update manually)
     const count = 347;

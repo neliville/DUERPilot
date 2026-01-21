@@ -1,14 +1,15 @@
 // Google Analytics 4 and Microsoft Clarity Integration
+// Note: Google Tag Manager doit être chargé directement dans le <head> pour être détecté par Google
 
 // Google Analytics 4
 (function() {
-  // Replace with your GA4 Measurement ID
+  // Replace with your GA4 Measurement ID (if needed)
   const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
   
   // Check cookie consent before loading GA4
   const cookiesAccepted = localStorage.getItem('cookies_accepted');
   
-  if (cookiesAccepted === 'true' || cookiesAccepted === null) {
+  if ((cookiesAccepted === 'true' || cookiesAccepted === null) && GA4_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
     // Load GA4 script
     const script = document.createElement('script');
     script.async = true;
@@ -39,8 +40,7 @@
 
 // Microsoft Clarity
 (function() {
-  // Replace with your Clarity Project ID
-  const CLARITY_ID = 'YOUR_CLARITY_ID';
+  const CLARITY_ID = 'v4j1mj6aw0';
   
   // Check cookie consent
   const cookiesAccepted = localStorage.getItem('cookies_accepted');
@@ -49,7 +49,7 @@
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      y=l.getElementsByTagName(r)[0].parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", CLARITY_ID);
   }
 })();
@@ -102,4 +102,3 @@ document.querySelectorAll('#pricing .border').forEach(card => {
     }
   });
 });
-
